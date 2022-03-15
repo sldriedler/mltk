@@ -1,0 +1,48 @@
+mltk_audio_classifier-brd2601a-mvp:
+  date: '2022-03-08T00:47:40.774Z'
+  sha1: b8ee83e0a4dfc96e9c9ce969c11d906950d012d4
+  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_audio_classifier/mltk_audio_classifier-brd2601a-mvp-a4963d31.zip
+mltk_audio_classifier-brd2601a-none:
+  date: '2022-03-08T00:46:21.559Z'
+  sha1: 1384dbce513c08f0c5b94685c14999d158795bef
+  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_audio_classifier/mltk_audio_classifier-brd2601a-none-669e2e91.zip
+mltk_audio_classifier-brd4166a-none:
+  date: '2022-03-08T00:45:03.759Z'
+  sha1: 140e398280be87f5b9196789d31f30126d6bbb74
+  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_audio_classifier/mltk_audio_classifier-brd4166a-none-e213f35b.zip
+mltk_audio_classifier-linux-none:
+  date: '2022-03-08T22:39:23.450Z'
+  sha1: dc1e2fe76c5c4074b913da1a6797570e270b6a97
+  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/sl_mvp_simulator/mltk_audio_classifier/mltk_audio_classifier-linux-none-8fbef124.zip
+mltk_audio_classifier-stk3701a-none:
+  date: '2022-03-08T00:43:49.340Z'
+  sha1: a9abea4d3505eb5f0a1c6587c14e4e8fa7657b60
+  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_audio_classifier/mltk_audio_classifier-stk3701a-none-90b75c7a.zip
+mltk_audio_classifier-windows-none:
+  date: '2022-03-08T00:49:01.122Z'
+  sha1: 8e2176246ba0dca2fc369f042f40581a5a176027
+  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_audio_classifier/mltk_audio_classifier-windows-none-e5c9a74b.zip
+mltk_model_profiler-brd2601a-mvp:
+  date: '2022-03-08T00:42:30.662Z'
+  sha1: 45272a82f3ec2f54ba426006fe05821651779c55
+  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_model_profiler/mltk_model_profiler-brd2601a-mvp-f61cd72a.zip
+mltk_model_profiler-brd2601a-none:
+  date: '2022-03-08T00:41:14.838Z'
+  sha1: 07744646cb386db65406a946e961724c1f2c5f67
+  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_model_profiler/mltk_model_profiler-brd2601a-none-103cd6d4.zip
+mltk_model_profiler-brd4166a-none:
+  date: '2022-03-08T00:37:30.536Z'
+  sha1: 6cdc9ddb9890b6af8431fa1127391cd379b087e1
+  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_model_profiler/mltk_model_profiler-brd4166a-none-929f7f5c.zip
+mltk_model_profiler-brd4186b-mvp:
+  date: '2022-03-08T00:40:01.444Z'
+  sha1: 306e16f987ea60c621b62eb5f5b39a75ec91a38c
+  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_model_profiler/mltk_model_profiler-brd4186b-mvp-560c26e4.zip
+mltk_model_profiler-brd4186b-none:
+  date: '2022-03-08T00:38:45.463Z'
+  sha1: 3e8b4f93326a0dccd8333350b25459acfc722d15
+  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_model_profiler/mltk_model_profiler-brd4186b-none-6dfa917c.zip
+mltk_model_profiler-stk3701a-none:
+  date: '2022-03-08T00:36:15.370Z'
+  sha1: e54417300c944b3fff117e59f2eced203577ff09
+  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_model_profiler/mltk_model_profiler-stk3701a-none-40ee3bed.zip

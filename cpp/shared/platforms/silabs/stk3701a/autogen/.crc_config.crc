@@ -1,0 +1,12 @@
+#CRC Codes for initially generated config files -- do not modify!
+#Fri Feb 19 14:36:42 PST 2021
+sl_device_init_lfxo_config.h=1673369567
+sl_device_init_hfxo_config.h=1209358648
+dmadrv_config.h=2122112711
+sl_board_control_config.h=1252593912
+sl_device_init_dcdc_config.h=-870566101
+sl_simple_led_led0_config.h=1636896869
+sl_memory_config.h=566451453
+sl_mic_i2s_config.h=1850631061
+sl_iostream_usart_vcom_config.h=-1324962703
+sl_device_init_emu_config.h=-1292589747

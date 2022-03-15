@@ -1,0 +1,15 @@
+#CRC Codes for initially generated config files -- do not modify!
+#Thu Mar 18 08:25:26 PDT 2021
+sl_simple_led_led1_config.h=102621047
+sl_device_init_lfxo_config.h=-1419356131
+sl_iostream_eusart_vcom_config.h=-797783371
+sl_device_init_dcdc_config.h=-870566101
+sl_simple_led_led0_config.h=908622594
+sl_device_init_emu_config.h=622680131
+sl_mx25_flash_shutdown_eusart_config.h=179470237
+emlib_core_debug_config.h=-551881347
+sl_device_init_hfxo_config.h=85896035
+sl_board_control_config.h=2070021356
+sl_memory_config.h=687128566
+sl_cli_config_inst.h=1567471992
+sl_cli_config.h=-1513730603
