@@ -10,8 +10,6 @@ from mltk.utils.path import fullpath
 from mltk.utils.python import append_exception_msg
 
 from .model import MltkModel
-from .model.mixins.archive_mixin import extract_file
-from .quantize_model import quantize_model
 from .tflite_model import TfliteModel
 from .profiling_results import ProfilingModelResults, ProfilingLayerResult
 from .utils import (get_mltk_logger, ArchiveFileNotFoundError)
@@ -307,6 +305,7 @@ def _load_tflite_model(
             model_name = os.path.basename(model.filename[:-len('.tflite')])
         
     elif isinstance(model, str):
+        
         if build and model.endswith(('.tflite', '.mltk.zip')):
             raise RuntimeError('Cannot use --build option with .tflite or .mltk.zip model argument')
 
@@ -314,6 +313,8 @@ def _load_tflite_model(
             model_name = os.path.basename(model[:-len('.tflite')])
 
         elif model.endswith('.mltk.zip'):
+            from .model.mixins.archive_mixin import extract_file
+
             model_name = os.path.basename(model[:-len('.mltk.zip')])
             if model_name.endswith('-test'):
                 model_name = model_name[:-len('-test')]
@@ -329,6 +330,8 @@ def _load_tflite_model(
         model_name = model.name
 
     if build:
+        from .quantize_model import quantize_model
+
         get_mltk_logger().info('--build option provided, building model rather than using trained model')
         tflite_model = quantize_model(
             model=model,

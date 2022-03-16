@@ -223,3 +223,38 @@
   width: 100%;
   height: 100%;
 }
+
+.survey-link {
+  float: right;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: white;
+}
+
+.survey-link  a {
+  color: #ef5350 !important;
+}
+
+.survey-link .pulse {
+	margin-left: 0px;
+  margin-right: 10px;
+  border-radius: 20px;
+  vertical-align: middle;
+  font-size: 30px;
+	box-shadow: 0 0 0 0 #ef5350;
+  display: inline-block;
+  animation: arrow_bounce 1s;
+	animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5, 0.05, 1, .5);
+  animation-iteration-count: infinite;
+
+}
+
+@keyframes arrow_bounce {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(10px, 0, 0);
+  }
+}
