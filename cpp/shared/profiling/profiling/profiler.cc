@@ -1,9 +1,8 @@
 
 #include <cassert>
 #include <cstring>
+#include <cstdlib>
 
-#include "platform_api.h"
-#include "cpputils/heap.hpp"
 #include "profiling/profiler.hpp"
 
 
@@ -36,10 +35,12 @@ void Profiler::unlink()
 {
     assert(this->_object_buffer != nullptr);
     reset();
+    _children.clear();
+    custom_stats.clear();
 
     void *ptr = this->_object_buffer;
     this->_object_buffer = nullptr;
-    HEAP_FREE(ptr);
+    free(ptr);
 }
 
 /*************************************************************************************************/
@@ -127,7 +128,7 @@ void Profiler::reset(void)
     _stats.reset();
     if(_msg != nullptr)
     {
-        HEAP_FREE((void*)_msg);
+        free((void*)_msg);
         _msg = nullptr;
     }
     for(auto e : custom_stats)
@@ -147,11 +148,11 @@ void Profiler::msg(const char* msg)
 {
     if(_msg != nullptr)
     {
-        HEAP_FREE((void*)_msg);
+        free((void*)_msg);
         _msg = nullptr;
     }
 
-    auto m = static_cast<char*>(HEAP_MALLOC(strlen(msg) + 1));
+    auto m = static_cast<char*>(malloc(strlen(msg) + 1));
     if(m != nullptr)
     {
         strcpy(m, msg);

@@ -45,7 +45,7 @@ def train_model(
     """Train a model using Keras and Tensorflow
     
     .. seealso::
-       * `Model Training Guide <https://siliconlabs.github.io/mltk/docs/model_training.html>`_
+       * `Model Training Guide <https://siliconlabs.github.io/mltk/docs/guides/model_training.html>`_
        * `KerasModel.fit() <https://www.tensorflow.org/api_docs/python/tf/keras/Model#fit>`_
 
     Args:

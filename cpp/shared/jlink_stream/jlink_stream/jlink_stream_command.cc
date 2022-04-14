@@ -1,5 +1,5 @@
+#include <cstdlib>
 
-#include "cpputils/heap.hpp"
 #include "jlink_stream_command.hpp"
 #include "jlink_stream.hpp"
 
@@ -105,7 +105,7 @@ bool JlinkStreamCommand::receive_command(uint8_t* &data, uint32_t &length)
 
 
     length = read_size;
-    data = static_cast<uint8_t*>(HEAP_MALLOC(read_size));
+    data = static_cast<uint8_t*>(malloc(read_size));
     if(data == nullptr)
     {
         LOG_ERROR("Failed to alloc cmd buffer of size: %d", read_size);
@@ -117,13 +117,13 @@ bool JlinkStreamCommand::receive_command(uint8_t* &data, uint32_t &length)
     if(!jlink_stream::read(cmd_stream, data, read_size, (uint32_t*)&bytes_read))
     {
         LOG_ERROR("Failed to read command data");
-        HEAP_FREE(data);
+        free(data);
         data = nullptr;
     }
     else if(read_size != bytes_read)
     {
         LOG_ERROR("Command data read bad length: %d != %d", read_size, bytes_read);
-        HEAP_FREE(data);
+        free(data);
         data = nullptr;
     }
 

@@ -172,7 +172,7 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
             
-            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
+            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
             
             <li class="md-tabs__item"><a href="https://github.com/tensorflow/tflite-micro" class="md-tabs__link">Tensorflow-Lite Micro Repository</a></li>
             
@@ -252,7 +252,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../../docs/guides/guides.html" class="md-nav__link">Modeling Guides</a>
+      <a href="../../../../../../docs/guides/index.html" class="md-nav__link">Modeling Guides</a>
       
     
     </li>
@@ -278,7 +278,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../../docs/python_api/python_api.html" class="md-nav__link">API Reference</a>
+      <a href="../../../../../../docs/python_api/index.html" class="md-nav__link">API Reference</a>
       
     
     </li>
@@ -344,7 +344,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../../docs/other/cpp_development_with_vscode.html" class="md-nav__link">C++ Development</a>
+      <a href="../../../../../../docs/cpp_development/index.html" class="md-nav__link">C++ Development</a>
       
     
     </li>
@@ -391,6 +391,7 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">queue</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -733,7 +734,7 @@
 
     <span class="c1"># build batch of image data</span>
 
-    <span class="k">def</span> <span class="nf">_process_image_file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_process_image_file</span><span class="p">(</span><span class="n">class_id</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
         <span class="n">filepath</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">params</span><span class="o">.</span><span class="n">directory</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">'</span>
         <span class="k">if</span> <span class="n">filepath</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'npy'</span><span class="p">):</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
@@ -757,7 +758,15 @@
         
 
         <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">noaug_preprocessing_function</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">noaug_preprocessing_function</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+            <span class="n">kwargs</span> <span class="o">=</span> <span class="n">_add_optional_callback_arguments</span><span class="p">(</span> 
+                <span class="n">params</span><span class="o">.</span><span class="n">noaug_preprocessing_function</span><span class="p">,</span>
+                <span class="n">batch_index</span><span class="o">=</span><span class="n">i</span><span class="p">,</span>
+                <span class="n">class_id</span><span class="o">=</span><span class="n">class_id</span><span class="p">,</span>
+                <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span>
+                <span class="n">batch_class_ids</span><span class="o">=</span><span class="n">classes</span><span class="p">,</span>
+                <span class="n">batch_filenames</span><span class="o">=</span><span class="n">filenames</span>
+            <span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">noaug_preprocessing_function</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">subset</span> <span class="o">!=</span> <span class="s1">'validation'</span> <span class="ow">or</span> <span class="n">params</span><span class="o">.</span><span class="n">image_data_generator</span><span class="o">.</span><span class="n">validation_augmentation_enabled</span><span class="p">:</span>
             <span class="n">transform_params</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">image_data_generator</span><span class="o">.</span><span class="n">get_random_transform</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -768,7 +777,15 @@
             <span class="n">x</span> <span class="o">=</span> <span class="n">img_to_array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">preprocessing_function</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">preprocessing_function</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+            <span class="n">kwargs</span> <span class="o">=</span> <span class="n">_add_optional_callback_arguments</span><span class="p">(</span> 
+                <span class="n">params</span><span class="o">.</span><span class="n">preprocessing_function</span><span class="p">,</span>
+                <span class="n">batch_index</span><span class="o">=</span><span class="n">i</span><span class="p">,</span>
+                <span class="n">class_id</span><span class="o">=</span><span class="n">class_id</span><span class="p">,</span>
+                <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">,</span>
+                <span class="n">batch_class_ids</span><span class="o">=</span><span class="n">classes</span><span class="p">,</span>
+                <span class="n">batch_filenames</span><span class="o">=</span><span class="n">filenames</span>
+            <span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">preprocessing_function</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="n">x</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">image_data_generator</span><span class="o">.</span><span class="n">standardize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
@@ -787,9 +804,9 @@
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">filename</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">filenames</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span><span class="nb">tuple</span><span class="p">)):</span>
             <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">fn</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-                <span class="n">batch_x</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">_process_image_file</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span>
+                <span class="n">batch_x</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">_process_image_file</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">batch_x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">_process_image_file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+            <span class="n">batch_x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">_process_image_file</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 
 
     <span class="c1"># build batch of labels</span>
@@ -930,6 +947,29 @@
 
         <span class="k">return</span> <span class="n">retval</span>
     
+
+<span class="k">def</span> <span class="nf">_add_optional_callback_arguments</span><span class="p">(</span>
+    <span class="n">func</span><span class="p">,</span> 
+    <span class="n">batch_index</span><span class="p">,</span> 
+    <span class="n">class_id</span><span class="p">,</span> 
+    <span class="n">filename</span><span class="p">,</span> 
+    <span class="n">batch_class_ids</span><span class="p">,</span> 
+    <span class="n">batch_filenames</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+    <span class="n">retval</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">getfullargspec</span><span class="p">(</span><span class="n">func</span><span class="p">)</span><span class="o">.</span><span class="n">args</span>
+    <span class="k">if</span> <span class="s1">'batch_index'</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">retval</span><span class="p">[</span><span class="s1">'batch_index'</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch_index</span>
+    <span class="k">if</span> <span class="s1">'class_id'</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">retval</span><span class="p">[</span><span class="s1">'class_id'</span><span class="p">]</span> <span class="o">=</span> <span class="n">class_id</span>
+    <span class="k">if</span> <span class="s1">'filename'</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">retval</span><span class="p">[</span><span class="s1">'filename'</span><span class="p">]</span> <span class="o">=</span> <span class="n">filename</span>
+    <span class="k">if</span> <span class="s1">'batch_class_ids'</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">retval</span><span class="p">[</span><span class="s1">'batch_class_ids'</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch_class_ids</span>
+    <span class="k">if</span> <span class="s1">'batch_filenames'</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+        <span class="n">retval</span><span class="p">[</span><span class="s1">'batch_filenames'</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch_filenames</span>
+
+    <span class="k">return</span> <span class="n">retval</span>
 </pre></div>
 
           </article>
@@ -954,10 +994,10 @@
               
           </div>
             Last updated on
-              Mar 16, 2022.
+              Apr 14, 2022.
             <br/>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -965,7 +1005,7 @@
         <div class="survey-link" id="dlg-survey-link"> 
     <div>We need your feedback!</div>
     <div>
-        Please take this 3 question <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
+        Please take this short <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
     </div>
 </div>
       </div>

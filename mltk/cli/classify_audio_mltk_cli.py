@@ -67,29 +67,38 @@ Longer durations (in milliseconds) will give a higher confidence that the result
         help='Amount of milliseconds to wait after a keyword is detected before detecting new keywords',
         metavar='<suppression ms>'
     ),
-    simulated_latency_ms: int = typer.Option(None, '--latency', '-l', 
-        help='This simulates the amount of time in milliseconds an audio loop takes. This helps to provide a better idea of how well the given model will execute on an embedded device',
+    latency_ms: int = typer.Option(None, '--latency', '-l', 
+        help='This the amount of time in milliseconds between processing loops',
         metavar='<latency ms>'
     ),
     microphone: str = typer.Option(None, '--microphone', '-m', 
         help='For non-embedded, this specifies the name of the PC microphone to use',
         metavar='<name>'
     ),
-    volume_db: float = typer.Option(None, '--volume', '-u', 
-        help='Set the volume (in dB) scaler (i.e. amplitude) to apply to the microphone data. If 0 or omitted, no scaler is applied',
-        metavar='<volume dB>'
+    volume_gain: int = typer.Option(None, '--volume', '-u', 
+        help='Set the volume gain scaler (i.e. amplitude) to apply to the microphone data. If 0 or omitted, no scaler is applied',
+        metavar='<volume gain>'
     ),
     dump_audio: bool = typer.Option(False, '--dump-audio', '-x', 
         help='Dump the raw microphone and generate a corresponding .wav file',
     ),
-    dump_spectrograms: bool = typer.Option(False, '--dump-spectrograms', '-z', 
-        help='Dump the generated spectrograms to .jpg images and .mp4 video',
+    dump_raw_spectrograms: bool = typer.Option(False, '--dump-raw-spectrograms', '-w', 
+        help='Dump the raw (i.e. unquantized) generated spectrograms to .jpg images and .mp4 video',
+    ),
+    dump_quantized_spectrograms: bool = typer.Option(False, '--dump-spectrograms', '-z', 
+        help='Dump the quantized generated spectrograms to .jpg images and .mp4 video',
     ),
     sensitivity: float = typer.Option(None, '--sensitivity', '-i', 
         help='Sensitivity of the activity indicator LED. Much less than 1.0 has higher sensitivity',
     ),
-    app_path: str = typer.Option(None, '--path',
-        help='By default, the audio_classifier app is automatically downloaded. This option allows for overriding with a custom built app',
+    app_path: str = typer.Option(None, '--app',
+        help='''\b
+By default, the audio_classifier app is automatically downloaded. 
+This option allows for overriding with a custom built app.
+Alternatively, if using the --device option, set this option to "none" to NOT program the audio_classifier app to the device.
+In this case, ONLY the .tflite will be programmed and the existing audio_classifier app will be re-used.
+''',
+        metavar='<path>'
     ),
     is_unit_test: bool = typer.Option(False, '--test', 
         help='Run as a unit test',
@@ -198,9 +207,6 @@ Longer durations (in milliseconds) will give a higher confidence that the result
             cli.handle_exception('Failed to load model', e)
 
     
-    if dump_audio and dump_spectrograms and use_device:
-        cli.abort(msg='Only --dump-audio OR --dump-spectrograms is allowed with the --device option')
-
     platform = get_current_os() if not use_device else commander.query_platform()
   
 
@@ -208,12 +214,14 @@ Longer durations (in milliseconds) will give a higher confidence that the result
     def _run_audio_classifier_on_device( 
         tflite_model_params:TfliteModelParameters,
         dump_audio_dir:str, 
-        dump_spectrograms_dir:str,
+        dump_raw_spectrograms_dir:str,
+        dump_quantized_spectrograms_dir:str,
     ):
         """Run the audio_classifier app on an embedded device"""
         nonlocal port
 
-        # Program a new firmware image if necessary
+        # Program the audio_classifier app and .tflite model
+        # to the device's flash
         firmware_apps.program_image_with_model(
             name='mltk_audio_classifier',
             platform=platform,
@@ -236,7 +244,7 @@ Longer durations (in milliseconds) will give a higher confidence that the result
             port=port,
             baud=115200, 
             outfile=logger,
-            start_regex=re.compile(r'.*Ready.*', re.IGNORECASE),
+            start_regex=re.compile(r'.*Audio Classifier.*', re.IGNORECASE),
             fail_regex=[
                 re.compile(r'.*hardfault.*', re.IGNORECASE), 
                 re.compile(r'.*assert.*', re.IGNORECASE), 
@@ -248,7 +256,7 @@ Longer durations (in milliseconds) will give a higher confidence that the result
                 _start_ctrl_c_timer()
             
             stop_event = None
-            if dump_audio_dir or dump_spectrograms_dir:
+            if dump_audio_dir or dump_raw_spectrograms_dir or dump_quantized_spectrograms_dir:
                 # Wait for the device to be ready
                 while True:
                     reader.read(timeout=0.10)
@@ -260,7 +268,8 @@ Longer durations (in milliseconds) will give a higher confidence that the result
 
                 stop_event = _start_jlink_processor(
                     dump_audio_dir=dump_audio_dir,
-                    dump_spectrograms_dir=dump_spectrograms_dir,
+                    dump_raw_spectrograms_dir=dump_raw_spectrograms_dir,
+                    dump_quantized_spectrograms_dir=dump_quantized_spectrograms_dir,
                     tflite_model_params=tflite_model_params
                 )
 
@@ -279,7 +288,8 @@ Longer durations (in milliseconds) will give a higher confidence that the result
     ###############################################################
     def _run_audio_classifier_on_pc( 
         dump_audio_dir:str, 
-        dump_spectrograms_dir:str,
+        dump_raw_spectrograms_dir:str,
+        dump_quantized_spectrograms_dir:str,
     ):
         """Run audio_classifier app on local PC"""
         nonlocal app_path
@@ -298,12 +308,14 @@ Longer durations (in milliseconds) will give a higher confidence that the result
         tflite_model.save(tmp_tflite_path)
 
         cmd = [app_path, '--model', tmp_tflite_path]
-        if simulated_latency_ms:
-            cmd.extend(['--latency', str(simulated_latency_ms)])
+        if latency_ms is not None:
+            cmd.extend(['--latency', str(latency_ms)])
         if dump_audio_dir:
             cmd.extend(['--dump_audio', dump_audio_dir])
-        if dump_spectrograms_dir:
-            cmd.extend(['--dump_spectrograms', dump_spectrograms_dir])
+        if dump_raw_spectrograms_dir:
+            cmd.extend(['--dump_raw_spectrograms', dump_raw_spectrograms_dir])
+        if dump_quantized_spectrograms_dir:
+            cmd.extend(['--dump_spectrograms', dump_quantized_spectrograms_dir])
 
         env = os.environ
         if microphone:
@@ -353,15 +365,17 @@ Longer durations (in milliseconds) will give a higher confidence that the result
 
     ###############################################################
     def _generate_video_from_dumped_spectrograms(
-        dump_dir:str
+        dump_dir:str,
+        dtype:str
     ):
         """Combine the genated .jpg spectrograms into an .mp4 video file"""
         spec_1_path = f'{dump_dir}/jpg/1.jpg'
         video_path = f'{dump_dir}/dump_spectrograms.mp4'
 
-        if 'spectrogram_fps' not in globals():
+        fps_name = f'{dtype}_spectrogram_fps'
+        if fps_name not in globals():
             return
-        spectrogram_fps = globals()['spectrogram_fps']
+        spectrogram_fps = globals()[fps_name]
 
         
         if not os.path.exists(spec_1_path):
@@ -383,7 +397,8 @@ Longer durations (in milliseconds) will give a higher confidence that the result
 
     ###############################################################
     def _start_spectrogram_jpg_generator(
-        dump_dir:str
+        dump_dir:str,
+        dtype:str
     ):
         """Start a thread to periodically sample the spectrogram dump directory and generate a .jpg when one if found
         
@@ -393,6 +408,7 @@ Longer durations (in milliseconds) will give a higher confidence that the result
 
         src_dir = f'{dump_dir}/bin'
         dst_dir = f'{dump_dir}/jpg'
+        os.makedirs(dst_dir, exist_ok=True)
         resize_dim_range = (240, 480) # Ensure the jpg dims are within this range
 
         def _convert_npy_to_jpg_loop():
@@ -400,8 +416,8 @@ Longer durations (in milliseconds) will give a higher confidence that the result
             prev_time = None
             counter = 1
             while not stop_event.is_set():
-                src_path = f'{src_dir}/{counter}.int8.npy.txt'
-                next_path = f'{src_dir}/{counter+1}.int8.npy.txt'
+                src_path = f'{src_dir}/{counter}.{dtype}.npy.txt'
+                next_path = f'{src_dir}/{counter+1}.{dtype}.npy.txt'
                 dst_path = f'{dst_dir}/{counter}.jpg'
 
                 # We wait until the NEXT spectrogram file is found
@@ -418,7 +434,7 @@ Longer durations (in milliseconds) will give a higher confidence that the result
                     elapsed = (now - prev_time) or .1
                     prev_time = now
                     fps_list.append(elapsed)
-                    globals()['spectrogram_fps'] = len(fps_list) / sum(fps_list)
+                    globals()[f'{dtype}_spectrogram_fps'] = len(fps_list) / sum(fps_list)
 
                 counter += 1
 
@@ -431,9 +447,14 @@ Longer durations (in milliseconds) will give a higher confidence that the result
                 # Transpose to put the time on the x-axis
                 spectrogram = np.transpose(spectrogram)
                 # Convert from int8 to uint8 
-                spectrogram = np.clip(spectrogram +128, 0, 255)
+                if dtype == 'int8':
+                    spectrogram = np.clip(spectrogram +128, 0, 255)
+                    spectrogram = spectrogram.astype(np.uint8)
+                elif dtype == 'uint16':
+                    spectrogram = np.clip(spectrogram / 4, 0, 255)
+                    spectrogram = spectrogram.astype(np.uint8)
 
-                jpg_data = cv2.applyColorMap(spectrogram.astype(np.uint8), cv2.COLORMAP_HOT)
+                jpg_data = cv2.applyColorMap(spectrogram, cv2.COLORMAP_HOT)
                 jpg_data = _resize_jpg_image(jpg_data, *resize_dim_range)
                 cv2.imwrite(dst_path, jpg_data)
 
@@ -449,7 +470,8 @@ Longer durations (in milliseconds) will give a higher confidence that the result
     ###############################################################
     def _start_jlink_processor(
         dump_audio_dir:str, 
-        dump_spectrograms_dir:str, 
+        dump_raw_spectrograms_dir:str, 
+        dump_quantized_spectrograms_dir:str,
         tflite_model_params:TfliteModelParameters
     ) -> threading.Event:
         """Start the JLink stream inferface
@@ -477,7 +499,8 @@ Longer durations (in milliseconds) will give a higher confidence that the result
                 jlink_stream=jlink_stream,
                 stop_event=stop_event, 
                 dump_audio_dir=dump_audio_dir,
-                dump_spectrograms_dir=dump_spectrograms_dir,
+                dump_raw_spectrograms_dir=dump_raw_spectrograms_dir,
+                dump_quantized_spectrograms_dir=dump_quantized_spectrograms_dir,
                 tflite_model_params=tflite_model_params,
                 logger=jlink_logger,
             )
@@ -491,7 +514,8 @@ Longer durations (in milliseconds) will give a higher confidence that the result
         jlink_stream:JlinkStream, 
         stop_event:threading.Event,
         dump_audio_dir:str, 
-        dump_spectrograms_dir:str, 
+        dump_raw_spectrograms_dir:str, 
+        dump_quantized_spectrograms_dir:str, 
         tflite_model_params:TfliteModelParameters,
         logger:logging.Logger
     ):
@@ -500,7 +524,8 @@ Longer durations (in milliseconds) will give a higher confidence that the result
         This runs in a separate thread
         """
         audio_stream:JLinkDataStream = None 
-        spectrogram_stream:JLinkDataStream = None
+        raw_spectrogram_stream:JLinkDataStream = None
+        quantized_spectrogram_stream:JLinkDataStream = None
         audio_chunk_counter = 0
         spec_counter = 0
         #sample_rate = tflite_model_params['fe.sample_rate_hz']
@@ -510,7 +535,8 @@ Longer durations (in milliseconds) will give a higher confidence that the result
         window_step_ms = tflite_model_params['fe.window_step_ms']
         spectrogram_cols = (sample_length_ms - window_size_ms) // window_step_ms + 1
         spectrogram_size = spectrogram_rows*spectrogram_cols
-        spectrogram_min_read_size = spectrogram_size + 4
+        raw_spectrogram_min_read_size = spectrogram_size*2
+        quantized_spectrogram_min_read_size = spectrogram_size
         audio_min_read_size = 1024
         audio_start_timeout = None
 
@@ -521,19 +547,28 @@ Longer durations (in milliseconds) will give a higher confidence that the result
 
             if dump_audio_dir and audio_stream is None:
                 try:
-                    audio_stream = jlink_stream.open('audio_dump', mode='r')
+                    audio_stream = jlink_stream.open('audio', mode='r')
                     logger.debug('Device audio stream ready')
                     # Wait a moment for any noise to be flushed from the audio stream
                     audio_start_timeout = time.time() + 4.0 
                 except Exception as e:
                     logger.debug(f'Failed to open device audio stream, err: {e}')
 
-            if dump_spectrograms_dir and spectrogram_stream is None:
+            if dump_raw_spectrograms_dir and raw_spectrogram_stream is None:
+                os.makedirs(dump_raw_spectrograms_dir, exist_ok=True)
                 try:
-                    spectrogram_stream = jlink_stream.open('spec_dump', mode='r')
-                    logger.debug('Device spectrogram stream ready')
+                    raw_spectrogram_stream = jlink_stream.open('raw_spec', mode='r')
+                    logger.debug('Device raw spectrogram stream ready')
                 except Exception as e:
-                    logger.debug(f'Failed to open device spectrogram stream, err: {e}')
+                    logger.debug(f'Failed to open device raw spectrogram stream, err: {e}')
+
+            if dump_quantized_spectrograms_dir and quantized_spectrogram_stream is None:
+                os.makedirs(dump_quantized_spectrograms_dir, exist_ok=True)
+                try:
+                    quantized_spectrogram_stream = jlink_stream.open('quant_spec', mode='r')
+                    logger.debug('Device quantized spectrogram stream ready')
+                except Exception as e:
+                    logger.debug(f'Failed to open device quantized spectrogram stream, err: {e}')
 
 
             if audio_stream is not None and audio_stream.read_data_available >= audio_min_read_size:
@@ -546,22 +581,29 @@ Longer durations (in milliseconds) will give a higher confidence that the result
                     with open(chunk_path, 'wb') as f:
                         f.write(chunk_data)
 
-            if spectrogram_stream is not None and spectrogram_stream.read_data_available >= spectrogram_min_read_size:
-                spectrogram_read_size = (spectrogram_stream.read_data_available // spectrogram_min_read_size) * spectrogram_min_read_size
-                spectrogram_data = spectrogram_stream.read_all(spectrogram_read_size)
+            if raw_spectrogram_stream is not None and raw_spectrogram_stream.read_data_available >= raw_spectrogram_min_read_size:
+                spectrogram_read_size = (raw_spectrogram_stream.read_data_available // raw_spectrogram_min_read_size) * raw_spectrogram_min_read_size
+                spectrogram_data = raw_spectrogram_stream.read_all(spectrogram_read_size)
                 if spec_counter == 0:
-                    logger.info('Spectrogram recording started')
+                    logger.info('Raw spectrogram recording started')
                 while len(spectrogram_data) > 0:
-                    header = spectrogram_data[:4]
-                    if header != 'SPEC'.encode('utf-8'):
-                        stop_event.set()
-                        logger.error('Corrupt spectrogram data received from device')
-                        break
-                    spectrogram_data = spectrogram_data[4:]
-                    spectrogram_buf = np.frombuffer(spectrogram_data[:spectrogram_size], dtype=np.int8)
-                    spectrogram_data = spectrogram_data[spectrogram_size:]
+                    spectrogram_buf = np.frombuffer(spectrogram_data[:raw_spectrogram_min_read_size], dtype=np.uint16)
+                    spectrogram_data = spectrogram_data[raw_spectrogram_min_read_size:]
                     spectrogram = np.reshape(spectrogram_buf, (spectrogram_cols, spectrogram_rows))
-                    bin_path = f'{dump_spectrograms_dir}/{spec_counter}.int8.npy.txt'
+                    bin_path = f'{dump_raw_spectrograms_dir}/{spec_counter}.uint16.npy.txt'
+                    np.savetxt(bin_path, spectrogram, fmt='%d', delimiter=',')
+                    spec_counter += 1
+
+            if quantized_spectrogram_stream is not None and quantized_spectrogram_stream.read_data_available >= quantized_spectrogram_min_read_size:
+                spectrogram_read_size = (quantized_spectrogram_stream.read_data_available // quantized_spectrogram_min_read_size) * quantized_spectrogram_min_read_size
+                spectrogram_data = quantized_spectrogram_stream.read_all(spectrogram_read_size)
+                if spec_counter == 0:
+                    logger.info('Quantized spectrogram recording started')
+                while len(spectrogram_data) > 0:
+                    spectrogram_buf = np.frombuffer(spectrogram_data[:quantized_spectrogram_min_read_size], dtype=np.int8)
+                    spectrogram_data = spectrogram_data[quantized_spectrogram_min_read_size:]
+                    spectrogram = np.reshape(spectrogram_buf, (spectrogram_cols, spectrogram_rows))
+                    bin_path = f'{dump_quantized_spectrograms_dir}/{spec_counter}.int8.npy.txt'
                     np.savetxt(bin_path, spectrogram, fmt='%d', delimiter=',')
                     spec_counter += 1
 
@@ -572,18 +614,20 @@ Longer durations (in milliseconds) will give a higher confidence that the result
         params = TfliteModelParameters.load_from_tflite_model(tflite_model)
 
         if not (verbose or \
-            average_window_duration_ms or \
+            average_window_duration_ms is not None or \
             detection_threshold or \
-            suppression_ms or \
+            suppression_ms is not None or \
             minimum_count or \
-            volume_db or  \
+            volume_gain or  \
             dump_audio or  \
-            dump_spectrograms or \
-            sensitivity):
+            dump_raw_spectrograms or \
+            dump_quantized_spectrograms or \
+            sensitivity or \
+            latency_ms is not None):
             return params
 
         if verbose:
-            params['log_level'] = 'debug'
+            params['verbose_model_output_logs'] = True
         if average_window_duration_ms:
             params['average_window_duration_ms'] = average_window_duration_ms
         if detection_threshold:
@@ -592,14 +636,18 @@ Longer durations (in milliseconds) will give a higher confidence that the result
             params['suppression_ms'] = suppression_ms
         if minimum_count:
             params['minimum_count'] = minimum_count
-        if volume_db:
-            params['volume_db'] = volume_db
+        if volume_gain:
+            params['volume_gain'] = volume_gain
         if dump_audio:
             params['dump_audio'] = dump_audio
-        if dump_spectrograms:
-            params['dump_spectrograms'] = dump_spectrograms
+        if dump_raw_spectrograms:
+            params['dump_raw_spectrograms'] = dump_raw_spectrograms
+        if dump_quantized_spectrograms:
+            params['dump_spectrograms'] = dump_quantized_spectrograms
         if sensitivity:
             params['sensitivity'] = sensitivity
+        if latency_ms is not None:
+            params['latency_ms'] = latency_ms
 
         params.add_to_tflite_model(tflite_model)
         return params
@@ -653,9 +701,10 @@ Longer durations (in milliseconds) will give a higher confidence that the result
     tflite_model_params = _update_model_parameters()
     dump_audio_dir = None 
     dump_audio_bin_dir = None
-    dump_spectrograms_dir = None 
-    dump_spectrograms_bin_dir = None
-
+    dump_raw_spectrograms_dir = None 
+    dump_raw_spectrograms_bin_dir = None
+    dump_quantized_spectrograms_dir = None 
+    dump_quantized_spectrograms_bin_dir = None
 
     if dump_audio:
         sample_rate = tflite_model_params['fe.sample_rate_hz']
@@ -669,32 +718,47 @@ Longer durations (in milliseconds) will give a higher confidence that the result
             sample_rate=sample_rate
         ))
     
-    if dump_spectrograms:
+    if dump_raw_spectrograms:
         if have_cv2:
-            dump_spectrograms_dir = create_user_dir(f'audio_classifier_recordings/{platform}/spectrograms')
-            dump_spectrograms_bin_dir = create_user_dir(f'audio_classifier_recordings/{platform}/spectrograms/bin')
-            create_user_dir(f'audio_classifier_recordings/{platform}/spectrograms/jpg')
-            logger.info(f'Dumping spectrograms to {dump_spectrograms_dir}')
-            clean_directory(dump_spectrograms_dir)
+            dump_raw_spectrograms_dir = create_user_dir(f'audio_classifier_recordings/{platform}/raw_spectrograms')
+            dump_raw_spectrograms_bin_dir = create_user_dir(f'audio_classifier_recordings/{platform}/raw_spectrograms/bin')
+            logger.info(f'Dumping spectrograms to {dump_raw_spectrograms_dir}')
+            clean_directory(dump_raw_spectrograms_dir)
             atexit.register(functools.partial(
                 _generate_video_from_dumped_spectrograms, 
-                dump_dir=dump_spectrograms_dir
+                dump_dir=dump_raw_spectrograms_dir,
+                dtype='uint16'
             ))
-            _start_spectrogram_jpg_generator(dump_spectrograms_dir)
+            _start_spectrogram_jpg_generator(dump_raw_spectrograms_dir, 'uint16')
         else:
             logger.warning('Failed to import opencv-python, NOT dumping spectrograms')
-            dump_spectrograms = False
 
+    if dump_quantized_spectrograms:
+        if have_cv2:
+            dump_quantized_spectrograms_dir = create_user_dir(f'audio_classifier_recordings/{platform}/quantized_spectrograms')
+            dump_quantized_spectrograms_bin_dir = create_user_dir(f'audio_classifier_recordings/{platform}/quantized_spectrograms/bin')
+            logger.info(f'Dumping spectrograms to {dump_quantized_spectrograms_dir}')
+            clean_directory(dump_quantized_spectrograms_dir)
+            atexit.register(functools.partial(
+                _generate_video_from_dumped_spectrograms, 
+                dump_dir=dump_quantized_spectrograms_dir,
+                dtype='int8'
+            ))
+            _start_spectrogram_jpg_generator(dump_quantized_spectrograms_dir, 'int8')
+        else:
+            logger.warning('Failed to import opencv-python, NOT dumping spectrograms')
 
 
     if use_device:
         _run_audio_classifier_on_device( 
             tflite_model_params=tflite_model_params,
             dump_audio_dir=dump_audio_bin_dir,
-            dump_spectrograms_dir=dump_spectrograms_bin_dir
+            dump_raw_spectrograms_dir=dump_raw_spectrograms_bin_dir,
+            dump_quantized_spectrograms_dir=dump_quantized_spectrograms_bin_dir
         )
     else:
         _run_audio_classifier_on_pc(
             dump_audio_dir=dump_audio_bin_dir,
-            dump_spectrograms_dir=dump_spectrograms_bin_dir
+            dump_raw_spectrograms_dir=dump_raw_spectrograms_bin_dir,
+            dump_quantized_spectrograms_dir=dump_quantized_spectrograms_bin_dir
         )

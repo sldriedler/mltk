@@ -383,8 +383,15 @@ class ImageDatasetMixin(DataGeneratorDatasetMixin):
                     **kwargs
                 )
 
-            validation_labels = validation_datagen.classes
-
+            # Retrieve all the y samples into a list
+            # NOTE: The length of this will be a multiple of the batch_size rounded up
+            validation_labels = []
+            for _, batch_y in validation_datagen:
+                if self.class_mode == 'categorical':
+                    batch_y = np.argmax(batch_y, -1)
+                validation_labels.extend(batch_y)
+            validation_labels = np.asarray(validation_labels, dtype=np.int32)
+         
         else:
             raise Exception(
                 'mltk_model.dataset must return return a tuple as: (x_train, y_train), (x_test, y_test)'

@@ -166,7 +166,7 @@ sl_status_t sli_ml_fft_init(struct sli_ml_fft_state* state, size_t input_size) {
   }
 
   // Generate tables
-  generate_real_coeff_tables(rfft_size);
+  generate_real_coeff_tables(rfft_size/2);
 
   // Set up RFFT instance
   rfft_instance.fftLenReal = (uint16_t) rfft_size;

@@ -1,4 +1,4 @@
-set(NAME "mltk_gecko_sdk_platform_common")
+set(NAME mltk_gecko_sdk_platform_common)
 add_library(${NAME})
 add_library(mltk::gecko_sdk::platform_common ALIAS ${NAME})
 
@@ -17,6 +17,7 @@ PUBLIC
 target_sources(${NAME}
 PRIVATE 
     src/sl_stdio.c
+    src/sl_slist.c 
 )
 
 

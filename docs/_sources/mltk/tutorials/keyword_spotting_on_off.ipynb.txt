@@ -24,7 +24,7 @@
 
     "\n",
 
-    "This tutorial is designed to work with the [Gecko SDK](https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview) sample application: [Voice Control Light](https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview#voice-control-light).\n",
+    "This tutorial is designed to work with the [Gecko SDK](https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview) sample application: [Voice Control Light](https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview#voice-control-light).\n",
 
     "\n",
 
@@ -448,7 +448,7 @@
 
     "- MLTK [Python API](../../docs/python_api/data_preprocessing/audio_feature_generator.md)\n",
 
-    "- Gecko SDK [firmware component](https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html#gecko-sdk-component)\n",
+    "- Gecko SDK [firmware component](../../docs/audio/audio_feature_generator.html#gecko-sdk-component)\n",
 
     "\n",
 
@@ -1156,7 +1156,7 @@
 
     "For this tutorial, we want to detect `on` and `off`, however,\n",
 
-    "you may modify this to any keyword that is found in the [Google Speech Commands](../../docs/python_api/datasets/datasets.html#google-speech-commands-v2) dataset:\n",
+    "you may modify this to any keyword that is found in the [Google Speech Commands](../../docs/python_api/datasets/index.html#google-speech-commands-v2) dataset:\n",
 
     "\n",
 
@@ -4008,21 +4008,65 @@
 
     "\n",
 
-    "Now that we have a trained model, it is time to deploy it to our Gecko SDK project and run it in on an embedded device.\n",
+    "Now that we have a trained model, it is time to run it in on an embedded device.\n",
 
     "\n",
 
-    "The basic sequence for doing this is:  \n",
+    "There are several different ways this can be done:\n",
 
-    "1. Extract the `.tflite` model file from the MLTK [Model Archive](../../docs/guides/model_archive.md)\n",
+    "\n",
 
-    "2. Copy the `.tflite` model file to a Gecko SDK project in Simplicity Studio, more details [here](https://docs.silabs.com/gecko-platform/4.0/machine_learning/tensorflow/ml_getting_started_guide#model-inclusion)\n",
+    "### Using the MLTK\n",
 
-    "3. Build the Gecko SDK project via Simplicity Studio\n",
+    "\n",
 
-    "4. Program the built firmware image to the embedded device\n",
+    "The MLTK supports building [C++ Applications](../../docs/cpp_development/index.md).\n",
 
-    "5. Run the firmware image with trained model on the embedded device\n",
+    "\n",
+
+    "It also features an [audio_classifier](../../docs/cpp_development/examples/audio_classifier.md) C++ application\n",
+
+    "which can be built using:  \n",
+
+    "- [Visual Studio Code](../../docs/cpp_development/vscode.md) \n",
+
+    "- [Simplicity Studio](../../docs/cpp_development/simplicity_studio.md)\n",
+
+    "- [Command Line](../../docs/cpp_development/command_line.md)\n",
+
+    "\n",
+
+    "Refer to the [audio_classifier](../../docs/cpp_development/examples/audio_classifier.md) application's documentation\n",
+
+    "for how include your model into the built application.\n",
+
+    "\n",
+
+    "\n",
+
+    "\n",
+
+    "### Using Simplicity Studio\n",
+
+    "\n",
+
+    "The standard Gecko SDK also features an [audio_classifier](https://github.com/SiliconLabs/gecko_sdk/tree/gsdk_4.0/app/common/example/audio_classifier) application.\n",
+
+    "\n",
+
+    "The basic sequence for updating the app with a new model is:  \n",
+
+    "1. Using [Simplicity Studio](https://www.silabs.com/developers/simplicity-studio) create a new \"Audio Classifier\" project\n",
+
+    "2. Extract the `.tflite` model file from the MLTK [Model Archive](../../docs/guides/model_archive.md)\n",
+
+    "3. Copy the `.tflite` model file to a Gecko SDK project in Simplicity Studio, more details [here](https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/getting-started)\n",
+
+    "4. Build the Gecko SDK project via Simplicity Studio\n",
+
+    "5. Program the built firmware image to the embedded device\n",
+
+    "6. Run the firmware image with trained model on the embedded device\n",
 
     "\n",
 
@@ -4030,7 +4074,7 @@
 
     "\n",
 
-    "See the [Getting Started with Machine Learning](https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/ml_getting_started_guide) Gecko SDK guide for more details."
+    "See the [Getting Started with Machine Learning](https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/getting-started) Gecko SDK guide for more details."
 
    ]
 

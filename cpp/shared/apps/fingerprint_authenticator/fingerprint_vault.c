@@ -7,7 +7,7 @@
 
 
 
-#define MAKE_NVM_KEY(user_id, index) ((((uint32_t)user_id) << 16) | (uint32_t)index)
+#define MAKE_NVM_KEY(user_id, index) ((((uint32_t)user_id) << 16) | ((uint32_t)index))
 
 
 static uint8_t signature_length = 0;

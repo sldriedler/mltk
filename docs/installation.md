@@ -83,7 +83,7 @@ from mltk.core import profile_model
 profile_model('~/my_model.tflite')
 ```
 
-See the [API Examples](./examples.md) for more details on how to use the MLTK [Python API](./python_api/python_api.md).
+See the [API Examples](./examples.md) for more details on how to use the MLTK [Python API](./python_api/index.md).
 
 
 ### Update Python Package
@@ -171,6 +171,5 @@ The install script will:
 
 
 ```{seealso}  
-- [C++ Development with VSCode](./other/cpp_development_with_vscode.md) - Describes how to use run MLTK C++ applications using [Visual Studio Code](https://code.visualstudio.com)
-- [MLTK Repository Overview](./other/repository_overview.md) - Describes how to build Python C++ wrappers and application in the MLTK
+- [C++ Development](./cpp_development/index.md) - Describes how to build and run MLTK C++ applications
 ```

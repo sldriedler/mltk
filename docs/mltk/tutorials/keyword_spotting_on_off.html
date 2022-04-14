@@ -175,7 +175,7 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
             
-            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
+            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
             
             <li class="md-tabs__item"><a href="https://github.com/tensorflow/tflite-micro" class="md-tabs__link">Tensorflow-Lite Micro Repository</a></li>
             
@@ -255,7 +255,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../docs/guides/guides.html" class="md-nav__link">Modeling Guides</a>
+      <a href="../../docs/guides/index.html" class="md-nav__link">Modeling Guides</a>
       
     
     </li>
@@ -397,7 +397,13 @@
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#deploying-model-to-gecko-sdk-project" class="md-nav__link">Deploying Model to Gecko SDK Project</a>
+        <li class="md-nav__item"><a href="#deploying-model-to-gecko-sdk-project" class="md-nav__link">Deploying Model to Gecko SDK Project</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#using-the-mltk" class="md-nav__link">Using the MLTK</a>
+        </li>
+        <li class="md-nav__item"><a href="#using-simplicity-studio" class="md-nav__link">Using Simplicity Studio</a>
+        </li></ul>
+            </nav>
         </li></ul>
             </nav>
         </li>
@@ -442,7 +448,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../docs/python_api/python_api.html" class="md-nav__link">API Reference</a>
+      <a href="../../docs/python_api/index.html" class="md-nav__link">API Reference</a>
       
     
     </li>
@@ -508,7 +514,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../docs/other/cpp_development_with_vscode.html" class="md-nav__link">C++ Development</a>
+      <a href="../../docs/cpp_development/index.html" class="md-nav__link">C++ Development</a>
       
     
     </li>
@@ -642,7 +648,13 @@
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#deploying-model-to-gecko-sdk-project" class="md-nav__link">Deploying Model to Gecko SDK Project</a>
+        <li class="md-nav__item"><a href="#deploying-model-to-gecko-sdk-project" class="md-nav__link">Deploying Model to Gecko SDK Project</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#using-the-mltk" class="md-nav__link">Using the MLTK</a>
+        </li>
+        <li class="md-nav__item"><a href="#using-simplicity-studio" class="md-nav__link">Using Simplicity Studio</a>
+        </li></ul>
+            </nav>
         </li></ul>
             </nav>
         </li>
@@ -678,7 +690,7 @@
 <li><p><strong>On</strong></p></li>
 <li><p><strong>Off</strong></p></li>
 </ul>
-<p>This tutorial is designed to work with the <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview">Gecko SDK</a> sample application: <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview#voice-control-light">Voice Control Light</a>.</p>
+<p>This tutorial is designed to work with the <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview">Gecko SDK</a> sample application: <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview#voice-control-light">Voice Control Light</a>.</p>
 <section id="overview">
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <section id="objectives">
@@ -863,7 +875,7 @@ Any divergence will cause the embedded model to “see” different samples and 
 This component generates spectrograms from raw audio. The algorithms used in this component are accessible via:</p>
 <ul class="simple">
 <li><p>MLTK <a class="reference internal" href="../../docs/python_api/data_preprocessing/audio_feature_generator.html"><span class="doc std std-doc">Python API</span></a></p></li>
-<li><p>Gecko SDK <a class="reference external" href="https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html#gecko-sdk-component">firmware component</a></p></li>
+<li><p>Gecko SDK <a class="reference external" href="../../docs/audio/audio_feature_generator.html#gecko-sdk-component">firmware component</a></p></li>
 </ul>
 <p>In this way, the <em>exact</em> spectrogram generation algorithms used during training may also be used at
 run-time on the embedded device.</p>
@@ -1128,7 +1140,7 @@ Refer to the <a class="reference external" href="../../docs/python_api/core/mltk
 <p>This is likely the most interesting part of the model specification script.<br/>
 Here, we define which keywords we want our model to detect.<br/>
 For this tutorial, we want to detect <code class="docutils literal notranslate"><span class="pre">on</span></code> and <code class="docutils literal notranslate"><span class="pre">off</span></code>, however,
-you may modify this to any keyword that is found in the <a class="reference external" href="../../docs/python_api/datasets/datasets.html#google-speech-commands-v2">Google Speech Commands</a> dataset:</p>
+you may modify this to any keyword that is found in the <a class="reference external" href="../../docs/python_api/datasets/index.html#google-speech-commands-v2">Google Speech Commands</a> dataset:</p>
 <p>Yes, No, Up, Down, Left, Right, On, Off, Stop, Go, Zero, One, Two, Three, Four, Five, Six, Seven, Eight, Nine</p>
 <p><strong>NOTE:</strong> See the <a class="reference internal" href="keyword_spotting_with_transfer_learning.html"><span class="doc std std-doc">Transfer Learning Tutorial</span></a> which describes how to use the <a class="reference external" href="https://arxiv.org/abs/1801.04381">MobileNetV2</a> model. While MobileNetV2 is larger, it tends to have better performance than the model used in this tutorial which was specifically designed for the “yes/no” keywords.</p>
 <div class="cell docutils container">
@@ -2204,17 +2216,36 @@ When the command completes, a log directory will contain the dumped audio sound 
 </section>
 <section id="deploying-model-to-gecko-sdk-project">
 <h2 id="deploying-model-to-gecko-sdk-project">Deploying Model to Gecko SDK Project<a class="headerlink" href="#deploying-model-to-gecko-sdk-project" title="Permalink to this headline">¶</a></h2>
-<p>Now that we have a trained model, it is time to deploy it to our Gecko SDK project and run it in on an embedded device.</p>
-<p>The basic sequence for doing this is:</p>
+<p>Now that we have a trained model, it is time to run it in on an embedded device.</p>
+<p>There are several different ways this can be done:</p>
+<section id="using-the-mltk">
+<h3 id="using-the-mltk">Using the MLTK<a class="headerlink" href="#using-the-mltk" title="Permalink to this headline">¶</a></h3>
+<p>The MLTK supports building <a class="reference internal" href="../../docs/cpp_development/index.html"><span class="doc std std-doc">C++ Applications</span></a>.</p>
+<p>It also features an <a class="reference internal" href="../../docs/cpp_development/examples/audio_classifier.html"><span class="doc std std-doc">audio_classifier</span></a> C++ application
+which can be built using:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../docs/cpp_development/vscode.html"><span class="doc std std-doc">Visual Studio Code</span></a></p></li>
+<li><p><a class="reference internal" href="../../docs/cpp_development/simplicity_studio.html"><span class="doc std std-doc">Simplicity Studio</span></a></p></li>
+<li><p><a class="reference internal" href="../../docs/cpp_development/command_line.html"><span class="doc std std-doc">Command Line</span></a></p></li>
+</ul>
+<p>Refer to the <a class="reference internal" href="../../docs/cpp_development/examples/audio_classifier.html"><span class="doc std std-doc">audio_classifier</span></a> application’s documentation
+for how include your model into the built application.</p>
+</section>
+<section id="using-simplicity-studio">
+<h3 id="using-simplicity-studio">Using Simplicity Studio<a class="headerlink" href="#using-simplicity-studio" title="Permalink to this headline">¶</a></h3>
+<p>The standard Gecko SDK also features an <a class="reference external" href="https://github.com/SiliconLabs/gecko_sdk/tree/gsdk_4.0/app/common/example/audio_classifier">audio_classifier</a> application.</p>
+<p>The basic sequence for updating the app with a new model is:</p>
 <ol class="simple">
+<li><p>Using <a class="reference external" href="https://www.silabs.com/developers/simplicity-studio">Simplicity Studio</a> create a new “Audio Classifier” project</p></li>
 <li><p>Extract the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model file from the MLTK <a class="reference internal" href="../../docs/guides/model_archive.html"><span class="doc std std-doc">Model Archive</span></a></p></li>
-<li><p>Copy the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model file to a Gecko SDK project in Simplicity Studio, more details <a class="reference external" href="https://docs.silabs.com/gecko-platform/4.0/machine_learning/tensorflow/ml_getting_started_guide#model-inclusion">here</a></p></li>
+<li><p>Copy the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model file to a Gecko SDK project in Simplicity Studio, more details <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/getting-started">here</a></p></li>
 <li><p>Build the Gecko SDK project via Simplicity Studio</p></li>
 <li><p>Program the built firmware image to the embedded device</p></li>
 <li><p>Run the firmware image with trained model on the embedded device</p></li>
 </ol>
 <p>When Simplicity Studio builds the project, it finds the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model file and generates a C header file which contains a C <code class="docutils literal notranslate"><span class="pre">uint8_t</span></code> array of the binary data in the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code>. The firmware then references the C array and loads it into the <a class="reference external" href="https://github.com/tensorflow/tflite-micro">Tensorflow-Lite Micro Interpreter</a>.</p>
-<p>See the <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/ml_getting_started_guide">Getting Started with Machine Learning</a> Gecko SDK guide for more details.</p>
+<p>See the <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/getting-started">Getting Started with Machine Learning</a> Gecko SDK guide for more details.</p>
+</section>
 </section>
 </section>
 
@@ -2265,10 +2296,10 @@ When the command completes, a log directory will contain the dumped audio sound 
               
           </div>
             Last updated on
-              Mar 16, 2022.
+              Apr 14, 2022.
             <br/>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -2276,7 +2307,7 @@ When the command completes, a log directory will contain the dumped audio sound 
         <div class="survey-link" id="dlg-survey-link"> 
     <div>We need your feedback!</div>
     <div>
-        Please take this 3 question <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
+        Please take this short <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
     </div>
 </div>
       </div>

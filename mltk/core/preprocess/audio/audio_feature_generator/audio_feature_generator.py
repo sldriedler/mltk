@@ -8,7 +8,7 @@ class AudioFeatureGenerator:
     """AudioFeatureGenerator Interface
 
     .. seealso::
-       - `AudioFeatureGenerator documentation <https://siliconlabs.github.io/mltk/docs/audio_feature_generator.html>`_
+       - `AudioFeatureGenerator documentation <https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html>`_
        - `Microfrontend implementation <https://github.com/tensorflow/tflite-micro/tree/main/tensorflow/lite/experimental/microfrontend>`_
        - `Tensorflow-Lite Micro feature_provider.cc <https://github.com/tensorflow/tflite-micro/blob/main/tensorflow/lite/micro/examples/micro_speech/feature_provider.cc>`_
        - `ParallelAudioDataGenerator API docs <https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing.html#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator>`_

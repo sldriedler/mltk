@@ -6,7 +6,7 @@ This builds a website from the MLTK's markdown documentation using [Sphinx](http
 To build the webpage, issue the command:
 
 ```shell
-mltk build_docs
+mltk build docs
 ```
 
 

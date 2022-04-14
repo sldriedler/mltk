@@ -36,8 +36,8 @@
 #include <sys/unistd.h>
 #include <string.h>
 
-#include "platform_api.h"
 #include "sl_stdio.h"
+#include "microsecond_timer.h"
 
 
 extern void* heap_malloc(uint32_t size); 
@@ -285,9 +285,8 @@ struct tm* localtime(const time_t *_timer)
 /*************************************************************************************************/
 int _gettimeofday(struct timeval *tv, struct timezone *tz)
 {
-  const uint64_t current_cycle = platform_get_cpu_cycle();
-  const uint64_t t = (current_cycle * 1000000ULL) / platform_get_cpu_clock_hz();
-  const div_t qr = div(t, 1000000); // convert to seconds
+  const uint64_t us = microsecond_timer_get_timestamp();
+  const div_t qr = div(us, 1000000); // convert to seconds
   tv->tv_sec = qr.quot;
   tv->tv_usec = qr.rem; 
   return 0;  // return non-zero for error

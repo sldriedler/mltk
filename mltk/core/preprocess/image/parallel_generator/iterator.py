@@ -3,6 +3,7 @@
 import os
 import time
 import threading
+import inspect
 import queue
 from typing import List, Tuple
 import numpy as np
@@ -345,7 +346,7 @@ def get_batches_of_transformed_samples(
 
     # build batch of image data
 
-    def _process_image_file(filename) -> np.ndarray:
+    def _process_image_file(class_id, filename) -> np.ndarray:
         filepath = f'{params.directory}/{filename}'
         if filepath.endswith('npy'):
             x = np.load(filepath)
@@ -369,7 +370,15 @@ def get_batches_of_transformed_samples(
         
 
         if params.noaug_preprocessing_function is not None:
-            x = params.noaug_preprocessing_function(params, x)
+            kwargs = _add_optional_callback_arguments( 
+                params.noaug_preprocessing_function,
+                batch_index=i,
+                class_id=class_id,
+                filename=filename,
+                batch_class_ids=classes,
+                batch_filenames=filenames
+            )
+            x = params.noaug_preprocessing_function(params, x, **kwargs)
 
         if params.subset != 'validation' or params.image_data_generator.validation_augmentation_enabled:
             transform_params = params.image_data_generator.get_random_transform(x.shape)
@@ -380,7 +389,15 @@ def get_batches_of_transformed_samples(
             x = img_to_array(x)
 
         if params.preprocessing_function is not None:
-            x = params.preprocessing_function(params, x)
+            kwargs = _add_optional_callback_arguments( 
+                params.preprocessing_function,
+                batch_index=i,
+                class_id=class_id,
+                filename=filename,
+                batch_class_ids=classes,
+                batch_filenames=filenames
+            )
+            x = params.preprocessing_function(params, x, **kwargs)
 
         x = params.image_data_generator.standardize(x)
 
@@ -399,9 +416,9 @@ def get_batches_of_transformed_samples(
     for i, filename in enumerate(filenames):
         if isinstance(filename, (list,tuple)):
             for j, fn in enumerate(filename):
-                batch_x[j][i] = _process_image_file(fn)
+                batch_x[j][i] = _process_image_file(i, fn)
         else:
-            batch_x[i] = _process_image_file(filename)
+            batch_x[i] = _process_image_file(i, filename)
 
 
     # build batch of labels
@@ -542,3 +559,26 @@ class BatchData(object):
 
         return retval
     
+
+def _add_optional_callback_arguments(
+    func, 
+    batch_index, 
+    class_id, 
+    filename, 
+    batch_class_ids, 
+    batch_filenames
+) -> dict:
+    retval = {}
+    args = inspect.getfullargspec(func).args
+    if 'batch_index' in args:
+        retval['batch_index'] = batch_index
+    if 'class_id' in args:
+        retval['class_id'] = class_id
+    if 'filename' in args:
+        retval['filename'] = filename
+    if 'batch_class_ids' in args:
+        retval['batch_class_ids'] = batch_class_ids
+    if 'batch_filenames' in args:
+        retval['batch_filenames'] = batch_filenames
+
+    return retval

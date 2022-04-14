@@ -103,8 +103,8 @@ Model Diagram
 .. raw:: html
 
     <div class="model-diagram">
-        <a href="../../../_images/models/binary_classification.tflite.png" target="_blank">
-            <img src="../../../_images/models/binary_classification.tflite.png" />
+        <a href="../../../../_images/models/binary_classification.tflite.png" target="_blank">
+            <img src="../../../../_images/models/binary_classification.tflite.png" />
             <p>Click to enlarge</p>
         </a>
     </div>

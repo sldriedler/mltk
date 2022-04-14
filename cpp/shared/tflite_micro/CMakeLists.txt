@@ -11,11 +11,11 @@ include(${CMAKE_CURRENT_LIST_DIR}/tflite_micro_options.cmake)
 
 
 mltk_info("Processing Tensorflow-Lite Micro repository (this may take awhile) ...")
-set(_tflm_cache_version "dec8_2021")
+set(_tflm_cache_version "mar18_2022")
 CPMAddPackage(
 NAME Tensorflow
   GITHUB_REPOSITORY tensorflow/tflite-micro
-  GIT_TAG 365a9f3fbaa2fccd732315ac42ab6a13dff455cf # latest master as of Dec 8, 2021
+  GIT_TAG 7bc153abb01d070d5a0a6b2a8f1fcd202d2a0ebe # latest master as of March 18, 2021
   DOWNLOAD_ONLY ON
   CACHE_SUBDIR tflite_micro
   CACHE_VERSION ${_tflm_cache_version}
@@ -76,9 +76,12 @@ tensorflow/lite/kernels/internal/quantization_util.cc
 tensorflow/lite/kernels/kernel_util.cc 
 tensorflow/lite/micro/all_ops_resolver.cc 
 tensorflow/lite/micro/debug_log.cc 
+tensorflow/lite/micro/fake_micro_context.cc
 tensorflow/lite/micro/flatbuffer_utils.cc
 tensorflow/lite/micro/memory_helpers.cc
+tensorflow/lite/micro/micro_allocation_info.cc
 tensorflow/lite/micro/micro_allocator.cc
+tensorflow/lite/micro/micro_context.cc
 tensorflow/lite/micro/micro_error_reporter.cc
 #tensorflow/lite/micro/micro_graph.cc # This is overridden to enable recording and profiling
 tensorflow/lite/micro/micro_interpreter.cc
@@ -87,10 +90,13 @@ tensorflow/lite/micro/micro_string.cc
 tensorflow/lite/micro/micro_time.cc
 tensorflow/lite/micro/micro_utils.cc
 tensorflow/lite/micro/micro_resource_variable.cc
+tensorflow/lite/micro/mock_micro_graph.cc
+tensorflow/lite/micro/kernels/kernel_runner.cc 
 tensorflow/lite/micro/memory_planner/greedy_memory_planner.cc
 tensorflow/lite/micro/memory_planner/linear_memory_planner.cc
 #tensorflow/lite/micro/simple_memory_allocator.cc # This is overridden so we can return the maximum number of bytes used including temp allocates
 tensorflow/lite/micro/test_helpers.cc
+tensorflow/lite/micro/test_helper_custom_ops.cc
 tensorflow/lite/micro/kernels/kernel_util.cc
 tensorflow/lite/micro/kernels/activations.cc
 tensorflow/lite/micro/kernels/activations_common.cc
@@ -100,13 +106,15 @@ tensorflow/lite/micro/kernels/add_n.cc
 tensorflow/lite/micro/kernels/arg_min_max.cc
 tensorflow/lite/micro/kernels/assign_variable.cc
 tensorflow/lite/micro/kernels/batch_to_space_nd.cc
+tensorflow/lite/micro/kernels/broadcast_args.cc
+tensorflow/lite/micro/kernels/broadcast_to.cc
 tensorflow/lite/micro/kernels/call_once.cc
 tensorflow/lite/micro/kernels/cast.cc
 tensorflow/lite/micro/kernels/ceil.cc
 tensorflow/lite/micro/kernels/circular_buffer.cc
 tensorflow/lite/micro/kernels/circular_buffer_common.cc
 tensorflow/lite/micro/kernels/comparisons.cc
-#tensorflow/lite/micro/kernels/concatenation.cc
+#tensorflow/lite/micro/kernels/concatenation.cc # This is overriden to allow for concatenating more than 12 kernels
 tensorflow/lite/micro/kernels/conv_common.cc
 #tensorflow/lite/micro/kernels/conv.cc # This is overridden to account for the CMSIS scratch buffers for arena size calculation
 tensorflow/lite/micro/kernels/cumsum.cc
@@ -142,6 +150,7 @@ tensorflow/lite/micro/kernels/logical.cc
 tensorflow/lite/micro/kernels/logistic_common.cc
 tensorflow/lite/micro/kernels/logistic.cc
 tensorflow/lite/micro/kernels/maximum_minimum.cc
+tensorflow/lite/micro/kernels/mirror_pad.cc
 tensorflow/lite/micro/kernels/mul.cc
 tensorflow/lite/micro/kernels/mul_common.cc
 tensorflow/lite/micro/kernels/neg.cc
@@ -179,11 +188,8 @@ tensorflow/lite/micro/kernels/transpose_conv.cc
 tensorflow/lite/micro/kernels/transpose.cc
 tensorflow/lite/micro/kernels/unpack.cc
 tensorflow/lite/micro/kernels/var_handle.cc
+tensorflow/lite/micro/kernels/while.cc
 tensorflow/lite/micro/kernels/zeros_like.cc
-
-tensorflow/lite/micro/test_helpers.cc 
-tensorflow/lite/micro/mock_micro_graph.cc
-tensorflow/lite/micro/kernels/kernel_runner.cc 
 )
 
 set(tflm_overidden_kernels 

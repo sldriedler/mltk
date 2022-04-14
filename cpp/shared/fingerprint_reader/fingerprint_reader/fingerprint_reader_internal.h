@@ -1,7 +1,7 @@
 #pragma once 
 #include <stdio.h>
 
-#include "platform_api.h"
+#include "sl_sleeptimer.h"
 #include "fingerprint_reader_config.h"
 #include "fingerprint_reader.h"
 
@@ -22,4 +22,4 @@
 #endif
 
 
-#define DELAY_MS(ms) platform_sleep_ms(ms)
+#define DELAY_MS(ms) sl_sleeptimer_delay_millisecond(ms)

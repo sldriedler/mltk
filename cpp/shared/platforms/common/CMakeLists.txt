@@ -5,12 +5,21 @@ project(mltk_platform_common
 export(PACKAGE mltk_platform_common)
 
 
-add_library(${PROJECT_NAME} INTERFACE)
+add_library(${PROJECT_NAME})
 add_library(mltk::platform::common ALIAS ${PROJECT_NAME})
 
 
 target_include_directories(${PROJECT_NAME} 
-INTERFACE
+PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${${MLTK_PLATFORM}_SOURCE_DIR}
+)
+
+target_sources(${PROJECT_NAME} 
+PRIVATE 
+    microsecond_timer.c
+)
+
+target_link_libraries(${PROJECT_NAME} 
+PRIVATE 
+    ${MLTK_PLATFORM}
 )

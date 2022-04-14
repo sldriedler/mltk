@@ -536,13 +536,23 @@ class TfliteModel(object):
     
     
     def _load_model(self):
-        self._model = _tflite_schema_fb.Model.GetRootAsModel(self._flatbuffer_data, 0)
-        if self._model.SubgraphsLength() > 1:
-            raise Exception('Only one model subgraph currently supported')
+        try:
+            self._model = _tflite_schema_fb.Model.GetRootAsModel(self._flatbuffer_data, 0)
+            subgraph_count = self._model.SubgraphsLength()
+        except Exception as e:
+            raise RuntimeError(
+                'Failed to load .tflite model flatbuffer.\n'
+                'Ensure you have provided a valid .tflite model (i.e. ensure the binary data has not been corrupted)\n'
+                f'Error details: {e}'
+            )
+
+        if subgraph_count > 1:
+            raise RuntimeError('Only one model subgraph currently supported')
+
 
         schema_version = self._model.Version()
         if schema_version != 3:
-            raise Exception('TF-Lite schema v3 is only supported')
+            raise RuntimeError('TF-Lite schema v3 is only supported')
         
         self._subgraph = self._model.Subgraphs(0)
     

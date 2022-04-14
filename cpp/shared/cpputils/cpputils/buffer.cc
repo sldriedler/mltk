@@ -1,7 +1,8 @@
 #include <cassert>
+#include <cstdint>
+#include <cstdlib>
 
 #include "cpputils/buffer.hpp"
-#include "cpputils/heap.hpp"
 
 
 namespace cpputils 
@@ -26,7 +27,7 @@ Buffer::~Buffer()
 /*************************************************************************************************/
 void Buffer::init(unsigned size)
 {
-    _buffer = HEAP_MALLOC(size);
+    _buffer = malloc(size);
     _size = (_buffer != nullptr) ? size : 0;
     _offset = 0;
 }
@@ -38,7 +39,7 @@ void Buffer::deinit()
     _offset = 0;
     if(_buffer != nullptr)
     {
-        HEAP_FREE(_buffer);
+        free(_buffer);
         _buffer = nullptr;
     }
 }

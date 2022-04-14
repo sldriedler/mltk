@@ -126,11 +126,11 @@ endfunction()
 #
 # key - Name of variable
 # value - Value of variable
-# OPTIONAL - If the "OPTIONAL" keyword is provided as argument, then only set the variable if it hasn't already been set in the cache or command-line
+# DEFAULT - If the "DEFAULT" keyword is provided as argument, then only set the variable if it hasn't already been defined
 function(mltk_set key value)
-  cmake_parse_arguments(MLTK_ARGS "OPTIONAL" "" "" "${ARGN}")
-  if (MLTK_ARGS_OPTIONAL)
-    if(DEFINED CACHE{${key}})
+  cmake_parse_arguments(MLTK_ARGS "DEFAULT" "" "" "${ARGN}")
+  if (MLTK_ARGS_DEFAULT)
+    if(DEFINED ${key})
       set(${key} ${${key}} PARENT_SCOPE)
       return()
     endif()
@@ -500,7 +500,7 @@ macro(mltk_add_platform_package)
 i.e. Create the file: <mltk repo root>/user_options.cmake\n \
 and add:\n \
 # Set the name of your target embedded platform:\n \
-mltk_set(MLTK_PLATFORM_NAME brd2601a)\n \
+mltk_set(MLTK_PLATFORM_NAME brd2601)\n \
 ")
     endif()
   endif()
@@ -902,6 +902,49 @@ function(mltk_bundle_static_library tgt_name bundled_tgt_name)
   add_dependencies(${bundled_tgt_name} ${bundled_tgt_name}_generate)
 
 endfunction()
+
+####################################################################
+# mltk_add_tflite_model
+#
+# Add a .tflite to the given build target.
+#
+# This does the following:
+# 1. Convert given .tflite to C array
+# 2. Generate new .c file with .tflite C array
+# 3. Append generated .c file as source to build target
+#
+# The built application can then access the .tflite model
+# using the C variables:
+# extern "C" const uint8_t sl_tflite_model_array[];
+# extern "C" const uint32_t sl_tflite_model_len;
+#
+# target - CMake build target
+# tflite_path - File path to .tflite or MLTK model name
+#
+macro(mltk_add_tflite_model target tflite_path)
+
+  mltk_load_python()
+
+  set(_generated_model_output_path "${MLTK_BINARY_DIR}/${target}_generated_model.tflite.c")
+  if(NOT EXISTS ${_generated_model_output_path})
+      file(WRITE ${_generated_model_output_path})
+  endif()
+  
+  add_custom_target(${target}_generate_model
+      COMMAND ${PYTHON_EXECUTABLE} ${MLTK_CPP_UTILS_DIR}/generate_model_header.py "${tflite_path}" --name "sl_tflite_model_array" --length_name "sl_tflite_model_len" --output "${_generated_model_output_path}"
+      COMMENT "Generating ${target}_generated_model.tflite.c from ${tflite_path}"
+      BYPRODUCTS ${_generated_model_output_path}
+  )
+  add_dependencies(${target} ${target}_generate_model)
+
+  target_sources(${target}
+  PRIVATE 
+      ${_generated_model_output_path}
+  )
+  unset(_generated_model_output_path)
+
+endmacro()
+
 
 
 

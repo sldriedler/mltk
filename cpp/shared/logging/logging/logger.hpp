@@ -10,7 +10,7 @@ namespace logging
 class Logger
 {
 public:
-    Logger(const char* tag, Level level = Level::Info, Flags flags = Flag::PrintLevel|Flag::PrintTag|Flag::Newline);
+    Logger(const char* tag, Level level = Level::Info, Flags flags = Flag::Newline);
 
 
     bool level(Level level);

@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 project(mltk
         VERSION 1.0.0
-        DESCRIPTION "Silicon Labs Machine Learning Toolkit Python Project")
+        DESCRIPTION "Silicon Labs Machine Learning Toolkit"
+        LANGUAGES C CXX ASM
+)
 export (PACKAGE mltk) 
 
 

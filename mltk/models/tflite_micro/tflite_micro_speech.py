@@ -123,8 +123,8 @@ Model Diagram
 .. raw:: html
 
     <div class="model-diagram">
-        <a href="../../../_images/models/tflite_micro_speech.tflite.png" target="_blank">
-            <img src="../../../_images/models/tflite_micro_speech.tflite.png" />
+        <a href="../../../../_images/models/tflite_micro_speech.tflite.png" target="_blank">
+            <img src="../../../../_images/models/tflite_micro_speech.tflite.png" />
             <p>Click to enlarge</p>
         </a>
     </div>
@@ -302,18 +302,15 @@ def my_model_builder(model: MyModel):
 
 my_model.build_model_function = my_model_builder
 
-
 #################################################
 # Audio Classifier Settings
 #
 # These are additional parameters to include in
 # the generated .tflite model file.
 # The settings are used by the "classify_audio" command
+# or audio_classifier example application.
 # NOTE: Corresponding command-line options will override these values.
-#
-# Also see:
-# <mltk root>/cpp/shared/apps/audio_classifier/main.cc
-#
+
 
 # Controls the smoothing. 
 # Drop all inference results that are older than <now> minus window_duration
@@ -324,16 +321,16 @@ my_model.model_parameters['average_window_duration_ms'] = 1000
 my_model.model_parameters['detection_threshold'] = 185
 
 # Amount of milliseconds to wait after a keyword is detected before detecting new keywords
-my_model.model_parameters['suppression_ms'] = 1500
+my_model.model_parameters['suppression_ms'] = 750
 
 # The minimum number of inference results to average when calculating the detection value
 my_model.model_parameters['minimum_count'] = 3
 
-# Set the volume (in dB) scaler (i.e. amplitude) to apply to the microphone data. If 0 or omitted, no scaler is applied
-my_model.model_parameters['volume_db'] = 5.0
+# Set the volume gain scaler (i.e. amplitude) to apply to the microphone data. If 0 or omitted, no scaler is applied
+my_model.model_parameters['volume_gain'] = 2
 
-# This simulates the amount of time in milliseconds an audio loop takes. This helps to provide a better idea of how well the given model will execute on an embedded device
-my_model.model_parameters['latency_ms'] = 0
+# This the amount of time in milliseconds an audio loop takes.
+my_model.model_parameters['latency_ms'] = 100
 
-# Console logging level, set to 'debug' to enable verbose logging
-my_model.model_parameters['log_level'] = 'info'
+# Enable verbose inference results
+my_model.model_parameters['verbose_model_output_logs'] = False

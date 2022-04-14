@@ -53,7 +53,8 @@ class ParallelDirectoryIterator(ParallelIterator):
         list_valid_filenames_in_directory_function=None,
         max_samples_per_class=-1,
         frontend_enabled=True,
-        disable_gpu_in_subprocesses=True
+        disable_gpu_in_subprocesses=True,
+        add_channel_dimension=True
     ):
 
         self.directory = directory
@@ -101,7 +102,8 @@ class ParallelDirectoryIterator(ParallelIterator):
             noaug_preprocessing_function=noaug_preprocessing_function,
             preprocessing_function=preprocessing_function,
             postprocessing_function=postprocessing_function,
-            frontend_enabled=frontend_enabled
+            frontend_enabled=frontend_enabled,
+            add_channel_dimension=add_channel_dimension
         )
 
 

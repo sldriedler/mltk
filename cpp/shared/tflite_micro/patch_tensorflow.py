@@ -13,6 +13,12 @@ def should_patch_file(path: str) -> object:
     if path.endswith('/micro/micro_interpreter.cc'):
         return dict(func=process_micro_interpreter_cc, state=0)
 
+    if path.endswith('/micro/fake_micro_context.cc'):
+        return dict(func=process_fake_micro_context_cc, state=0)
+
+    if path.endswith('/micro/micro_allocator.cc'):
+        return dict(func=process_micro_allocator_cc, state=0)
+
     if path.endswith('/micro/memory_planner/greedy_memory_planner.cc'):
         return dict(func=process_greedy_memory_planner_cc, state=0)
 
@@ -30,6 +36,9 @@ def should_patch_file(path: str) -> object:
     
     if path.endswith('/c/builtin_op_data.h'):
         return dict(func=process_builtin_op_data_h, state=0)
+
+    if path.endswith('/micro/kernels/transpose_conv.cc'):
+        return dict(func=process_transpose_conv_cc, state=0)
 
     return None 
 
@@ -98,6 +107,30 @@ def process_micro_interpreter_cc(lineno: int, line: str, arg: object) -> str:
         return '  // Patched by MLTK\n  TF_LITE_ENSURE_STATUS(graph_.PrepareSubgraphs());\n'
 
     return line
+
+
+def process_fake_micro_context_cc(lineno: int, line: str, arg: object) -> str:
+    if arg['state'] == 0 and  'IsAllTempTfLiteTensorDeallocated()' in line:
+        arg['state'] = 1
+    elif arg['state'] == 1:
+        arg['state'] = 2
+        if 'Patched by MLTK' not in line:
+            line = '  // Patched by MLTK\n'
+            line += '  return true; // !allocated_tensor_count_;\n'
+
+    return line
+
+
+def process_micro_allocator_cc(lineno: int, line: str, arg: object) -> str:
+    if arg['state'] == 0 and  'void MicroAllocator::DeallocateTempTfLiteTensor(' in line:
+        arg['state'] = 1
+    elif arg['state'] == 1:
+        arg['state'] = 2
+        if 'Patched by MLTK' not in line:
+            line =  '  // Patched by MLTK\n'
+            line += '  if(tensor == nullptr) return; // TFLITE_DCHECK(tensor != nullptr);\n'
+
+    return line 
 
 
 def process_greedy_memory_planner_cc(lineno: int, line: str, arg: object) -> str:
@@ -182,5 +215,17 @@ def process_builtin_op_data_h(lineno: int, line: str, arg: object) -> str:
             line += '#pragma pack(pop)\n'
             line += '#undef enum\n'
             line += '#endif\n\n'
+
+    return line
+
+def process_transpose_conv_cc(lineno: int, line: str, arg: object) -> str:
+    if arg['state'] == 0 and '// Patched by MLTK' in line:
+        arg['state'] = 1
+
+    elif arg['state'] == 0 and 'micro_context->DeallocateTempTfLiteTensor(bias);' in line:
+        line =  '    // Patched by MLTK\n'
+        line += '    if (bias) {\n'
+        line += '        micro_context->DeallocateTempTfLiteTensor(bias);\n'
+        line += '    }\n'
 
     return line

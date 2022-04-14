@@ -166,6 +166,7 @@ public:
     };
 
 
+    static bool load_from_tflite_flatbuffer(const void* flatbuffer, TfliteModelParameters& parameters);
     bool load(const schema::Dictionary *fb_dictionary);
     bool load(const void *flatbuffer);
     void unload();

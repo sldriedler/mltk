@@ -7,7 +7,7 @@ import shutil
 import tempfile
 import datetime
 from pathlib import Path
-from typing import List, Union, Iterator, Tuple
+from typing import Callable, List, Union, Iterator, Tuple
 
 from .system import get_username
 
@@ -30,16 +30,20 @@ def get_actual_path(path: str):
     """Return the file path as it actually appears on the FS (including upper/lower case)
     Return None if the path doesn't exist
     """
-    dirs = path.split('\\')
-    # disk letter
-    test_name = [dirs[0].upper()]
-    for d in dirs[1:]:
-        test_name += ["%s[%s]" % (d[:-1], d[-1])]
-    res = glob.glob('\\'.join(test_name))
-    if not res:
-        #File not found
+    try:
+        dirs = path.split('\\')
+        # disk letter
+        test_name = [dirs[0].upper()]
+        for d in dirs[1:]:
+            test_name += ["%s[%s]" % (d[:-1], d[-1])]
+        res = glob.glob('\\'.join(test_name))
+        if not res:
+            #File not found
+            return None
+        
+        return res[0]
+    except:
         return None
-    return res[0]
 
 
 def extension(path : str) -> str:
@@ -254,26 +258,46 @@ def file_is_in_use(file_path:str) -> bool:
 def recursive_listdir(
     base_dir:str, 
     followlinks=True, 
-    regex:Union[str,re.Pattern]=None,
+    regex:Union[str,re.Pattern,Callable[[str],bool]]=None,
     return_relative_paths:bool=False
 ) -> List[str]:
-    """Return list of all files recursively found in base_dir"""
+    """Return list of all files recursively found in base_dir
+    
+    Args:
+        base_dir: The base directory to recursively search
+        followlinks: IF true then follow symbolic links
+        regex: Optional regex of file paths to INCLUDE in the returned list
+            This can either be a string, re.Pattern, or a callback function
+            If return_relative_paths=False then the tested path is the absolute path with forward slashes
+            If return_relative_paths=True then the tested path is the path relative to the base_dir with forward slashes
+            If a callback function is given, if the function returns True then the path is INCLUDE, else it is excluded
+        return_relative_paths: If true then return paths relative to the base_dir, else return absolute paths
+
+    Returns:
+        List of file paths with forward slashes for directory delimiters
+    """
 
     base_dir = fullpath(base_dir)
     
     if regex is not None:
         if isinstance(regex, str):
             regex = re.compile(regex)
+            regex_func = lambda p: regex.match(p)
+        elif isinstance(regex, re.Pattern):
+            regex_func = lambda p: regex.match(p)
+        else:
+            regex_func = regex
+    else:
+        regex_func = lambda p: True 
 
     retval = []
     for root, _, files in os.walk(base_dir, followlinks=followlinks):
         for fn in files:
             p = os.path.join(root, fn).replace('\\', '/')
-            if regex and not regex.match(p):
-                continue
-
             if return_relative_paths:
                 p = os.path.relpath(p, base_dir).replace('\\', '/')
+            if not regex_func(p):
+                continue
             retval.append(p)
 
     return retval

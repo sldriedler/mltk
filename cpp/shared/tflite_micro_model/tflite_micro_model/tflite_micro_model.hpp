@@ -39,6 +39,9 @@ public:
      * 
      * @note The provided `flatbuffer` MUST persist for the life of this model object.
      * 
+     * @note If runtime_buffer is NULL then a buffer will be automatically allocated.
+     * If runtime_buffer_size = 0 then attempt to retrieve the arena size from the .tflite parameters metadata.
+     * 
      * @param flatbuffer Model flatbuffer (.tflite) binary data
      * @param op_resolver @ref tflite::MicroOpResolver with reigstered kernels
      * @param runtime_buffer Buffer to hold model working memory
@@ -48,8 +51,8 @@ public:
     bool load(
       const void* flatbuffer, 
       tflite::MicroOpResolver& op_resolver,
-      uint8_t *runtime_buffer,
-      unsigned runtime_buffer_size 
+      uint8_t *runtime_buffer = nullptr,
+      unsigned runtime_buffer_size = 0 
     );
 
     /**
@@ -136,10 +139,8 @@ public:
      * @param length Optional, pointer to hold length of metadata's binary data
      * @return Pointer to found metadata's buffer in flatbuffer, null if not found
      */
-    const void* find_metadata(const char* tag, unsigned* length = nullptr) const;
+    const void* find_metadata(const char* tag, uint32_t* length = nullptr) const;
 
-    static const void* find_metadata_in_flatbuffer(const void* flatbuffer, const char* tag, unsigned* length = nullptr);
-    static bool get_model_parameters_in_flatbuffer(const void* flatbuffer, TfliteModelParameters& parameters);
 
    /**
      * Enable profiling of the ML model
@@ -195,6 +196,24 @@ public:
     }
 
     /**
+     * Return a pointer to the TfliteMicroInterpreter
+     * used by the model
+     */
+    tflite::MicroInterpreter* interpreter()
+    {
+      return _interpreter;
+    }
+
+    /**
+     * Return a pointer to the tflite::MicroOpResolver
+     * used by the model
+     */
+    tflite::MicroOpResolver* ops_resolver()
+    {
+      return _ops_resolver;
+    }
+
+    /**
      * Set a callback to be called at the start of model
      * inference (i.e start of model.invoke()) 
      * and at the end of each model layer.
@@ -204,18 +223,22 @@ public:
 private:
   uint8_t _interpreter_buffer[sizeof(tflite::MicroInterpreter)];
   tflite::MicroInterpreter* _interpreter = nullptr;
+  tflite::MicroOpResolver* _ops_resolver = nullptr;
   TfliteMicroModelDetails _model_details;
   TfliteMicroErrorReporter _error_reporter;
   const void* _flatbuffer = nullptr;
   void (*_processing_callback)(void*) = nullptr;
   void* _processing_callback_arg = nullptr;
+  uint8_t* _runtime_buffer = nullptr;
 
   bool load_model_parameters();
 };
 
 
-
-
-
-
 } // namespace mltk
+
+
+extern "C" void mltk_sl_tflite_micro_init(mltk::TfliteMicroModel *model);
+extern "C" TfLiteStatus mltk_sl_tflite_micro_invoke();
+
+

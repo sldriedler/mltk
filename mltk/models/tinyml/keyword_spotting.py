@@ -128,8 +128,8 @@ Model Diagram
 .. raw:: html
 
     <div class="model-diagram">
-        <a href="../../../_images/models/keyword_spotting.tflite.png" target="_blank">
-            <img src="../../../_images/models/keyword_spotting.tflite.png" />
+        <a href="../../../../_images/models/keyword_spotting.tflite.png" target="_blank">
+            <img src="../../../../_images/models/keyword_spotting.tflite.png" />
             <p>Click to enlarge</p>
         </a>
     </div>

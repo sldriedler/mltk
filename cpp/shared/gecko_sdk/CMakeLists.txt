@@ -19,8 +19,8 @@ set(ENV{GIT_LFS_SKIP_SMUDGE} 1)
 CPMAddPackage(
   NAME gecko_sdk
   GITHUB_REPOSITORY SiliconLabs/gecko_sdk
-  GIT_TAG 991121c706578c9a2135b6f75cc88856e8c64bdc # Gecko SDK v4.0.0
-  CACHE_VERSION v4.0.0
+  GIT_TAG 2e82050dc8823c9fe0e8908c1b2666fb83056230 # Gecko SDK v4.0.2
+  CACHE_VERSION v4.0.2
   DOWNLOAD_ONLY ON
 )
 
@@ -54,7 +54,11 @@ if(MLTK_PLATFORM_IS_EMBEDDED)
   gecko_sdk_add(efr32mg12p platform/Device/SiliconLabs/EFR32MG12P)
 
   gecko_sdk_add(system_service platform/service/system)
+  gecko_sdk_add(power_manager_service platform/service/power_manager)
+  gecko_sdk_add(sleeptimer_service platform/service/sleeptimer)
   gecko_sdk_add(device_init_service platform/service/device_init)
+  gecko_sdk_add(hfxo_manager_service platform/service/hfxo_manager)
+  gecko_sdk_add(udelay_service platform/service/udelay)
   gecko_sdk_add(leddrv platform/driver/leddrv)
   gecko_sdk_add(button platform/driver/button)
   gecko_sdk_add(dmadrv platform/emdrv/dmadrv)
@@ -72,16 +76,15 @@ target_include_directories(mltk_gecko_sdk_includes
 INTERFACE
   ${gecko_sdk_SOURCE_DIR}/hardware/driver/mic/inc
   ${gecko_sdk_SOURCE_DIR}/hardware/driver/button/inc
+  ${gecko_sdk_SOURCE_DIR}/platform/driver/leddrv/inc
   ${gecko_sdk_SOURCE_DIR}/platform/common/inc 
   ${gecko_sdk_SOURCE_DIR}/platform/emdrv/dmadrv/inc
-  ${gecko_sdk_SOURCE_DIR}/platform/emdrv/leddrv/inc
+  ${gecko_sdk_SOURCE_DIR}/platform/emdrv/spidrv/inc
   ${gecko_sdk_SOURCE_DIR}/platform/emdrv/gpiointerrupt/inc
   ${gecko_sdk_SOURCE_DIR}/platform/emdrv/nvm3/inc
+  ${gecko_sdk_SOURCE_DIR}/platform/service/system/inc
+  ${gecko_sdk_SOURCE_DIR}/platform/service/sleeptimer/inc
+  ${gecko_sdk_SOURCE_DIR}/platform/service/udelay/inc
+  ${gecko_sdk_SOURCE_DIR}/util/third_party/tensorflow_extra/inc
 )
 
-if(NOT MLTK_PLATFORM_IS_EMBEDDED)
-  target_include_directories(mltk_gecko_sdk_includes
-  INTERFACE
-    non_embedded_includes
-  )
-endif()

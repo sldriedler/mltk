@@ -172,7 +172,7 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
             
-            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
+            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
             
             <li class="md-tabs__item"><a href="https://github.com/tensorflow/tflite-micro" class="md-tabs__link">Tensorflow-Lite Micro Repository</a></li>
             
@@ -252,7 +252,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../docs/guides/guides.html" class="md-nav__link">Modeling Guides</a>
+      <a href="../../../../../docs/guides/index.html" class="md-nav__link">Modeling Guides</a>
       
     
     </li>
@@ -278,7 +278,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../docs/python_api/python_api.html" class="md-nav__link">API Reference</a>
+      <a href="../../../../../docs/python_api/index.html" class="md-nav__link">API Reference</a>
       
     
     </li>
@@ -344,7 +344,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../docs/other/cpp_development_with_vscode.html" class="md-nav__link">C++ Development</a>
+      <a href="../../../../../docs/cpp_development/index.html" class="md-nav__link">C++ Development</a>
       
     
     </li>
@@ -388,6 +388,7 @@
   <h1 id="modules-mltk-core-model-mixins-audio-dataset-mixin--page-root">Source code for mltk.core.model.mixins.audio_dataset_mixin</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Callable</span>
 <span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">from</span> <span class="nn">mltk.utils.python</span> <span class="kn">import</span> <span class="n">forward_method_kwargs</span><span class="p">,</span> <span class="n">prepend_exception_msg</span>
 <span class="kn">from</span> <span class="nn">mltk.utils.process_pool_manager</span> <span class="kn">import</span> <span class="n">ProcessPoolManager</span>
@@ -402,7 +403,7 @@
     <span class="sd">"""Provides audio dataset properties to the base :py:class:`~MltkModel`</span>
 <span class="sd">    </span>
 <span class="sd">    .. seealso::</span>
-<span class="sd">       - `AudioFeatureGenerator documentation &lt;https://sldriedler.github.io/mltk/docs/audio_feature_generator.html&gt;`_ </span>
+<span class="sd">       - `AudioFeatureGenerator documentation &lt;https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html&gt;`_ </span>
 <span class="sd">       - `AudioFeatureGenerator API docs &lt;https://sldriedler.github.io/mltk/docs/python_api/data_preprocessing.html#audiofeaturegenerator&gt;`_</span>
 <span class="sd">       - `ParallelAudioDataGenerator API docs &lt;https://sldriedler.github.io/mltk/docs/python_api/data_preprocessing.html#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator&gt;`_</span>
 <span class="sd">    </span>
@@ -502,7 +503,11 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">datagen</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">datagen</span><span class="o">.</span><span class="n">frontend_enabled</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="o">.</span><span class="n">value_is_set</span><span class="p">(</span><span class="s1">'audio.manual_in_shape'</span><span class="p">):</span>
                 <span class="n">get_mltk_logger</span><span class="p">()</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">'When ParallelAudioDataGenerator.frontend_enabled=True, the model.input shape is automatically calculated, however, the input_shape has been manually set'</span><span class="p">)</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">datagen</span><span class="o">.</span><span class="n">frontend_settings</span><span class="o">.</span><span class="n">spectrogram_shape</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+            
+            <span class="n">spectrogram_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">datagen</span><span class="o">.</span><span class="n">frontend_settings</span><span class="o">.</span><span class="n">spectrogram_shape</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">datagen</span><span class="o">.</span><span class="n">add_channel_dimension</span><span class="p">:</span>
+                <span class="n">spectrogram_shape</span> <span class="o">=</span> <span class="n">spectrogram_shape</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
+            <span class="k">return</span> <span class="n">spectrogram_shape</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="p">[</span><span class="s1">'audio.manual_in_shape'</span><span class="p">]</span>
     <span class="nd">@audio_input_shape</span><span class="o">.</span><span class="n">setter</span>
@@ -686,7 +691,14 @@
                 <span class="o">**</span><span class="n">kwargs</span>
             <span class="p">)</span>
 
-        <span class="n">validation_labels</span> <span class="o">=</span> <span class="n">validation_datagen</span><span class="o">.</span><span class="n">classes</span>
+        <span class="c1"># Retrieve all the y samples into a list</span>
+        <span class="c1"># NOTE: The length of this will be a multiple of the batch_size rounded up</span>
+        <span class="n">validation_labels</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">batch_y</span> <span class="ow">in</span> <span class="n">validation_datagen</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_mode</span> <span class="o">==</span> <span class="s1">'categorical'</span><span class="p">:</span>
+                <span class="n">batch_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">batch_y</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">validation_labels</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">batch_y</span><span class="p">)</span>
+        <span class="n">validation_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">validation_labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">loaded_subset</span> <span class="o">==</span> <span class="s1">'training'</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">train_datagen</span>
@@ -814,10 +826,10 @@
               
           </div>
             Last updated on
-              Mar 16, 2022.
+              Apr 14, 2022.
             <br/>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -825,7 +837,7 @@
         <div class="survey-link" id="dlg-survey-link"> 
     <div>We need your feedback!</div>
     <div>
-        Please take this 3 question <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
+        Please take this short <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
     </div>
 </div>
       </div>

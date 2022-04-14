@@ -76,8 +76,6 @@ It's recommended to use `tf.int8`.
 If `tf.float32` then the converter will automatically add additional de-quantization/quantization layers 
 to the `.tflite` model to convert to/from int8.
 
-See [Model Input/Output Data Types](./model_io_dtypes.md) for more details.
-
 
 ### inference_output_type
 
@@ -87,8 +85,6 @@ Data type of the model output layer. Note that integer types (`tf.int8` and `tf.
 It's recommended to use `tf.int8`.  
 If `tf.float32` then the converter will automatically add additional de-quantization/quantization layers 
 to the `.tflite` model to convert to/from int8.
-
-See [Model Input/Output Data Types](./model_io_dtypes.md) for more details.
 
 
 ### representative_dataset

@@ -1,10 +1,10 @@
 long_description = """Silicon Labs Machine Learning Toolkit (MLTK)
 ==============================================
 
-__NOTE:__ This package is considered __EXPERIMENTAL__ for internal use only and is not authorized for use in production.
-Silicon Labs does not offer any warranties and disclaims all implied warranties concerning this software.
-This package is made available as a self-serve reference supported only by the on-line documentation.
-There are no support services for this software at this time.
+__NOTICE:__  
+This package is considered EXPERIMENTAL - SILICON LABS DOES NOT OFFER ANY WARRANTIES AND DISCLAIMS ALL IMPLIED WARRANTIES CONCERNING THIS SOFTWARE. 
+This package is made available as a self-serve reference supported only by the on-line documentation, and community support. 
+There are no Silicon Labs support services for this software at this time.
 
 
 This is a Python package with command-line utilities and scripts to aid the development 

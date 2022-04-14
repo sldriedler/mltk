@@ -4,24 +4,25 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/stat.h>
-
-#include "platform_api.h"
 #include "cli_opts.hpp"
 #include "mltk_tflite_micro_helper.hpp"
 
 
+CliOpts cli_opts;
 
-static uint32_t last_loop_time = 0;
-static bool simuated_latency_initialized = false;
-static int latency_overflow_count = 0;
+extern std::string dump_audio_dir;
+extern std::string dump_raw_spectrograms_dir;
+extern std::string dump_spectrograms_dir;
 
 
 #ifndef __arm__
-
 #include "cxxopts.hpp"
 
+extern int _host_argc;
+extern char** _host_argv;
+
 /*************************************************************************************************/
-void parse_cli_opts(int argc, char* argv[])
+void parse_cli_opts()
 {
     cxxopts::Options options("Audio Classifier", "Classify streaming audio from a microphone using the given ML model");
     options.add_options()
@@ -29,19 +30,20 @@ void parse_cli_opts(int argc, char* argv[])
         ("l,latency", "Number of ms to simulate per execution loo", cxxopts::value<uint32_t>())
         ("m,model", "Path to .tflite model file. Use built-in, default model if omitted", cxxopts::value<std::string>())
         ("w,window_duration", "Controls the smoothing. Longer durations (in milliseconds) will give a higher confidence that the results are correct, but may miss some commands", cxxopts::value<uint32_t>())
-        ("c,count", "The minimum number of inference results to average when calcuating the detection value", cxxopts::value<uint32_t>())
+        ("c,count", "The minimum number of inference results to average when calculating the detection value", cxxopts::value<uint32_t>())
         ("t,threshold", "Minumum model output threshold for a class to be considered detected, 0-255. Higher values increase precision at the cost of recall", cxxopts::value<uint32_t>())
         ("s,suppression", "Amount of milliseconds to wait after a keyword is detected before detecting new keywords", cxxopts::value<uint32_t>())
-        ("d,volume", "Increase/decrease microphone audio in dB. 0 = no change, <0 decresae, >0 increase", cxxopts::value<float>())
+        ("d,volume", "Increase/decrease microphone audio gain. 0 = no change, <0 decrease, >0 increase", cxxopts::value<int>())
         ("x,dump_audio", "Dump the raw audio samples to the given directory", cxxopts::value<std::string>())
-        ("z,dump_spectrograms", "Dump the generated spectorgrams to the given directory", cxxopts::value<std::string>())
+        ("r,dump_raw_spectrograms", "Dump the raw (i.e. unquantized) generated spectorgrams to the given directory", cxxopts::value<std::string>())
+        ("z,dump_spectrograms", "Dump the quantized generated spectorgrams to the given directory", cxxopts::value<std::string>())
         ("i,sensitivity", "Sensitivity of the activity indicator", cxxopts::value<float>())
         ("h,help", "Print usage")
     ;
 
     try 
     {
-        auto result = options.parse(argc, argv);
+        auto result = options.parse(_host_argc, _host_argv);
 
         if (result.count("help"))
         {
@@ -51,14 +53,14 @@ void parse_cli_opts(int argc, char* argv[])
 
         if(result.count("verbose"))
         {
-            cli_opts.log_level = logging::Debug;
-            cli_opts.log_level_provided = true;
+            cli_opts.verbose = true;
+            cli_opts.verbose_provided = true;
         }
 
         if(result.count("latency"))
         {
-            cli_opts.simulated_latency_ms = result["latency"].as<uint32_t>();
-            cli_opts.simulated_latency_ms_provided = true;
+            cli_opts.latency_ms = result["latency"].as<uint32_t>();
+            cli_opts.latency_ms_provided = true;
             
         }
 
@@ -114,8 +116,8 @@ void parse_cli_opts(int argc, char* argv[])
 
         if(result.count("volume"))
         {
-            cli_opts.volume_db = result["volume"].as<float>();
-            cli_opts.volume_db_provided = true;
+            cli_opts.volume_gain = result["volume"].as<int>();
+            cli_opts.volume_gain_provided = true;
         }
 
         if(result.count("sensitivity"))
@@ -127,13 +129,19 @@ void parse_cli_opts(int argc, char* argv[])
         if(result.count("dump_audio"))
         {
             cli_opts.dump_audio = true;
-            cli_opts.dump_audio_dir = result["dump_audio"].as<std::string>();
+            dump_audio_dir = result["dump_audio"].as<std::string>();
+        }
+
+        if(result.count("dump_raw_spectrograms"))
+        {
+            cli_opts.dump_raw_spectrograms = true;
+            dump_raw_spectrograms_dir = result["dump_raw_spectrograms"].as<std::string>();
         }
 
         if(result.count("dump_spectrograms"))
         {
             cli_opts.dump_spectrograms = true;
-            cli_opts.dump_spectrograms_dir = result["dump_spectrograms"].as<std::string>();
+            dump_spectrograms_dir = result["dump_spectrograms"].as<std::string>();
         }
 
     } 
@@ -155,51 +163,3 @@ CliOpts::~CliOpts()
 }
 
 #endif // __arm__
-
-
-/*************************************************************************************************/
-void simulate_loop_latency()
-{
-    if(cli_opts.simulated_latency_ms == 0)
-    {
-#ifndef __arm__
-        // We need to sleep for a little bit on Windows/Linux
-        // to avoid thread starvation
-        platform_sleep_ms(5);
-#endif
-        return;
-    }
-    
-    if(!simuated_latency_initialized)
-    {
-        simuated_latency_initialized = true;
-        MLTK_INFO("Simulated loop latency: %dms", cli_opts.simulated_latency_ms);
-        last_loop_time = platform_get_timestamp_ms();
-        return;
-    }
-
-    const uint32_t now = platform_get_timestamp_ms();
-    const uint32_t elapsed = now - last_loop_time;
-    
-    if(elapsed <= cli_opts.simulated_latency_ms)
-    {
-        latency_overflow_count = 0;
-        const int32_t remaining = (cli_opts.simulated_latency_ms - elapsed) - 7;
-        if(remaining > 0)
-        {
-            platform_sleep_ms(remaining);
-        }
-    }
-    else
-    {
-        latency_overflow_count++;
-        if(latency_overflow_count == 4)
-        {
-            MLTK_WARN("\n*** Simulated latency is %dms, but audio loop took %dms", cli_opts.simulated_latency_ms, elapsed);
-            MLTK_WARN("This likely means the model is taking too long to execute on your PC\n");
-        }
-    }
-
-    last_loop_time = platform_get_timestamp_ms();
-}
-

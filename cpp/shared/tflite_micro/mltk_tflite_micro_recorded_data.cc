@@ -1,7 +1,6 @@
 #if TFLITE_MICRO_RECORDER_ENABLED
 #include <cstring>
 #include <cassert>
-#include "cpputils/heap.hpp"
 
 #include "mltk_tflite_micro_recorded_data.hpp"
 
@@ -29,7 +28,7 @@ TfliteMicroRecordedTensor::TfliteMicroRecordedTensor(const TfLiteTensor* tensor)
     }
     else
     {
-        this->data = (uint8_t*)HEAP_MALLOC(tensor->bytes);
+        this->data = (uint8_t*)malloc(tensor->bytes);
         assert(this->data != nullptr);
         memcpy(this->data, tensor->data.raw, tensor->bytes);
         this->length = tensor->bytes;
@@ -41,7 +40,7 @@ void TfliteMicroRecordedTensor::clear()
 {
     if(this->data != nullptr)
     {
-        HEAP_FREE(this->data);
+        free(this->data);
         this->data = nullptr;
         this->length = 0;
     }

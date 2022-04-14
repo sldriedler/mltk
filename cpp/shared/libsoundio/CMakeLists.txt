@@ -21,6 +21,7 @@ CPMAddPackage(
 
 target_include_directories(${PROJECT_NAME}
 PUBLIC
+  .
   ${libsoundio_BINARY_DIR}
   ${libsoundio_SOURCE_DIR}
 )
@@ -102,6 +103,6 @@ PRIVATE
 target_sources(${PROJECT_NAME}
 PRIVATE 
   ${LIBSOUNDIO_SOURCES}
-  sl_mic.cc
+  mltk_sl_mic.cc
 )
 

@@ -4,7 +4,6 @@
 #include <cassert>
 #include "tensorflow/lite/c/common.h"
 #include "cpputils/typed_list.hpp"
-#include "cpputils/heap.hpp"
 
 
 #ifdef TFLITE_MICRO_ACCELERATOR_RECORDER_ENABLED
@@ -31,7 +30,7 @@ struct TfliteMicroAcceleratorRecordedBuffer
 
     TfliteMicroAcceleratorRecordedBuffer(const void* data, unsigned length)
     {
-        this->data = (uint8_t*)HEAP_MALLOC(length);
+        this->data = (uint8_t*)malloc(length);
         assert(this->data != nullptr);
         memcpy(this->data, data, length);
         this->length = length;
@@ -40,7 +39,7 @@ struct TfliteMicroAcceleratorRecordedBuffer
     {
         if(this->data != nullptr)
         {
-            HEAP_FREE(this->data);
+            free(this->data);
             this->data = nullptr;
             this->length = 0;
         }

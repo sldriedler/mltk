@@ -38,7 +38,7 @@ public:
     /**
      * Model version found in model TfliteModelParameters
      */
-    const unsigned version() const;
+    unsigned version() const;
 
     /**
      * Model description found in model TfliteModelParameters

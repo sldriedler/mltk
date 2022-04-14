@@ -57,7 +57,7 @@ const char* TfliteMicroModelDetails::date() const
 }
 
 /*************************************************************************************************/
-const unsigned TfliteMicroModelDetails::version() const
+unsigned TfliteMicroModelDetails::version() const
 {
     return _version;
 }

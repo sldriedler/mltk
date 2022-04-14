@@ -162,7 +162,7 @@
 
     "# Download the .tflite file and save to the temp dir\n",
 
-    "tflite_path = os.path.normpath(f'{tempfile.gettempdir()}/kws_ref_model.tflite')\n",
+    "tflite_path = os.path.normpath(f'{tempfile.gettempdir()}/image_example1.tflite')\n",
 
     "with open(tflite_path, 'wb') as dst:\n",
 
@@ -636,7 +636,7 @@
 
     "\n",
 
-    "In this example, the [image_example1](../../docs/python_api/models/example_models.html#image_example1) model is built\n",
+    "In this example, the [image_example1](../../docs/python_api/models/examples/image_example1.md) model is built\n",
 
     "at command-execution-time and profiled in the MVP hardware simulator.  \n",
 

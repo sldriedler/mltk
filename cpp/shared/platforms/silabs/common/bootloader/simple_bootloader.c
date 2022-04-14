@@ -1,8 +1,11 @@
 #include <stdint.h>
 
 #include "em_device.h"
-#include "platform_api_config.h"
 
+
+#define PLATFORM_FLASH_START_ADDRESS                (FLASH_BASE)
+#define PLATFORM_FLASH_END_ADDRESS                  (PLATFORM_FLASH_START_ADDRESS + FLASH_SIZE)
+#define PLATFORM_IS_FLASH_ADDRESS(addr)             ((((uint32_t)addr) >= PLATFORM_FLASH_START_ADDRESS) && (((uint32_t)addr) < PLATFORM_FLASH_END_ADDRESS))
 
 
 
@@ -36,6 +39,6 @@ void __NO_RETURN __attribute__((used, section(".bootloader"))) bootloader_entry(
     // Otherwise spin forever
     for(;;)
     {
-        __WFI();
+        __asm__("wfe");
     }
 }

@@ -43,6 +43,14 @@ def main():
         add_completion=False
     )
 
+    cli.build_cli = typer.Typer(
+        context_settings=dict(
+            max_content_width=100
+        ),
+        add_completion=False
+    )
+    cli.root_cli.add_typer(cli.build_cli, name='build', short_help='MLTK build commands')
+
 
     @cli.root_cli.callback()
     def _main(
@@ -207,7 +215,7 @@ def _check_disable_tensorflow():
 
     else:
         cmd = None if len(sys.argv) < 2 else sys.argv[1]
-        if cmd in ('commander', 'build_docs', 'profile_energy'):
+        if cmd in ('commander', 'build'):
             disable_tf = True 
         elif cmd in ('profile', 'summarize', 'update_params', 'view', 'classify_audio'):
             for a in sys.argv[2:]:

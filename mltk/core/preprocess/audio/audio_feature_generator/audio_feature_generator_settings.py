@@ -6,7 +6,7 @@ from typing import Tuple
 class AudioFeatureGeneratorSettings(dict):
     """AudioFeatureGenerator Settings
 
-    See the `Audio Feature Generator <https://siliconlabs.github.io/mltk/docs/audio_feature_generator.html>`_ guide for more details.
+    See the `Audio Feature Generator <https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html>`_ guide for more details.
     """
 
     def __init__(self, *args, **kwargs):
@@ -35,9 +35,9 @@ class AudioFeatureGeneratorSettings(dict):
     @property
     def spectrogram_shape(self) -> Tuple[int, int]:
         """Return the generated spectrogram shape as (height, width) i.e. (n_features, filterbank_n_channels)"""
-        window_size_length = int((self.window_size_ms / 1000) * self.sample_rate_hz)
-        window_step_length = int((self.window_step_ms / 1000) * self.sample_rate_hz)
-        sample_length      = int((self.sample_length_ms / 1000) * self.sample_rate_hz)
+        window_size_length = int(self.window_size_ms * self.sample_rate_hz / 1000)
+        window_step_length = int(self.window_step_ms * self.sample_rate_hz / 1000)
+        sample_length      = int(self.sample_length_ms * self.sample_rate_hz / 1000)
         height = (sample_length - window_size_length) // window_step_length + 1
         width = self.filterbank_n_channels
         return (height, width)

@@ -187,8 +187,8 @@ Model Diagram
 .. raw:: html
 
     <div class="model-diagram">
-        <a href="../../../_images/models/visual_wake_words.tflite.png" target="_blank">
-            <img src="../../../_images/models/visual_wake_words.tflite.png" />
+        <a href="../../../../_images/models/visual_wake_words.tflite.png" target="_blank">
+            <img src="../../../../_images/models/visual_wake_words.tflite.png" />
             <p>Click to enlarge</p>
         </a>
     </div>

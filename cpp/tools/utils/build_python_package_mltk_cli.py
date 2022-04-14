@@ -16,12 +16,8 @@ from mltk.utils.path import (create_tempdir, remove_directory, recursive_listdir
 from mltk.utils.python import install_pip_package
 from mltk.utils.system import is_linux
 
-pypi_token = get_user_setting('pypi_token')
-test_pypi_token = get_user_setting('test_pypi_token')
-hide_command = pypi_token is None and test_pypi_token is None
 
-
-@cli.root_cli.command('build_python_package', hidden=hide_command)
+@cli.build_cli.command('python_package')
 def build_python_package_command(
     python_exe: str = typer.Option(None, '--python', '-p', 
         help='Path to Python executable or Python command found on PATH. If omitted, use current Python'

@@ -1,12 +1,13 @@
 """Utility to program an application binary to an Silab's MCU's flash memory"""
+import logging
 import sys
 import os
 import argparse
 import re
 from collections import defaultdict
-from typing import Union, List, Callable
+from dataclasses import dataclass
+from typing import Tuple, Union, List, Callable
 
-from mltk.cli import  is_command_active
 from mltk.utils.shell_cmd import run_shell_cmd
 from mltk.utils.path import (create_tempdir, get_user_setting)
 from mltk.utils.python import DefaultDict
@@ -23,11 +24,49 @@ from .download import download_commander
 
 
 DEVICE_MAPPING = {
-    'brd4166a': ['EFR32MG12P332F1024GL125'],
-    'brd4186b': ['EFR32MG24AxxxF1536', 'EFR32MG24B210F1536IM48'],
-    'brd2601a': ['EFR32MG24BxxxF1536', 'EFR32MG24B110F1536GM48', 'EFR32MG24B310F1536IM48'],
-    'stk3701a': ['EFM32GG11B820F2048GL192']
+    'brd4166': ['EFR32MG12P332F1024GL125'],
+    'brd4186': ['EFR32MG24AxxxF1536', 'EFR32MG24B210F1536IM48'],
+    'brd2601': ['EFR32MG24BxxxF1536', 'EFR32MG24B110F1536GM48', 'EFR32MG24B310F1536IM48'],
+    'brd2204': ['EFM32GG11B820F2048GL192']
 }
+
+
+@dataclass
+class DeviceInfo:
+    part_number:str
+    die_revision:str
+    production_ver:str 
+    flash_size:int 
+    sram_size:int 
+    unique_id:str
+
+    @property
+    def part_number_tokens(self) -> Tuple[str]:
+        """Tokenize part number
+        
+        e.g. EFR32MG24B110F1536GM48
+        token 0: EFR32
+        token 1: MG
+        token 2: 24
+        token 3: B
+        token 4: 110
+        token 5: 1536
+        token 6: GM48
+        """
+        match = re.match(r'.*(EFM32|EFR32)([A-Z]{2})(\d{2})([A-Z])([0-9]{3})F(\d+)([A-Z0-9]+).*', self.part_number, flags=re.IGNORECASE)
+        if not match:
+            raise RuntimeError(f'Invalid part number, {self.part_number}')
+        return match.group(1, 2, 3, 4, 5, 6, 7)
+
+    @property
+    def flash_base_address(self) -> int:
+        toks = self.part_number_tokens
+        if int(toks[2]) >= 23: # Parts numbers >= 23 have a flash base address at 0x08000000
+            return 0x08000000
+        # Lower parts have have flash base address at 0x0
+        else:
+            return 0x00000000
+
 
 
 def issue_command(
@@ -35,7 +74,8 @@ def issue_command(
     platform:str=None, 
     outfile=None,
     line_processor: Callable[[str],str]=None,
-    device:str=None
+    device:str=None,
+    logger:logging.Logger=None
     ) -> str:
     """Issue a Commander command
     
@@ -59,6 +99,10 @@ def issue_command(
     
     cmd = _update_commander_args(*args, platform=platform, device=device)
     cmd_str = ' '.join(cmd)
+
+    if logger is not None:
+        logger.debug(cmd_str)
+
     retcode, retmsg = run_shell_cmd(
         cmd, 
         outfile=outfile,
@@ -80,6 +124,10 @@ def issue_command(
         else:
             raise RuntimeError(f'{cmd_str}\nretcode={retcode}\n{retmsg}')
 
+    if logger is not None:
+        s = ''.join([f'{x.strip()}\n' for x in retmsg.splitlines(keepends=True) if len(x.strip()) > 0])
+        logger.debug(s)
+
     return retmsg
 
 
@@ -91,6 +139,8 @@ def program_flash(
     halt = False, 
     reset = False,
     device:str = None,
+    verify = True,
+    logger:logging.Logger=None
 ):
     """Program flash memory of embedded device
     
@@ -102,14 +152,13 @@ def program_flash(
         show_progress: Show progress while programming
         reset: Invoke software reset after programming
         device: --device argument, this overrides the platform option
+        verify: Verify the flash after programming
 
     """
-    cmd = ['flash', '--noverify', '--force']
-    if halt:
-        cmd.append('--halt')
-    if address is not None:
-        cmd.extend(['--address', f'{address:08X}'])
 
+    cmd = ['flash', '--force']
+    if not verify:
+        cmd.append('--noverify')
     tmp_path = None
     if isinstance(path, (bytes,bytearray)):
         cmd.append('--binary')
@@ -118,24 +167,51 @@ def program_flash(
             f.write(path)
         path = tmp_path
 
+    elif path.endswith('.bin'):
+        cmd.append('--binary')
+
+    if '--binary' in path and address is None:
+        device_info = retrieve_device_info()
+        address = device_info.flash_base_address
+
+    if halt:
+        cmd.append('--halt')
+    if address is not None:
+        cmd.extend(['--address', f'{address:08X}'])
+
     cmd.append(path)
 
     try:
         if show_progress:
             with _ProgressBar(unit = 'B', unit_scale = True, unit_divisor = 1024, miniters = 1, desc = 'Initializing') as pb:
-                issue_command(*cmd, line_processor=pb.line_processor, platform=platform, device=device)
+                issue_command(
+                    *cmd, 
+                    line_processor=pb.line_processor, 
+                    platform=platform, 
+                    device=device, 
+                    logger=logger
+                )
         else:
-            issue_command(*cmd, platform=platform, device=device)
+            issue_command(
+                *cmd, 
+                platform=platform, 
+                device=device, 
+                logger=logger
+            )
         
     finally:
         if tmp_path:
             os.remove(tmp_path)
 
     if reset:
-        reset_device(platform, device=device)
+        reset_device(platform, device=device, logger=logger)
 
 
-def reset_device(platform: str=None, device:str=None):
+def reset_device(
+    platform: str=None, 
+    device:str=None,
+    logger:logging.Logger=None
+):
     """Invoke software reset on device
     
     Args:
@@ -143,45 +219,86 @@ def reset_device(platform: str=None, device:str=None):
     """
     if platform is None and device is None:
         platform = query_platform()
-    issue_command('device', 'reset', platform=platform, device=device)
+    issue_command(
+        'device', 'reset', 
+        platform=platform, 
+        device=device, 
+        logger=logger
+    )
 
 
-def query_platform() -> str:
+def masserse_device(platform: str=None, device:str=None):
+    """Mass erase the device's flash
+    
+    Args:
+        platform: Name of embeddded platform
+    """
+    if platform is None and device is None:
+        platform = query_platform()
+    issue_command('device', 'masserase', platform=platform, device=device)
+
+
+def retrieve_device_info() -> DeviceInfo:
+    """Return queried information about the device"""
+    try:
+        res = issue_command('device', 'info', '-d', 'efr32')
+    except RuntimeError:
+        res = issue_command('device', 'info', '-d', 'efm32')
+
+    lines = res.splitlines()
+    part_number = re.match(r'Part Number\s+:\s(\w+)', lines[0])
+    if not part_number: # This first line could contain something else
+        lines = lines[1:]  # So shift and try again
+        part_number = re.match(r'Part Number\s+:\s(\w+)', lines[0])
+    die_revision = re.match(r'Die Revision\s+:\s(\w+)', lines[1])
+    production_ver = re.match(r'Production Ver\s+:\s(\d+)', lines[2])
+    flash_size = re.match(r'Flash Size\s+:\s(\d+)\skB', lines[3])
+    sram_size = re.match(r'SRAM Size\s+:\s(\d+)\skB', lines[4])
+    unique_id = re.match(r'Unique ID\s+:\s(\w+)', lines[5])
+
+    if not (part_number and die_revision and production_ver and flash_size and sram_size and unique_id):
+        raise RuntimeError(f'Failed to parse commander response:\n{res}')
+
+    info = DeviceInfo(
+        part_number = part_number.group(1),
+        die_revision = die_revision.group(1),
+        production_ver = int(production_ver.group(1)),
+        flash_size = int(flash_size.group(1))*1024,
+        sram_size = int(sram_size.group(1))*1024,
+        unique_id = unique_id.group(1)
+    )
+
+    return info
+
+
+def query_platform(device_info:DeviceInfo = None) -> str:
     """Return the platform name of the currently connected device
     
     Raises:
         RuntimeError: If connected device is not supported
     """
-    try:
-        res = issue_command('device', 'info', '-d', 'efr32')
-    except RuntimeError:
-        res = issue_command('device', 'info', '-d', 'efm32')
+    device_info = device_info or retrieve_device_info()
     
-
-     # EFR32MG24B110F1536GM48
-    # group 1: EFR32
-    # group 2: MG
-    # group 3: 24
-    # group 4: B
-    # group 5: 110
-    # group 6: 1536
-    # group 7: GM48
-    line = res.splitlines()[0].upper()
-    toks = re.match(r'.*(EFM32|EFR32)([A-Z]{2})(\d{2})([A-Z])([0-9]{3})F(\d+)([A-Z0-9]+).*', line, flags=re.IGNORECASE)
-    if not toks:
-        raise RuntimeError(f'Commander returned unexpected response, {res}')
-
+    # EFR32MG24B110F1536GM48
+    # group 0: EFR32
+    # group 1: MG
+    # group 2: 24
+    # group 3: B
+    # group 4: 110
+    # group 5: 1536
+    # group 6: GM48
+    toks = device_info.part_number_tokens
    
     for platform, device_codes in DEVICE_MAPPING.items():
         for device_code in device_codes:
             # For right now, just match on: EFM32xx11A / EFR32xx24B
             # This will have to get more complicated as more platforms are added
-            if device_code[:5] == toks.group(1):
-                if device_code[7:9] == toks.group(3) and device_code[9] == toks.group(4) and device_code[10:13] == toks.group(5):
+            if device_code[:5] == toks[0]:
+                if device_code[7:9] == toks[2] and device_code[9] == toks[3] and device_code[10:13] == toks[4]:
                     return platform 
 
     supported_devices = ', '.join(map(lambda x: f'{x[0]} ({x[1]})', DEVICE_MAPPING.items()))
-    raise RuntimeError(f'Device not supported: {line}, supported devices are: {supported_devices}')
+    raise RuntimeError(f'Device not supported: {device_info.part_number}, supported devices are: {supported_devices}')
 
 
 def get_device_from_platform(platform: str) -> str:
@@ -318,20 +435,34 @@ def main():
     parser.add_argument('--halt', action='store_true', default=False, help='Halt MCU after program, otherwise reset')
     parser.add_argument('--reset', action='store_true', default=False, help='Reset the device')
     parser.add_argument('--device', default=None, help='--device argument to pass to Commander')
-
+    parser.add_argument('--masserase', action='store_true', default=False, help='Mass erase the device flash')
     
     args = parser.parse_args()
 
+    if args.masserase:
+        try:
+            masserse_device(
+                platform=args.platform,
+                device=args.device
+            )
+        except:
+            # Just ignore this error if it fails
+            pass
+    
     if args.path:
         program_flash(
             path=args.path, 
             platform=args.platform, 
             halt=args.halt,
-            show_progress=is_command_active(),
+            show_progress=True,
             device=args.device
         )
+    
     if args.reset:
-        reset_device(platform=args.platform, device=args.device)
+        reset_device(
+            platform=args.platform, 
+            device=args.device
+        )
 
 
 if __name__ == '__main__':

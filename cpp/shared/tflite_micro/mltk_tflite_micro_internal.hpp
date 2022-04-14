@@ -4,8 +4,6 @@
 #include "tensorflow/lite/micro/micro_allocator.h"
 
 
-
-#include "cpputils/heap.hpp"
 #include "profiling/profiler.hpp"
 #include "logging/logger.hpp"
 

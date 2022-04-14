@@ -17,9 +17,12 @@ target_sources(${PROJECT_NAME}
 PRIVATE 
   jlink_stream/jlink_stream.cc
   jlink_stream/jlink_stream_command.cc
+  jlink_stream/jlink_stream_internal.cc
 )
 
 target_include_directories(${PROJECT_NAME} 
+PRIVATE 
+  .
 PUBLIC 
   ${CMAKE_CURRENT_LIST_DIR}
 )

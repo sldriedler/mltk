@@ -92,12 +92,20 @@ class ParallelAudioDataGenerator(object):
             The function will run before any augmentation is done on the audio sample.
             The 'x' argument is of the shape [sample_length] and is a float32 scaled between (-1,1).
             See https://librosa.org/doc/main/generated/librosa.load.html
-            The function should take two arguments:
+            The function should take at least two arguments:
 
             .. highlight:: python
             .. code-block:: python
 
-               def my_processing_func(params: ParallelProcessParams, x : np.ndarray) -> np.ndarray:
+               def my_processing_func(
+                   params: ParallelProcessParams, 
+                   x : np.ndarray,
+                   class_id: Optional[int],
+                   filename: Optional[str],
+                   batch_index: Optional[int],
+                   batch_class_ids: Optional[List[int]],
+                   batch_filenames: Optional[List[str]]
+                ) -> np.ndarray:
                    ...
                    return processed_x
 
@@ -105,24 +113,40 @@ class ParallelAudioDataGenerator(object):
             The function will run after the audio is augmented but before it does through the AudioFeatureGenerator (if enabled).
             The 'x' argument is of the shape [sample_length] and is a float32 scaled between [-1,1].
             See `librosa.load() <https://librosa.org/doc/main/generated/librosa.load.html>`_
-            The function should take two arguments, and return the processed sample:.
+            The function should take at least two arguments, and return the processed sample:.
 
             .. highlight:: python
             .. code-block:: python
 
-               def my_processing_func(params: ParallelProcessParams, x : np.ndarray) -> np.ndarray:
+               def my_processing_func(
+                   params: ParallelProcessParams, 
+                   x : np.ndarray,
+                   class_id: Optional[int],
+                   filename: Optional[str],
+                   batch_index: Optional[int],
+                   batch_class_ids: Optional[List[int]],
+                   batch_filenames: Optional[List[str]]
+                ) -> np.ndarray:
                    ...
                    return processed_x
 
         postprocessing_function: function that will be applied on each input.
             The function will run after the audio is passed through the AudioFeatureGenerator (if enabled).
             So the 'x' argument is a spectrogram of the shape: [height, width, 1].
-            The function should take two arguments and return the processed sample [height, width, 1]:
+            The function should take at least two arguments and return the processed sample [height, width, 1]:
 
             .. highlight:: python
             .. code-block:: python
 
-               def my_processing_func(params: ParallelProcessParams, x : np.ndarray) -> np.ndarray:
+               def my_processing_func(
+                   params: ParallelProcessParams, 
+                   x : np.ndarray,
+                   class_id: Optional[int],
+                   filename: Optional[str],
+                   batch_index: Optional[int],
+                   batch_class_ids: Optional[List[int]],
+                   batch_filenames: Optional[List[str]]
+                ) -> np.ndarray:
                    ...
                    return processed_x
                  
@@ -207,6 +231,10 @@ class ParallelAudioDataGenerator(object):
         sample_shape: The shape of the generated sample. This is only used/required if ``frontend_enabled=False``
 
         disable_gpu_in_subprocesses: Disable GPU usage in spawned subprocesses, default: true
+
+        add_channel_dimension: If true and ``frontend_enabled=True``, then automatically convert 
+            generated sample shape from [height, width] to [height, width, 1]. 
+            If false, then generated sample shape is [height, width].
     
     '''
     def __init__(
@@ -242,7 +270,8 @@ class ParallelAudioDataGenerator(object):
         frontend_settings: AudioFeatureGeneratorSettings = None,
         frontend_enabled = True,
         sample_shape=None,
-        disable_gpu_in_subprocesses=True
+        disable_gpu_in_subprocesses=True,
+        add_channel_dimension=True
     ):
 
         self.cores = cores
@@ -280,6 +309,7 @@ class ParallelAudioDataGenerator(object):
             raise RuntimeError('Must provide "sample_shape" parameter if frontend_enabled=False')
         self.sample_shape = sample_shape if not frontend_enabled else frontend_settings.spectrogram_shape
         self.disable_gpu_in_subprocesses = disable_gpu_in_subprocesses
+        self.add_channel_dimension = add_channel_dimension
 
         
         self.NOISE_COLORS =  ('white', 'brown', 'blue', 'pink', 'violet')
@@ -455,7 +485,8 @@ class ParallelAudioDataGenerator(object):
             list_valid_filenames_in_directory_function=list_valid_filenames_in_directory_function,
             max_samples_per_class=max_samples_per_class,
             frontend_enabled=self.frontend_enabled,
-            disable_gpu_in_subprocesses=self.disable_gpu_in_subprocesses
+            disable_gpu_in_subprocesses=self.disable_gpu_in_subprocesses,
+            add_channel_dimension=self.add_channel_dimension
         )
     
     

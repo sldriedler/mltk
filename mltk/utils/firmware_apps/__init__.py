@@ -2,8 +2,9 @@ import logging
 import os 
 import yaml 
 import bincopy
+import struct
 
-from mltk.core import TfliteModel
+from mltk.core.tflite_model import TfliteModel
 from mltk.cli import  is_command_active
 from mltk.utils import commander
 from mltk.utils.system import iso_time_str
@@ -82,7 +83,10 @@ def get_image(
         raise Exception(f'Failed to load: {download_urls_file}, err: {e}') 
 
     if not download_urls or key not in download_urls:
-        raise RuntimeError(f'Firmware image: {key} not found in {download_urls_file}')
+        if accelerator:
+            raise RuntimeError(f'The hardware platform: {platform} does not support the accelerator: {accelerator}')
+
+        raise RuntimeError(f'The hardware platform: {platform} does not support the application: {name}')
 
     image_info = download_urls[key]
     download_dir = download_verify_extract(
@@ -108,12 +112,7 @@ def program_image_with_model(
     firmware_image_path:str = None
 ):
     """Program a FW image + .tflite model to an embedded device"""
-    if not platform:
-        platform = commander.query_platform()
-    
-    tflite_name = tflite_model.filename or f'{name}.tflite'
-    tmp_tflite_path = create_tempdir('tmp_models') + f'/{os.path.splitext(tflite_name)[0]}.tflite'
-    tflite_model.save(tmp_tflite_path)
+    platform = platform or commander.query_platform()
 
     if firmware_image_path is None:
         firmware_image_path = get_image(
@@ -123,44 +122,76 @@ def program_image_with_model(
             logger=logger
         )
 
-    s37 = bincopy.BinFile()
-    try:
-        s37.add_srec_file(firmware_image_path)
-    except Exception as e:
-        raise Exception(f'Failed to process firmwage image, is it a valid .s37 file? Error details: {e}')
+    firmwage_image_length = -1
+    if firmware_image_path:
+        if firmware_image_path.lower() != 'none':
+            firmwage_image_length = _get_firmware_image_size(firmware_image_path)
+            show_progress = is_command_active()
+            if show_progress and hasattr(logger, 'verbose'):
+                show_progress = logger.verbose
 
-    mlmodel_section_address = None
-    for segment in s37.segments:
-        # Find the non-bootloader segment
-        if segment.minimum_address < 0x0FE10000:
-            # The ML model section's address is at the end of the FW image, 32-bit aligned
-            mlmodel_section_address = ((segment.maximum_address + 3) // 4) * 4
+            # Program the generated .s37
+            # and halt the CPU after programming
+            logger.info(f'Programming FW image: {name} to device ...')
+            commander.program_flash(
+                firmware_image_path, 
+                platform=platform,
+                show_progress=show_progress,
+                halt=halt,
+            )
+        else:
+            logger.info('Not programming firmware image to device')
+    
 
-    if not mlmodel_section_address:
-        raise Exception('Failed to find valid segment in firmware .s37')
+    program_model(
+        tflite_model=tflite_model,
+        logger=logger,
+        halt=halt,
+        firmwage_image_length=firmwage_image_length
+    )
 
-    s37.add_binary_file(tmp_tflite_path, mlmodel_section_address)
 
-    # Generate an .s37 with the .tflite appended to the FW image
-    tmp_s37_path = create_tempdir('tmp_firmware') + f'/{os.path.basename(firmware_image_path)}'
-    with open(tmp_s37_path, 'w') as fp:
-        fp.write(s37.as_srec())
+def program_model(
+    tflite_model:TfliteModel,
+    logger: logging.Logger,
+    halt:bool = False,
+    firmwage_image_length:int=-1
+):
+    """Program the .tflite model to the end of the device's flash"""
+
+    device_info = commander.retrieve_device_info()
+    platform = commander.query_platform(device_info=device_info)
+
+    tmp_tflite_path = create_tempdir('temp') + '/model.bin'
+    
+    bin_data = bytearray(tflite_model.flatbuffer_data)
+    tflite_length = len(bin_data)
+    bin_data.extend(struct.pack('<L', tflite_length))
+
+    with open(tmp_tflite_path, 'wb') as f:
+        f.write(bin_data)
+
+    flash_size = device_info.flash_size
+
+    if firmwage_image_length + len(bin_data) > flash_size:
+        raise RuntimeError(f'Flash overflow, the .tflite model size ({len(bin_data)}) + app size ({firmwage_image_length}) exceeds the flash size ({flash_size})')
+
 
     show_progress = is_command_active()
     if show_progress and hasattr(logger, 'verbose'):
         show_progress = logger.verbose
 
-    # Program the generated .s37
-    # and halt the CPU after programming
-    logger.info(f'Programming FW image: {name} and ML model: {tflite_name} to device ...')
+    flash_end_address = device_info.flash_base_address + flash_size
+    flash_program_address = flash_end_address - len(bin_data)
+    logger.info(f'Programming .tflite to flash address: 0x{flash_program_address:08X}')
     commander.program_flash(
-        tmp_s37_path, 
+        tmp_tflite_path, 
+        address=flash_program_address,
         platform=platform,
         show_progress=show_progress,
         halt=halt,
+        logger=logger
     )
-
-    os.remove(tmp_s37_path)
     os.remove(tmp_tflite_path)
 
 
@@ -180,3 +211,20 @@ def get_image_extension(platform:str) -> str:
         return ''
     else:
         return '.s37'
+
+
+def _get_firmware_image_size(path:str) -> int:
+    """Return the size of the firmware image in bytes"""
+    if path.endswith('.s37'):
+        s37 = bincopy.BinFile()
+        try:
+            s37.add_srec_file(path)
+        except Exception as e:
+            raise Exception(f'Failed to process firmwage image, is it a valid .s37 file? Error details: {e}')
+
+        return len(s37) * s37.word_size_bytes
+
+    elif path.endswith('.bin'):
+        return os.path.getsize(path)
+
+    raise RuntimeError('Unsupported file type')

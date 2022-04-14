@@ -125,8 +125,7 @@ def evaluate_model(
             show=show
         )
 
-
-    raise RuntimeError('MltkModel instance must inherit EvaluateClassifierMixin or EvaluateAutoEncoderMixin')
+    raise RuntimeError('MltkModel instance must inherit EvaluateMixin, EvaluateClassifierMixin or EvaluateAutoEncoderMixin')
 
 
 

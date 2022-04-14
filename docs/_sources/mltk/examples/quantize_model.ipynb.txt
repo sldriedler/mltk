@@ -126,7 +126,7 @@
 
     "In this example, it's assumed that the [TrainMixin.tflite_converter](../../docs/python_api/core/mltk_model.html#mltk.core.TrainMixin.tflite_converter) settings in\n",
 
-    "the [image_example1](../../docs/python_api/models/example_models.html#image_example1) model specification script have been modified _after_ the model have been\n",
+    "the [image_example1](../../docs/python_api/models/examples/image_example1.md) model specification script have been modified _after_ the model have been\n",
 
     "trained.\n",
 

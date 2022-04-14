@@ -16,7 +16,7 @@ from ..model_utils import KerasModel
 class TrainMixin(BaseMixin):
     """Provides training properties and methods to the base :py:class:`~MltkModel`
     
-    Refer to te `Model Training <https://siliconlabs.github.io/mltk/docs/model_training.html>`_ guide for more details.
+    Refer to te `Model Training <https://siliconlabs.github.io/mltk/docs/guides/model_training.html>`_ guide for more details.
     """
 
     @property

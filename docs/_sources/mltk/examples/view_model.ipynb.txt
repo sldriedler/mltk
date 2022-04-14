@@ -116,7 +116,7 @@
 
     "In this example, we view the trained `.h5` model file in the \n",
 
-    "[image_example1](../../docs/python_api/models/example_models.html#image_example1) model's [model archive](../../docs/guides/model_archive.md).\n",
+    "[image_example1](../../docs/python_api/models/examples/image_example1.md) model's [model archive](../../docs/guides/model_archive.md).\n",
 
     "\n",
 
@@ -176,7 +176,7 @@
 
     "In this example, we view the trained `.tflite` model file in the \n",
 
-    "[image_example1](../../docs/python_api/models/example_models.html#image_example1) model's [model archive](../../docs/guides/model_archive.md).\n",
+    "[image_example1](../../docs/python_api/models/examples/image_example1.md) model's [model archive](../../docs/guides/model_archive.md).\n",
 
     "\n",
 
@@ -350,7 +350,7 @@
 
     "\n",
 
-    "In this example, the [image_example1](../../docs/python_api/models/example_models.html#image_example1) model is built\n",
+    "In this example, the [image_example1](../../docs/python_api/models/examples/image_example1.md) model is built\n",
 
     "at api-execution-time and this file is opened in the viewer.  \n",
 

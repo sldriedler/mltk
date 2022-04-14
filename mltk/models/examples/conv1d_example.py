@@ -135,8 +135,8 @@ Model Diagram
 .. raw:: html
 
     <div class="model-diagram">
-        <a href="../../../_images/models/conv1d_example.tflite.png" target="_blank">
-            <img src="../../../_images/models/conv1d_example.tflite.png" />
+        <a href="../../../../_images/models/conv1d_example.tflite.png" target="_blank">
+            <img src="../../../../_images/models/conv1d_example.tflite.png" />
             <p>Click to enlarge</p>
         </a>
     </div>

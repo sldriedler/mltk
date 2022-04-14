@@ -3,7 +3,6 @@
 
 
 #include "cpputils/dict.hpp"
-#include "cpputils/heap.hpp"
 
 
 
@@ -25,7 +24,7 @@ bool Dict::put(const char* key, const void* value, uint32_t length, bool unique)
         return false;
     }
 
-    uint8_t* ptr = static_cast<uint8_t*>(HEAP_MALLOC(sizeof(DictItem) + strlen(key) + 1 + length));
+    uint8_t* ptr = static_cast<uint8_t*>(malloc(sizeof(DictItem) + strlen(key) + 1 + length));
 
     if(ptr == nullptr)
     {
@@ -98,7 +97,7 @@ bool Dict::update(const char* key, const void* value, uint32_t length)
                 break;
             }
 
-            uint8_t* ptr = static_cast<uint8_t*>(HEAP_MALLOC(sizeof(DictItem) + strlen(key) + 1 + length));
+            uint8_t* ptr = static_cast<uint8_t*>(malloc(sizeof(DictItem) + strlen(key) + 1 + length));
 
             if(ptr == nullptr)
             {
@@ -120,7 +119,7 @@ bool Dict::update(const char* key, const void* value, uint32_t length)
                 prev->next = new_item;
             }
             new_item->next = item->next;
-            HEAP_FREE(item);
+            free(item);
             retval = true;
             break;
         }
@@ -152,7 +151,7 @@ bool Dict::remove(const char* key)
             retval = true;
             count_--;
 
-            HEAP_FREE(item);
+            free(item);
 
             break;
         }
@@ -183,7 +182,7 @@ bool Dict::remove(const DictItem* needle)
             retval = true;
             count_--;
 
-            HEAP_FREE(item);
+            free(item);
 
             break;
         }
@@ -216,7 +215,7 @@ void Dict::clear(void)
     {
         auto current = next;
         next = current->next;
-        HEAP_FREE(current);
+        free(current);
     }
 
     count_ = 0;

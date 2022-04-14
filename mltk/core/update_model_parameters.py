@@ -32,7 +32,7 @@ def update_model_parameters(
        The `.tflite` metadata is only modified. 
        The weights and model structure of the `.tflite` file are NOT modified. 
 
-    Refer to the `Model Parameters <https://siliconlabs.github.io/mltk/docs/model_parameters.html>`_ guide for more details.
+    Refer to the `Model Parameters <https://siliconlabs.github.io/mltk/docs/guides/model_parameters.html>`_ guide for more details.
 
     Args:
         model: Either the name of a model

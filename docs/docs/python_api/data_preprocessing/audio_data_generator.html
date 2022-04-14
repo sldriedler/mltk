@@ -175,13 +175,13 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
             
-            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
+            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
             
             <li class="md-tabs__item"><a href="https://github.com/tensorflow/tflite-micro" class="md-tabs__link">Tensorflow-Lite Micro Repository</a></li>
             
             <li class="md-tabs__item"><a href="https://www.tensorflow.org/learn" class="md-tabs__link">Tensorflow Documentation</a></li>
-          <li class="md-tabs__item"><a href="../python_api.html" class="md-tabs__link">API Reference</a></li>
-          <li class="md-tabs__item"><a href="data_preprocessing.html" class="md-tabs__link">Data Preprocessing</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">API Reference</a></li>
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Data Preprocessing</a></li>
       </ul>
     </div>
   </nav>
@@ -256,7 +256,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../guides/guides.html" class="md-nav__link">Modeling Guides</a>
+      <a href="../../guides/index.html" class="md-nav__link">Modeling Guides</a>
       
     
     </li>
@@ -282,7 +282,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../python_api.html" class="md-nav__link">API Reference</a>
+      <a href="../index.html" class="md-nav__link">API Reference</a>
       <ul class="md-nav__list"> 
     <li class="md-nav__item">
     
@@ -308,21 +308,21 @@
     <li class="md-nav__item">
     
     
-      <a href="data_preprocessing.html" class="md-nav__link">Data Preprocessing</a>
+      <a href="index.html" class="md-nav__link">Data Preprocessing</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../models/models.html" class="md-nav__link">Reference Models</a>
+      <a href="../models/index.html" class="md-nav__link">Reference Models</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../datasets/datasets.html" class="md-nav__link">Reference Datasets</a>
+      <a href="../datasets/index.html" class="md-nav__link">Reference Datasets</a>
       
     
     </li></ul>
@@ -390,7 +390,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../other/cpp_development_with_vscode.html" class="md-nav__link">C++ Development</a>
+      <a href="../../cpp_development/index.html" class="md-nav__link">C++ Development</a>
       
     
     </li>
@@ -432,8 +432,8 @@
             <ul class="breadcrumb">
               <li></li>
               <li><a href="../../../index.html"><i class="md-icon">home</i></a></li>
-                <li class="active"><a href="../python_api.html" >API Reference</a></li>
-                <li class="active"><a href="data_preprocessing.html" accesskey="U">Data Preprocessing</a></li>
+                <li class="active"><a href="../index.html" >API Reference</a></li>
+                <li class="active"><a href="index.html" accesskey="U">Data Preprocessing</a></li>
             </ul>
           </div>
           
@@ -444,7 +444,7 @@
 <h1 id="docs-python-api-data-preprocessing-audio-data-generator--page-root">Audio Data Generator<a class="headerlink" href="#docs-python-api-data-preprocessing-audio-data-generator--page-root" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.preprocess.audio.parallel_generator.</span></span><span class="sig-name descname"><span class="pre">ParallelAudioDataGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_batches_pending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_batch_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noaug_preprocessing_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocessing_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postprocessing_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samplewise_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samplewise_std_normalization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samplewise_normalize_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rescale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_augmentation_enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend_dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_threshold_db</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_color_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pitch_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vtlp_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loudness_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg_noise_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg_noise_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown_class_percentage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silence_class_percentage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disable_random_transforms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend_settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend_enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disable_gpu_in_subprocesses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/preprocess/audio/parallel_generator/parallel_generator.html#ParallelAudioDataGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.preprocess.audio.parallel_generator.</span></span><span class="sig-name descname"><span class="pre">ParallelAudioDataGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cores</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_batches_pending</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_batch_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noaug_preprocessing_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocessing_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postprocessing_function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samplewise_center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samplewise_std_normalization</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">samplewise_normalize_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rescale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_augmentation_enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'float32'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend_dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim_threshold_db</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_color_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">speed_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pitch_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vtlp_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loudness_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg_noise_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bg_noise_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unknown_class_percentage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silence_class_percentage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disable_random_transforms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend_settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend_enabled</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disable_gpu_in_subprocesses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_channel_dimension</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/preprocess/audio/parallel_generator/parallel_generator.html#ParallelAudioDataGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parallel Audio Data Generator</p>
 <p>This class as a similar functionality to the <a class="reference external" href="https://keras.io/preprocessing/image">Keras ImageDataGenerator</a></p>
 <p>Except, instead of processing image files it processes audio files.</p>
@@ -516,8 +516,16 @@ This function should have the following signature:</p>
 The function will run before any augmentation is done on the audio sample.
 The ‘x’ argument is of the shape [sample_length] and is a float32 scaled between (-1,1).
 See <a class="reference external" href="https://librosa.org/doc/main/generated/librosa.load.html">https://librosa.org/doc/main/generated/librosa.load.html</a>
-The function should take two arguments:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_processing_func</span><span class="p">(</span><span class="n">params</span><span class="p">:</span> <span class="n">ParallelProcessParams</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+The function should take at least two arguments:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_processing_func</span><span class="p">(</span>
+    <span class="n">params</span><span class="p">:</span> <span class="n">ParallelProcessParams</span><span class="p">,</span>
+    <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">class_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">batch_index</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+    <span class="n">batch_class_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span>
+    <span class="n">batch_filenames</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
+ <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="o">...</span>
     <span class="k">return</span> <span class="n">processed_x</span>
 </pre></div>
@@ -527,8 +535,16 @@ The function should take two arguments:</p>
 The function will run after the audio is augmented but before it does through the AudioFeatureGenerator (if enabled).
 The ‘x’ argument is of the shape [sample_length] and is a float32 scaled between [-1,1].
 See <a class="reference external" href="https://librosa.org/doc/main/generated/librosa.load.html">librosa.load()</a>
-The function should take two arguments, and return the processed sample:.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_processing_func</span><span class="p">(</span><span class="n">params</span><span class="p">:</span> <span class="n">ParallelProcessParams</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+The function should take at least two arguments, and return the processed sample:.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_processing_func</span><span class="p">(</span>
+    <span class="n">params</span><span class="p">:</span> <span class="n">ParallelProcessParams</span><span class="p">,</span>
+    <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">class_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">batch_index</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+    <span class="n">batch_class_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span>
+    <span class="n">batch_filenames</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
+ <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="o">...</span>
     <span class="k">return</span> <span class="n">processed_x</span>
 </pre></div>
@@ -537,8 +553,16 @@ The function should take two arguments, and return the processed sample:.</p>
 <li><p><strong>postprocessing_function</strong> – <p>function that will be applied on each input.
 The function will run after the audio is passed through the AudioFeatureGenerator (if enabled).
 So the ‘x’ argument is a spectrogram of the shape: [height, width, 1].
-The function should take two arguments and return the processed sample [height, width, 1]:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_processing_func</span><span class="p">(</span><span class="n">params</span><span class="p">:</span> <span class="n">ParallelProcessParams</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+The function should take at least two arguments and return the processed sample [height, width, 1]:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_processing_func</span><span class="p">(</span>
+    <span class="n">params</span><span class="p">:</span> <span class="n">ParallelProcessParams</span><span class="p">,</span>
+    <span class="n">x</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+    <span class="n">class_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
+    <span class="n">batch_index</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+    <span class="n">batch_class_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span>
+    <span class="n">batch_filenames</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
+ <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="o">...</span>
     <span class="k">return</span> <span class="n">processed_x</span>
 </pre></div>
@@ -606,12 +630,15 @@ callback to convert the samples to the required shape and data type.
 NOTE: You must also specify the <code class="docutils literal notranslate"><span class="pre">sample_shape</span></code> parameter if <code class="docutils literal notranslate"><span class="pre">frontend_enabled=False</span></code></p></li>
 <li><p><strong>sample_shape</strong> – The shape of the generated sample. This is only used/required if <code class="docutils literal notranslate"><span class="pre">frontend_enabled=False</span></code></p></li>
 <li><p><strong>disable_gpu_in_subprocesses</strong> – Disable GPU usage in spawned subprocesses, default: true</p></li>
+<li><p><strong>add_channel_dimension</strong> – If true and <code class="docutils literal notranslate"><span class="pre">frontend_enabled=True</span></code>, then automatically convert
+generated sample shape from [height, width] to [height, width, 1].
+If false, then generated sample shape is [height, width].</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.sample_length">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sample_length</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.sample_length" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sample_length</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.sample_length" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the length of the audio sample as the number of individual ADC samples</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -621,7 +648,7 @@ NOTE: You must also specify the <code class="docutils literal notranslate"><span
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.sample_length_ms">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sample_length_ms</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.sample_length_ms" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sample_length_ms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.sample_length_ms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the AudioFeatureGeneratorSettings.sample_length_ms value</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -631,7 +658,7 @@ NOTE: You must also specify the <code class="docutils literal notranslate"><span
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.sample_rate_hz">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">sample_rate_hz</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.sample_rate_hz" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sample_rate_hz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.sample_rate_hz" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the AudioFeatureGeneratorSettings.sample_rate_hz value</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -706,7 +733,7 @@ shape (batch_size, <a href="#id1"><span class="problematic" id="id2">*</span></a
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.default_transform">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">default_transform</span></span><em class="property"><span class="pre">:</span> <span class="pre">dict</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.default_transform" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">default_transform</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.default_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retrun the default augmentations transform settings</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -737,7 +764,7 @@ This will pad with zeros or crop the input sample as necessary</p>
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.apply_frontend">
-<span class="sig-name descname"><span class="pre">apply_frontend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">sample</span></em>, <em class="sig-param"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/preprocess/audio/parallel_generator/parallel_generator.html#ParallelAudioDataGenerator.apply_frontend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.apply_frontend" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">apply_frontend</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/preprocess/audio/parallel_generator/parallel_generator.html#ParallelAudioDataGenerator.apply_frontend"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator.apply_frontend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Send the audio sample through the AudioFeatureGenerator and return the generated spectrogram</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -771,7 +798,7 @@ you can call the method creating a copy before:</p>
 <h2 id="parallelprocessparams">ParallelProcessParams<a class="headerlink" href="#parallelprocessparams" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.preprocess.audio.parallel_generator.ParallelProcessParams">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.preprocess.audio.parallel_generator.</span></span><span class="sig-name descname"><span class="pre">ParallelProcessParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">audio_data_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_length_ms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_to_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend_dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_batch_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noaug_preprocessing_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocessing_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postprocessing_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend_enabled</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/preprocess/audio/parallel_generator/iterator.html#ParallelProcessParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelProcessParams" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.preprocess.audio.parallel_generator.</span></span><span class="sig-name descname"><span class="pre">ParallelProcessParams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">audio_data_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_length_ms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_to_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_prefix</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_format</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend_dtype</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directory</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_mode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_batch_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noaug_preprocessing_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preprocessing_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">postprocessing_function</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frontend_enabled</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_channel_dimension</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/preprocess/audio/parallel_generator/iterator.html#ParallelProcessParams"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.preprocess.audio.parallel_generator.ParallelProcessParams" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adds methods related to getting batches from filenames</p>
 <p>It includes the logic to transform image files to batches.</p>
 </dd></dl>
@@ -825,10 +852,10 @@ you can call the method creating a copy before:</p>
               
           </div>
             Last updated on
-              Mar 16, 2022.
+              Apr 14, 2022.
             <br/>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -836,7 +863,7 @@ you can call the method creating a copy before:</p>
         <div class="survey-link" id="dlg-survey-link"> 
     <div>We need your feedback!</div>
     <div>
-        Please take this 3 question <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
+        Please take this short <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
     </div>
 </div>
       </div>

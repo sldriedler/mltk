@@ -1,11 +1,10 @@
-Silicon Labs Machine Learning Toolkit (MLTK)
-==============================================
+# Silicon Labs Machine Learning Toolkit (MLTK)
 
 ```{warning} 
-This package is considered __EXPERIMENTAL__ for internal use only and is not authorized for use in production.
-Silicon Labs does not offer any warranties and disclaims all implied warranties concerning this software.
-This package is made available as a self-serve reference supported only by the on-line documentation.
-There are no support services for this software at this time.
+NOTICE:  
+This package is considered EXPERIMENTAL - SILICON LABS DOES NOT OFFER ANY WARRANTIES AND DISCLAIMS ALL IMPLIED WARRANTIES CONCERNING THIS SOFTWARE. 
+This package is made available as a self-serve reference supported only by the on-line documentation, and community support. 
+There are no Silicon Labs support services for this software at this time.
 ```
 
 This is a Python package with command-line utilities and scripts to aid the development 
@@ -13,7 +12,7 @@ of machine learning models for Silicon Lab's embedded platforms.
 
 The features of this Python package include:
 - [Command-line](./docs/command_line.md) - Execute all ML operations from simple command-line interface
-- [Python API](./docs/python_api/python_api.md) - Execute all ML operations from a Python script
+- [Python API](./docs/python_api/index.md) - Execute all ML operations from a Python script
 - [Model Profiler](./docs/guides/model_profiler.md) - Determine how efficient an ML model will execute on an embedded platform
 - [Model Training](./docs/guides/model_training.md) - Train an ML model using [Google Tensorflow](https://www.tensorflow.org/)
 - [Model Evaluation](./docs/guides/model_evaluation.md) - Evaluate a trained ML model's accuracy and other metrics
@@ -23,10 +22,14 @@ The features of this Python package include:
 - [Model Parameters](./docs/guides/model_parameters.md) - Embed custom parameters into the generated model file
 - [Audio Feature Generator](./docs/audio/audio_feature_generator.md) - Library and tools to convert streaming audio into spectrograms
 - [Audio Utilities](./docs/audio/audio_utilities.md) - Utilities to aid the development of audio classification models
-- [Python C++ Wrappers](./docs/other/repository_overview.md) - Execute C++ libraries (including [Tensorflow-Lite Micro](https://github.com/tensorflow/tflite-micro)) from a Python interface
 
 
 Refer to [Why MLTK?](./docs/why_mltk.md) for more details on the benefits of using the MLTK.
+
+```{hint} 
+Just want to quickly profile a model to see how fast it can run on an embedded target?  
+See the [Model Profiler Utility](./docs/guides/model_profiler_utility.md)
+```
 
 
 ## Overview
@@ -65,13 +68,14 @@ Refer to [Installation Guide](./docs/installation.md) for more details on how to
 
 ## Other Information
 
+- [Model Profiler Utility](./docs/guides/model_profiler_utility.md)
 - [Quick Reference](./docs/other/quick_reference.md)
 - [Settings File](./docs/other/settings_file.md)
 - [Model Specification](./docs/guides/model_specification.md)
 - [Model Archive File](./docs/guides/model_archive.md)
 - [Model Search Path](./docs/guides/model_search_path.md)
 - [Environment Variables](./docs/other/environment_variables.md)
-- [C++ Development with VSCode](./docs/other/cpp_development_with_vscode.md)
+- [C++ Development](./docs/cpp_development/index.md)
 
 ## License
 

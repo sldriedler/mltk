@@ -6,7 +6,6 @@
 
 
 #include "cpputils/list.hpp"
-#include "cpputils/heap.hpp"
 
 
 
@@ -64,7 +63,7 @@ bool List::clone(List &other)
 
     if(count_ > 0)
     {
-        buffer = static_cast<uint8_t*>(HEAP_MALLOC(count_ * entry_size_));
+        buffer = static_cast<uint8_t*>(malloc(count_ * entry_size_));
         if(buffer == nullptr)
         {
             return false;
@@ -262,17 +261,19 @@ bool List::increase_size(uint32_t new_size)
         new_size = capacity_ + (256 + entry_size_ - 1) / entry_size_;
     }
 
-    head_ = static_cast<uint8_t*>(HEAP_MALLOC(new_size * entry_size_));
-    if(head_ == nullptr)
+    uint8_t* new_head = static_cast<uint8_t*>(malloc(new_size * entry_size_));
+    if(new_head == nullptr)
     {
         has_malloc_error_ = true;
         return false;
     }
 
+    head_ = new_head;
+
     if(old_list != nullptr)
     {
         memcpy(head_, old_list, capacity_ * entry_size_);
-        HEAP_FREE(old_list);
+        free(old_list);
     }
 
     capacity_ = new_size;
@@ -286,7 +287,7 @@ void List::clear(void)
 {
     if(owns_buffer_ && head_ != nullptr)
     {
-        HEAP_FREE(head_);
+        free(head_);
         head_ = nullptr;
     }
 

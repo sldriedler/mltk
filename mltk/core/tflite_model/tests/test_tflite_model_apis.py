@@ -455,3 +455,15 @@ def test_predict_different_batch_sizes():
     assert len(y2.shape) == 2
     assert y2.shape[0] == 5
     assert y2.shape[1] == 10
+
+
+def test_load_corrupt_tflite():
+    bogus_tflite = b'\x12\x34\x56\x78'
+
+    try:
+        TfliteModel(bogus_tflite)
+    except Exception as e:
+        assert isinstance(e, RuntimeError)
+        return 
+
+    assert False, 'Failed to detect corrupt tflite file'

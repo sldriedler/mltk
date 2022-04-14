@@ -7,13 +7,13 @@
 #include <string>
 #endif
 
-#ifdef VERBOSE
-#define LOG_LEVEL Debug
-#define LOG_LEVEL_PROVIDED true
+#ifndef VERBOSE
+#define VERBOSE false
+#define VERBOSE_PROVIDED false
 #else 
-#define LOG_LEVEL Info
-#define LOG_LEVEL_PROVIDED false
+#define VERBOSE_PROVIDED true
 #endif
+
 
 #ifndef WINDOW_MS
 #define WINDOW_MS 1000
@@ -43,19 +43,15 @@
 #define COUNT_PROVIDED true
 #endif
 
-#ifndef VOLUME_DB
-#define VOLUME_DB 0
-#define VOLUME_DB_PROVIDED false
+#ifndef VOLUME_GAIN
+#define VOLUME_GAIN 1
+#define VOLUME_GAIN_PROVIDED false
 #else 
-#define VOLUME_DB_PROVIDED true
+#define VOLUME_GAIN_PROVIDED true
 #endif
 
 #ifndef LATENCY_MS
-#ifdef __arm__
-#define LATENCY_MS 0
-#else 
 #define LATENCY_MS 100
-#endif
 #define LATENCY_MS_PROVIDED false
 #else 
 #define LATENCY_MS_PROVIDED true
@@ -71,31 +67,27 @@
 
 struct CliOpts
 {
-    logging::Level log_level = logging::Level::LOG_LEVEL;
+    bool verbose = VERBOSE;
     int32_t average_window_duration_ms = WINDOW_MS;
     uint8_t detection_threshold = THRESHOLD;
     int32_t suppression_ms = SUPPRESSION_MS;
     int32_t minimum_count = COUNT;
-    int32_t simulated_latency_ms = LATENCY_MS;
-    float volume_db = VOLUME_DB;
+    int32_t latency_ms = LATENCY_MS;
+    int32_t volume_gain = VOLUME_GAIN;
     float sensitivity = SENSITIVITY;
     const uint8_t* model_flatbuffer = nullptr;
-    bool log_level_provided = LOG_LEVEL_PROVIDED;
+    bool verbose_provided = VERBOSE_PROVIDED;
     bool average_window_duration_ms_provided = WINDOW_MS_PROVIDED;
     bool detection_threshold_provided = THRESHOLD_PROVIDED;
     bool suppression_ms_provided = SUPPRESSION_MS_PROVIDED;
     bool minimum_count_provided = COUNT_PROVIDED;
-    bool simulated_latency_ms_provided = LATENCY_MS_PROVIDED;
-    bool volume_db_provided = VOLUME_DB_PROVIDED;
+    bool latency_ms_provided = LATENCY_MS_PROVIDED;
+    bool volume_gain_provided = VOLUME_GAIN_PROVIDED;
     bool sensitivity_provided = SENSITIVITY_PROVIDED;
     bool model_flatbuffer_provided = false;
     bool dump_audio = false;
+    bool dump_raw_spectrograms = false;
     bool dump_spectrograms = false;
-
-#ifndef __arm__
-    std::string dump_audio_dir;
-    std::string dump_spectrograms_dir;
-#endif
 
 #ifndef __arm__
     ~CliOpts();
@@ -107,10 +99,6 @@ extern CliOpts cli_opts;
 
 
 
-#ifdef __arm__
-#define parse_cli_opts(argc, argv)
-#else
-void parse_cli_opts(int argc, char* argv[]);
+#ifndef __arm__
+void parse_cli_opts();
 #endif
-void simulate_loop_latency();
-void dump_audio(tflite::ErrorReporter* error_reporter);

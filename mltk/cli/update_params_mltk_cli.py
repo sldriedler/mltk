@@ -40,7 +40,14 @@ One of the following:
     accelerator: str = typer.Option(None, '--accelerator', '-a', 
         help='Optional accelerator to use when calculating the "runtime_memory_size" model parameter. If omitted then use the CMSIS kernels',
         metavar='<accelerator>'
-    )
+    ),
+    update_device:bool = typer.Option(False, '-d', '--device',
+        help='''\b
+If provided, program the updated .tflite to end of the flash memory of the the connected device.
+Supported apps (e.g. model_profiler, audio_classifier, etc) will use this .tflite instead of the default model.
+This allows for making changes to the model without re-building the firmware application.
+If this option is provided, then the device must be locally connected'''
+    ),
 ):
     """Update the parameters of a previously trained model
 
@@ -80,6 +87,7 @@ One of the following:
         update_model_parameters
     )
     from mltk.utils.path import fullpath 
+    from mltk.utils.firmware_apps import program_model
 
 
     logger = cli.get_logger(verbose=verbose)
@@ -181,3 +189,10 @@ One of the following:
 
     logger.info(f'Updated model parameters: {model_arg if model_arg.endswith(".mltk.zip") else tflite_path}')
 
+
+    if update_device:
+        program_model(
+            tflite_model=tflite_model,
+            logger=logger,
+            halt=False,
+        )

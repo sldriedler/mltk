@@ -99,6 +99,11 @@ def install_mltk_for_local_dev(
     else:
         python_venv_exe = f'{venv_dir}/bin/python3'
 
+
+    # Ensure the wheel package is installed
+    logging.info('Installing the "wheel" Python package into the virtual environment')
+    issue_shell_command(python_venv_exe, '-m', 'pip', 'install', 'wheel')
+
     logging.info(f'Installing MLTK into {venv_dir} ...')
     logging.info('(Please be patient, this may take awhile)')
     try:

@@ -44,9 +44,17 @@ TfLiteStatus WrappedDepthwiseConvPrepare(TfLiteContext* context, TfLiteNode* nod
   CmsisOpDataConv* data = static_cast<CmsisOpDataConv*>(node->user_data);
   const auto& params =
       *(static_cast<const TfLiteDepthwiseConvParams*>(node->builtin_data));
-  TfLiteTensor* output = GetOutput(context, node, kDepthwiseConvOutputTensor);
-  const TfLiteTensor* input = GetInput(context, node, kDepthwiseConvInputTensor);
-  const TfLiteTensor* filter = GetInput(context, node, kDepthwiseConvWeightsTensor);
+  MicroContext* micro_context = GetMicroContext(context);
+
+  TfLiteTensor* input =
+      micro_context->AllocateTempInputTensor(node, kConvInputTensor);
+  TF_LITE_ENSURE(context, input != nullptr);
+  TfLiteTensor* filter =
+      micro_context->AllocateTempInputTensor(node, kConvWeightsTensor);
+  TF_LITE_ENSURE(context, filter != nullptr);;
+  TfLiteTensor* output =
+      micro_context->AllocateTempOutputTensor(node, kConvOutputTensor);
+  TF_LITE_ENSURE(context, output != nullptr);
 
   if(status == kTfLiteOk && input->type == kTfLiteInt8)
   {
@@ -72,6 +80,11 @@ TfLiteStatus WrappedDepthwiseConvPrepare(TfLiteContext* context, TfLiteNode* nod
     output_dims.h = output->dims->data[1];
     output_dims.w = output->dims->data[2];
     output_dims.c = filter->dims->data[kDepthwiseConvQuantizedDimension];
+
+    micro_context->DeallocateTempTfLiteTensor(input);
+    micro_context->DeallocateTempTfLiteTensor(filter);
+    micro_context->DeallocateTempTfLiteTensor(output);
+
 
     dw_conv_params.ch_mult = output_dims.c / input_dims.c;
 
@@ -129,7 +142,9 @@ TfLiteStatus Eval(TfLiteContext* context, TfLiteNode* node) {
       break;
     }
     case kTfLiteInt8: {
-      context->GetScratchBuffer(context, cmsis_data.buffer_idx);
+      if (cmsis_data.buffer_idx > -1) {
+        context->GetScratchBuffer(context, cmsis_data.buffer_idx);
+      }
       reference_integer_ops::DepthwiseConvPerChannel(
           DepthwiseConvParamsQuantized(params, data),
           data.per_channel_output_multiplier, data.per_channel_output_shift,

@@ -3,16 +3,14 @@
 
 #include <cstdint>
 
-#include "platform_api.h"
+#include "em_device.h"
 #include "cpputils/typed_linked_list.hpp"
 #include "cpputils/typed_list.hpp"
 #include "cpputils/typed_dict.hpp"
 #include "cpputils/flags_helper.hpp"
 #include "logging/logger.hpp"
 #include "profiling/profiling.hpp"
-
-
-
+#include "microsecond_timer.h"
 
 
 namespace profiling 
@@ -23,12 +21,6 @@ struct Metrics
     uint32_t ops = 0;
     uint32_t macs = 0;
     
-    void operator = (const Metrics &other )
-    {
-        ops = other.ops;
-        macs = other.macs;
-    }
-
     void operator += (const Metrics &other )
     {
         ops += other.ops;
@@ -48,13 +40,6 @@ struct Stats
         time_us = 0;
         cpu_cycles = 0;
         accelerator_cycles = 0;
-    }
-
-    void operator = (const Stats &other )
-    {
-        time_us = other.time_us;
-        cpu_cycles = other.cpu_cycles;
-        accelerator_cycles = other.accelerator_cycles;
     }
 
 
@@ -96,6 +81,31 @@ typedef cpputils::FlagsHelper<Flag> Flags;
 typedef void (CustomStatsPrinter)(Profiler& profiler, logging::Logger& logger, const char* level_str);
 
 
+static inline void start_cpu_cycle_counter()
+{
+#ifdef __arm__
+    // Enable cycle counter
+    CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+    DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
+#endif
+}
+
+
+static inline uint32_t get_cpu_cycles() 
+{
+#ifdef __arm__
+    auto DWT_CYCCNT_REG ((const volatile uint32_t*)0xE0001004UL); // DWT->CYCCNT
+    auto CORE_DEBUG_DEMCR = ((volatile uint32_t*)0xE000EDFC); // CoreDebug->DEMCR
+    *CORE_DEBUG_DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
+    return *DWT_CYCCNT_REG; 
+#else 
+    return 0; // CPU cycles on Windows/Linux don't make sense, so just return 0
+#endif
+}
+
+
+
+
 class Profiler : public cpputils::LinkedListItem
 {
 public:
@@ -104,16 +114,16 @@ public:
     const char* name() const;
     const char* fullname(Fullname& fullname) const;
     virtual void reset(void);
-    constexpr const Stats& stats() const { return _stats; };
-    constexpr Stats& stats() { return _stats; };
-    constexpr const Metrics& metrics() const { return _metrics; };
-    constexpr Metrics& metrics() { return _metrics; };
+    const Stats& stats() const { return _stats; };
+    Stats& stats() { return _stats; };
+    const Metrics& metrics() const { return _metrics; };
+    Metrics& metrics() { return _metrics; };
     Metrics metrics_including_children() const;
     void metrics(const Metrics& metrics);
 
     void flags(Flags flags);
-    constexpr const Flags& flags() const { return _flags; };
-    constexpr Flags& flags() { return _flags; };
+    const Flags& flags() const { return _flags; };
+    Flags& flags() { return _flags; };
 
     void msg(const char* msg);
     const char* msg() const;
@@ -131,8 +141,9 @@ public:
     {
         if(_state != State::Started)
         {
-            const uint32_t current_cycle = platform_get_cpu_cycle();
-            const uint32_t current_time_us = platform_get_timestamp_us();
+            start_cpu_cycle_counter();
+            const uint32_t current_cycle = get_cpu_cycles();
+            const uint32_t current_time_us = microsecond_timer_get_timestamp();
             if(_state == State::Stopped)
             {
                 _cpu_accumulator.start_base = current_cycle;
@@ -146,15 +157,15 @@ public:
 
     void inline stop(void)
     {
-        const volatile uint32_t stop_cpu_cycle = platform_get_cpu_cycle();
-        const volatile uint32_t stop_time_us = platform_get_timestamp_us();
+        const volatile uint32_t stop_cpu_cycle = get_cpu_cycles();
+        const volatile uint32_t stop_time_us = microsecond_timer_get_timestamp();
         update_stats(true, stop_cpu_cycle, stop_time_us);
     }
 
     void inline pause(void)
     {
-        const volatile uint32_t stop_cpu_cycle = platform_get_cpu_cycle();
-        const volatile uint32_t stop_time_us = platform_get_timestamp_us();
+        const volatile uint32_t stop_cpu_cycle = get_cpu_cycles();
+        const volatile uint32_t stop_time_us = microsecond_timer_get_timestamp();
         update_stats(false, stop_cpu_cycle, stop_time_us);
     }
 

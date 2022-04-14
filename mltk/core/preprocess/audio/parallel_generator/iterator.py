@@ -4,6 +4,7 @@ from typing import List, Tuple
 import os
 import threading
 import queue
+import inspect
 import numpy as np
 
 
@@ -226,7 +227,8 @@ class ParallelProcessParams():
         noaug_preprocessing_function,
         preprocessing_function,
         postprocessing_function,
-        frontend_enabled
+        frontend_enabled,
+        add_channel_dimension
     ):
         self.class_indices = class_indices
         self.dtype = dtype
@@ -239,11 +241,12 @@ class ParallelProcessParams():
         self.preprocessing_function = preprocessing_function
         self.postprocessing_function = postprocessing_function
         self.frontend_enabled = frontend_enabled
+        self.add_channel_dimension = add_channel_dimension
 
         self.sample_rate = sample_rate
         self.sample_length_ms = sample_length_ms
         self.sample_shape = sample_shape
-        if frontend_enabled and len(self.sample_shape) == 2:
+        if frontend_enabled and len(self.sample_shape) == 2 and add_channel_dimension:
             self.sample_shape += (1,) # The 'depth' dimension to 1
 
         self.save_to_dir = save_to_dir
@@ -291,6 +294,8 @@ def get_batches_of_transformed_samples(
     # build batch of image data
 
     for i, filename in enumerate(filenames):
+        class_id = classes[i]
+
         if filename:
             filepath = os.path.join(params.directory, filename)
             x, orignal_sr = librosa.load(filepath, sr=None, mono=True, dtype='float32')
@@ -303,7 +308,15 @@ def get_batches_of_transformed_samples(
         # x = [sample_length] dtype=float32
 
         if params.noaug_preprocessing_function is not None:
-            x = params.noaug_preprocessing_function(params, x)
+            kwargs = _add_optional_callback_arguments( 
+                params.noaug_preprocessing_function,
+                batch_index=i,
+                class_id=class_id,
+                filename=filename,
+                batch_class_ids=classes,
+                batch_filenames=filenames
+            )
+            x = params.noaug_preprocessing_function(params, x, **kwargs)
             
         if params.subset != 'validation' or params.audio_data_generator.validation_augmentation_enabled:
             transform_params = params.audio_data_generator.get_random_transform()
@@ -316,7 +329,15 @@ def get_batches_of_transformed_samples(
         x = params.audio_data_generator.apply_transform(x, orignal_sr, transform_params)
 
         if params.preprocessing_function is not None:
-            x = params.preprocessing_function(params, x)
+            kwargs = _add_optional_callback_arguments( 
+                params.preprocessing_function,
+                batch_index=i,
+                class_id=class_id,
+                filename=filename,
+                batch_class_ids=classes,
+                batch_filenames=filenames
+            )
+            x = params.preprocessing_function(params, x, **kwargs)
 
         if params.frontend_enabled:
             # If a frontend dtype was specified use that,
@@ -328,17 +349,26 @@ def get_batches_of_transformed_samples(
 
         # Perform any post processing as necessary
         if params.postprocessing_function is not None:
-            x = params.postprocessing_function(params, x)
+            kwargs = _add_optional_callback_arguments( 
+                params.postprocessing_function,
+                batch_index=i,
+                class_id=class_id,
+                filename=filename,
+                batch_class_ids=classes,
+                batch_filenames=filenames
+            )
+            x = params.postprocessing_function(params, x, **kwargs)
 
         if params.frontend_enabled:
             # Do any standardizations (which are done using float32 internally)
             x = params.audio_data_generator.standardize(x)
             
-            # Convert the sample's shape from [height, width]
-            # to [height, width, 1]
-            batch_x[i] = np.expand_dims(x, axis=-1)
-        else:
-            batch_x[i] = x
+            if params.add_channel_dimension:
+                # Convert the sample's shape from [height, width]
+                # to [height, width, 1]
+                x = np.expand_dims(x, axis=-1)
+
+        batch_x[i] = x
 
         
     # build batch of labels
@@ -476,3 +506,26 @@ class BatchData(object):
 
         return retval
     
+
+def _add_optional_callback_arguments(
+    func, 
+    batch_index, 
+    class_id, 
+    filename, 
+    batch_class_ids, 
+    batch_filenames
+) -> dict:
+    retval = {}
+    args = inspect.getfullargspec(func).args
+    if 'batch_index' in args:
+        retval['batch_index'] = batch_index
+    if 'class_id' in args:
+        retval['class_id'] = class_id
+    if 'filename' in args:
+        retval['filename'] = filename
+    if 'batch_class_ids' in args:
+        retval['batch_class_ids'] = batch_class_ids
+    if 'batch_filenames' in args:
+        retval['batch_filenames'] = batch_filenames
+
+    return retval

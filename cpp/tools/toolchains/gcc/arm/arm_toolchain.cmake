@@ -77,6 +77,7 @@ set(CLIB_SPECS "--specs ${SPEC_PATH}/nano.specs --specs ${SPEC_PATH}/nosys.specs
 
 set(CMAKE_C_FLAGS_INIT   "${CLIB_SPECS} -nostartfiles -ffunction-sections -fdata-sections -ffreestanding -fno-common -fno-delete-null-pointer-checks -Wno-unused-parameter" CACHE INTERNAL "c compiler flags")
 set(CMAKE_CXX_FLAGS_INIT "${CLIB_SPECS} -nostartfiles -ffunction-sections -fdata-sections -ffreestanding -fno-common -fno-delete-null-pointer-checks -Wno-unused-parameter -fno-threadsafe-statics -fno-rtti -fno-exceptions -fno-use-cxa-atexit" CACHE INTERNAL "cxx compiler flags")
+set(CMAKE_ASM_FLAGS_INIT "${CMAKE_C_FLAGS_INIT} -x assembler-with-cpp")
 set(CMAKE_EXE_LINKER_FLAGS_INIT "-Wl,--gc-sections -Wl,--cref" CACHE INTERNAL "exe link flags")
 
 SET(CMAKE_C_FLAGS_DEBUG "-O0 -ggdb3 -DDEBUG" CACHE INTERNAL "c debug compiler flags")
@@ -150,7 +151,6 @@ execute_process(COMMAND ${CMAKE_STRIP} ${_strip_args} -o \"${_output_prefix}.str
 execute_process(COMMAND ${CMAKE_OBJCOPY} -R .bootloader -O binary \"${_output_prefix}.stripped.elf\" \"${_output_prefix}.bin\")
 execute_process(COMMAND ${CMAKE_OBJCOPY} -j .bootloader -O binary \"${_output_prefix}.stripped.elf\" \"${_output_prefix}.bootloader.bin\")
 execute_process(COMMAND ${CMAKE_OBJCOPY} -O srec \"${_output_prefix}.stripped.elf\" \"${_output_prefix}.s37\")
-execute_process(COMMAND ${CMAKE_OBJCOPY} -R .bootloader -R .mlmodel -O srec \"${_output_prefix}.stripped.elf\" \"${_output_prefix}.nomodel.s37\")
 execute_process(COMMAND ${CMAKE_SIZE} \"${_output_path}\")
 execute_process(COMMAND ${PYTHON_EXECUTABLE} ${MLTK_CPP_DIR}/tools/elf-size-analyze/elf-size-analyze.py \"${_output_path}\" --toolchain-path ${TOOLCHAIN_BIN_DIR}/arm-none-eabi- --no-color --ram --rom --human-readable --max-width 120 --output \"${_output_dir}/${target}-memory_usage.txt\")
 execute_process(COMMAND ${PYTHON_EXECUTABLE} ${MLTK_CPP_DIR}/tools/utils/update_launch_json.py --name ${target} --path \"${_output_path}\" --toolchain \"${TOOLCHAIN_BIN_DIR}\" --platform ${MLTK_PLATFORM_NAME} --workspace \"${CMAKE_SOURCE_DIR}\" --jlink_device \"${MLTK_JLINK_DEVICE}\" )
@@ -165,7 +165,6 @@ execute_process(COMMAND ${CMAKE_COMMAND} -E echo \"For more details, see: ${_out
             "${_output_prefix}.bin"
             "${_output_prefix}.bootloader.bin"
             "${_output_prefix}.s37"
-            "${_output_prefix}.nomodel.s37"
             "${_output_dir}/${target}-memory_usage.txt"
     )
 

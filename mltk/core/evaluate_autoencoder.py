@@ -315,7 +315,10 @@ def evaluate_autoencoder(
         except Exception as e:
             logger.warning(f'Failed to add eval results to model archive, err: {e}', exc_info=e)
 
-    logger.close()
+    logger.close() # close the eval logger
+
+    if show:
+        plt.show(block=True)
 
     return results
 

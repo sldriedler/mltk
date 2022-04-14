@@ -15,7 +15,8 @@ from .utils import (
 
 # This is set at the beginning of main()
 root_cli: typer.Typer = None
-
+# MLTK build command group, this is set at the beginning of main()
+build_cli: typer.Typer = None
 
 def is_command_active() -> bool:
     """Return if a CLI command is currently active"""

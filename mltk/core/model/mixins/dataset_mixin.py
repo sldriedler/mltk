@@ -12,7 +12,7 @@ from ..model_attributes import MltkModelAttributesDecorator
 class DatasetMixin(BaseMixin):
     """Provides generic dataset properties to the base :py:class:`~MltkModel`
     
-    Refer to te `Model Specification <https://siliconlabs.github.io/mltk/docs/model_specification.html>`_ guide for more details."""
+    Refer to te `Model Specification <https://siliconlabs.github.io/mltk/docs/guides/model_specification.html>`_ guide for more details."""
     
     @property
     def x(self):

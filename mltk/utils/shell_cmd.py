@@ -1,5 +1,6 @@
 import os
 import tempfile
+import logging
 import queue
 from concurrent.futures import ThreadPoolExecutor
 from typing import Tuple,Union,Iterable,Callable
@@ -14,7 +15,8 @@ def run_shell_cmd(
     cwd:str=None, 
     env:dict=None, 
     outfile=None, 
-    line_processor: Callable[[str],str]=None
+    line_processor: Callable[[str],str]=None,
+    logger:logging.Logger=None
 ) -> Tuple[int,str]:
     """Issue shell command
     
@@ -35,6 +37,10 @@ def run_shell_cmd(
     else:
         use_shell = False 
         cmd = [str(x) for x in cmd]
+
+    if logger is not None:
+        cmd_str = ' '.join(cmd)
+        logger.debug(cmd_str)
      
     process_line_by_line = line_processor is not None or outfile is not None
 

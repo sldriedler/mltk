@@ -1,6 +1,8 @@
 
-if(MLTK_PLATFORM STREQUAL "mltk_platform_brd4186b")
-    mltk_info("Audio Classifier app NOT currently supported by BRD4186A platform since it doesn't have a supported microphone")
+
+set(AUDIO_CLASSIFIER_SUPPORTED_PLATFORMS windows linux brd2204 brd2601 brd4166)
+if(NOT ${MLTK_PLATFORM_NAME} IN_LIST AUDIO_CLASSIFIER_SUPPORTED_PLATFORMS)
+    mltk_info("Audio Classifier app NOT currently supported by platform: ${MLTK_PLATFORM_NAME}")
     return()
 endif()
 
@@ -10,8 +12,8 @@ endif()
 find_package(mltk_logging REQUIRED)
 find_package(mltk_profiling REQUIRED)
 find_package(mltk_tflite_micro_model REQUIRED)
-find_package(mltk_microfrontend REQUIRED)
-
+find_package(mltk_gecko_sdk REQUIRED)
+find_package(mltk_gecko_sdk_audio_feature_generation REQUIRED)
 
 
 #####################################################
@@ -21,20 +23,19 @@ add_executable(mltk_audio_classifier)
 
 target_sources(mltk_audio_classifier
 PRIVATE 
-    main.cc
-    cli_opts.cc
-    audio_provider.cc 
-    command_responder.cc
-    feature_provider.cc 
-    micro_features_generator.cc 
+    main.c
+    app.c
+    audio_classifier.cc 
     recognize_commands.cc
-    micro_model_settings.cc
+    audio_classifier_config.cc
+    cli_opts.cc
 )
 
 target_link_libraries(mltk_audio_classifier
 PRIVATE 
     mltk::tflite_micro_model
-    mltk::microfrontend
+    mltk::tflite_model_parameters
+    mltk::gecko_sdk::audio_feature_generation
     ${MLTK_PLATFORM}
 )
 
@@ -42,7 +43,6 @@ PRIVATE
 target_include_directories(mltk_audio_classifier
 PRIVATE 
     .
-    "${MLTK_BINARY_DIR}"
 )
 
 mltk_get(MLTK_PLATFORM_IS_EMBEDDED)
@@ -59,7 +59,7 @@ unset(_defines)
 mltk_get(VERBOSE)
 if(VERBOSE)
     mltk_info("Enabling verbose logs")
-    set(_defines ${_defines} VERBOSE)
+    set(_defines ${_defines} VERBOSE=1)
 endif()
 
 mltk_get(WINDOW_MS)
@@ -86,10 +86,10 @@ if(COUNT)
     set(_defines ${_defines} COUNT=${COUNT})
 endif()
 
-mltk_get(VOLUME_DB)
+mltk_get(VOLUME_GAIN)
 if(VOLUME_DB)
-    mltk_info("VOLUME_DB=${VOLUME_DB}")
-    set(_defines ${_defines} VOLUME_DB=${VOLUME_DB})
+    mltk_info("VOLUME_GAIN=${VOLUME_GAIN}")
+    set(_defines ${_defines} VOLUME_GAIN=${VOLUME_GAIN})
 endif()
 
 mltk_get(LATENCY_MS)
@@ -106,25 +106,17 @@ if(_defines)
 endif()
 
 
-# Generate the exe output files (if necessary for the build platform)
-mltk_add_exe_targets(mltk_audio_classifier)
-
 #####################################################
-# Convert the model .tflite to a C header file
+# Convert the model .tflite to a C array
 
 # Use the default model if one wasn't provided on the command-line
 mltk_get(AUDIO_CLASSIFIER_MODEL)
 if(NOT AUDIO_CLASSIFIER_MODEL)
-    set(AUDIO_CLASSIFIER_MODEL "tflite_micro_speech")
+    set(AUDIO_CLASSIFIER_MODEL "keyword_spotting_on_off")
 endif()
 mltk_info("AUDIO_CLASSIFIER_MODEL=${AUDIO_CLASSIFIER_MODEL}")
 
-mltk_load_python()
+mltk_add_tflite_model(mltk_audio_classifier ${AUDIO_CLASSIFIER_MODEL})
 
-set(output_path "${MLTK_BINARY_DIR}/audio_classifier_generated_model.tflite.h")
-add_custom_target(mltk_audio_classifier_generate_model
-    COMMAND ${PYTHON_EXECUTABLE} ${MLTK_CPP_UTILS_DIR}/generate_model_header.py "${AUDIO_CLASSIFIER_MODEL}" --name "MODEL_DATA" --attributes "MODEL_DATA_SECTION" --output ${output_path}
-    COMMENT "Generating audio_classifier_generated_model.tflite.h from ${AUDIO_CLASSIFIER_MODEL}"
-    BYPRODUCTS ${output_path}
-)
-add_dependencies(mltk_audio_classifier mltk_audio_classifier_generate_model)
+# Generate the exe output files (if necessary for the build platform)
+mltk_add_exe_targets(mltk_audio_classifier)

@@ -13,11 +13,14 @@
 #include "r503_driver.h"
 
 
+#define CHECK_INITIALIZED() if(!reader_context.initialized) return SL_STATUS_NOT_INITIALIZED
+
 
 typedef struct
 {
     void (*finger_detected_irq_callback)(void);
     volatile bool finger_detected;
+    bool initialized;
 } fingerprint_reader_t;
 
 
@@ -38,6 +41,8 @@ static fingerprint_reader_t reader_context;
 sl_status_t fingerprint_reader_init(const fingerprint_reader_config_t* config)
 {
     sl_status_t status;
+
+    reader_context.initialized = false;
 
     CMU_ClockEnable(cmuClock_GPIO, true);
 #if defined(_CMU_HFPERCLKEN0_MASK)
@@ -121,6 +126,8 @@ sl_status_t fingerprint_reader_deinit()
 /*************************************************************************************************/
 sl_status_t fingerprint_reader_update_led(const fingerprint_reader_led_config_t* config)
 {
+    CHECK_INITIALIZED();
+
     r503_led_config_t led_config;
     led_config.mode = config->mode;
     led_config.color = config->color;
@@ -138,6 +145,8 @@ bool fingerprint_reader_is_image_available()
 /*************************************************************************************************/
 sl_status_t fingerprint_reader_get_image(fingerprint_reader_image_t image_buffer)
 {
+    CHECK_INITIALIZED();
+    
     sl_status_t status;
     r503_status_t command_status;
     

@@ -59,7 +59,7 @@ using Writer = std::function<void(const char*msg, int length, void* arg)>;
 void set_logger_list(LoggerList* list);
 DLL_EXPORT LoggerList& get_loggers();
 
-Logger* create(const char* tag, Level level = Level::Info, Flags flags = Flag::PrintLevel|Flag::PrintTag|Flag::Newline);
+Logger* create(const char* tag, Level level = Level::Info, Flags flags = Flag::Newline);
 Logger* get(const char *tag);
 bool destroy(const char* tag);
 

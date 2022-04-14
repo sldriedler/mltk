@@ -83,8 +83,8 @@ Model Diagram
 .. raw:: html
 
     <div class="model-diagram">
-        <a href="../../../_images/models/tflite_micro_magic_wand.tflite.png" target="_blank">
-            <img src="../../../_images/models/tflite_micro_magic_wand.tflite.png" />
+        <a href="../../../../_images/models/tflite_micro_magic_wand.tflite.png" target="_blank">
+            <img src="../../../../_images/models/tflite_micro_magic_wand.tflite.png" />
             <p>Click to enlarge</p>
         </a>
     </div>

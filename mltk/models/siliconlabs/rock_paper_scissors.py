@@ -93,8 +93,8 @@ Model Diagram
 .. raw:: html
 
     <div class="model-diagram">
-        <a href="../../../_images/models/ rock_paper_scissors.tflite.png" target="_blank">
-            <img src="../../../_images/models/ rock_paper_scissors.tflite.png" />
+        <a href="../../../../_images/models/ rock_paper_scissors.tflite.png" target="_blank">
+            <img src="../../../../_images/models/ rock_paper_scissors.tflite.png" />
             <p>Click to enlarge</p>
         </a>
     </div>

@@ -6,6 +6,8 @@
 #include <stdio.h>
 
 #include "sl_status.h"
+#include "sl_sleeptimer.h"
+#include "sl_udelay.h"
 
 // This provides the platform-specific defines
 #include "arducam_config.h"
@@ -13,15 +15,9 @@
 #include "arducam/arducam_types.h"
 #include "ov2640.h"
 
-#ifndef ARDUCAM_DELAY_US
-#include "sl_udelay.h"
-#define ARDUCAM_DELAY_US sl_udelay_wait(us)
-#endif 
+#define ARDUCAM_DELAY_US(us) sl_udelay_wait(us)
+#define ARDUCAM_DELAY_MS(us) sl_sleeptimer_delay_millisecond(us)
 
-#ifndef ARDUCAM_DELAY_MS
-#include "sl_sleeptimer.h"
-#define ARDUCAM_DELAY_MS sl_sleeptimer_delay_millisecond(us)
-#endif 
 
 
 //#define ARDUCAM_DEBUG_ENABLED

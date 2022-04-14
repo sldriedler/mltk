@@ -52,6 +52,7 @@ endif()
 
 # Append the CMSIS global compile options if they haven't already been added
 if(NOT CMAKE_C_FLAGS MATCHES ".*${compile_options}.*")
+    set(CMAKE_ASM_FLAGS "${CMAKE_ASM_FLAGS} ${compile_options}" CACHE INTERNAL "" FORCE)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${compile_options}" CACHE INTERNAL "" FORCE)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${compile_options}" CACHE INTERNAL "" FORCE)
 endif()
@@ -178,6 +179,7 @@ DSP/Source/CommonTables/arm_common_tables.c
 DSP/Source/CommonTables/arm_const_structs.c 
 DSP/Source/TransformFunctions/arm_bitreversal.c
 DSP/Source/TransformFunctions/arm_bitreversal2.c
+DSP/Source/TransformFunctions/arm_cfft_init_q15.c
 DSP/Source/TransformFunctions/arm_cfft_q15.c
 DSP/Source/TransformFunctions/arm_cfft_radix2_init_q15.c 
 DSP/Source/TransformFunctions/arm_cfft_radix2_q15.c 

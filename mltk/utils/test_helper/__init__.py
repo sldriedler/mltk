@@ -1,16 +1,36 @@
 import os
 import sys
 import threading
-from mltk.utils.shell_cmd import run_shell_cmd
-from mltk.core.utils import get_mltk_logger
+import logging
+from mltk.utils.logger import get_logger as _get_logger
 from mltk.utils.logger import make_filelike
+from mltk.utils.shell_cmd import run_shell_cmd
+from mltk.utils.path import create_user_dir
 
-logger = get_mltk_logger()
 
 _lock = threading.Lock()
 
+logger_dir = create_user_dir('pytest_results')
 
-def run_mltk_command(*args, update_model_path=False) -> str:
+
+
+def get_logger(name='utest', console=False):
+    logger = _get_logger(
+        name, 
+        level='DEBUG', 
+        console=console, 
+        log_file=f'{logger_dir}/{name}.log'
+    )
+    make_filelike(logger)
+    return logger
+
+
+def run_mltk_command(*args, update_model_path=False, logger=None) -> str:
+    if logger is None:
+        logger_name = args[0]
+        if logger_name.startswith('-'):
+            logger_name = 'mltk'
+        logger = get_logger(f'{logger_name}_cli_tests')
     env = os.environ.copy()
 
     python_bin_dir = os.path.dirname(os.path.abspath(sys.executable))
@@ -20,8 +40,9 @@ def run_mltk_command(*args, update_model_path=False) -> str:
     cmd = [mltk_exe_path]
     cmd.extend(args)
     cmd_str = ' '.join([str(x) for x in cmd])
+
+    logger.info('\n' + '*' * 100)
     logger.info(f'Running {cmd_str}')
-    make_filelike(logger)
 
     with _lock:
         if update_model_path:
@@ -100,46 +121,47 @@ def run_model_operation(
     tflite=False,
     build=False
 ):
+    logger = get_logger('model_operation_tests')
     logger.info(f'Testing {name_or_archive}, op={op}, tflite={tflite}, build={build}')
 
     if op == 'train':
-        run_mltk_command('train', name_or_archive, '--clean', '--verbose')
+        run_mltk_command('train', name_or_archive, '--clean', '--verbose', logger=logger)
     
     elif op == 'evaluate':
-        run_mltk_command('evaluate', name_or_archive, '--verbose')
+        run_mltk_command('evaluate', name_or_archive, '--verbose', logger=logger)
     
     elif op == 'profile':
         if build:
             name_no_test = name_or_archive.replace('-test', '')
-            run_mltk_command('profile', name_no_test, '--build', '--verbose')
+            run_mltk_command('profile', name_no_test, '--build', '--verbose', logger=logger)
         else:
-            run_mltk_command('profile', name_or_archive, '--verbose')
+            run_mltk_command('profile', name_or_archive, '--verbose', logger=logger)
         
     elif op == 'summarize':
         if build:
             name_no_test = name_or_archive.replace('-test', '')
             if tflite:
-                run_mltk_command('summarize', name_no_test, '--tflite', '--build', '--verbose')
+                run_mltk_command('summarize', name_no_test, '--tflite', '--build', '--verbose', logger=logger)
             else:
-                run_mltk_command('summarize', name_no_test, '--build', '--verbose')
+                run_mltk_command('summarize', name_no_test, '--build', '--verbose', logger=logger)
         else:
             if tflite:
-                run_mltk_command('summarize', name_or_archive, '--tflite', '--verbose')
+                run_mltk_command('summarize', name_or_archive, '--tflite', '--verbose', logger=logger)
             else:
-                run_mltk_command('summarize', name_or_archive, '--verbose')
+                run_mltk_command('summarize', name_or_archive, '--verbose', logger=logger)
 
     elif op == 'quantize':
-        run_mltk_command('quantize', name_or_archive, '--verbose')
+        run_mltk_command('quantize', name_or_archive, '--verbose', logger=logger)
 
     elif op == 'view':
         if build:
             name_no_test = name_or_archive.replace('-test', '')
             if tflite:
-                run_mltk_command('view', name_no_test, '--tflite', '--build', '--verbose')
+                run_mltk_command('view', name_no_test, '--tflite', '--build', '--verbose', logger=logger)
             else:
-                run_mltk_command('view', name_no_test, '--build', '--verbose')
+                run_mltk_command('view', name_no_test, '--build', '--verbose', logger=logger)
         else:           
             if tflite:
-                run_mltk_command('view', name_or_archive, '--tflite', '--verbose')
+                run_mltk_command('view', name_or_archive, '--tflite', '--verbose', logger=logger)
             else:
-                run_mltk_command('view', name_or_archive, '--verbose')
+                run_mltk_command('view', name_or_archive, '--verbose', logger=logger)

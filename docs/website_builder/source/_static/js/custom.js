@@ -7,10 +7,7 @@ window.dataLayer = window.dataLayer || [];
 $(document).ready(function () {
     checkPrivacyBannerStatus();
     $('a[href^="http://"], a[href^="https://"]').not('a[class*=internal]').attr('target', '_blank');
-
-    if(!window.tookSurvey) {
-        $('#survey-link').attr('href', window.SURVEY_URL);
-    }
+    $('#survey-link').attr('href', window.SURVEY_URL);
 });
 
 

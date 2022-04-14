@@ -13,13 +13,13 @@ from .python import as_list
 
 
 PLATFORM_TOOLCHAIN_MAPPING = {
-    'windows'   : 'gcc/windows/win64_toolchain.cmake',
-    'linux'     : 'gcc/linux/linux_toolchain.cmake',
-    'osx'       : 'gcc/osx/osx_toolchain.cmake',
-    'stk3701a'  : 'gcc/arm/arm_toolchain.cmake',
-    'brd4186b'  : 'gcc/arm/arm_toolchain.cmake',
-    'brd2601a'  : 'gcc/arm/arm_toolchain.cmake',
-    'brd4166a'  : 'gcc/arm/arm_toolchain.cmake',
+    'windows'  : 'gcc/windows/win64_toolchain.cmake',
+    'linux'    : 'gcc/linux/linux_toolchain.cmake',
+    'osx'      : 'gcc/osx/osx_toolchain.cmake',
+    'brd2204'  : 'gcc/arm/arm_toolchain.cmake',
+    'brd4186'  : 'gcc/arm/arm_toolchain.cmake',
+    'brd2601'  : 'gcc/arm/arm_toolchain.cmake',
+    'brd4166'  : 'gcc/arm/arm_toolchain.cmake',
 }
 
 
@@ -38,6 +38,7 @@ def build_mltk_target(
     logger:logging.Logger=None,
     verbose:bool=False,
     jobs:int=None, 
+    accelerator:str=None,
     use_user_options:bool=False
 ) -> str:
     """Build an MLTK CMake target
@@ -54,6 +55,7 @@ def build_mltk_target(
         platform: Build platform, if omitted use current OS
         logger: Optional python logger
         verbose: Enable verbose logging while building
+        accelerator: Name of accelerator to use for TFLITE_MICRO_ACCELERATOR CMake variable
         jobs: Number of parallel build jobs 
         use_user_options: Use the user_options.cmake in the source directory. Default is to IGNORE user_options.cmake
     Returns:
@@ -109,6 +111,8 @@ def build_mltk_target(
         cmd.append('-DMLTK_NO_USER_OPTIONS=ON')
     if verbose:
         cmd.append('-DMLTK_CMAKE_LOG_LEVEL:STRING=debug')
+    if accelerator:
+        cmd.append(f'-DTFLITE_MICRO_ACCELERATOR:STRING={accelerator}')
     for v in additional_variables:
         cmd.append(f'-D{v}')
 
@@ -207,8 +211,10 @@ def get_build_directory(
         build_dir = create_tempdir('build')
     build_dir = build_dir.replace('\\', '/')
 
-    if platform is None:
-        platform = get_current_os()
+    if build_subdir == False:
+        return build_dir
+
+    platform = platform or get_current_os()
     platform = platform.lower()
 
     if debug:

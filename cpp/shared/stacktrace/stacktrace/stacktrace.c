@@ -172,7 +172,7 @@ static void windows_print_stacktrace(CONTEXT *context)
     frame.AddrStack.Mode        = AddrModeFlat;
     frame.AddrFrame.Mode        = AddrModeFlat;
 
-    printf("Stacktrace:\n");
+    printf("Stacktrace '%s':\n", stacktrace_program_path);
 
     while (StackWalk(IMAGE_FILE_MACHINE,
             GetCurrentProcess(),

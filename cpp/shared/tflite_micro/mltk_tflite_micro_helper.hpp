@@ -111,6 +111,8 @@ extern "C" const TfliteMicroAccelerator* mltk_tflite_micro_get_registered_accele
 Logger& get_logger();
 bool set_log_level(LogLevel level);
 TfLiteStatus allocate_scratch_buffer(TfLiteContext *ctx, unsigned size_bytes, int *scratch_buffer_index);
+const void* get_metadata_from_tflite_flatbuffer(const void* tflite_flatbuffer, const char* tag, uint32_t* length = nullptr);
+bool get_tflite_flatbuffer_from_end_of_flash(const uint8_t** tflite_flatbuffer, uint32_t* length = nullptr);
 
 
 

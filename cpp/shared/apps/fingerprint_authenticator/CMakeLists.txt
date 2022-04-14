@@ -38,14 +38,8 @@ PRIVATE
 target_include_directories(mltk_fingerprint_authenticator
 PRIVATE 
     .
-    "${MLTK_BINARY_DIR}"
 )
 
-
-
-
-# Generate the exe output files (if necessary for the build platform)
-mltk_add_exe_targets(mltk_fingerprint_authenticator)
 
 #####################################################
 # Convert the model .tflite to a C header file
@@ -57,12 +51,8 @@ if(NOT FINGERPRINT_AUTHENTICATOR_MODEL)
 endif()
 mltk_info("FINGERPRINT_AUTHENTICATOR_MODEL=${FINGERPRINT_AUTHENTICATOR_MODEL}")
 
-mltk_load_python()
+mltk_add_tflite_model(mltk_fingerprint_authenticator ${FINGERPRINT_AUTHENTICATOR_MODEL})
 
-set(output_path "${MLTK_BINARY_DIR}/fingerprint_authenticator_generated_model.tflite.h")
-add_custom_target(mltk_fingerprint_authenticator_generate_model
-    COMMAND ${PYTHON_EXECUTABLE} ${MLTK_CPP_UTILS_DIR}/generate_model_header.py "${FINGERPRINT_AUTHENTICATOR_MODEL}" --name "MODEL_DATA" --attributes "MODEL_DATA_SECTION" --output ${output_path}
-    COMMENT "Generating fingerprint_authenticator_generated_model.tflite.h from ${FINGERPRINT_AUTHENTICATOR_MODEL}"
-    BYPRODUCTS ${output_path}
-)
-add_dependencies(mltk_fingerprint_authenticator mltk_fingerprint_authenticator_generate_model)
+
+# Generate the exe output files (if necessary for the build platform)
+mltk_add_exe_targets(mltk_fingerprint_authenticator)

@@ -172,7 +172,7 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
             
-            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
+            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
             
             <li class="md-tabs__item"><a href="https://github.com/tensorflow/tflite-micro" class="md-tabs__link">Tensorflow-Lite Micro Repository</a></li>
             
@@ -252,7 +252,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../../docs/guides/guides.html" class="md-nav__link">Modeling Guides</a>
+      <a href="../../../../../../docs/guides/index.html" class="md-nav__link">Modeling Guides</a>
       
     
     </li>
@@ -278,7 +278,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../../docs/python_api/python_api.html" class="md-nav__link">API Reference</a>
+      <a href="../../../../../../docs/python_api/index.html" class="md-nav__link">API Reference</a>
       
     
     </li>
@@ -344,7 +344,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../../docs/other/cpp_development_with_vscode.html" class="md-nav__link">C++ Development</a>
+      <a href="../../../../../../docs/cpp_development/index.html" class="md-nav__link">C++ Development</a>
       
     
     </li>
@@ -480,12 +480,20 @@
 <span class="sd">            The function will run before any augmentation is done on the audio sample.</span>
 <span class="sd">            The 'x' argument is of the shape [sample_length] and is a float32 scaled between (-1,1).</span>
 <span class="sd">            See https://librosa.org/doc/main/generated/librosa.load.html</span>
-<span class="sd">            The function should take two arguments:</span>
+<span class="sd">            The function should take at least two arguments:</span>
 
 <span class="sd">            .. highlight:: python</span>
 <span class="sd">            .. code-block:: python</span>
 
-<span class="sd">               def my_processing_func(params: ParallelProcessParams, x : np.ndarray) -&gt; np.ndarray:</span>
+<span class="sd">               def my_processing_func(</span>
+<span class="sd">                   params: ParallelProcessParams, </span>
+<span class="sd">                   x : np.ndarray,</span>
+<span class="sd">                   class_id: Optional[int],</span>
+<span class="sd">                   filename: Optional[str],</span>
+<span class="sd">                   batch_index: Optional[int],</span>
+<span class="sd">                   batch_class_ids: Optional[List[int]],</span>
+<span class="sd">                   batch_filenames: Optional[List[str]]</span>
+<span class="sd">                ) -&gt; np.ndarray:</span>
 <span class="sd">                   ...</span>
 <span class="sd">                   return processed_x</span>
 
@@ -493,24 +501,40 @@
 <span class="sd">            The function will run after the audio is augmented but before it does through the AudioFeatureGenerator (if enabled).</span>
 <span class="sd">            The 'x' argument is of the shape [sample_length] and is a float32 scaled between [-1,1].</span>
 <span class="sd">            See `librosa.load() &lt;https://librosa.org/doc/main/generated/librosa.load.html&gt;`_</span>
-<span class="sd">            The function should take two arguments, and return the processed sample:.</span>
+<span class="sd">            The function should take at least two arguments, and return the processed sample:.</span>
 
 <span class="sd">            .. highlight:: python</span>
 <span class="sd">            .. code-block:: python</span>
 
-<span class="sd">               def my_processing_func(params: ParallelProcessParams, x : np.ndarray) -&gt; np.ndarray:</span>
+<span class="sd">               def my_processing_func(</span>
+<span class="sd">                   params: ParallelProcessParams, </span>
+<span class="sd">                   x : np.ndarray,</span>
+<span class="sd">                   class_id: Optional[int],</span>
+<span class="sd">                   filename: Optional[str],</span>
+<span class="sd">                   batch_index: Optional[int],</span>
+<span class="sd">                   batch_class_ids: Optional[List[int]],</span>
+<span class="sd">                   batch_filenames: Optional[List[str]]</span>
+<span class="sd">                ) -&gt; np.ndarray:</span>
 <span class="sd">                   ...</span>
 <span class="sd">                   return processed_x</span>
 
 <span class="sd">        postprocessing_function: function that will be applied on each input.</span>
 <span class="sd">            The function will run after the audio is passed through the AudioFeatureGenerator (if enabled).</span>
 <span class="sd">            So the 'x' argument is a spectrogram of the shape: [height, width, 1].</span>
-<span class="sd">            The function should take two arguments and return the processed sample [height, width, 1]:</span>
+<span class="sd">            The function should take at least two arguments and return the processed sample [height, width, 1]:</span>
 
 <span class="sd">            .. highlight:: python</span>
 <span class="sd">            .. code-block:: python</span>
 
-<span class="sd">               def my_processing_func(params: ParallelProcessParams, x : np.ndarray) -&gt; np.ndarray:</span>
+<span class="sd">               def my_processing_func(</span>
+<span class="sd">                   params: ParallelProcessParams, </span>
+<span class="sd">                   x : np.ndarray,</span>
+<span class="sd">                   class_id: Optional[int],</span>
+<span class="sd">                   filename: Optional[str],</span>
+<span class="sd">                   batch_index: Optional[int],</span>
+<span class="sd">                   batch_class_ids: Optional[List[int]],</span>
+<span class="sd">                   batch_filenames: Optional[List[str]]</span>
+<span class="sd">                ) -&gt; np.ndarray:</span>
 <span class="sd">                   ...</span>
 <span class="sd">                   return processed_x</span>
 <span class="sd">                 </span>
@@ -595,6 +619,10 @@
 <span class="sd">        sample_shape: The shape of the generated sample. This is only used/required if ``frontend_enabled=False``</span>
 
 <span class="sd">        disable_gpu_in_subprocesses: Disable GPU usage in spawned subprocesses, default: true</span>
+
+<span class="sd">        add_channel_dimension: If true and ``frontend_enabled=True``, then automatically convert </span>
+<span class="sd">            generated sample shape from [height, width] to [height, width, 1]. </span>
+<span class="sd">            If false, then generated sample shape is [height, width].</span>
 <span class="sd">    </span>
 <span class="sd">    '''</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
@@ -630,7 +658,8 @@
         <span class="n">frontend_settings</span><span class="p">:</span> <span class="n">AudioFeatureGeneratorSettings</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">frontend_enabled</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">sample_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">disable_gpu_in_subprocesses</span><span class="o">=</span><span class="kc">True</span>
+        <span class="n">disable_gpu_in_subprocesses</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">add_channel_dimension</span><span class="o">=</span><span class="kc">True</span>
     <span class="p">):</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">cores</span> <span class="o">=</span> <span class="n">cores</span>
@@ -668,6 +697,7 @@
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">'Must provide "sample_shape" parameter if frontend_enabled=False'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sample_shape</span> <span class="o">=</span> <span class="n">sample_shape</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">frontend_enabled</span> <span class="k">else</span> <span class="n">frontend_settings</span><span class="o">.</span><span class="n">spectrogram_shape</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">disable_gpu_in_subprocesses</span> <span class="o">=</span> <span class="n">disable_gpu_in_subprocesses</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">add_channel_dimension</span> <span class="o">=</span> <span class="n">add_channel_dimension</span>
 
         
         <span class="bp">self</span><span class="o">.</span><span class="n">NOISE_COLORS</span> <span class="o">=</span>  <span class="p">(</span><span class="s1">'white'</span><span class="p">,</span> <span class="s1">'brown'</span><span class="p">,</span> <span class="s1">'blue'</span><span class="p">,</span> <span class="s1">'pink'</span><span class="p">,</span> <span class="s1">'violet'</span><span class="p">)</span>
@@ -843,7 +873,8 @@
             <span class="n">list_valid_filenames_in_directory_function</span><span class="o">=</span><span class="n">list_valid_filenames_in_directory_function</span><span class="p">,</span>
             <span class="n">max_samples_per_class</span><span class="o">=</span><span class="n">max_samples_per_class</span><span class="p">,</span>
             <span class="n">frontend_enabled</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">frontend_enabled</span><span class="p">,</span>
-            <span class="n">disable_gpu_in_subprocesses</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">disable_gpu_in_subprocesses</span>
+            <span class="n">disable_gpu_in_subprocesses</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">disable_gpu_in_subprocesses</span><span class="p">,</span>
+            <span class="n">add_channel_dimension</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">add_channel_dimension</span>
         <span class="p">)</span></div>
     
     
@@ -1170,10 +1201,10 @@
               
           </div>
             Last updated on
-              Mar 16, 2022.
+              Apr 14, 2022.
             <br/>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1181,7 +1212,7 @@
         <div class="survey-link" id="dlg-survey-link"> 
     <div>We need your feedback!</div>
     <div>
-        Please take this 3 question <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
+        Please take this short <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
     </div>
 </div>
       </div>

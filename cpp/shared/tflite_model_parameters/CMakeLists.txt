@@ -6,6 +6,7 @@ export (PACKAGE ${PROJECT_NAME})
 
 
 find_package(mltk_flatbuffers REQUIRED)
+find_package(mltk_tflite_micro REQUIRED)
 
 add_library(${PROJECT_NAME})
 add_library(mltk::tflite_model_parameters ALIAS ${PROJECT_NAME})
@@ -23,4 +24,5 @@ PUBLIC
 target_link_libraries(${PROJECT_NAME}
 PUBLIC
     mltk::flatbuffers
+    mltk::tflite_micro
 )

@@ -2,8 +2,10 @@ import sys
 import os
 import typer
 import pytest
+from contextlib import redirect_stdout
 
 from mltk import cli
+from mltk.utils.path import clean_directory
 
 
 @cli.root_cli.command('utest')
@@ -15,6 +17,8 @@ Comma separated list of unit test types, options are:
 - cli - Run CLI tests
 - api - Run API tests
 - model - Run reference model tests
+- cpp - Build C++ applications tests
+- studio - Simplicity Studio project generation/building tests
 '''
     ),
     test_arg: str = typer.Argument(None, 
@@ -25,7 +29,10 @@ Comma separated list of unit test types, options are:
     ),
     list_only: bool = typer.Option(False, '--list', '-l', 
         help='Only list the available unit tests'
-    )
+    ),
+    clear_cache: bool = typer.Option(True, 
+        help='Clear the MLTK cache directory before running tests'
+    ),
 ):
     """Run the all unit tests"""
 
@@ -33,11 +40,10 @@ Comma separated list of unit test types, options are:
     # to help improve the CLI's responsiveness
     from mltk import MLTK_DIR, MLTK_ROOT_DIR
     from mltk.utils.python import as_list
-    from mltk.utils.path import create_user_dir
+    from mltk.utils.test_helper import get_logger, logger_dir
     from mltk.utils.path import create_tempdir, clean_directory
-    from mltk.utils.logger import get_logger, make_filelike
 
-    all_types = {'all', 'cli', 'api', 'model'}
+    all_types = {'all', 'cli', 'api', 'model', 'cpp', 'studio'}
     test_type = test_type or 'all'
     test_type = set(test_type.split(','))
 
@@ -58,32 +64,34 @@ Comma separated list of unit test types, options are:
     if test_type & {'all', 'model'}:
         test_dirs.append('models/tests')
 
- 
+    if test_type & {'all', 'cpp'}:
+        test_dirs.append('../cpp/tools/tests/test_build_apps.py')
+
+    if test_type & {'all', 'studio'}:
+        test_dirs.append('../cpp/tools/tests/test_simplicity_studio.py')
+
 
     test_dirs = as_list(test_dirs)
-    log_dir = create_user_dir('pytest_results')
-    log_path = f'{log_dir}/pytest_results.txt'
-    logger = get_logger(
-        'utest', 
-        level='DEBUG', 
-        console=True, 
-        log_file=log_path
-    )
 
-    utest_cache_dir = create_tempdir('utest_cache')
-    clean_directory(utest_cache_dir)
-    os.environ['MLTK_CACHE_DIR'] = utest_cache_dir
-    os.environ['CUDA_VISIBLE_DEVICES'] = '-1' # Disable the GPU as well
-    cli.print_info(f'Setting MLTK_CACHE_DIR="{os.environ["MLTK_CACHE_DIR"]}"')
-    cli.print_info('Setting CUDA_VISIBLE_DEVICES=-1')
-
-    make_filelike(logger)
+    clean_directory(logger_dir)
+    logger = get_logger('utest_cli', console=True)
     logger.set_terminator('')
-    logger.verbose = True
+    logger.info(f'Generating logs at: {logger_dir}\n')
+
+    if clear_cache:
+        utest_cache_dir = create_tempdir('utest_cache')
+        clean_directory(utest_cache_dir)
+        os.environ['MLTK_CACHE_DIR'] = utest_cache_dir
+        logger.warning(f'Setting MLTK_CACHE_DIR="{os.environ["MLTK_CACHE_DIR"]}"\n')
+    else:
+        logger.warning(f'NOT clearing MLTK cache, using existing cache at ~/.mltk\n')
+    
+    # os.environ['CUDA_VISIBLE_DEVICES'] = '-1' # Disable the GPU as well
+    # cli.print_info('Setting CUDA_VISIBLE_DEVICES=-1')
 
     cmd = []
     cmd.append(f'--rootdir={MLTK_ROOT_DIR}')
-    cmd.append(f'--html-report={log_dir}/report.html')
+    cmd.append(f'--html-report={logger_dir}/report.html')
     cmd.append('--color=yes')
     cmd.extend(['-o', 'log_cli=true'])
     if verbose:
@@ -100,8 +108,9 @@ Comma separated list of unit test types, options are:
         cmd.append(f'{MLTK_DIR}/{d}')
     
 
-    cli.print_info('Executing: pytest ' + " ".join(cmd))
-    retcode = pytest.main(cmd)
+    logger.info('Executing: pytest ' + " ".join(cmd) + '\n')
+    with redirect_stdout(logger):
+        retcode = pytest.main(cmd)
     
-    cli.print_info(f'\n\nFor more details, see: {log_path}')
+    logger.info(f'\n\nFor more details, see: {logger_dir}\n')
     cli.abort(code=retcode)

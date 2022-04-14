@@ -27,11 +27,6 @@ PRIVATE
 )
 
 
-target_include_directories(mltk_model_profiler
-PRIVATE 
-    "${MLTK_BINARY_DIR}"
-)
-
 mltk_get(MLTK_RUN_MODEL_FROM_RAM)
 if(MLTK_RUN_MODEL_FROM_RAM)
     mltk_info("Loading .tflite flatbuffer into RAM")
@@ -43,13 +38,8 @@ endif()
 
 
 
-
-# Generate the exe output files (if necessary for the build platform)
-mltk_add_exe_targets(mltk_model_profiler)
-
-
 #####################################################
-# Convert the model .tflite to a C header file
+# Convert the model .tflite to a C array
 
 # Use the default model if one wasn't provided on the command-line
 
@@ -67,12 +57,8 @@ if(NOT MODEL_PROFILER_MODEL)
 endif()
 mltk_info("MODEL_PROFILER_MODEL=${MODEL_PROFILER_MODEL}")
 
-mltk_load_python()
 
-set(output_path "${MLTK_BINARY_DIR}/model_profiler_generated_model.tflite.h")
-add_custom_target(mltk_model_profiler_generate_model
-    COMMAND ${PYTHON_EXECUTABLE} ${MLTK_CPP_UTILS_DIR}/generate_model_header.py "${MODEL_PROFILER_MODEL}" --name "MODEL_DATA" --attributes "MODEL_DATA_SECTION" --output ${output_path}
-    COMMENT "Generating model_profiler_generated_model.tflite.h from ${MODEL_PROFILER_MODEL}"
-    BYPRODUCTS ${output_path}
-)
-add_dependencies(mltk_model_profiler mltk_model_profiler_generate_model)
+mltk_add_tflite_model(mltk_model_profiler ${MODEL_PROFILER_MODEL})
+
+# Generate the exe output files (if necessary for the build platform)
+mltk_add_exe_targets(mltk_model_profiler)

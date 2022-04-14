@@ -9,6 +9,7 @@ find_package(mltk_tflite_model_parameters REQUIRED)
 find_package(mltk_tflite_micro REQUIRED)
 find_package(mltk_logging REQUIRED)
 find_package(mltk_profiling REQUIRED)
+find_package(mltk_gecko_sdk REQUIRED)
 
 add_library(${PROJECT_NAME})
 add_library(mltk::tflite_micro_model ALIAS ${PROJECT_NAME})
@@ -31,4 +32,5 @@ PUBLIC
     mltk::tflite_micro
     mltk::logging
     mltk::profiling
+    mltk::gecko_sdk::includes
 )

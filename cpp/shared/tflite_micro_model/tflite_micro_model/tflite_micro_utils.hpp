@@ -78,7 +78,7 @@ static inline uint32_t get_tensor_arena_size(const void* flatbuffer, logging::Lo
     TfliteModelParameters model_parameters;
     
     // Attempt to retrieve the runtime memory size from the model parameters
-    if(TfliteMicroModel::get_model_parameters_in_flatbuffer(flatbuffer, model_parameters))
+    if(TfliteModelParameters::load_from_tflite_flatbuffer(flatbuffer, model_parameters))
     {
         if(model_parameters.get("runtime_memory_size", runtime_memory_size))
         {

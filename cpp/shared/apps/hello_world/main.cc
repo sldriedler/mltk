@@ -1,10 +1,12 @@
 #include <cstdio>
+#include "sl_system_init.h"
 
 
-
-extern "C" int main( int argc, char* argv[] )
+extern "C" int main(void)
 {
-    printf("Hello world!!\r\n");
+    sl_system_init();
+
+    printf("Hello world!!\n");
     fflush(stdout);
     return 0;
 }

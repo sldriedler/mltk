@@ -1,8 +1,9 @@
 #include <stdio.h>
 
-#include "platform_api.h"
-#include "cpputils/heap.hpp"
 #include "cpputils/string.hpp"
+#include "sl_system_init.h"
+#include "sl_sleeptimer.h"
+
 #include "tensorflow/lite/micro/all_ops_resolver.h"
 #include "tflite_micro_model/tflite_micro_model.hpp"
 #include "tflite_micro_model/tflite_micro_utils.hpp"
@@ -10,89 +11,69 @@
 
 #include "jlink_stream/jlink_stream.hpp"
 
-#include "image_classifier_generated_model.tflite.h"
 
 
 using namespace mltk;
 
 
+// These are defined by the build scripts
+// which converts the specified .tflite to a C array
+extern "C" const uint8_t sl_tflite_model_array[];
+extern "C" const uint32_t sl_tflite_model_len;
+
+
 static tflite::AllOpsResolver op_resolver;
-static TfliteMicroModel model;
-static logging::Logger* logger = nullptr;
 
-
-static bool dump_image(const TfliteTensorView* img_tensor, const uint8_t* image_data, uint32_t image_length, arducam_data_format_t data_format);
-static void print_classification_result(const TfliteTensorView* output_tensor);
+static bool load_model(TfliteMicroModel &model, logging::Logger& logger);
+static bool dump_image(
+    const TfliteTensorView* img_tensor, 
+    const uint8_t* image_data, 
+    uint32_t image_length, 
+    arducam_data_format_t data_format
+);
+static void print_classification_result(const TfliteTensorView* output_tensor, logging::Logger &logger);
 
 
 /*************************************************************************************************/
-extern "C" int main( int argc, char* argv[])
+extern "C" int main(void)
 {
     sl_status_t status;
-    TfliteModelParameters model_parameters;
+    TfliteMicroModel model;
     float img_scaler = 0;
     bool normalize_mean_std = false;
 
-    logger = &get_logger();
-    logger->flags(logging::Newline);
-    logger->level(logging::Debug);
+    sl_system_init();
 
-    logger->info("Starting Image Classifier");
+    auto& logger = get_logger();
+    logger.flags(logging::Newline);
+    logger.level(logging::Debug);
 
-    // Attempt to retrieve the model parameters from the .tflite flatbuffer
-    if(!TfliteMicroModel::get_model_parameters_in_flatbuffer(MODEL_DATA, model_parameters))
-    {
-        logger->warn("No model parameters found in flatbuffer");
-    }
-    else 
-    {
-        model_parameters.get("samplewise_norm.rescale", img_scaler);
-        if(img_scaler != 0)
-        {
-            logger->info("Image data scaler = %f", img_scaler);
-        }
-        model_parameters.get("samplewise_norm.mean_and_std", normalize_mean_std);
-        if(normalize_mean_std)
-        {
-            logger->info("Using samplewise mean & STD normalization");
-        }
-    }
-
-    uint32_t tensor_arena_size = get_tensor_arena_size(MODEL_DATA, logger);
-    uint8_t* tensor_arena = (uint8_t*)HEAP_MALLOC(tensor_arena_size);
-    if(tensor_arena == nullptr)
-    {
-        logger->error("Failed to allocate tensor arena of size: %d", tensor_arena_size);
-        return -1;
-    }
-#ifndef __arm__
-    // For non-embedded, malloc() a large buffer to ensure the model fits
-    // We still keep the HEAP_MALLOC() above so the heap stats are consistent with embedded
-    tensor_arena_size = 4*1024*1024;
-    tensor_arena = (uint8_t*)malloc(tensor_arena_size);
-#endif
+    logger.info("Starting Image Classifier");
 
     // This is for debugging
     // It allows for retrieving the image via Python script
-    if(jlink_stream::register_stream("image", jlink_stream::Write))
+    jlink_stream::register_stream("image", jlink_stream::Write);
+
+    if(!load_model(model, logger))
     {
-        logger->error("Registered image stream");
-    }
-
-    // Register the accelerator if the TFLM lib was built with one
-    mltk_tflite_micro_register_accelerator();
-
-
-    if(!model.load(
-        MODEL_DATA, op_resolver,
-        tensor_arena, tensor_arena_size
-    ))
-    {
-        logger->error("Failed to load model");
         return -1;
     }
 
-    model.print_summary(logger);
+    model.print_summary(&logger);
+
+
+    // Attempt to retrieve the model parameters from the .tflite flatbuffer
+    model.parameters.get("samplewise_norm.rescale", img_scaler);
+    if(img_scaler != 0)
+    {
+        logger.info("Image data scaler = %f", img_scaler);
+    }
+    model.parameters.get("samplewise_norm.mean_and_std", normalize_mean_std);
+    if(normalize_mean_std)
+    {
+        logger.info("Using samplewise mean & STD normalization");
+    }
+   
 
     // Retrieve the input tensor's size so we can determine how large of a image buffer to allocate
     TfliteTensorView* input_tensor = model.input(0);
@@ -103,7 +84,9 @@ extern "C" int main( int argc, char* argv[])
     {
         if(input_tensor->type != kTfLiteFloat32)
         {
-            logger->error("If using image scaling or samplewise mean/STD normalization, then the model input type must be float32");
+            logger.error(
+                "If using image scaling or samplewise mean/STD normalization, then the model input type must be float32"
+            );
             return -1;
         }
     }
@@ -113,7 +96,8 @@ extern "C" int main( int argc, char* argv[])
     arducam_config_t cam_config = ARDUCAM_DEFAULT_CONFIG;
     cam_config.image_resolution.width = input_tensor->dims->data[2];
     cam_config.image_resolution.height = input_tensor->dims->data[1];
-    cam_config.data_format = input_tensor->dims->data[3] == 1 ? ARDUCAM_DATA_FORMAT_GRAYSCALE : ARDUCAM_DATA_FORMAT_RGB888;
+    cam_config.data_format = input_tensor->dims->data[3] == 1 ? 
+        ARDUCAM_DATA_FORMAT_GRAYSCALE : ARDUCAM_DATA_FORMAT_RGB888;
    
     // Calculate the size required to buffer an image
     // NOTE: The buffer size may be different than the image size
@@ -126,10 +110,10 @@ extern "C" int main( int argc, char* argv[])
     // Allocate a "ping-pong" buffer (i.e. 2) for the image
     const uint32_t image_buffer_count = 2;
     const uint32_t image_buffer_length = length_per_image*image_buffer_count;
-    uint8_t* image_buffer = (uint8_t*)HEAP_MALLOC(image_buffer_length);
+    uint8_t* image_buffer = (uint8_t*)malloc(image_buffer_length);
     if(image_buffer == nullptr)
     {
-        logger->error("Failed to allocate camera buffer, size: %d", image_buffer_length);
+        logger.error("Failed to allocate camera buffer, size: %d", image_buffer_length);
         return -1;
     }
 
@@ -137,25 +121,21 @@ extern "C" int main( int argc, char* argv[])
     status = arducam_init(&cam_config, image_buffer, image_buffer_length);
     if(status != SL_STATUS_OK)
     {
-        logger->error("Failed to initialize the camera, err: %u", status);
+        logger.error("Failed to initialize the camera, err: %u", status);
         return -1;
     }
 
-
-    HeapStats heap_stats;
-    heap_get_stats(&heap_stats);
-    logger->info("Heap usage: %sB", cpputils::format_units(heap_stats.used));
 
     // Start the image capturing DMA background
     status = arducam_start_capture();
     if(status != SL_STATUS_OK)
     {
-        logger->error("Failed to start camera capture, err: %u", status);
+        logger.error("Failed to start camera capture, err: %u", status);
         return -1;
     }
 
 
-    logger->info("Image loop starting ...");
+    logger.info("Image loop starting ...");
     for(;;)
     {
         uint8_t* image_data;
@@ -172,7 +152,7 @@ extern "C" int main( int argc, char* argv[])
         }
         else if(status != SL_STATUS_OK)
         {
-          logger->error("Failed to retrieve image, err: %u", status);
+          logger.error("Failed to retrieve image, err: %u", status);
           break;
         }
 
@@ -208,24 +188,60 @@ extern "C" int main( int argc, char* argv[])
         //       while we run inference on the current image
         if(!model.invoke())
         {
-          logger->error("Failed to run inference");
+          logger.error("Failed to run inference");
           break;
         }
 
         // Print the results
-        print_classification_result(output_tensor);
+        print_classification_result(output_tensor, logger);
     }
 
     arducam_stop_capture();
 
-    logger->info("done");
+    logger.info("done");
 
     return 0;
 }
 
+/*************************************************************************************************/
+static bool load_model(TfliteMicroModel &model, logging::Logger& logger)
+{
+    const uint8_t* tflite_flatbuffer;
+    uint32_t tflite_flatbuffer_length;
+
+    // Register the accelerator if the TFLM lib was built with one
+    mltk_tflite_micro_register_accelerator();
+
+    // First check if a new .tflite was programmed to the end of flash
+    // (This will happen when this app is executed from the command-line: "mltk profiler my_model --device")
+    if(!get_tflite_flatbuffer_from_end_of_flash(&tflite_flatbuffer, &tflite_flatbuffer_length))
+    {
+         // If no .tflite was programmed, then just use the default model
+        printf("Using default model built into application\n");
+        tflite_flatbuffer = sl_tflite_model_array;
+        tflite_flatbuffer_length = sl_tflite_model_len;
+    }
+
+
+    logger.info("Loading model");
+
+    // Attempt to load the model using the arena size specified in the .tflite
+    if(!model.load(tflite_flatbuffer, op_resolver))
+    {
+        // If this failed, then try again by specifying an arbitrarily large arena size
+        logger.info("Attempting to load model again with tensor arena size of 184K");
+        if(!model.load(tflite_flatbuffer, op_resolver, nullptr, 184*1024))
+        {
+            // If it still fails then just return the error
+            return false;
+        }
+    }
+
+    return true;
+}
 
 /*************************************************************************************************/
-static void print_classification_result(const TfliteTensorView* output_tensor)
+static void print_classification_result(const TfliteTensorView* output_tensor, logging::Logger &logger)
 {
     char buffer[512];
     char*ptr = buffer;
@@ -250,15 +266,20 @@ static void print_classification_result(const TfliteTensorView* output_tensor)
         return;
     }
 
-    uint32_t now = platform_get_timestamp_ms();
+    uint32_t now = sl_sleeptimer_tick_to_ms(sl_sleeptimer_get_tick_count());
     uint32_t elapsed_time = now - last_timestamp;
     last_timestamp = now;
 
-    logger->info("%6d (%4d): %s", now, elapsed_time, buffer);
+    logger.info("%6d (%4d): %s", now, elapsed_time, buffer);
 }
 
 /*************************************************************************************************/
-static bool dump_image(const TfliteTensorView* img_tensor, const uint8_t* image_data, uint32_t image_length, arducam_data_format_t data_format)
+static bool dump_image(
+    const TfliteTensorView* img_tensor, 
+    const uint8_t* image_data, 
+    uint32_t image_length, 
+    arducam_data_format_t data_format
+)
 {
     bool connected = false;
 

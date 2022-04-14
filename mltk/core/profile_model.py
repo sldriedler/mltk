@@ -150,7 +150,10 @@ def profile_model_on_device(
         port=port,
         baud=115200, 
         outfile=serial_logger,
-        start_regex=re.compile('Starting Model Profiler', re.IGNORECASE),
+        start_regex=[
+            re.compile('.*Starting Model Profiler', re.IGNORECASE), 
+            re.compile('Loading model', re.IGNORECASE)
+        ],
         stop_regex=[re.compile(r'.*done.*', re.IGNORECASE)],
         fail_regex=[
             re.compile(r'.*hardfault.*', re.IGNORECASE), 

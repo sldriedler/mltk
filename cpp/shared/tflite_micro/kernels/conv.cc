@@ -41,13 +41,20 @@ struct CmsisOpDataConv {
 
 TfLiteStatus WrappedConvPrepare(TfLiteContext* context, TfLiteNode* node) {
   TfLiteStatus status = ConvPrepare(context, node);
+  MicroContext* micro_context = GetMicroContext(context);
 
   CmsisOpDataConv* data = static_cast<CmsisOpDataConv*>(node->user_data);
   const auto& params =
       *(static_cast<const TfLiteConvParams*>(node->builtin_data));
-  TfLiteTensor* output = GetOutput(context, node, kConvOutputTensor);
-  const TfLiteTensor* input = GetInput(context, node, kConvInputTensor);
-  const TfLiteTensor* filter = GetInput(context, node, kConvWeightsTensor);
+  TfLiteTensor* input =
+      micro_context->AllocateTempInputTensor(node, kConvInputTensor);
+  TF_LITE_ENSURE(context, input != nullptr);
+  TfLiteTensor* filter =
+      micro_context->AllocateTempInputTensor(node, kConvWeightsTensor);
+  TF_LITE_ENSURE(context, filter != nullptr);
+  TfLiteTensor* output =
+      micro_context->AllocateTempOutputTensor(node, kConvOutputTensor);
+  TF_LITE_ENSURE(context, output != nullptr);
 
   if (status == kTfLiteOk && input->type == kTfLiteInt8)
   {
@@ -78,6 +85,11 @@ TfLiteStatus WrappedConvPrepare(TfLiteContext* context, TfLiteNode* node) {
     output_dims.h = output->dims->data[1];
     output_dims.w = output->dims->data[2];
     output_dims.c = filter->dims->data[kConvQuantizedDimension];
+
+    micro_context->DeallocateTempTfLiteTensor(input);
+    micro_context->DeallocateTempTfLiteTensor(filter);
+    micro_context->DeallocateTempTfLiteTensor(output);
+
 
     data->buffer_idx = -1;
     int scratch_buffer_size = arm_convolve_wrapper_s8_get_buffer_size(

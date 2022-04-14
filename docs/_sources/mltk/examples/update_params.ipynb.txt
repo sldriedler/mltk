@@ -126,7 +126,7 @@
 
     "In this example, it's assumed that the [MltkModel.model_parameters](../../docs/python_api/core/mltk_model.html#mltk.core.MltkModel.model_parameters) settings in\n",
 
-    "the [tflite_micro_speech](../../docs/python_api/models/tflite_micro_models.html#tflite_micro_speech) model specification script have been modified _after_ the model have been\n",
+    "the [tflite_micro_speech](../../docs/python_api/models/tflite_micro/tflite_micro_speech.md) model specification script have been modified _after_ the model have been\n",
 
     "trained.\n",
 

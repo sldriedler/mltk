@@ -170,23 +170,39 @@ class ParallelImageDataGenerator(ImageDataGenerator):
 
         noaug_preprocessing_function: function that will be applied on each input.
             The function will run after the image is resized but before it is augmented or standardized.
-            The function should take two arguments and return the processed image:
+            The function should take at least two arguments and return the processed image:
 
             .. highlight:: python
             .. code-block:: python
 
-               def my_processing_func(params: ParallelProcessParams, x : np.ndarray) -> np.ndarray:
+               def my_processing_func(
+                   params: ParallelProcessParams, 
+                   x : np.ndarray,
+                   class_id: Optional[int],
+                   filename: Optional[str],
+                   batch_index: Optional[int],
+                   batch_class_ids: Optional[List[int]],
+                   batch_filenames: Optional[List[str]]
+                ) -> np.ndarray:
                    ...
                    return processed_x
 
         preprocessing_function: function that will be applied on each input.
             The function will run after the image is resized (if ``interpolation != None``) and augmented but before it is standardized.
-            The function should take two arguments and return the processed image:
+            The function should take at least two arguments and return the processed image:
 
             .. highlight:: python
             .. code-block:: python
 
-               def my_processing_func(params: ParallelProcessParams, x : np.ndarray) -> np.ndarray:
+               def my_processing_func(
+                   params: ParallelProcessParams, 
+                   x : np.ndarray,
+                   class_id: Optional[int],
+                   filename: Optional[str],
+                   batch_index: Optional[int],
+                   batch_class_ids: Optional[List[int]],
+                   batch_filenames: Optional[List[str]]
+                ) -> np.ndarray:
                   ...
                   return processed_x
 

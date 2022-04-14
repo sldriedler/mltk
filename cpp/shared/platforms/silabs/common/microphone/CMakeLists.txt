@@ -1,11 +1,15 @@
 
 set(NAME mltk_sl_mic)
 add_library(${NAME})
+add_library(mltk::sl_mic ALIAS ${NAME})
 
-
+target_include_directories(${NAME}
+PUBLIC
+  .
+)
 target_sources(${NAME}
 PRIVATE
-  sl_mic_i2s.c
+  mltk_sl_mic_i2s.c
 )
 
 

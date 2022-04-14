@@ -172,7 +172,7 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
             
-            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
+            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
             
             <li class="md-tabs__item"><a href="https://github.com/tensorflow/tflite-micro" class="md-tabs__link">Tensorflow-Lite Micro Repository</a></li>
             
@@ -252,7 +252,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../docs/guides/guides.html" class="md-nav__link">Modeling Guides</a>
+      <a href="../../../../../docs/guides/index.html" class="md-nav__link">Modeling Guides</a>
       
     
     </li>
@@ -278,7 +278,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../docs/python_api/python_api.html" class="md-nav__link">API Reference</a>
+      <a href="../../../../../docs/python_api/index.html" class="md-nav__link">API Reference</a>
       
     
     </li>
@@ -344,7 +344,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../docs/other/cpp_development_with_vscode.html" class="md-nav__link">C++ Development</a>
+      <a href="../../../../../docs/cpp_development/index.html" class="md-nav__link">C++ Development</a>
       
     
     </li>
@@ -771,8 +771,15 @@
                     <span class="o">**</span><span class="n">kwargs</span>
                 <span class="p">)</span>
 
-            <span class="n">validation_labels</span> <span class="o">=</span> <span class="n">validation_datagen</span><span class="o">.</span><span class="n">classes</span>
-
+            <span class="c1"># Retrieve all the y samples into a list</span>
+            <span class="c1"># NOTE: The length of this will be a multiple of the batch_size rounded up</span>
+            <span class="n">validation_labels</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">batch_y</span> <span class="ow">in</span> <span class="n">validation_datagen</span><span class="p">:</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_mode</span> <span class="o">==</span> <span class="s1">'categorical'</span><span class="p">:</span>
+                    <span class="n">batch_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">batch_y</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">validation_labels</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">batch_y</span><span class="p">)</span>
+            <span class="n">validation_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">validation_labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+         
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span>
                 <span class="s1">'mltk_model.dataset must return return a tuple as: (x_train, y_train), (x_test, y_test)'</span>
@@ -964,10 +971,10 @@
               
           </div>
             Last updated on
-              Mar 16, 2022.
+              Apr 14, 2022.
             <br/>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -975,7 +982,7 @@
         <div class="survey-link" id="dlg-survey-link"> 
     <div>We need your feedback!</div>
     <div>
-        Please take this 3 question <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
+        Please take this short <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
     </div>
 </div>
       </div>

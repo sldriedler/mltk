@@ -22,7 +22,7 @@ URLS = {
         extract_subdir=''
     ),
     'linux': dict(
-        url='https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz',
+        url='https://developer.arm.com/-/media/Files/downloads/gnu-rm/9-2020q2/gcc-arm-none-eabi-9-2020-q2-update-x86_64-linux.tar.bz2',
         version='2020q2',
         md5='2b9eeccc33470f9d3cda26983b9d2dc6',
         extract_subdir='/gcc-arm-none-eabi-9-2020-q2-update'
@@ -31,7 +31,7 @@ URLS = {
 
 
 
-def download_arm_toolchain():
+def download_arm_toolchain(return_path=False):
     curdir = os.path.dirname(os.path.abspath(__file__))
     current_os = get_current_os()
 
@@ -42,7 +42,6 @@ def download_arm_toolchain():
     
     dest_dir = create_user_dir(f'tools/toolchains/gcc/arm/{url_info["version"]}')
     extracted_dir = dest_dir + url_info['extract_subdir']
-    show_progress = '--noprogress' not in sys.argv
 
     # NOTE: If the tool already exists then this doesn't do anything
     retcode, retval = download_tool(
@@ -51,7 +50,7 @@ def download_arm_toolchain():
         dest_dir=dest_dir, 
         extracted_dir=extracted_dir,
         file_hash=url_info['md5'],
-        show_progress=show_progress,
+        show_progress=False,
         log_file=f'{curdir}/download.log',
         override_stdout_with_logger=True
     )
@@ -61,8 +60,13 @@ def download_arm_toolchain():
     else: 
         ext = ''
 
-    sys.stdout.write(f'{retval};{ext};')
-    sys.exit(retcode)
+    if return_path:
+        if retcode != 0:
+            raise RuntimeError(f'Failed to download ARM GCC toolchain, err: {retval}')
+        return retval
+    else:
+        sys.stdout.write(f'{retval};{ext};')
+        sys.exit(retcode)
 
 
 if __name__ == '__main__':

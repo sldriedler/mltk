@@ -1,6 +1,6 @@
 #include <signal.h>
 #include <stdio.h>
-
+#include "stacktrace/stacktrace.h"
 
 int  divide_by_zero();
 void cause_segfault();
@@ -14,7 +14,8 @@ void cause_calamity();
 int main(int argc, char * argv[])
 {
   (void)argc;
-
+  printf("Begin stacktrace test\n");
+  stacktrace_init();
   cause_calamity();
 
   puts("TEST FAILED");

@@ -1,5 +1,5 @@
 #include "tflite_model_parameters/tflite_model_parameters.hpp"
-
+#include "mltk_tflite_micro_helper.hpp"
 
 
 namespace mltk
@@ -14,6 +14,22 @@ using FloatList = TfliteModelParameters::FloatList;
 const char TfliteModelParameters::METADATA_TAG[] = "SL_PARAMSv1";
 
 
+/*************************************************************************************************/
+bool TfliteModelParameters::load_from_tflite_flatbuffer(const void* flatbuffer, TfliteModelParameters& parameters)
+{
+    const void* metadata = get_metadata_from_tflite_flatbuffer(flatbuffer, TfliteModelParameters::METADATA_TAG);
+    if(metadata == nullptr)
+    {
+        return false;
+    }
+
+    if(!parameters.load(metadata))
+    {
+        return false;
+    }
+
+    return true;
+}
 
 /*************************************************************************************************/
 bool TfliteModelParameters::load(const schema::Dictionary *fb_dictionary)

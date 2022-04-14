@@ -1,7 +1,9 @@
 #include <new>
+#include <cstdlib>
 #include "tensorflow/lite/schema/schema_generated.h"
 #include "cpputils/string.hpp"
 #include "tflite_micro_model/tflite_micro_model.hpp"
+#include "tflite_micro_model/tflite_micro_utils.hpp"
 
 #include "mltk_tflite_micro_internal.hpp"
 
@@ -37,6 +39,26 @@ bool TfliteMicroModel::load(
     unsigned runtime_buffer_size 
 )
 {
+    // If no runtime buffer was specified,
+    // then we need to allocate one now
+    if(runtime_buffer == nullptr)
+    {
+        // If no buffer size was given, then retrieve it from the .tflite's model parameters metadata
+        runtime_buffer_size = (runtime_buffer_size == 0) ? get_tensor_arena_size(flatbuffer) : runtime_buffer_size;
+#ifndef __arm__
+        // If this is a windows/linux build, the just allocate a large buffer
+        // to ensure there is enough room
+        runtime_buffer_size = 4*1024*1024;
+#endif
+        runtime_buffer = (uint8_t*)malloc(runtime_buffer_size);
+        if(runtime_buffer == nullptr)
+        {
+            MLTK_ERROR("Failed to allocate tensor arena of size: %d", runtime_buffer_size);
+            return false;
+        }
+        _runtime_buffer = runtime_buffer;
+    }
+
     if(_accelerator != nullptr)
     {
         _accelerator->init();
@@ -52,11 +74,12 @@ bool TfliteMicroModel::load(
 
     if(_interpreter->AllocateTensors() != kTfLiteOk)
     {
-        _interpreter = nullptr;
         MLTK_ERROR("Failed to allocate model tensors");
+        unload();
         return false;
     }
 
+    _ops_resolver = &op_resolver;
     _flatbuffer = flatbuffer;
 
     load_model_parameters();
@@ -91,6 +114,7 @@ void TfliteMicroModel::unload()
     }
 
     _flatbuffer = nullptr;
+    _ops_resolver = nullptr;
     parameters.unload();
     _model_details.unload();
     TFLITE_MICRO_RECORDER_CLEAR();
@@ -98,6 +122,12 @@ void TfliteMicroModel::unload()
     {
         _interpreter->~MicroInterpreter();
         _interpreter = nullptr;
+    }
+
+    if(_runtime_buffer != nullptr)
+    {
+        free(_runtime_buffer);
+        _runtime_buffer = nullptr;
     }
 }
 
@@ -324,95 +354,15 @@ void TfliteMicroModel::set_processing_callback(void (*callback)(void*), void *ar
 }
 
 /*************************************************************************************************/
-const void* TfliteMicroModel::find_metadata(const char* tag, unsigned* length) const
+const void* TfliteMicroModel::find_metadata(const char* tag, uint32_t* length) const
 {
-    return TfliteMicroModel::find_metadata_in_flatbuffer(this->_flatbuffer, tag, length);
+    return get_metadata_from_tflite_flatbuffer(this->_flatbuffer, tag, length);
 }
-
-/*************************************************************************************************/
-const void* TfliteMicroModel::find_metadata_in_flatbuffer(const void* flatbuffer, const char* tag, unsigned* length )
-{
-    if(flatbuffer == nullptr)
-    {
-        return nullptr;
-    }
-
-    const void* metadata_buffer = nullptr;
-    const auto model = tflite::GetModel(flatbuffer);
-    if(model == nullptr)
-    {
-        return nullptr;
-    }
-
-    const auto metadata_vector = model->metadata();
-    if(metadata_vector == nullptr)
-    {
-        return nullptr;
-    }
-
-    const auto buffers_vector = model->buffers();
-    if(buffers_vector == nullptr)
-    {
-        return nullptr;
-    }
-   
-    for(auto meta : *metadata_vector)
-    {
-        if(meta == nullptr || meta->name() == nullptr)
-        {
-            return nullptr;
-        }
-
-        if(strcmp(meta->name()->c_str(), tag) == 0)
-        {
-            auto buffer_index = meta->buffer();
-            auto buffer = buffers_vector->Get(buffer_index);
-            if(buffer == nullptr)
-            {
-                return nullptr;
-            }
-
-            const auto buffer_data = buffer->data();
-            if(buffer_data  == nullptr)
-            {
-                return nullptr;
-            }
-
-            metadata_buffer = buffer_data->Data();
-            if(length != nullptr)
-            {
-                *length = buffer_data->size();
-            }
-
-            break;
-        }
-    }
-
-    return metadata_buffer;
-}
-
-/*************************************************************************************************/
-bool TfliteMicroModel::get_model_parameters_in_flatbuffer(const void* flatbuffer, TfliteModelParameters& parameters)
-{
-    const void* metadata = TfliteMicroModel::find_metadata_in_flatbuffer(flatbuffer, TfliteModelParameters::METADATA_TAG);
-    if(metadata == nullptr)
-    {
-        return false;
-    }
-
-    if(!parameters.load(metadata))
-    {
-        return false;
-    }
-
-    return true;
-}
-
 
 /*************************************************************************************************/
 bool TfliteMicroModel::load_model_parameters()
 {
-    if(get_model_parameters_in_flatbuffer(this->_flatbuffer, this->parameters))
+    if(TfliteModelParameters::load_from_tflite_flatbuffer(this->_flatbuffer, this->parameters))
     {
          _model_details.load_parameters(&this->parameters);
          return true;

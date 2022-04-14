@@ -26,7 +26,7 @@ class MltkModel(
     
     This must be defined in a model specification file.
 
-    Refer to the `Model Specification <https://siliconlabs.github.io/mltk/docs/model_specification.html>`_ guide fore more details.
+    Refer to the `Model Specification <https://siliconlabs.github.io/mltk/docs/guides/model_specification.html>`_ guide fore more details.
     """
 
     def __init__(self, model_script_path:str=None):

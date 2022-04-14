@@ -1,6 +1,7 @@
 
 #include "em_emu.h"
 
+#include "sl_system_init.h"
 #include "logging/logging.hpp"
 #include "jlink_stream/jlink_stream.hpp"
 #include "fingerprint_reader/fingerprint_reader.h"
@@ -13,11 +14,15 @@
 
 
 #include "app_config.hpp"
-#include "fingerprint_authenticator_generated_model.tflite.h"
 
 
 using namespace mltk;
 
+
+// These are defined by the build scripts
+// which converts the specified .tflite to a C array
+extern "C" const uint8_t sl_tflite_model_array[];
+extern "C" const uint32_t sl_tflite_model_len;
 
 
 AppController app_controller;
@@ -32,9 +37,13 @@ static void process_erase_signature_mode();
 
 
 /*************************************************************************************************/
-extern "C" int main( int argc, char* argv[])
+extern "C" int main(void)
 {
     sl_status_t status;
+
+    sl_system_init();
+
+
     auto& logger = get_logger();
     logger.flags(logging::Newline);
     logger.level(logging::Info);
@@ -57,7 +66,7 @@ extern "C" int main( int argc, char* argv[])
         return -1;
     }
     
-    if(!fingerprint_authenticator.load_model(MODEL_DATA))
+    if(!fingerprint_authenticator.load_model(sl_tflite_model_array))
     {
         MLTK_ERROR("Failed to load model");
         app_controller.update_state(AppController::State::fatalError);

@@ -47,14 +47,14 @@ Additionally, many of the tools support `.tflite` model files that were generate
 
 | Tool Name           | External `.tflite` Supported?  | Description       |
 |---------------------|--------------------------------|-------------------|
-| [Model Profiler](https://siliconlabs.github.io/mltk/docs/model_profiler.html) | Yes | Calculate model run-time statistics like Latency, RAM usage, etc |
-| [Model Summary](https://siliconlabs.github.io/mltk/docs/model_summary.html)  | Yes  | Generate text summary of model |
-| [Model Visualizer](https://siliconlabs.github.io/mltk/docs/model_visualizer.html) | Yes  | View model in interative graph |
-| [Audio Visualizer](https://siliconlabs.github.io/mltk/docs/audio_feature_generator.html) | N/A  | View generated spectrograms in real-time |
-| [Model Parameters](https://siliconlabs.github.io/mltk/docs/model_parameters.html) | Yes | Embed parameters into `.tflite` model file |
-| [Model Trainer](https://siliconlabs.github.io/mltk/docs/model_training.html) | No | Train model using Tensorflow |
-| [Model Evaluater](https://siliconlabs.github.io/mltk/docs/model_evaluation.html) | No  | Evaluate accuracy of `.tflite` |
-| [Model Quantizer](https://siliconlabs.github.io/mltk/docs/model_quantization.html) | No | Quantize model using Tensorflow-Lite Converter |
+| [Model Profiler](https://siliconlabs.github.io/mltk/docs/guides/model_profiler.html) | Yes | Calculate model run-time statistics like Latency, RAM usage, etc |
+| [Model Summary](https://siliconlabs.github.io/mltk/docs/guides/model_summary.html)  | Yes  | Generate text summary of model |
+| [Model Visualizer](https://siliconlabs.github.io/mltk/docs/guides/model_visualizer.html) | Yes  | View model in interative graph |
+| [Audio Visualizer](https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html) | N/A  | View generated spectrograms in real-time |
+| [Model Parameters](https://siliconlabs.github.io/mltk/docs/guides/model_parameters.html) | Yes | Embed parameters into `.tflite` model file |
+| [Model Trainer](https://siliconlabs.github.io/mltk/docs/guides/model_training.html) | No | Train model using Tensorflow |
+| [Model Evaluater](https://siliconlabs.github.io/mltk/docs/guides/model_evaluation.html) | No  | Evaluate accuracy of `.tflite` |
+| [Model Quantizer](https://siliconlabs.github.io/mltk/docs/guides/model_quantization.html) | No | Quantize model using Tensorflow-Lite Converter |
 
 
 ## C++ Python wrappers
@@ -97,5 +97,5 @@ This is useful as it allows for determining if a given `.tflite` model is suppor
 
 ## Integration with the Gecko SDK
 
-The [Gecko SDK](https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview) is able to parse the [embedded parameters](./guides/model_parameters.md) in
+The [Gecko SDK](https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview) is able to parse the [embedded parameters](./guides/model_parameters.md) in
 a `.tflite` and generate the corresponding source code.

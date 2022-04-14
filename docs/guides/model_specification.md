@@ -362,7 +362,7 @@ mltk_model.model_parameters['log_level'] = 'info'
 
 ## Examples
 
-See the [reference models](../python_api/models/models.md) for complete model specification scripts:
+See the [reference models](../python_api/models/index.md) for complete model specification scripts:
 
 - [siliconlabs.keyword_spotting_on_off](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py)
 - [examples.image_example1](https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/image_example1.py)

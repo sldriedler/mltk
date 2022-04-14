@@ -175,12 +175,12 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
             
-            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
+            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
             
             <li class="md-tabs__item"><a href="https://github.com/tensorflow/tflite-micro" class="md-tabs__link">Tensorflow-Lite Micro Repository</a></li>
             
             <li class="md-tabs__item"><a href="https://www.tensorflow.org/learn" class="md-tabs__link">Tensorflow Documentation</a></li>
-          <li class="md-tabs__item"><a href="../python_api.html" class="md-tabs__link">API Reference</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">API Reference</a></li>
           <li class="md-tabs__item"><a href="types.html" class="md-tabs__link">Model Object Types</a></li>
       </ul>
     </div>
@@ -256,7 +256,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../guides/guides.html" class="md-nav__link">Modeling Guides</a>
+      <a href="../../guides/index.html" class="md-nav__link">Modeling Guides</a>
       
     
     </li>
@@ -282,7 +282,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../python_api.html" class="md-nav__link">API Reference</a>
+      <a href="../index.html" class="md-nav__link">API Reference</a>
       <ul class="md-nav__list"> 
     <li class="md-nav__item">
     
@@ -308,21 +308,21 @@
     <li class="md-nav__item">
     
     
-      <a href="../data_preprocessing/data_preprocessing.html" class="md-nav__link">Data Preprocessing</a>
+      <a href="../data_preprocessing/index.html" class="md-nav__link">Data Preprocessing</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../models/models.html" class="md-nav__link">Reference Models</a>
+      <a href="../models/index.html" class="md-nav__link">Reference Models</a>
       
     
     </li>
     <li class="md-nav__item">
     
     
-      <a href="../datasets/datasets.html" class="md-nav__link">Reference Datasets</a>
+      <a href="../datasets/index.html" class="md-nav__link">Reference Datasets</a>
       
     
     </li></ul>
@@ -390,7 +390,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../other/cpp_development_with_vscode.html" class="md-nav__link">C++ Development</a>
+      <a href="../../cpp_development/index.html" class="md-nav__link">C++ Development</a>
       
     
     </li>
@@ -462,7 +462,7 @@
             <ul class="breadcrumb">
               <li></li>
               <li><a href="../../../index.html"><i class="md-icon">home</i></a></li>
-                <li class="active"><a href="../python_api.html" >API Reference</a></li>
+                <li class="active"><a href="../index.html" >API Reference</a></li>
                 <li class="active"><a href="types.html" accesskey="U">Model Object Types</a></li>
             </ul>
           </div>
@@ -474,7 +474,7 @@
 <h1 id="docs-python-api-core-tflite-model--page-root">TfliteModel<a class="headerlink" href="#docs-python-api-core-tflite-model--page-root" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.TfliteModel">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.</span></span><span class="sig-name descname"><span class="pre">TfliteModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flatbuffer_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_model.html#TfliteModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.TfliteModel" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.</span></span><span class="sig-name descname"><span class="pre">TfliteModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flatbuffer_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_model.html#TfliteModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.TfliteModel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class to access a .tflite model flatbuffer’s layers and tensors</p>
 <p>Refer to <a class="reference external" href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/lite/schema/schema_v3.fbs">schema_v3.fbs</a>
 for more details on the .tflite flatbuffer schema</p>
@@ -523,12 +523,12 @@ for more details on the .tflite flatbuffer schema</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="mltk.core.TfliteModel.load_flatbuffer_file">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">load_flatbuffer_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_model.html#TfliteModel.load_flatbuffer_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.TfliteModel.load_flatbuffer_file" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_flatbuffer_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_model.html#TfliteModel.load_flatbuffer_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.TfliteModel.load_flatbuffer_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load a .tflite flatbuffer file</p>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.TfliteModel.path">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.TfliteModel.path" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">path</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.TfliteModel.path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Path to .tflite file
 Returns None if no path was specified.
 The path is normalized and backslashes are converted to forward slash</p>
@@ -540,7 +540,7 @@ The path is normalized and backslashes are converted to forward slash</p>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.TfliteModel.filename">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">filename</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.TfliteModel.filename" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filename</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.TfliteModel.filename" title="Permalink to this definition">¶</a></dt>
 <dd><p>File name of associated .tflite model file
 Return None if not path is set</p>
 <dl class="field-list simple">
@@ -551,7 +551,7 @@ Return None if not path is set</p>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.TfliteModel.description">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.TfliteModel.description" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.TfliteModel.description" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get/set model description</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -565,7 +565,7 @@ Return None if not path is set</p>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.TfliteModel.flatbuffer_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">flatbuffer_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">bytes</span></em><a class="headerlink" href="#mltk.core.TfliteModel.flatbuffer_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">flatbuffer_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bytes</span></em><a class="headerlink" href="#mltk.core.TfliteModel.flatbuffer_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flatbuffer binary data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -575,7 +575,7 @@ Return None if not path is set</p>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.TfliteModel.flatbuffer_size">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">flatbuffer_size</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.TfliteModel.flatbuffer_size" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">flatbuffer_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.TfliteModel.flatbuffer_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Size of the model flatbuffer in bytes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -585,7 +585,7 @@ Return None if not path is set</p>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.TfliteModel.flatbuffer_model">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">flatbuffer_model</span></span><em class="property"><span class="pre">:</span> <span class="pre">tensorflow_lite_support.metadata.schema_py_generated.Model</span></em><a class="headerlink" href="#mltk.core.TfliteModel.flatbuffer_model" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">flatbuffer_model</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tensorflow_lite_support.metadata.schema_py_generated.Model</span></em><a class="headerlink" href="#mltk.core.TfliteModel.flatbuffer_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flatbuffer schema Model object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -595,7 +595,7 @@ Return None if not path is set</p>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.TfliteModel.n_inputs">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">n_inputs</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.TfliteModel.n_inputs" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.TfliteModel.n_inputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the number of model inputs</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -605,7 +605,7 @@ Return None if not path is set</p>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.TfliteModel.inputs">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mltk.core.tflite_model.TfliteTensor" title="mltk.core.tflite_model.tflite_tensor.TfliteTensor"><span class="pre">mltk.core.tflite_model.tflite_tensor.TfliteTensor</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.TfliteModel.inputs" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mltk.core.tflite_model.TfliteTensor" title="mltk.core.tflite_model.tflite_tensor.TfliteTensor"><span class="pre">mltk.core.tflite_model.tflite_tensor.TfliteTensor</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.TfliteModel.inputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of all input tensors</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -615,7 +615,7 @@ Return None if not path is set</p>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.TfliteModel.n_outputs">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">n_outputs</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.TfliteModel.n_outputs" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.TfliteModel.n_outputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the number of model outputs</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -625,7 +625,7 @@ Return None if not path is set</p>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.TfliteModel.outputs">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mltk.core.tflite_model.TfliteTensor" title="mltk.core.tflite_model.tflite_tensor.TfliteTensor"><span class="pre">mltk.core.tflite_model.tflite_tensor.TfliteTensor</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.TfliteModel.outputs" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mltk.core.tflite_model.TfliteTensor" title="mltk.core.tflite_model.tflite_tensor.TfliteTensor"><span class="pre">mltk.core.tflite_model.tflite_tensor.TfliteTensor</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.TfliteModel.outputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of all output tensors</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -635,7 +635,7 @@ Return None if not path is set</p>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.TfliteModel.layers">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">layers</span></span><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mltk.core.tflite_model.TfliteLayer" title="mltk.core.tflite_model.tflite_layer.TfliteLayer"><span class="pre">mltk.core.tflite_model.tflite_layer.TfliteLayer</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.TfliteModel.layers" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">layers</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mltk.core.tflite_model.TfliteLayer" title="mltk.core.tflite_model.tflite_layer.TfliteLayer"><span class="pre">mltk.core.tflite_model.tflite_layer.TfliteLayer</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.TfliteModel.layers" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of all model layers</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -817,16 +817,16 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 <h2 id="tflitelayer">TfliteLayer<a class="headerlink" href="#tflitelayer" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteLayer">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.</span></span><span class="sig-name descname"><span class="pre">TfliteLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_operation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.</span></span><span class="sig-name descname"><span class="pre">TfliteLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_operation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper for TFLite flatbuffer layer</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteLayer.from_model">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">from_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_operation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteLayer.from_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.from_model" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_operation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteLayer.from_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.from_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instantiate a TfliteLayer from then given TfliteModel flatbuffer operation</p>
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteLayer.index">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">index</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.index" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Index of this layer in the model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -836,7 +836,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteLayer.name">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.name" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>op&lt;index&gt;-&lt;OpCodeStr&gt;</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -849,7 +849,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteLayer.opcode">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">opcode</span></span><em class="property"><span class="pre">:</span> <span class="pre">tensorflow_lite_support.metadata.schema_py_generated.BuiltinOperator</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.opcode" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">opcode</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tensorflow_lite_support.metadata.schema_py_generated.BuiltinOperator</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.opcode" title="Permalink to this definition">¶</a></dt>
 <dd><p>OpCode numeric value</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -859,7 +859,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteLayer.opcode_str">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">opcode_str</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.opcode_str" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">opcode_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.opcode_str" title="Permalink to this definition">¶</a></dt>
 <dd><p>OpCode as a string</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -869,7 +869,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteLayer.options">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">options</span></span><em class="property"><span class="pre">:</span> <span class="pre">mltk.core.tflite_model.tflite_layer.TfliteLayerOptions</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.options" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">options</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">mltk.core.tflite_model.tflite_layer.TfliteLayerOptions</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.options" title="Permalink to this definition">¶</a></dt>
 <dd><p>Layer-specific options/config</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -879,7 +879,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteLayer.metadata">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">metadata</span></span><em class="property"><span class="pre">:</span> <span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.metadata" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">metadata</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">object</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Additional key/value data to associated with layer</p>
 <dl class="simple">
 <dt>NOTE: This information is generated by the framework/Python scripts</dt><dd><p>(i.e. The information does NOT come from the .tflite model)</p>
@@ -893,7 +893,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteLayer.inputs">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mltk.core.tflite_model.TfliteTensor" title="mltk.core.tflite_model.tflite_tensor.TfliteTensor"><span class="pre">mltk.core.tflite_model.tflite_tensor.TfliteTensor</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.inputs" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mltk.core.tflite_model.TfliteTensor" title="mltk.core.tflite_model.tflite_tensor.TfliteTensor"><span class="pre">mltk.core.tflite_model.tflite_tensor.TfliteTensor</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.inputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of layer input tensor(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -903,7 +903,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteLayer.n_inputs">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">n_inputs</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.n_inputs" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.n_inputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the number of inputs</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -913,7 +913,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteLayer.outputs">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mltk.core.tflite_model.TfliteTensor" title="mltk.core.tflite_model.tflite_tensor.TfliteTensor"><span class="pre">mltk.core.tflite_model.tflite_tensor.TfliteTensor</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.outputs" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mltk.core.tflite_model.TfliteTensor" title="mltk.core.tflite_model.tflite_tensor.TfliteTensor"><span class="pre">mltk.core.tflite_model.tflite_tensor.TfliteTensor</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.outputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>List of layer output tensor(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -923,7 +923,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteLayer.n_outputs">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">n_outputs</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.n_outputs" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteLayer.n_outputs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the number of outputs</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -982,11 +982,11 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 <h2 id="tfliteaddlayer">TfliteAddLayer<a class="headerlink" href="#tfliteaddlayer" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteAddLayer">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteAddLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_operation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteAddLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteAddLayer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteAddLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_operation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteAddLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteAddLayer" title="Permalink to this definition">¶</a></dt>
 <dd><p>ADD operation TfliteLayer</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteAddLayer.activation">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">activation</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteAddLayer.activation" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteAddLayer.activation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fused activation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -996,7 +996,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteAddLayer.input1_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">input1_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteAddLayer.input1_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input1_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteAddLayer.input1_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>First input tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1006,7 +1006,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteAddLayer.input2_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">input2_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteAddLayer.input2_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input2_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteAddLayer.input2_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Second input tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1016,7 +1016,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteAddLayer.output_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteAddLayer.output_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteAddLayer.output_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1030,11 +1030,11 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 <h2 id="tfliteconv2dlayer">TfliteConv2dLayer<a class="headerlink" href="#tfliteconv2dlayer" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteConv2dLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteConv2dLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteConv2dLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteConv2dLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer" title="Permalink to this definition">¶</a></dt>
 <dd><p>CONV_2D operation TfliteLayer</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.filters">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">filters</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.filters" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.filters" title="Permalink to this definition">¶</a></dt>
 <dd><p>The number of filters</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1044,7 +1044,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.kernel_size">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">kernel_size</span></span><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.kernel_size" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kernel_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.kernel_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters kernel size has height x width</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1054,7 +1054,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.strides">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">strides</span></span><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.strides" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">strides</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.strides" title="Permalink to this definition">¶</a></dt>
 <dd><p>Kernel stride height x width</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1064,7 +1064,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.padding">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">padding</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.padding" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">padding</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.padding" title="Permalink to this definition">¶</a></dt>
 <dd><p>Kernel padding</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1074,7 +1074,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.activation">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">activation</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.activation" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.activation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fused activation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1084,7 +1084,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.use_bias">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">use_bias</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.use_bias" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">use_bias</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.use_bias" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return if the layer uses a bias</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1094,7 +1094,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.input_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.input_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.input_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1104,7 +1104,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.filters_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">filters_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.filters_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filters_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.filters_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1114,7 +1114,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.bias_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">bias_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.bias_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bias_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.bias_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bias tensor data (None if no bias used)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1124,7 +1124,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.output_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.output_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteConv2dLayer.output_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1138,11 +1138,11 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 <h2 id="tflitefullyconnectedlayer">TfliteFullyConnectedLayer<a class="headerlink" href="#tflitefullyconnectedlayer" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteFullyConnectedLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteFullyConnectedLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteFullyConnectedLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteFullyConnectedLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer" title="Permalink to this definition">¶</a></dt>
 <dd><p>FULLY_CONNECT operation TfliteLayer</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.accumulator_depth">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">accumulator_depth</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.accumulator_depth" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accumulator_depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.accumulator_depth" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of weights to accumulate</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1152,7 +1152,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.units">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">units</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.units" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">units</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.units" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of neurons</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1162,7 +1162,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.activation">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">activation</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.activation" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.activation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fused activation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1172,7 +1172,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.use_bias">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">use_bias</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.use_bias" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">use_bias</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.use_bias" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return if the layer uses a bias</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1182,7 +1182,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.input_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.input_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.input_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1192,7 +1192,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.weights_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">weights_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.weights_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">weights_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.weights_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Weights tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1202,7 +1202,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.bias_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">bias_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.bias_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bias_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.bias_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bias tensor data (None if no bias used)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1212,7 +1212,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.output_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.output_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteFullyConnectedLayer.output_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1226,11 +1226,11 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 <h2 id="tflitedepthwiseconv2dlayer">TfliteDepthwiseConv2dLayer<a class="headerlink" href="#tflitedepthwiseconv2dlayer" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteDepthwiseConv2dLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteDepthwiseConv2dLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteDepthwiseConv2dLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteDepthwiseConv2dLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer" title="Permalink to this definition">¶</a></dt>
 <dd><p>DEPTHWISE_CONV_2D operation TfliteLayer</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.multiplier">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">multiplier</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.multiplier" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">multiplier</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.multiplier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Depth multiplier</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1240,7 +1240,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.kernel_size">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">kernel_size</span></span><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.kernel_size" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">kernel_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.kernel_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters kernel size has height x width</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1250,7 +1250,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.strides">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">strides</span></span><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.strides" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">strides</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.strides" title="Permalink to this definition">¶</a></dt>
 <dd><p>Kernel stride height x width</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1260,7 +1260,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.padding">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">padding</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.padding" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">padding</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.padding" title="Permalink to this definition">¶</a></dt>
 <dd><p>Kernel padding</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1270,7 +1270,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.activation">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">activation</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.activation" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.activation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fused activation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1280,7 +1280,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.use_bias">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">use_bias</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.use_bias" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">use_bias</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.use_bias" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return if the layer uses a bias</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1290,7 +1290,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.input_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.input_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.input_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1300,7 +1300,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.filters_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">filters_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.filters_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filters_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.filters_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1310,7 +1310,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.bias_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">bias_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.bias_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bias_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.bias_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bias tensor data (None if no bias used)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1320,7 +1320,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.output_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.output_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDepthwiseConv2dLayer.output_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1334,11 +1334,11 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 <h2 id="tflitepooling2dlayer">TflitePooling2dLayer<a class="headerlink" href="#tflitepooling2dlayer" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TflitePooling2dLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TflitePooling2dLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TflitePooling2dLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TflitePooling2dLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer" title="Permalink to this definition">¶</a></dt>
 <dd><p>AVERAGE_POOL_2D or MAX_POOL_2D operation TfliteLayer</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.pool_size">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">pool_size</span></span><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.pool_size" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pool_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.pool_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Kernel size as height x width</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1348,7 +1348,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.strides">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">strides</span></span><em class="property"><span class="pre">:</span> <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.strides" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">strides</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.strides" title="Permalink to this definition">¶</a></dt>
 <dd><p>Kernel stride as height x width</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1358,7 +1358,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.padding">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">padding</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.padding" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">padding</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.padding" title="Permalink to this definition">¶</a></dt>
 <dd><p>Kernel padding</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1368,7 +1368,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.activation">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">activation</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.activation" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.activation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fused activation</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1378,7 +1378,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.input_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.input_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.input_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1388,7 +1388,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.output_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.output_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TflitePooling2dLayer.output_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1402,11 +1402,11 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 <h2 id="tflitereshapelayer">TfliteReshapeLayer<a class="headerlink" href="#tflitereshapelayer" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteReshapeLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteReshapeLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteReshapeLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteReshapeLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer" title="Permalink to this definition">¶</a></dt>
 <dd><p>RESHAPE operation TfliteLayer</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer.input_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer.input_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer.input_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1416,7 +1416,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer.output_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer.output_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer.output_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1426,7 +1426,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer.requires_copy">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">requires_copy</span></span><em class="property"><span class="pre">:</span> <span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer.requires_copy" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">requires_copy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer.requires_copy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return true if a memcpy is required, False if the reshape was done in-place</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1436,7 +1436,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer.n_input_elements">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">n_input_elements</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer.n_input_elements" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_input_elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteReshapeLayer.n_input_elements" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the number of input elements</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1450,11 +1450,11 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 <h2 id="tflitequantizelayer">TfliteQuantizeLayer<a class="headerlink" href="#tflitequantizelayer" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteQuantizeLayer">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteQuantizeLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_operation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteQuantizeLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteQuantizeLayer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteQuantizeLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_operation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteQuantizeLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteQuantizeLayer" title="Permalink to this definition">¶</a></dt>
 <dd><p>QUANTIZE operation TfliteLayer</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteQuantizeLayer.input_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteQuantizeLayer.input_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteQuantizeLayer.input_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1464,7 +1464,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteQuantizeLayer.output_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteQuantizeLayer.output_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteQuantizeLayer.output_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1478,11 +1478,11 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 <h2 id="tflitedequantizelayer">TfliteDequantizeLayer<a class="headerlink" href="#tflitedequantizelayer" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDequantizeLayer">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteDequantizeLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_operation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteDequantizeLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDequantizeLayer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_layer.</span></span><span class="sig-name descname"><span class="pre">TfliteDequantizeLayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opcode_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_operation</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_layer.html#TfliteDequantizeLayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDequantizeLayer" title="Permalink to this definition">¶</a></dt>
 <dd><p>DEQUANTIZE operation TfliteLayer</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDequantizeLayer.input_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDequantizeLayer.input_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDequantizeLayer.input_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Input tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1492,7 +1492,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_layer.TfliteDequantizeLayer.output_data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDequantizeLayer.output_data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_layer.TfliteDequantizeLayer.output_data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Output tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1506,11 +1506,11 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 <h2 id="tflitetensor">TfliteTensor<a class="headerlink" href="#tflitetensor" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteTensor">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.</span></span><span class="sig-name descname"><span class="pre">TfliteTensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_buffers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_tensor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_tensor.html#TfliteTensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.</span></span><span class="sig-name descname"><span class="pre">TfliteTensor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_buffers</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fb_tensor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_tensor.html#TfliteTensor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper for TFLite flatbuffer tensor</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteTensor.index">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">index</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.index" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Flatbuffer index</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1520,7 +1520,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteTensor.name">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.name" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.name" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tensor name</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1530,7 +1530,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteTensor.shape">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="#mltk.core.tflite_model.TfliteShape" title="mltk.core.tflite_model.tflite_tensor.TfliteShape"><span class="pre">mltk.core.tflite_model.tflite_tensor.TfliteShape</span></a></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.shape" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#mltk.core.tflite_model.TfliteShape" title="mltk.core.tflite_model.tflite_tensor.TfliteShape"><span class="pre">mltk.core.tflite_model.tflite_tensor.TfliteShape</span></a></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tensor shape</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1540,7 +1540,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteTensor.dtype">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">dtype</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.dtype</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.dtype" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.dtype</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.dtype" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tensor data type</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1550,7 +1550,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteTensor.dtype_str">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">dtype_str</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.dtype_str" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dtype_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.dtype_str" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tensor data type as a string</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1560,7 +1560,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteTensor.data">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.data" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tensor data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1570,7 +1570,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteTensor.quantization">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">quantization</span></span><em class="property"><span class="pre">:</span> <a class="reference internal" href="#mltk.core.tflite_model.tflite_tensor.TfliteQuantization" title="mltk.core.tflite_model.tflite_tensor.TfliteQuantization"><span class="pre">mltk.core.tflite_model.tflite_tensor.TfliteQuantization</span></a></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.quantization" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">quantization</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#mltk.core.tflite_model.tflite_tensor.TfliteQuantization" title="mltk.core.tflite_model.tflite_tensor.TfliteQuantization"><span class="pre">mltk.core.tflite_model.tflite_tensor.TfliteQuantization</span></a></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteTensor.quantization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Tensor quantization details</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1593,11 +1593,11 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 <h3 id="tfliteshape">TfliteShape<a class="headerlink" href="#tfliteshape" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteShape">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.</span></span><span class="sig-name descname"><span class="pre">TfliteShape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_tensor.html#TfliteShape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.TfliteShape" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.</span></span><span class="sig-name descname"><span class="pre">TfliteShape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_tensor.html#TfliteShape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.TfliteShape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper for tensor shape</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.TfliteShape.flat_size">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">flat_size</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteShape.flat_size" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">flat_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.TfliteShape.flat_size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Total number of elements or flatten size</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1611,11 +1611,11 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 <h3 id="tflitequantization">TfliteQuantization<a class="headerlink" href="#tflitequantization" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_tensor.TfliteQuantization">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_tensor.</span></span><span class="sig-name descname"><span class="pre">TfliteQuantization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantization</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_tensor.html#TfliteQuantization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_tensor.TfliteQuantization" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model.tflite_tensor.</span></span><span class="sig-name descname"><span class="pre">TfliteQuantization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quantization</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model/tflite_tensor.html#TfliteQuantization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model.tflite_tensor.TfliteQuantization" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper for tensor quantization</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_tensor.TfliteQuantization.scale">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">scale</span></span><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_tensor.TfliteQuantization.scale" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scale</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_tensor.TfliteQuantization.scale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Quantization scalers</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1625,7 +1625,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_tensor.TfliteQuantization.zeropoint">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">zeropoint</span></span><em class="property"><span class="pre">:</span> <span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_tensor.TfliteQuantization.zeropoint" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zeropoint</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_tensor.TfliteQuantization.zeropoint" title="Permalink to this definition">¶</a></dt>
 <dd><p>Quantization zero points</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1635,7 +1635,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_tensor.TfliteQuantization.quantization_dimension">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">quantization_dimension</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_tensor.TfliteQuantization.quantization_dimension" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">quantization_dimension</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_tensor.TfliteQuantization.quantization_dimension" title="Permalink to this definition">¶</a></dt>
 <dd><p>Quantization dimension</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1645,7 +1645,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 </dd></dl>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.tflite_model.tflite_tensor.TfliteQuantization.n_channels">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">n_channels</span></span><em class="property"><span class="pre">:</span> <span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_tensor.TfliteQuantization.n_channels" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_channels</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_model.tflite_tensor.TfliteQuantization.n_channels" title="Permalink to this definition">¶</a></dt>
 <dd><p>Number of channels. This is the number of elements in @ref scale and @ref zeropoint</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
@@ -1661,7 +1661,7 @@ If y_dtype is given, the y if automatically converted/de-quantized to the given 
 <h1 id="tflitemodelparameters">TfliteModelParameters<a class="headerlink" href="#tflitemodelparameters" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model_parameters.TfliteModelParameters">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model_parameters.</span></span><span class="sig-name descname"><span class="pre">TfliteModelParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model_parameters/tflite_model_parameters.html#TfliteModelParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model_parameters.TfliteModelParameters" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model_parameters.</span></span><span class="sig-name descname"><span class="pre">TfliteModelParameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model_parameters/tflite_model_parameters.html#TfliteModelParameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model_parameters.TfliteModelParameters" title="Permalink to this definition">¶</a></dt>
 <dd><p>.tflite Model Parameters</p>
 <p>Model parameters are effectively a dictionary of key/value pairs where:</p>
 <ul class="simple">
@@ -1685,17 +1685,17 @@ which inherits the standard Python ‘dict’ class.</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="mltk.core.tflite_model_parameters.TfliteModelParameters.load_from_tflite_file">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">load_from_tflite_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tflite_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model_parameters/tflite_model_parameters.html#TfliteModelParameters.load_from_tflite_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model_parameters.TfliteModelParameters.load_from_tflite_file" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_from_tflite_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tflite_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model_parameters/tflite_model_parameters.html#TfliteModelParameters.load_from_tflite_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model_parameters.TfliteModelParameters.load_from_tflite_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load the TfliteModelParameters from the given .tflite model file’s metadata</p>
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="mltk.core.tflite_model_parameters.TfliteModelParameters.load_from_tflite_flatbuffer">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">load_from_tflite_flatbuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tflite_flatbuffer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model_parameters/tflite_model_parameters.html#TfliteModelParameters.load_from_tflite_flatbuffer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model_parameters.TfliteModelParameters.load_from_tflite_flatbuffer" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_from_tflite_flatbuffer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tflite_flatbuffer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model_parameters/tflite_model_parameters.html#TfliteModelParameters.load_from_tflite_flatbuffer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model_parameters.TfliteModelParameters.load_from_tflite_flatbuffer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load the TfliteModelParameters from the given .tflite model flatbuffer bytes</p>
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="mltk.core.tflite_model_parameters.TfliteModelParameters.load_from_tflite_model">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">load_from_tflite_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tflite_model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model_parameters/tflite_model_parameters.html#TfliteModelParameters.load_from_tflite_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model_parameters.TfliteModelParameters.load_from_tflite_model" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_from_tflite_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tflite_model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model_parameters/tflite_model_parameters.html#TfliteModelParameters.load_from_tflite_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model_parameters.TfliteModelParameters.load_from_tflite_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Load the TfliteModelParameters from the given TfliteModel object</p>
 </dd></dl>
 <dl class="py method">
@@ -1746,7 +1746,7 @@ the updated flatbuffer</p>
 <p><a class="reference external" href="https://google.github.io/flatbuffers">Google Flatbuffer</a> schema: <a class="reference internal" href="dictionary.fbs.html"><span class="doc std std-doc">dictionary.fbs</span></a></p>
 <dl class="py class">
 <dt class="sig sig-object py" id="mltk.core.tflite_model_parameters.flatbuffer_dictionary.FlatbufferDictionary">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model_parameters.flatbuffer_dictionary.</span></span><span class="sig-name descname"><span class="pre">FlatbufferDictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model_parameters/flatbuffer_dictionary.html#FlatbufferDictionary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model_parameters.flatbuffer_dictionary.FlatbufferDictionary" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_model_parameters.flatbuffer_dictionary.</span></span><span class="sig-name descname"><span class="pre">FlatbufferDictionary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model_parameters/flatbuffer_dictionary.html#FlatbufferDictionary"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model_parameters.flatbuffer_dictionary.FlatbufferDictionary" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class allows for adding scalar values to a standard Python dictionary,
 serializing the dictionary into a flatbuffer, and later de-serializing
 to another Python dictionary.</p>
@@ -1796,7 +1796,7 @@ Must be a string and one of: bool,int8,int16,int32,int64,uint8,uint16,uint32,uin
 </dd></dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="mltk.core.tflite_model_parameters.flatbuffer_dictionary.FlatbufferDictionary.deserialize">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">deserialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model_parameters/flatbuffer_dictionary.html#FlatbufferDictionary.deserialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model_parameters.flatbuffer_dictionary.FlatbufferDictionary.deserialize" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deserialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serialized_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_model_parameters/flatbuffer_dictionary.html#FlatbufferDictionary.deserialize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_model_parameters.flatbuffer_dictionary.FlatbufferDictionary.deserialize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Instantiate a FlatbufferDictionary object with the given serialized flatbuffer binary data</p>
 </dd></dl>
 <dl class="py method">
@@ -1860,10 +1860,10 @@ Must be a string and one of: bool,int8,int16,int32,int64,uint8,uint16,uint32,uin
               
           </div>
             Last updated on
-              Mar 16, 2022.
+              Apr 14, 2022.
             <br/>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1871,7 +1871,7 @@ Must be a string and one of: bool,int8,int16,int32,int64,uint8,uint16,uint32,uin
         <div class="survey-link" id="dlg-survey-link"> 
     <div>We need your feedback!</div>
     <div>
-        Please take this 3 question <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
+        Please take this short <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
     </div>
 </div>
       </div>

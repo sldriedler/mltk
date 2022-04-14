@@ -62,7 +62,7 @@ class TfliteMicroModelDetails:
 
 
 class TfliteMicroLayerError:
-    WARNING_RE = re.compile(r'Op(\d+)-(\S+)\ not supported: (.*)')
+    WARNING_RE = re.compile(r'.*Op(\d+)-(\S+)\ not supported: (.*)')
 
     def __init__(self, index:int, name:str, msg:str):
         self._index = index 

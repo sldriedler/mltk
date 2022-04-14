@@ -313,7 +313,7 @@ def evaluate_classifier(
     if show:
         plt.show(block=True)
 
-    logger.close()
+    logger.close() # Close the eval logger
 
     return results
     

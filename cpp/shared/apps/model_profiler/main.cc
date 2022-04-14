@@ -1,81 +1,46 @@
 #include <cstdio>
 
-#include "platform_api.h"
-
-#include "cpputils/heap.hpp"
 #include "cpputils/string.hpp"
+#include "sl_system_init.h"
+
 #include "tensorflow/lite/micro/all_ops_resolver.h"
 #include "tflite_micro_model/tflite_micro_model.hpp"
-#include "tflite_micro_model/tflite_micro_utils.hpp"
+#include "mltk_tflite_micro_helper.hpp"
 
 
-#include "model_profiler_generated_model.tflite.h"
+// These are defined by the build scripts
+// which converts the specified .tflite to a C array
+extern "C" const uint8_t sl_tflite_model_array[];
+extern "C" const uint32_t sl_tflite_model_len;
 
 
 using namespace mltk;
+
+
+
+static bool load_model(TfliteMicroModel &model, logging::Logger& logger);
+static void print_recorded_data(logging::Logger& logger);
 
 
 tflite::AllOpsResolver op_resolver;
 
 
 
-extern "C" int main( int argc, char* argv[])
+extern "C" int main(void)
 {
+    TfliteMicroModel model;
+    
+    sl_system_init();
+
     auto& logger = get_logger();
     logger.flags(logging::Newline);
 
     logger.info("Starting Model Profiler");
 
-    // Register the accelerator if the TFLM lib was built with one
-    mltk_tflite_micro_register_accelerator();
-
-#ifdef MLTK_RUN_MODEL_FROM_RAM
-    uint8_t* tflite_buffer = (uint8_t*)HEAP_MALLOC(sizeof(MODEL_DATA));
-    if(tflite_buffer == nullptr)
+    if(!load_model(model, logger))
     {
-        logger.error("Cannot load .tflite into RAM. Failed to allocate %d bytes for buffer", sizeof(MODEL_DATA));
         return -1;
     }
-    memcpy(tflite_buffer, MODEL_DATA, sizeof(MODEL_DATA));
-    logger.info("Loaded .tflite into RAM");
-#else 
-    const uint8_t* tflite_buffer = MODEL_DATA;
-#endif // MLTK_RUN_MODEL_FROM_RAM
-
-    uint32_t tensor_arena_size = get_tensor_arena_size(tflite_buffer, &logger);
-    uint8_t* tensor_arena = (uint8_t*)HEAP_MALLOC(tensor_arena_size);
-    if(tensor_arena == nullptr)
-    {
-        logger.error("Failed to allocate tensor arena of size: %d", tensor_arena_size);
-        return -1;
-    }
-#ifndef __arm__
-    // For non-embedded, malloc() a large buffer to ensure the model fits
-    // We still keep the HEAP_MALLOC() above so the heap stats are consistent with embedded
-    tensor_arena_size = 4*1024*1024;
-    tensor_arena = (uint8_t*)malloc(tensor_arena_size);
-#endif
-
-    TfliteMicroModel model;
-
-    model.enable_profiler();
-#ifdef TFLITE_MICRO_RECORDER_ENABLED
-    model.enable_recorder();
-#endif
-
-    if(!model.load(
-        tflite_buffer, op_resolver,
-        tensor_arena, tensor_arena_size
-    ))
-    {
-        logger.error("Failed to load model");
-        return -1;
-    }
-
-    HeapStats heap_stats;
-    heap_get_stats(&heap_stats);
-    logger.info("Heap usage: %sB", cpputils::format_units(heap_stats.used));
-
 
     model.print_summary(&logger);
 
@@ -89,7 +54,70 @@ extern "C" int main( int argc, char* argv[])
     }
 
     profiling::print_stats(profiler, &logger);
+    print_recorded_data(logger);
+    
+    logger.info("done");
 
+    return 0;
+}
+
+
+static bool load_model(TfliteMicroModel &model, logging::Logger& logger)
+{
+    const uint8_t* tflite_flatbuffer;
+    uint32_t tflite_flatbuffer_length;
+
+    // Register the accelerator if the TFLM lib was built with one
+    mltk_tflite_micro_register_accelerator();
+
+    // First check if a new .tflite was programmed to the end of flash
+    // (This will happen when this app is executed from the command-line: "mltk profiler my_model --device")
+    if(!get_tflite_flatbuffer_from_end_of_flash(&tflite_flatbuffer, &tflite_flatbuffer_length))
+    {
+         // If no .tflite was programmed, then just use the default model
+        printf("Using default model built into application\n");
+        tflite_flatbuffer = sl_tflite_model_array;
+        tflite_flatbuffer_length = sl_tflite_model_len;
+    }
+
+#ifdef MLTK_RUN_MODEL_FROM_RAM
+    uint8_t* tflite_ram_buffer = (uint8_t*)malloc(tflite_flatbuffer_length);
+    if(tflite_buffer == nullptr)
+    {
+        logger.error("Cannot load .tflite into RAM. Failed to allocate %d bytes for buffer", tflite_flatbuffer_length);
+        return -1;
+    }
+    memcpy(tflite_ram_buffer, tflite_flatbuffer, tflite_flatbuffer_length);
+    tflite_flatbuffer = tflite_ram_buffer;
+    logger.info("Loaded .tflite into RAM");
+#endif // MLTK_RUN_MODEL_FROM_RAM
+
+
+    model.enable_profiler();
+#ifdef TFLITE_MICRO_RECORDER_ENABLED
+    model.enable_recorder();
+#endif
+
+    logger.info("Loading model");
+
+    // Attempt to load the model using the arena size specified in the .tflite
+    if(!model.load(tflite_flatbuffer, op_resolver))
+    {
+        const uint32_t arena_size = 184*1024;
+        // If this failed, then try again by specifying an arbitrarily large arena size
+        logger.info("Attempting to load model again with tensor arena size of %d", arena_size);
+        if(!model.load(tflite_flatbuffer, op_resolver, nullptr, arena_size))
+        {
+            // If it still fails then just return the error
+            return false;
+        }
+    }
+
+    return true;
+}
+
+static void print_recorded_data(logging::Logger& logger)
+{
 #ifdef TFLITE_MICRO_RECORDER_ENABLED
     logger.info("Recording results:");
     auto& recorded_data = model.recorded_data();
@@ -111,9 +139,4 @@ extern "C" int main( int argc, char* argv[])
     }
     recorded_data.clear();
 #endif
-    
-
-    logger.info("done");
-
-    return 0;
 }

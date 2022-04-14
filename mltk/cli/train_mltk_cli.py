@@ -139,7 +139,7 @@ May be one of the following:
                     )
                 logger.info(f'{h5_eval_results}')
                 
-                if mltk_model.tflite_converter is not None:
+                if mltk_model.tflite_converter:
                     logger.info('Evaluating the .tflite model ...')
                     with ConsoleLoggerLevelContext(logger, 'ERROR'):
                         tflite_eval_results = evaluate_model( 

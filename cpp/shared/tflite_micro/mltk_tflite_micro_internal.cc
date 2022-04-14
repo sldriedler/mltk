@@ -29,7 +29,7 @@ void allocate_profilers(int subgraph_index, int op_count)
     return;
   }
   _inference_profiler->flags(profiling::Flag::ReportTotalChildrenCycles|profiling::Flag::ReportsFreeRunningCpuCycles);
-  _kernel_profilers = static_cast<profiling::Profiler**>(HEAP_MALLOC(sizeof(profiling::Profiler*)*op_count));
+  _kernel_profilers = static_cast<profiling::Profiler**>(malloc(sizeof(profiling::Profiler*)*op_count));
   if(_kernel_profilers == nullptr)
   {
     return;
@@ -47,7 +47,7 @@ void free_profilers()
     }
     if(_kernel_profilers != nullptr)
     {
-        HEAP_FREE(_kernel_profilers);
+        free(_kernel_profilers);
         _kernel_profilers = nullptr;
     }
 }

@@ -36,7 +36,7 @@ These parts work together as follows:
 7. The Gecko SDK project is built and the firmware image is loaded onto the embedded target. The firmware image contains:
    - Trained `.tflite` model file
    - [Tensorflow-Lite Micro](https://github.com/tensorflow/tflite-micro) interpreter
-   - [AudioFeatureGenerator](https://docs.silabs.com/gecko-platform/latest/machine_learning/api/group-ml-audio-feature-generation) software library
+   - [AudioFeatureGenerator](https://docs.silabs.com/gecko-platform/latest/machine-learning/api/group-ml-audio-feature-generation) software library
    - AudioFeatureGenerator [settings](../guides/model_parameters.html#audiodatasetmixin) used to train the model
 8. On the embedded target at runtime:  
    a. Read streaming audio from the microphone  
@@ -62,7 +62,7 @@ The benefits of using the AudioFeatureGenerator are:
 
 ## Gecko SDK Component
 
-The [Gecko SDK AudioFeatureGenerator](https://docs.silabs.com/gecko-platform/latest/machine_learning/api/group-ml-audio-feature-generation) component is largely based on the [Google Microfrontend](https://github.com/tensorflow/tflite-micro/tree/main/tensorflow/lite/experimental/microfrontend/lib) library.
+The [Gecko SDK AudioFeatureGenerator](https://docs.silabs.com/gecko-platform/latest/machine-learning/api/group-ml-audio-feature-generation) component is largely based on the [Google Microfrontend](https://github.com/tensorflow/tflite-micro/tree/main/tensorflow/lite/experimental/microfrontend/lib) library.
 
 > A feature generation library (also called frontend) that receives raw audio input, and produces filter banks (a vector of values).
 > 
@@ -76,9 +76,9 @@ The embedded software library source code may be found here: [sl_ml_audio_featur
 ## MLTK C++ Python Wrapper
 
 The C++ Python wrapper allows for executing the AudioFeatureGenerator component from a Python script. 
-This allows for executing the [AudioFeatureGenerator](https://docs.silabs.com/gecko-platform/latest/machine_learning/api/group-ml-audio-feature-generation) software library during model training. This is useful because the _exact_ spectrogram generation algorithms used by the embedded device at runtime may also be used during model training which should (hopefully) lead to more accurate model predictions.
+This allows for executing the [AudioFeatureGenerator](https://docs.silabs.com/gecko-platform/latest/machine-learning/api/group-ml-audio-feature-generation) software library during model training. This is useful because the _exact_ spectrogram generation algorithms used by the embedded device at runtime may also be used during model training which should (hopefully) lead to more accurate model predictions.
 
-The MLTK uses [pybind11](https://pybind11.readthedocs.io/en/latest/) to wrap the [AudioFeatureGenerator](https://docs.silabs.com/gecko-platform/latest/machine_learning/api/group-ml-audio-feature-generation) software library and generate a Windows/Linux binary that can be loaded into the Python runtime environment.
+The MLTK uses [pybind11](https://pybind11.readthedocs.io/en/latest/) to wrap the [AudioFeatureGenerator](https://docs.silabs.com/gecko-platform/latest/machine-learning/api/group-ml-audio-feature-generation) software library and generate a Windows/Linux binary that can be loaded into the Python runtime environment.
 
 
 The AudioFeatureGenerator Python API docs may be found here: [mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator](mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator).  
@@ -153,7 +153,7 @@ my_model.datagen = ParallelAudioDataGenerator(
 
 
 During model [training](../guides/model_training.md), spectrograms will be dynamically generated from the dataset's audio samples using the 
-[AudioFeatureGenerator](https://docs.silabs.com/gecko-platform/latest/machine_learning/api/group-ml-audio-feature-generation) via [C++ Python wrapper](https://github.com/siliconlabs/mltk/tree/master/cpp/audio_feature_generator_wrapper).
+[AudioFeatureGenerator](https://docs.silabs.com/gecko-platform/latest/machine-learning/api/group-ml-audio-feature-generation) via [C++ Python wrapper](https://github.com/siliconlabs/mltk/tree/master/cpp/audio_feature_generator_wrapper).
 
 At the end of training, the [spectrogram settings](../guides/model_parameters.html#audiodatasetmixin) are automatically embedded into the generated `.tflite` model file.
 
@@ -162,7 +162,7 @@ At the end of training, the [spectrogram settings](../guides/model_parameters.ht
 ## Audio Visualizer Utility
 
 The Audio Visualizer Utility provides a graphical interface to the [C++ Python wrapper](mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator) and thus 
-[Gecko SDK AudioFeatureGenerator](https://docs.silabs.com/gecko-platform/latest/machine_learning/api/group-ml-audio-feature-generation) software library.
+[Gecko SDK AudioFeatureGenerator](https://docs.silabs.com/gecko-platform/latest/machine-learning/api/group-ml-audio-feature-generation) software library.
 It allows for adjusting the various spectrogram settings and seeing how the resulting spectrogram is affected in real-time.
 
 

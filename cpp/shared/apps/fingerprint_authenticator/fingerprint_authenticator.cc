@@ -1,7 +1,6 @@
 
 #include <cstdio>
 #include <cmath>
-#include "cpputils/heap.hpp"
 #include "app_config.hpp"
 #include "tflite_micro_model/tflite_micro_tensor.hpp"
 #include "tflite_micro_model/tflite_micro_utils.hpp"
@@ -28,14 +27,14 @@ bool FingerprintAuthenticator::load_model(const void* flatbuffer)
     mltk_tflite_micro_register_accelerator();
 
 
-    if(!TfliteMicroModel::get_model_parameters_in_flatbuffer(flatbuffer, model_parameters))
+    if(!TfliteModelParameters::load_from_tflite_flatbuffer(flatbuffer, model_parameters))
     {
         MLTK_ERROR("Failed to get model parameters from .tflite");
         return false;
     }
 
     uint32_t runtime_memory_size = get_tensor_arena_size(flatbuffer, &get_logger());
-    _tensor_arena = (uint8_t*)HEAP_MALLOC(runtime_memory_size);
+    _tensor_arena = (uint8_t*)malloc(runtime_memory_size);
     if(_tensor_arena == nullptr)
     {
         MLTK_ERROR("Failed to alloc tensor arena of size: %d", runtime_memory_size);

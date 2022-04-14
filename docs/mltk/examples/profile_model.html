@@ -175,7 +175,7 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
             
-            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
+            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
             
             <li class="md-tabs__item"><a href="https://github.com/tensorflow/tflite-micro" class="md-tabs__link">Tensorflow-Lite Micro Repository</a></li>
             
@@ -255,7 +255,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../docs/guides/guides.html" class="md-nav__link">Modeling Guides</a>
+      <a href="../../docs/guides/index.html" class="md-nav__link">Modeling Guides</a>
       
     
     </li>
@@ -361,7 +361,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../docs/python_api/python_api.html" class="md-nav__link">API Reference</a>
+      <a href="../../docs/python_api/index.html" class="md-nav__link">API Reference</a>
       
     
     </li>
@@ -427,7 +427,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../docs/other/cpp_development_with_vscode.html" class="md-nav__link">C++ Development</a>
+      <a href="../../docs/cpp_development/index.html" class="md-nav__link">C++ Development</a>
       
     
     </li>
@@ -539,7 +539,7 @@ The following code downloads a model.</p>
 <span class="n">TFLITE_MODEL_URL</span> <span class="o">=</span> <span class="s1">'https://github.com/sldriedler/mltk/raw/master/mltk/utils/test_helper/data/image_example1.tflite'</span>
 
 <span class="c1"># Download the .tflite file and save to the temp dir</span>
-<span class="n">tflite_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">tempfile</span><span class="o">.</span><span class="n">gettempdir</span><span class="p">()</span><span class="si">}</span><span class="s1">/kws_ref_model.tflite'</span><span class="p">)</span>
+<span class="n">tflite_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">tempfile</span><span class="o">.</span><span class="n">gettempdir</span><span class="p">()</span><span class="si">}</span><span class="s1">/image_example1.tflite'</span><span class="p">)</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tflite_path</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">dst</span><span class="p">:</span>
     <span class="k">with</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">TFLITE_MODEL_URL</span><span class="p">)</span> <span class="k">as</span> <span class="n">src</span><span class="p">:</span>
         <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span>
@@ -743,7 +743,7 @@ Model Layers
 <p>Training a model can be very time-consuming, and it is useful to know how efficiently a
 model will execute on an embedded device before investing time and energy into training it.<br/>
 For this reason, the MLTK <a class="reference external" href="../../docs/python_api/operations.html#profile-model">profile_model</a> API features a <code class="docutils literal notranslate"><span class="pre">build</span></code> argument to build a model and profile it <em>before</em> the model is fully trained.</p>
-<p>In this example, the <a class="reference external" href="../../docs/python_api/models/example_models.html#image_example1">image_example1</a> model is built
+<p>In this example, the <a class="reference internal" href="../../docs/python_api/models/examples/image_example1.html"><span class="doc std std-doc">image_example1</span></a> model is built
 at command-execution-time and profiled in the MVP hardware simulator.<br/>
 Note that <em>only</em> the <a class="reference internal" href="../../docs/guides/model_specification.html"><span class="doc std std-doc">model specification</span></a>  script is required,
 it does <em>not</em> need to be trained first.</p>
@@ -882,10 +882,10 @@ Model Layers
               
           </div>
             Last updated on
-              Mar 16, 2022.
+              Apr 14, 2022.
             <br/>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -893,7 +893,7 @@ Model Layers
         <div class="survey-link" id="dlg-survey-link"> 
     <div>We need your feedback!</div>
     <div>
-        Please take this 3 question <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
+        Please take this short <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
     </div>
 </div>
       </div>

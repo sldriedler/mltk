@@ -1,6 +1,7 @@
 #include <cstdarg>
 #include <cassert>
-
+#include "em_device.h"
+#include "tensorflow/lite/schema/schema_generated.h"
 #include "mltk_tflite_micro_internal.hpp"
 
 
@@ -95,6 +96,67 @@ const TfliteMicroAccelerator* mltk_tflite_micro_get_registered_accelerator()
     return _accelerator;
 }
 
+/*************************************************************************************************/
+const void* get_metadata_from_tflite_flatbuffer(const void* tflite_flatbuffer, const char* tag, uint32_t* length)
+{
+    if(tflite_flatbuffer == nullptr)
+    {
+        return nullptr;
+    }
+
+    const void* metadata_buffer = nullptr;
+    const auto model = tflite::GetModel(tflite_flatbuffer);
+    if(model == nullptr)
+    {
+        return nullptr;
+    }
+
+    const auto metadata_vector = model->metadata();
+    if(metadata_vector == nullptr)
+    {
+        return nullptr;
+    }
+
+    const auto buffers_vector = model->buffers();
+    if(buffers_vector == nullptr)
+    {
+        return nullptr;
+    }
+   
+    for(auto meta : *metadata_vector)
+    {
+        if(meta == nullptr || meta->name() == nullptr)
+        {
+            return nullptr;
+        }
+
+        if(strcmp(meta->name()->c_str(), tag) == 0)
+        {
+            auto buffer_index = meta->buffer();
+            auto buffer = buffers_vector->Get(buffer_index);
+            if(buffer == nullptr)
+            {
+                return nullptr;
+            }
+
+            const auto buffer_data = buffer->data();
+            if(buffer_data  == nullptr)
+            {
+                return nullptr;
+            }
+
+            metadata_buffer = buffer_data->Data();
+            if(length != nullptr)
+            {
+                *length = buffer_data->size();
+            }
+
+            break;
+        }
+    }
+
+    return metadata_buffer;
+}
 
 /*************************************************************************************************/
 int TfliteMicroErrorReporter::Report(const char* format, va_list args)
@@ -107,6 +169,43 @@ int TfliteMicroErrorReporter::Report(const char* format, va_list args)
     logger.flags(orig_flags);
     return 0;
 }
+
+/*************************************************************************************************/
+bool get_tflite_flatbuffer_from_end_of_flash(const uint8_t** flatbuffer, uint32_t* length)
+{
+    *flatbuffer = nullptr;
+    if(length != nullptr)
+    {
+        *length = 0;
+    }
+
+#ifdef __arm__
+    const uint32_t *flash_end_addr = (const uint32_t*)(FLASH_BASE + FLASH_SIZE);
+
+    const uint32_t tflite_length = *(flash_end_addr-1);
+    if(tflite_length == 0 || tflite_length > 1024*1024)
+    {
+        return false;
+    }
+
+    const uint8_t* tflite_flatbuffer = (const uint8_t*)flash_end_addr - sizeof(uint32_t) - tflite_length;
+    flatbuffers::Verifier verifier(tflite_flatbuffer, tflite_length);
+    if(tflite::VerifyModelBuffer(verifier))
+    {
+        *flatbuffer = tflite_flatbuffer;
+        if(length != nullptr)
+        {
+            *length = tflite_length;
+        }
+        MLTK_INFO("Using .tflite in flash at 0x%08X", tflite_flatbuffer);
+        return true;
+    }
+#endif
+
+    return false;
+}
+
+
 
 
 } // namespace mltk

@@ -10,7 +10,7 @@
 /docs/why_mltk
 /docs/installation
 /docs/command_line
-/docs/guides/guides
+/docs/guides/index
 
 ```
 
@@ -20,7 +20,7 @@
 
 /docs/tutorials
 /docs/examples
-/docs/python_api/python_api
+/docs/python_api/index
 ```
 
 
@@ -43,7 +43,7 @@
 /docs/guides/notebook_examples_guide
 /docs/other/settings_file
 /docs/other/environment_variables
-/docs/other/cpp_development_with_vscode
+/docs/cpp_development/index
 
 ```
 

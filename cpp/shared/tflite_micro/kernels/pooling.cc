@@ -36,7 +36,11 @@ struct CmisOpDataPooling
 TfLiteStatus AveragePoolingPrepare(TfLiteContext* context, TfLiteNode* node) {
   TfLiteStatus status = PoolingPrepare(context, node);
   CmisOpDataPooling* data = static_cast<CmisOpDataPooling*>(node->user_data);
-  TfLiteTensor*  output = GetOutput(context, node, 0);
+  MicroContext* micro_context = GetMicroContext(context);
+  TfLiteTensor* output =
+      micro_context->AllocateTempOutputTensor(node, kPoolingOutputTensor);
+  TF_LITE_ENSURE(context, output != nullptr);
+
 
   if(status == kTfLiteOk && output->type == kTfLiteInt8)
   {
@@ -56,7 +60,11 @@ TfLiteStatus AveragePoolingPrepare(TfLiteContext* context, TfLiteNode* node) {
         context->RequestScratchBufferInArena(
                   context, scratch_buffer_size, &data->buffer_idx));
     }
+
+    
   }
+
+  micro_context->DeallocateTempTfLiteTensor(output);
 
   return status;
 }

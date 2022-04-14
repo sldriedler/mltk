@@ -1,9 +1,8 @@
 #include "app_controller.hpp"
 #include "app_config.hpp"
-#include "platform_api.h"
+#include "sl_sleeptimer.h"
 #include  "mltk_tflite_micro_helper.hpp"
 #include "fingerprint_reader/fingerprint_reader.h"
-#include "sl_simple_button_instances.h"
 #include "fingerprint_vault.h"
 
 
@@ -46,8 +45,6 @@ static const LedConfig LED_STATES[] =
 /*************************************************************************************************/
 bool AppController::init()
 {
-    sl_simple_button_init_instances();
-
     return true;
 }
 
@@ -219,7 +216,7 @@ bool AppController::ensure_should_erase_user_signatures(bool &should_erase)
 /*************************************************************************************************/
 uint32_t AppController::current_timestamp()
 {
-    return platform_get_timestamp_ms();
+    return sl_sleeptimer_tick_to_ms(sl_sleeptimer_get_tick_count());
 }
 
 

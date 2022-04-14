@@ -90,8 +90,8 @@ Model Diagram
 .. raw:: html
 
     <div class="model-diagram">
-        <a href="../../../_images/models/image_example1.tflite.png" target="_blank">
-            <img src="../../../_images/models/image_example1.tflite.png" />
+        <a href="../../../../_images/models/image_example1.tflite.png" target="_blank">
+            <img src="../../../../_images/models/image_example1.tflite.png" />
             <p>Click to enlarge</p>
         </a>
     </div>

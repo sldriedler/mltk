@@ -15,6 +15,7 @@ def generate_model_header(
     output: str,
     variable_name='MODEL_DATA',
     variable_attributes:str=None,
+    length_variable_name='MODEL_DATA_LENGTH',
 ):
     """Generate a model header file from a MLTK model or .tflite
     
@@ -65,6 +66,7 @@ def generate_model_header(
         input=tflite_path, 
         output_path=output, 
         var_name=variable_name,
+        length_var_name=length_variable_name,
         attributes=variable_attributes,
     )
    
@@ -79,6 +81,7 @@ if __name__ == '__main__':
     parser.add_argument('model', help='Name of MLTK model or path to .tflite')
     parser.add_argument('--output', default='generated_model.tflite.h', help='Path to generated output header')
     parser.add_argument('--name', default='MODEL_DATA', help='Name of C array')
+    parser.add_argument('--length_name', default='MODEL_DATA_LENGTH', help='Name of C variable to hold length of data in bytes')
     parser.add_argument('--attributes', default=None, help='Attributes to prepend to C array variable')
 
     args = parser.parse_args()
@@ -87,7 +90,8 @@ if __name__ == '__main__':
             model=args.model,
             output=args.output, 
             variable_name=args.name,
-            variable_attributes=args.attributes
+            variable_attributes=args.attributes,
+            length_variable_name=args.length_name
         )
     except Exception as _ex:
         cli.handle_exception('Failed to generate model header', _ex)

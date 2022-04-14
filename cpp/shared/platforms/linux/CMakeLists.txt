@@ -10,7 +10,7 @@ add_library(mltk::platform::linux ALIAS ${PROJECT_NAME})
 mltk_set(MLTK_PLATFORM_NAME linux)
 mltk_set(MLTK_PLATFORM_IS_EMBEDDED OFF)
 # Default simulated clock rate is 80MHz
-mltk_set(MLTK_CPU_CLOCK 80000000 OPTIONAL)
+mltk_set(MLTK_CPU_CLOCK 80000000 DEFAULT)
 
 # Just force these Gecko SDK values
 mltk_set(GECKO_SDK_BOARD_TARGET ${MLTK_PLATFORM})
@@ -20,6 +20,7 @@ find_package(mltk_platform_common REQUIRED)
 find_package(mltk_stacktrace REQUIRED)
 find_package(mltk_cpputils REQUIRED)
 find_package(mltk_libsoundio REQUIRED)
+find_package(mltk_gecko_sdk_emulation REQUIRED)
 
 
 # Ensure we link against glibc 2.17 which is what Ubuntu 16
@@ -32,8 +33,7 @@ add_library(platform_linux_clib_override STATIC)
 target_compile_features(platform_linux_clib_override  PUBLIC cxx_constexpr cxx_std_17)
 target_sources(platform_linux_clib_override  
 PRIVATE
-    default_main.cc
-    platform_api.c
+    start.cc
     clib_override.c
 )
 target_compile_definitions(platform_linux_clib_override
@@ -70,4 +70,5 @@ target_link_libraries(${PROJECT_NAME}
 INTERFACE 
     mltk::platform::common
     platform_linux_clib_override
+    mltk::gecko_sdk::emulation
 )

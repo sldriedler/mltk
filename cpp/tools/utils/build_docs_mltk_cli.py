@@ -15,7 +15,7 @@ from mltk.utils.path import (fullpath, clean_directory, remove_directory, get_us
 
 
 
-@cli.root_cli.command('build_docs', hidden=True)
+@cli.build_cli.command('docs')
 def build_docs_command(
     show: bool = typer.Option(True,
         help='View the docs HTML after building'
@@ -30,6 +30,11 @@ def build_docs_command(
         help='Clean the build directory before building'
     ),
 ):
+    """Build the MLTK online documentation
+    
+    This uses the sphinx docs build system to convert the
+    markdown files in <mltk repo>/docs into a website
+    """
     logger = cli.get_logger(verbose=True)
 
 

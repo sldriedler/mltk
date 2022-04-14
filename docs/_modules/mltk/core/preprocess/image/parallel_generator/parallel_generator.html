@@ -172,7 +172,7 @@
     <div class="md-tabs__inner md-grid">
       <ul class="md-tabs__list">
             
-            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine_learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
+            <li class="md-tabs__item"><a href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview" class="md-tabs__link">Gecko SDK Documentation</a></li>
             
             <li class="md-tabs__item"><a href="https://github.com/tensorflow/tflite-micro" class="md-tabs__link">Tensorflow-Lite Micro Repository</a></li>
             
@@ -252,7 +252,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../../docs/guides/guides.html" class="md-nav__link">Modeling Guides</a>
+      <a href="../../../../../../docs/guides/index.html" class="md-nav__link">Modeling Guides</a>
       
     
     </li>
@@ -278,7 +278,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../../docs/python_api/python_api.html" class="md-nav__link">API Reference</a>
+      <a href="../../../../../../docs/python_api/index.html" class="md-nav__link">API Reference</a>
       
     
     </li>
@@ -344,7 +344,7 @@
     <li class="md-nav__item">
     
     
-      <a href="../../../../../../docs/other/cpp_development_with_vscode.html" class="md-nav__link">C++ Development</a>
+      <a href="../../../../../../docs/cpp_development/index.html" class="md-nav__link">C++ Development</a>
       
     
     </li>
@@ -558,23 +558,39 @@
 
 <span class="sd">        noaug_preprocessing_function: function that will be applied on each input.</span>
 <span class="sd">            The function will run after the image is resized but before it is augmented or standardized.</span>
-<span class="sd">            The function should take two arguments and return the processed image:</span>
+<span class="sd">            The function should take at least two arguments and return the processed image:</span>
 
 <span class="sd">            .. highlight:: python</span>
 <span class="sd">            .. code-block:: python</span>
 
-<span class="sd">               def my_processing_func(params: ParallelProcessParams, x : np.ndarray) -&gt; np.ndarray:</span>
+<span class="sd">               def my_processing_func(</span>
+<span class="sd">                   params: ParallelProcessParams, </span>
+<span class="sd">                   x : np.ndarray,</span>
+<span class="sd">                   class_id: Optional[int],</span>
+<span class="sd">                   filename: Optional[str],</span>
+<span class="sd">                   batch_index: Optional[int],</span>
+<span class="sd">                   batch_class_ids: Optional[List[int]],</span>
+<span class="sd">                   batch_filenames: Optional[List[str]]</span>
+<span class="sd">                ) -&gt; np.ndarray:</span>
 <span class="sd">                   ...</span>
 <span class="sd">                   return processed_x</span>
 
 <span class="sd">        preprocessing_function: function that will be applied on each input.</span>
 <span class="sd">            The function will run after the image is resized (if ``interpolation != None``) and augmented but before it is standardized.</span>
-<span class="sd">            The function should take two arguments and return the processed image:</span>
+<span class="sd">            The function should take at least two arguments and return the processed image:</span>
 
 <span class="sd">            .. highlight:: python</span>
 <span class="sd">            .. code-block:: python</span>
 
-<span class="sd">               def my_processing_func(params: ParallelProcessParams, x : np.ndarray) -&gt; np.ndarray:</span>
+<span class="sd">               def my_processing_func(</span>
+<span class="sd">                   params: ParallelProcessParams, </span>
+<span class="sd">                   x : np.ndarray,</span>
+<span class="sd">                   class_id: Optional[int],</span>
+<span class="sd">                   filename: Optional[str],</span>
+<span class="sd">                   batch_index: Optional[int],</span>
+<span class="sd">                   batch_class_ids: Optional[List[int]],</span>
+<span class="sd">                   batch_filenames: Optional[List[str]]</span>
+<span class="sd">                ) -&gt; np.ndarray:</span>
 <span class="sd">                  ...</span>
 <span class="sd">                  return processed_x</span>
 
@@ -1012,10 +1028,10 @@
               
           </div>
             Last updated on
-              Mar 16, 2022.
+              Apr 14, 2022.
             <br/>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
@@ -1023,7 +1039,7 @@
         <div class="survey-link" id="dlg-survey-link"> 
     <div>We need your feedback!</div>
     <div>
-        Please take this 3 question <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
+        Please take this short <a target="_blank" id="survey-link">survey<i class="md-icon pulse">chevron_right</i></a>
     </div>
 </div>
       </div>

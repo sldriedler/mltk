@@ -1,11 +1,14 @@
 
 #include <new>
+#include <cstdint>
 #include <cstring>
 #include <cstdlib>
 #include <cassert>
 
+
+#include "em_cmu.h"
+
 #include "cpputils/helpers.hpp"
-#include "cpputils/heap.hpp"
 #include "cpputils/string.hpp"
 #include "logging/logger.hpp"
 
@@ -79,7 +82,7 @@ bool register_profiler_internal(const char* name, T* &profiler, Profiler* parent
     }
 
     const uint32_t alloc_size = T::required_alloc_size(name);
-    uint8_t* ptr = static_cast<uint8_t*>(HEAP_MALLOC(alloc_size));
+    uint8_t* ptr = static_cast<uint8_t*>(malloc(alloc_size));
     if(ptr == nullptr)
     {
         PROFILER_WARN("Profiler: %s, failed to alloc memory", fullname.value);
@@ -272,7 +275,7 @@ void print_metrics(const Profiler* profiler, logging::Logger *optional_logger, b
     {
         logger.info(LINE_DIVIDER);
     }
-    logger.info("CPU clock: %sHz", cpputils::format_units(platform_get_cpu_clock_hz(), 1));
+    logger.info("CPU clock: %sHz", cpputils::format_units(CMU_ClockFreqGet(cmuClock_CORE), 1));
 
     print_profiler_metric(const_cast<Profiler*>(profiler), logger, 0, level_str, pretty_print);
 

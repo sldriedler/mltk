@@ -5,10 +5,9 @@
 
 
 #include "cpputils/helpers.hpp"
-#include "cpputils/heap.hpp"
 #include "jlink_stream.hpp"
 #include "jlink_stream_interface.hpp"
-#include "platform_api.h"
+#include "jlink_stream_internal.hpp"
 
 
 #define COMMAND_BUFFER_LENGTH 96
@@ -63,7 +62,7 @@ bool initialize(void)
         return true;
     }
 
-    platform_jlink_stream_init((uint32_t*)&context.header.trigger_address,
+    jlink_stream_internal_init((uint32_t*)&context.header.trigger_address,
                                (uint32_t*)&context.header.trigger_value,
                                (uint32_t)&context.header);
 
@@ -94,7 +93,7 @@ bool register_stream(const char *name, StreamDirection direction,
                                 ALIGN_4(sizeof(StreamBufferHeader)) +
                                 STREAM_BUFFER_LENGTH +
                                 strlen(name) + 1;
-    uint8_t *ptr = (uint8_t*)HEAP_MALLOC(alloc_size);
+    uint8_t *ptr = (uint8_t*)malloc(alloc_size);
     if(ptr == nullptr)
     {
         return false;
@@ -159,7 +158,7 @@ bool unregister_stream(const char *name)
             stream->header->magic_number = 0;
 
             context.available_ids &= ~(1 << stream->id);
-            HEAP_FREE(stream);
+            free(stream);
 
             retval = true;
             break;
@@ -205,7 +204,7 @@ bool get_bytes_available(const char *name, uint32_t *bytes_available_ptr)
 
     const StreamBufferHeader *header = stream->header;
 
-    platform_jlink_stream_set_interrupt_enabled(false);
+    jlink_stream_set_interrupt_enabled(false);
     if(stream->direction == StreamDirection::Write)
     {
         *bytes_available_ptr =STREAM_BUFFER_LENGTH - header->length;
@@ -214,7 +213,7 @@ bool get_bytes_available(const char *name, uint32_t *bytes_available_ptr)
     {
         *bytes_available_ptr = header->length;
     }
-    platform_jlink_stream_set_interrupt_enabled(true);
+    jlink_stream_set_interrupt_enabled(true);
 
     return true;
 }
@@ -243,7 +242,7 @@ bool write(const char *name, const void *data, uint32_t length, uint32_t *bytes_
         return false;
     }
 
-    platform_jlink_stream_set_interrupt_enabled(false);
+    jlink_stream_set_interrupt_enabled(false);
 
     StreamBufferHeader *header = stream->header;
 
@@ -281,7 +280,7 @@ bool write(const char *name, const void *data, uint32_t length, uint32_t *bytes_
         context.buffer_status_mask |= (1 << stream->id);
     }
 
-    platform_jlink_stream_set_interrupt_enabled(true);
+    jlink_stream_set_interrupt_enabled(true);
 
     return true;
 }
@@ -311,7 +310,7 @@ bool write_all(const char *name, const void *data, uint32_t length)
         }
 
     
-        platform_jlink_stream_set_interrupt_enabled(false);
+        jlink_stream_set_interrupt_enabled(false);
 
         StreamBufferHeader *header = stream->header;
         const volatile uint32_t header_length = header->length;
@@ -346,7 +345,7 @@ bool write_all(const char *name, const void *data, uint32_t length)
             context.buffer_status_mask |= (1 << stream->id);
         }
 
-        platform_jlink_stream_set_interrupt_enabled(true);
+        jlink_stream_set_interrupt_enabled(true);
     }
 
     return true;
@@ -378,7 +377,7 @@ bool read(const char *name, void *data, uint32_t length, uint32_t *bytes_read_pt
     
     StreamBufferHeader *header = stream->header;
 
-    platform_jlink_stream_set_interrupt_enabled(false);
+    jlink_stream_set_interrupt_enabled(false);
 
     const volatile uint32_t header_length = header->length;
     const uint32_t read_length = MIN(header_length, length);
@@ -414,7 +413,7 @@ bool read(const char *name, void *data, uint32_t length, uint32_t *bytes_read_pt
         context.buffer_status_mask |= (1 << stream->id);
     }
 
-    platform_jlink_stream_set_interrupt_enabled(true);
+    jlink_stream_set_interrupt_enabled(true);
 
     return true;
 }

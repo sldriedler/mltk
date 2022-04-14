@@ -1,5 +1,6 @@
 from typing import Union, Tuple, List, Callable
 import types
+import numpy as np
 
 from mltk.utils.python import forward_method_kwargs, prepend_exception_msg
 from mltk.utils.process_pool_manager import ProcessPoolManager
@@ -14,7 +15,7 @@ class AudioDatasetMixin(DataGeneratorDatasetMixin):
     """Provides audio dataset properties to the base :py:class:`~MltkModel`
     
     .. seealso::
-       - `AudioFeatureGenerator documentation <https://siliconlabs.github.io/mltk/docs/audio_feature_generator.html>`_ 
+       - `AudioFeatureGenerator documentation <https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html>`_ 
        - `AudioFeatureGenerator API docs <https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing.html#audiofeaturegenerator>`_
        - `ParallelAudioDataGenerator API docs <https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing.html#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator>`_
     
@@ -114,7 +115,11 @@ class AudioDatasetMixin(DataGeneratorDatasetMixin):
         if self.datagen is not None and self.datagen.frontend_enabled:
             if self._attributes.value_is_set('audio.manual_in_shape'):
                 get_mltk_logger().warning('When ParallelAudioDataGenerator.frontend_enabled=True, the model.input shape is automatically calculated, however, the input_shape has been manually set')
-            return self.datagen.frontend_settings.spectrogram_shape + (1,)
+            
+            spectrogram_shape = self.datagen.frontend_settings.spectrogram_shape
+            if self.datagen.add_channel_dimension:
+                spectrogram_shape = spectrogram_shape + (1,)
+            return spectrogram_shape
         else:
             return self._attributes['audio.manual_in_shape']
     @audio_input_shape.setter
@@ -298,7 +303,14 @@ class AudioDatasetMixin(DataGeneratorDatasetMixin):
                 **kwargs
             )
 
-        validation_labels = validation_datagen.classes
+        # Retrieve all the y samples into a list
+        # NOTE: The length of this will be a multiple of the batch_size rounded up
+        validation_labels = []
+        for _, batch_y in validation_datagen:
+            if self.class_mode == 'categorical':
+                batch_y = np.argmax(batch_y, -1)
+            validation_labels.extend(batch_y)
+        validation_labels = np.asarray(validation_labels, dtype=np.int32)
 
         if self.loaded_subset == 'training':
             self.x = train_datagen
