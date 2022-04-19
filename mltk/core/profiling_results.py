@@ -294,18 +294,18 @@ class ProfilingModelResults(object):
             input_dtype         = ('Input Data Type', self.input_dtype_str),
             output_shape        = ('Output Shape', self.output_shape_str),
             output_dtype        = ('Output Data Type', self.output_dtype_str), 
-            tflite_size         = ('Model File Size (bytes)', unit_formatter(self.flatbuffer_size)),
-            runtime_memory_size = ('Runtime Memory Size (bytes)', unit_formatter(self.runtime_memory_bytes)),
-            ops                 = ('# Operations', unit_formatter(self.ops)),
-            macs                = ('# Multiply-Accumulates', unit_formatter(self.macs)),
-            n_layers            = ('# Layers', self.n_layers),
-            n_unsupported_layers= ('# Unsupported Layers', self.n_unsupported_layers)
+            tflite_size         = ('Flash, Model File Size (bytes)', unit_formatter(self.flatbuffer_size)),
+            runtime_memory_size = ('RAM, Runtime Memory Size (bytes)', unit_formatter(self.runtime_memory_bytes)),
+            ops                 = ('Operation Count', unit_formatter(self.ops)),
+            macs                = ('Multiply-Accumulate Count', unit_formatter(self.macs)),
+            n_layers            = ('Layer Count', self.n_layers),
+            n_unsupported_layers= ('Unsupported Layer Count', self.n_unsupported_layers)
         )
 
         if self.accelerator_cycles > 0 or not exclude_null:
-            summary['accelerator_cycles']   = ('# Accelerator Cycles', unit_formatter(self.accelerator_cycles))
+            summary['accelerator_cycles']   = ('Accelerator Cycle Count', unit_formatter(self.accelerator_cycles))
         if self.cpu_cycles > 0 or not exclude_null:
-            summary['cpu_cycles']           = ('# CPU Cycles', unit_formatter(self.cpu_cycles))
+            summary['cpu_cycles']           = ('CPU Cycle Count', unit_formatter(self.cpu_cycles))
         if self.cpu_cycles > 0 or not exclude_null:
             formatted_percentage = self.cpu_utilization*100
             if format_units:

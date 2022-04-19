@@ -24,7 +24,7 @@ More details here: [https://cmake.org/install](https://cmake.org/install)
 ### 2) Install 7-Zip
 
 7-Zip is a file archiver with a high compression ratio.  
-Several of the assets downloaded by the MLTK are compressed in this format.
+Several of the assets downloaded by the MLTK are compressed in this format.  
 More details here: [https://www.7-zip.org/download.html](https://www.7-zip.org/download.html)
 
 

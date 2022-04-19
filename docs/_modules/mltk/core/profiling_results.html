@@ -49,7 +49,7 @@
 </script>
   
   
-    <title>mltk.core.profiling_results &#8212; MLTK 0.4.0 documentation</title>
+    <title>mltk.core.profiling_results &#8212; MLTK 0.5.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
@@ -94,11 +94,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../../index.html" title="MLTK 0.4.0 documentation"
+        <a href="../../../index.html" title="MLTK 0.5.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../../_static/logo.png"
-                   alt="MLTK 0.4.0 documentation logo">
+                   alt="MLTK 0.5.0 documentation logo">
           
         </a>
       </div>
@@ -189,13 +189,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../../index.html" title="MLTK 0.4.0 documentation" class="md-nav__button md-logo">
+    <a href="../../../index.html" title="MLTK 0.5.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="MLTK 0.4.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.5.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
@@ -682,18 +682,18 @@
             <span class="n">input_dtype</span>         <span class="o">=</span> <span class="p">(</span><span class="s1">'Input Data Type'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_dtype_str</span><span class="p">),</span>
             <span class="n">output_shape</span>        <span class="o">=</span> <span class="p">(</span><span class="s1">'Output Shape'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_shape_str</span><span class="p">),</span>
             <span class="n">output_dtype</span>        <span class="o">=</span> <span class="p">(</span><span class="s1">'Output Data Type'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_dtype_str</span><span class="p">),</span> 
-            <span class="n">tflite_size</span>         <span class="o">=</span> <span class="p">(</span><span class="s1">'Model File Size (bytes)'</span><span class="p">,</span> <span class="n">unit_formatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flatbuffer_size</span><span class="p">)),</span>
-            <span class="n">runtime_memory_size</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'Runtime Memory Size (bytes)'</span><span class="p">,</span> <span class="n">unit_formatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">runtime_memory_bytes</span><span class="p">)),</span>
-            <span class="n">ops</span>                 <span class="o">=</span> <span class="p">(</span><span class="s1">'# Operations'</span><span class="p">,</span> <span class="n">unit_formatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ops</span><span class="p">)),</span>
-            <span class="n">macs</span>                <span class="o">=</span> <span class="p">(</span><span class="s1">'# Multiply-Accumulates'</span><span class="p">,</span> <span class="n">unit_formatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">macs</span><span class="p">)),</span>
-            <span class="n">n_layers</span>            <span class="o">=</span> <span class="p">(</span><span class="s1">'# Layers'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span><span class="p">),</span>
-            <span class="n">n_unsupported_layers</span><span class="o">=</span> <span class="p">(</span><span class="s1">'# Unsupported Layers'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_unsupported_layers</span><span class="p">)</span>
+            <span class="n">tflite_size</span>         <span class="o">=</span> <span class="p">(</span><span class="s1">'Flash, Model File Size (bytes)'</span><span class="p">,</span> <span class="n">unit_formatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">flatbuffer_size</span><span class="p">)),</span>
+            <span class="n">runtime_memory_size</span> <span class="o">=</span> <span class="p">(</span><span class="s1">'RAM, Runtime Memory Size (bytes)'</span><span class="p">,</span> <span class="n">unit_formatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">runtime_memory_bytes</span><span class="p">)),</span>
+            <span class="n">ops</span>                 <span class="o">=</span> <span class="p">(</span><span class="s1">'Operation Count'</span><span class="p">,</span> <span class="n">unit_formatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ops</span><span class="p">)),</span>
+            <span class="n">macs</span>                <span class="o">=</span> <span class="p">(</span><span class="s1">'Multiply-Accumulate Count'</span><span class="p">,</span> <span class="n">unit_formatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">macs</span><span class="p">)),</span>
+            <span class="n">n_layers</span>            <span class="o">=</span> <span class="p">(</span><span class="s1">'Layer Count'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span><span class="p">),</span>
+            <span class="n">n_unsupported_layers</span><span class="o">=</span> <span class="p">(</span><span class="s1">'Unsupported Layer Count'</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_unsupported_layers</span><span class="p">)</span>
         <span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">accelerator_cycles</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">exclude_null</span><span class="p">:</span>
-            <span class="n">summary</span><span class="p">[</span><span class="s1">'accelerator_cycles'</span><span class="p">]</span>   <span class="o">=</span> <span class="p">(</span><span class="s1">'# Accelerator Cycles'</span><span class="p">,</span> <span class="n">unit_formatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">accelerator_cycles</span><span class="p">))</span>
+            <span class="n">summary</span><span class="p">[</span><span class="s1">'accelerator_cycles'</span><span class="p">]</span>   <span class="o">=</span> <span class="p">(</span><span class="s1">'Accelerator Cycle Count'</span><span class="p">,</span> <span class="n">unit_formatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">accelerator_cycles</span><span class="p">))</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_cycles</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">exclude_null</span><span class="p">:</span>
-            <span class="n">summary</span><span class="p">[</span><span class="s1">'cpu_cycles'</span><span class="p">]</span>           <span class="o">=</span> <span class="p">(</span><span class="s1">'# CPU Cycles'</span><span class="p">,</span> <span class="n">unit_formatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cpu_cycles</span><span class="p">))</span>
+            <span class="n">summary</span><span class="p">[</span><span class="s1">'cpu_cycles'</span><span class="p">]</span>           <span class="o">=</span> <span class="p">(</span><span class="s1">'CPU Cycle Count'</span><span class="p">,</span> <span class="n">unit_formatter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cpu_cycles</span><span class="p">))</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_cycles</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">exclude_null</span><span class="p">:</span>
             <span class="n">formatted_percentage</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cpu_utilization</span><span class="o">*</span><span class="mi">100</span>
             <span class="k">if</span> <span class="n">format_units</span><span class="p">:</span>
@@ -928,7 +928,7 @@
               
           </div>
             Last updated on
-              Apr 14, 2022.
+              Apr 18, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -959,7 +959,7 @@
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
-    <iframe class="survey-iframe" id="survey-iframe"></iframe>
+    <iframe id="iframe-survey" src="/_static/templates/survey_monkey/index.html" style="width: 100%; height: 100%;"></iframe>
 </div>
   
   

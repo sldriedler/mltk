@@ -28,7 +28,7 @@ More details here: [https://cmake.org/install](https://cmake.org/install)
 ### 2) Install 7-Zip
 
 7-Zip is a file archiver with a high compression ratio.  
-Several of the assets downloaded by the MLTK are compressed in this format.
+Several of the assets downloaded by the MLTK are compressed in this format.  
 More details here: [https://www.7-zip.org/download.html](https://www.7-zip.org/download.html)
 
 ### 3) Install Python
@@ -115,10 +115,7 @@ mltk build gsdk_mltk_extension
 
 ## Add the MLTK Gecko SDK to Simplicity Studio
 
-After building the GSDK MLTK extension, add the locally cloned Gecko SDK at [__mltk__/cpp/shared/gecko_sdk](../cpp/shared/gecko_sdk) to Simplicity Studio:
-
-
-![](../img/ss_import_mltk.gif)
+After building the GSDK MLTK extension, add the locally cloned Gecko SDK at [__mltk__/cpp/shared/gecko_sdk](../cpp/shared/gecko_sdk) to Simplicity Studio.
 
 From Simplicity Studio,  
 1. On top toolbar, click: __Window__
@@ -135,6 +132,7 @@ At this point, the __MLTK Gecko SDK Suite__ is now available in Simplicity Studi
 From the Launcher, select your connected device, then select the __Preferred SDK__ to be: __MLTK Gecko SDK Suite__  
 The MLTK example applications should now be available for project creation.
 
+![](../img/ss_import_mltk.gif)
 
 Refer to the Simplicity Studio 5 [User Guide](https://docs.silabs.com/simplicity-studio-5-users-guide/5.3.0/ss-5-users-guide-overview/)
 for more details about building and running projects.

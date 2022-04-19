@@ -7,7 +7,8 @@ embedded target.
 __No installation required__.
 
 ```{note}
-_All_ model profiling is done locally. _No_ data is uploaded to a remote server
+- _All_ model profiling is done locally. _No_ data is uploaded to a remote server
+- Simulated numbers are based on the __EFR32xG24__
 ```
 
 ## Download
@@ -24,7 +25,7 @@ To use the model profiler utility:
 1. __Download__ the executable from the link above  
 2. After downloading, __download-click__ the executable
 3. The executable will:  
-   1 ) Start a local HTTP server  
+   1 ) Start a local HTTP server on `http://localhost:8080`
    2 ) Open a webpage in your default browser
 4. From the webpage, __drag and drop__ your `.tflite` _or_ `.mltk.zip` model file onto the box
 5. Select the hardware __accelerator__ to use for profiling
@@ -43,4 +44,22 @@ Refer to the [Model Profiler](./model_profiler.md) guide for more details on the
 After profiling completes, you can save the results in JSON or text format by clicking the respective button on the top-right:
 
 ![](../img/model_profiler_utility_save.png)
+
+
+## Local HTTP server options
+
+The profiler webpage is served from a local HTTP server.  
+By default, the server starts on `localhost:8080`.
+
+The host and port may be changed by specifying the command line options:
+
+```shell
+mltk_model_profiler [--host <host>] [--port <port>]
+```
+
+Where:  
+- `<host>` is the local network host interface IP address, e.g. `192.168.1.4`
+- `<port`> is the HTTP server listening port, e.g. `8000`
+
+
 

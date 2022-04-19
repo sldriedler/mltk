@@ -54,6 +54,8 @@ configuration:
   value: '1'
 - name: SL_BOARD_ENABLE_SENSOR_MICROPHONE
   value: "1"
+- name: SL_MVP_POWER_MODE
+  value: '1'
 config_file: 
   - path: "config/tflite/keyword_spotting_on_off.tflite"
     directory: "tflite"

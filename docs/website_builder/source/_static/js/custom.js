@@ -5,9 +5,8 @@ window.dataLayer = window.dataLayer || [];
 
 // Open external links in a new tab
 $(document).ready(function () {
-    checkPrivacyBannerStatus();
+    checkIfAcceptedCookies();
     $('a[href^="http://"], a[href^="https://"]').not('a[class*=internal]').attr('target', '_blank');
-    $('#survey-link').attr('href', window.SURVEY_URL);
 });
 
 
@@ -20,12 +19,11 @@ $(window).scroll(function() {
     //console.log(`${offset} ${docHeight} ${height}`)
 
     // Only show the survey dialog if the user scrolls to >50% of the page
-    if(localStorage.bannerClosed && !window.tookSurvey && offset > height * 0.5) {
-        $("#survey-iframe").on('load', function() {
+    if(localStorage.acceptedCookies && !window.tookSurvey && offset > height * 0.5) {
+        if(!$('#dlg-survey').is(':visible')) {
             $('#dlg-survey').css('display', 'block');
-        });
-        $("#survey-iframe").attr('src', window.SURVEY_URL);
-        $("#dlg-survey-close").on("click", closeSurvey);
+            $("#dlg-survey-close").on("click", closeSurvey);
+        }
     }
 });
 
@@ -40,22 +38,39 @@ function initialiseGoogleAnalytics() {
     gtag('config', gTrackingId, {'anonymize_ip': true});
 }
 
-function checkPrivacyBannerStatus() {
-    if (!localStorage.bannerClosed) {
+function checkIfAcceptedCookies() {
+    if (!localStorage.acceptedCookies) {
         $('.privacy-banner').show();
         $('.privacy-banner-accept').click(function() {
             $('.privacy-banner').hide()
-            localStorage.bannerClosed = 'true';
-            initialiseGoogleAnalytics();
+            localStorage.acceptedCookies = 'true';
+            onAcceptedCookies();
         });
         
     } else {
-        initialiseGoogleAnalytics();
+        onAcceptedCookies();
     }
 }
 
+function onAcceptedCookies() {
+    initialiseGoogleAnalytics();
+    $('#survey-link').attr('href', window.SURVEY_URL);
+    checkIfSurveyCompleted();
+}
+
 function closeSurvey() {
+    console.info('Took survey');
     window.tookSurvey = true;
     localStorage.surveyUrl = window.SURVEY_URL
     $('#dlg-survey').css('display', 'none');
+}
+
+function checkIfSurveyCompleted() {
+    if(localStorage.surveyUrl === window.SURVEY_URL) {
+        window.tookSurvey = true;
+        $('#dlg-survey').css('display', 'none');
+    } else {
+        setTimeout(checkIfSurveyCompleted, 100);
+    }
+
 }

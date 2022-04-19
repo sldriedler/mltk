@@ -107,6 +107,11 @@ All returned profiling information is calculated or estimated.
 - Estimates CPU cycles and latency
 - Estimates required energy per inference
 
+
+```{note}
+Estimated numbers are based on the __EFR32xG24__ at 80MHz
+```
+
 #### Physical Device Mode
 
 The model executes and is profiled on a physical device.  

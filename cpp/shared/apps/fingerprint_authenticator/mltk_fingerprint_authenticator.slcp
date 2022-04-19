@@ -53,7 +53,8 @@ toolchain_settings:
 configuration:
 - name: SL_BOARD_ENABLE_VCOM
   value: '1'
-
+- name: SL_MVP_POWER_MODE
+  value: '1'
 config_file: 
   - path: "config/tflite/fingerprint_reader.tflite"
     directory: "tflite"

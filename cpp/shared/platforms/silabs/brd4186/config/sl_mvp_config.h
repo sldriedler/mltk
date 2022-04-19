@@ -62,8 +62,8 @@
 // <i> program to complete will yield, allowing other tasks in the system to
 // <i> run or potentially let the scheduler put the system into a sleep mode.
 // <i> The "Yield RTOS thread" requires that the application is using RTOS.
-// <i> Default: 0
-#define SL_MVP_POWER_MODE  0
+// <i> Default: 1
+#define SL_MVP_POWER_MODE  1
 
 #endif /* SL_MVP_CONFIG_H */
 
