@@ -16,8 +16,8 @@ class AudioDatasetMixin(DataGeneratorDatasetMixin):
     
     .. seealso::
        - `AudioFeatureGenerator documentation <https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html>`_ 
-       - `AudioFeatureGenerator API docs <https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing.html#audiofeaturegenerator>`_
-       - `ParallelAudioDataGenerator API docs <https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing.html#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator>`_
+       - `AudioFeatureGenerator API docs <https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing/audio_feature_generator.html>`_
+       - `ParallelAudioDataGenerator API docs <https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing/audio_data_generator.html>`_
     
     """
 

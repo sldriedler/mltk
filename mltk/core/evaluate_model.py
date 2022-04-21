@@ -41,7 +41,7 @@ def evaluate_model(
 
     based on the given :py:class:`mltk.core.MltkModel` instance.
 
-    Refer to the `Model Evaluation <https://siliconlabs.github.io/mltk/docs/model_evaluation.html>`_ guide for more details.
+    Refer to the `Model Evaluation <https://siliconlabs.github.io/mltk/docs/guides/model_evaluation.html>`_ guide for more details.
     
     Args:
         model: :py:class:`mltk.core.MltkModel` instance, name of MLTK model, path to

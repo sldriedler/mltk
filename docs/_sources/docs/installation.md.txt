@@ -30,27 +30,39 @@ This describes how to install the MLTK Python package into your Python3 environm
 This step is __highly recommended__ as the MLTK installs other dependencies like Tensorflow into the Python environment.
 
 
-  ```shell
-  # Windows
-  python  -m venv mltk_pyvenv
-  .\mltk_pyvenv\Scripts\activate.bat
+```{eval-rst}
+.. tabbed:: Windows
 
-  # Linux
-  python3 -m venv mltk_pyvenv
-  source ./mltk_pyvenv/bin/activate
-  ```
+   .. code-block:: shell
+
+     python  -m venv mltk_pyvenv
+     .\mltk_pyvenv\Scripts\activate.bat
+
+.. tabbed:: Linux
+
+   .. code-block:: shell
+
+     python3 -m venv mltk_pyvenv
+     source ./mltk_pyvenv/bin/activate
+```
 
 2 ) Install the MLTK Python package via [pip](https://pip.pypa.io/):  
 
   This installs the pre-built Python package. This is the easiest and fastest approach to installing the MLTK.  
   However, the package may not be up-to-date with the [Github repository](https://github.com/sldriedler/mltk).
 
-  ```shell
-  # Windows
-  pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
+  ```{eval-rst}
+  .. tabbed:: Windows
 
-  # Linux
-  pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
+    .. code-block:: shell
+
+        pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
+
+  .. tabbed:: Linux
+
+    .. code-block:: shell
+    
+        pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
   ```
 
   __OR__
@@ -58,12 +70,18 @@ This step is __highly recommended__ as the MLTK installs other dependencies like
   This builds and installs the Python package from the [Github repository](https://github.com/sldriedler/mltk). This may take longer
   to install but will use the most up-to-date source code.
 
-  ```shell
-  # Windows
-  pip  install git+https://github.com/sldriedler/mltk.git
+  ```{eval-rst}
+  .. tabbed:: Windows
 
-  # Linux
-  pip3 install git+https://github.com/sldriedler/mltk.git
+    .. code-block:: shell
+
+       pip  install git+https://github.com/sldriedler/mltk.git
+
+  .. tabbed:: Linux
+
+    .. code-block:: shell
+    
+       pip3 install git+https://github.com/sldriedler/mltk.git
   ```
 
   After the command completes, the MLTK should be available to the current Python environment.  
@@ -90,22 +108,34 @@ See the [API Examples](./examples.md) for more details on how to use the MLTK [P
 
 If the MLTK Python package has already been installed, you may update to the latest MLTK by running the command:
 
-```shell
-# Windows
-pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
+```{eval-rst}
+.. tabbed:: Windows
 
-# Linux
-pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
+   .. code-block:: shell
+
+      pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
+
+.. tabbed:: Linux
+
+   .. code-block:: shell
+
+      pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
 ```
 
 Alternatively, you can update to a specific version with:
 
-```shell
-# Windows
-pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk==0.3.0
+```{eval-rst}
+.. tabbed:: Windows
 
-# Linux
-pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk==0.3.0
+   .. code-block:: shell
+
+      pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk==0.3.0
+
+.. tabbed:: Linux
+
+   .. code-block:: shell
+
+      pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk==0.3.0
 ```
 
 and replace `0.3.0` with the desired version.
@@ -152,14 +182,21 @@ git clone https://github.com/sldriedler/mltk
 
 2 ) Run the install script at the root of the repository
 
-```shell
-cd mltk
 
-# Windows
-python  install_mltk.py
+```{eval-rst}
+.. tabbed:: Windows
 
-# Linux
-python3 install_mltk.py
+   .. code-block:: shell
+
+      cd mltk
+      python  .\install_mltk.py
+
+.. tabbed:: Linux
+
+   .. code-block:: shell
+
+      cd mltk
+      python3 ./install_mltk.py
 ```
 
 The install script will:

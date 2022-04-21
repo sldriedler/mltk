@@ -4,7 +4,7 @@ This describes how to development C++ applications in the MLTK using Silicon Lab
 Using this guide, you can build C++ applications for Silicon Lab's embedded platforms.
 
 __NOTES:__  
-- All of the MLTK C++ source code may be found at: [__mltk repo__/cpp](https://github.com/sldriedler/mltk/tree/master/cpp)  
+- All of the MLTK C++ source code may be found at: [__mltk repo__/cpp](https://github.com/sldriedler/mltk/tree/master/cpp/)  
 - Refer to the [example applications](./examples/index.md) documentation for more details about what comes with the MLTK
 - Alternatively, applications may be built for Windows/Linux and embedded targets using [Visual Studio Code](./vscode.md)
 
@@ -65,19 +65,28 @@ Next, we need to install the MLTK:
 git clone https://github.com/sldriedler/mltk.git
 ```
 
+Then navigate to the MLTK repository directory
+
+```shell
+cd mltk
+```
+
 
 ### 2) Run the install script
 
-```shell
 
-# Navigate to the mltk repo directory
-cd mltk
+```{eval-rst}
+.. tabbed:: Windows
 
-# Windows
-python .\install_mltk.py
+   .. code-block:: shell
 
-# Linux
-python3 ./install_mltk.py
+      python .\install_mltk.py
+
+.. tabbed:: Linux
+
+   .. code-block:: shell
+
+      python3 ./install_mltk.py
 ```
 
 
@@ -85,15 +94,20 @@ python3 ./install_mltk.py
 
 Activate the MLTK's Python virtual environment:
 
-```shell
-cd mltk
+```{eval-rst}
+.. tabbed:: Windows
 
-# Windows
-.\.venv\Scripts\activate.bat
+   .. code-block:: shell
 
-# Linux
-source ./.venv/bin/activate
+      .\.venv\Scripts\activate.bat
+
+.. tabbed:: Linux
+
+   .. code-block:: shell
+
+      source ./.venv/bin/activate
 ```
+
 
 After activation, the `mltk` command should be available on the [command-line](../command_line.md):
 
@@ -104,7 +118,7 @@ mltk --help
 ## Install the MLTK into the Gecko SDK
 
 The [Gecko SDK](https://github.com/siliconlabs/gecko_sdk) is the main software stack used by Silicon Lab's embedded targets.
-The MLTK clones a local copy of the [Gecko SDK](https://github.com/siliconlabs/gecko_sdk) to [__mltk__/cpp/shared/gecko_sdk](https://github.com/sldriedler/mltk/tree/master/cpp/shared/gecko_sdk).
+The MLTK clones a local copy of the [Gecko SDK](https://github.com/siliconlabs/gecko_sdk) to [__mltk__/cpp/shared/gecko_sdk](https://github.com/sldriedler/mltk/tree/master/cpp//shared/gecko_sdk).
 We need to install the MLTK as an "extension" to the locally cloned Gecko SDK so that the MLTK applications are accessible in Simplicity Studio.
 
 To do this, issue the following command:
@@ -115,7 +129,7 @@ mltk build gsdk_mltk_extension
 
 ## Add the MLTK Gecko SDK to Simplicity Studio
 
-After building the GSDK MLTK extension, add the locally cloned Gecko SDK at [__mltk__/cpp/shared/gecko_sdk](https://github.com/sldriedler/mltk/tree/master/cpp/shared/gecko_sdk) to Simplicity Studio.
+After building the GSDK MLTK extension, add the locally cloned Gecko SDK at [__mltk__/cpp/shared/gecko_sdk](https://github.com/sldriedler/mltk/tree/master/cpp//shared/gecko_sdk) to Simplicity Studio.
 
 From Simplicity Studio,  
 1. On top toolbar, click: __Window__
@@ -137,9 +151,11 @@ The MLTK example applications should now be available for project creation.
 Refer to the Simplicity Studio 5 [User Guide](https://docs.silabs.com/simplicity-studio-5-users-guide/5.3.0/ss-5-users-guide-overview/)
 for more details about building and running projects.
 
-__HINT:__ When creating a new project, if you click the __Link to sources__ option, 
+```{hint}
+When creating a new project, if you click the __Link to sources__ option, 
 then you can directly edit the MLTK C++ sources from Simplicity Studio. Otherwise, the MLTK
 C++ sources will be copied to your Simplicity Studio project directory.
+```
 
 
 ## Example Applications

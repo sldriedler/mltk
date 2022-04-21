@@ -101,5 +101,6 @@ add_custom_command(
   TARGET ${MODULE_NAME} 
   POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${MODULE_NAME}> ${mvp_accelerator_dir}
+  COMMAND ${CMAKE_COMMAND} -E echo "Copying built wrapper to ${mvp_accelerator_dir}/$<TARGET_FILE_NAME:${MODULE_NAME}>"
 )
 

@@ -3,8 +3,8 @@
 
 Visual Wakeword - Person detection (MobileNetv1 with COCO14)
 
-See this model specification's on Github: `visual_wake_words.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/visual_wake_words.py>`_.
-
+- Source code: `visual_wake_words.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/visual_wake_words.py>`_
+- Pre-trained model: `visual_wake_words.mltk.zip <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/visual_wake_words.mltk.zip>`_
 
 Taken from:
 

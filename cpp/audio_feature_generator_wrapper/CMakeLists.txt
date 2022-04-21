@@ -124,4 +124,5 @@ add_custom_command(
   TARGET ${MODULE_NAME} 
   POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:${MODULE_NAME}> ${audio_feature_generator_dir}
+  COMMAND ${CMAKE_COMMAND} -E echo "Copying built wrapper to ${audio_feature_generator_dir}/$<TARGET_FILE_NAME:${MODULE_NAME}>"
 )

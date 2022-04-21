@@ -29,7 +29,7 @@ def profile_model(
     This will profile the given model in either a
     hardware simulator or on a physical device.
 
-    Refer to the `Model Profiler <https://siliconlabs.github.io/mltk/docs/model_profiler.html>`_ guide for more details.
+    Refer to the `Model Profiler <https://siliconlabs.github.io/mltk/docs/guides/model_profiler.html>`_ guide for more details.
 
     Args:
         model: The model to profile as either a :py:class:`mltk.core.MltkModel` or :py:class:`mltk.core.TfliteModel` instance,

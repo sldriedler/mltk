@@ -1,7 +1,8 @@
 """image_example1
 ******************
 
-See this model's specification on Github: `image_example1.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/image_example1.py>`_.
+- Source code: `image_example1.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/image_example1.py>`_
+- Pre-trained model: `image_example1.mltk.zip <https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/image_example1.mltk.zip>`_
 
 This provides an example of how to define a classification model 
 that uses the Rock/Paper/Scissors dataset with the ParallelImageGenerator as its data source.

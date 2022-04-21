@@ -1,7 +1,9 @@
 """keyword_spotting_mobilenetv2
 **********************************
 
-See this model's specification on Github: `keyword_spotting_mobilenetv2.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py>`_.
+- Source code: `keyword_spotting_mobilenetv2.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py>`_
+- Pre-trained model: `keyword_spotting_mobilenetv2.mltk.zip <https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.mltk.zip>`_
+
 
 This model specification script is designed to work with the
 `Model Optimization <https://siliconlabs.github.io/mltk/mltk/tutorials/model_optimization.html>`_ tutorial.

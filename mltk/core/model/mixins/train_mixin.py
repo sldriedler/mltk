@@ -589,7 +589,7 @@ class TrainMixin(BaseMixin):
            used to perform custom quantization
 
         .. seealso::
-           * `Model Quantization <https://siliconlabs.github.io/mltk/docs/model_quantization.html>`_ guide
+           * `Model Quantization <https://siliconlabs.github.io/mltk/docs/guides/model_quantization.html>`_ guide
            * `tf.lite.TFLiteConverter <https://www.tensorflow.org/api_docs/python/tf/lite/TFLiteConverter>`_
            * `Post-training integer quantization <https://www.tensorflow.org/lite/performance/post_training_integer_quant>`_
         """

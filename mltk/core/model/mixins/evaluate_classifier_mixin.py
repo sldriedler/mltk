@@ -12,7 +12,7 @@ class EvaluateClassifierMixin(EvaluateMixin):
     
     .. note:: This mixin is specific to "classification" models
 
-    Refer to the `Model Evaluation <https://siliconlabs.github.io/mltk/docs/model_evaluation.html>`_ guide for more details.
+    Refer to the `Model Evaluation <https://siliconlabs.github.io/mltk/docs/guides/model_evaluation.html>`_ guide for more details.
     """
 
     @property

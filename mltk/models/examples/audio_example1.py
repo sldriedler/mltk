@@ -1,7 +1,8 @@
 """audio_example1
 ********************
 
-See this model specification's on Github: `audio_example1.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/audio_example1.py>`_.
+- Source code: `audio_example1.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/audio_example1.py>`_
+- Pre-trained model archive: `audio_example1.mltk.zip <https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/audio_example1.mltk.zip>`_
 
 This provides an example of how to create a Keyword Search (KWS) classification model.
 This example defines a model to detect the keywords:

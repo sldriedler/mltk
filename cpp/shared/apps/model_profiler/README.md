@@ -33,7 +33,7 @@ A default model comes with the application, however, this model may be updated
 using several different methods:
 
 
-#### via Simplicity Studio
+### via Simplicity Studio
 
 To replace the default model, rename the your `.tflite` file to
 `1_<your model named>.tflite` and copy it into the config/tflite folder of Simplicity Studio
@@ -43,8 +43,10 @@ project Simplicity Studio will automatically use the
 [flatbuffer converter tool](https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/flatbuffer-conversion)
 to convert a .tflite file into a c file which is added to the project.
 
+Refer to the online [documentation](https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/guide-replace-model#updating-or-replacing-the--tflite-file-in-a-project) for more details.
 
-#### via VSCode or Command line
+
+### via CMake
 
 The model can also be updated when building this application from [Visual Studio Code](https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html)
 or the CMake [Command Line](https://siliconlabs.github.io/mltk/docs/command_line.html).
@@ -61,6 +63,26 @@ or the MLTK model name.
 
 With this variable set, when the model profiler application is built the 
 specified model will be built into the application.
+
+
+### via `update_params` command
+
+When building for an embedded target, this application supports overriding the default model built into the application.
+When the application starts, it checks the end of flash memory for a `.tflite` model file. If found, the model
+at the end of flash is used instead of the default model.
+
+To write the model to flash, use the command:
+
+```shell
+mltk update_params <model name> --device
+```
+
+Refer to the command's help for more details:
+
+```shell
+mltk update_params --help
+```
+
 
 
 
@@ -86,6 +108,21 @@ Optionally, configure the `.tflite` model to profile:
 # in the mltk_model_profiler application
 mltk_set(MODEL_PROFILER_MODEL ~/my_models/my_model.tflite)
 ```
+
+__HINT:__  
+You can also specify the path to the `.mltk.zip` model archive or just specify the MLTK model name, e.g.:
+
+```shell
+# Specify the path to the model archive
+mltk_set(MODEL_PROFILER_MODEL ~/my_models/my_model.mltk.zip)
+
+# Specify the MLTK model name
+# NOTE: The model specification must be on the model search path, see:
+#       https://siliconlabs.github.io/mltk/docs/guides/model_search_path.html
+mltk_set(MODEL_PROFILER_MODEL image_example1)
+```
+
+
 
 
 ### TFLITE_MICRO_ACCELERATOR

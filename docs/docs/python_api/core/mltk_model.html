@@ -56,6 +56,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.929109b1a0703bf65c368b8446834ec0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css" />
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -330,6 +332,13 @@
     </li>
     <li class="md-nav__item">
     
+    
+      <a href="../../cpp_development/index.html" class="md-nav__link">C++ Development</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
       <span class="md-nav__link caption"><span class="caption-text">Audio Related</span></span>
     
     </li>
@@ -362,6 +371,13 @@
     <li class="md-nav__item">
     
     
+      <a href="../../faq.html" class="md-nav__link">Frequently Asked Questions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="../../other/quick_reference.html" class="md-nav__link">Quick Reference</a>
       
     
@@ -384,13 +400,6 @@
     
     
       <a href="../../other/environment_variables.html" class="md-nav__link">Environment Variables</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../../cpp_development/index.html" class="md-nav__link">C++ Development</a>
       
     
     </li>
@@ -1119,7 +1128,7 @@ used to perform custom quantization</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://sldriedler.github.io/mltk/docs/model_quantization.html">Model Quantization</a> guide</p></li>
+<li><p><a class="reference external" href="https://sldriedler.github.io/mltk/docs/guides/model_quantization.html">Model Quantization</a> guide</p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/lite/TFLiteConverter">tf.lite.TFLiteConverter</a></p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/lite/performance/post_training_integer_quant">Post-training integer quantization</a></p></li>
 </ul>
@@ -1174,7 +1183,7 @@ Return None if no checkpoint is found.</p>
 <dt class="sig sig-object py" id="mltk.core.EvaluateMixin">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.</span></span><span class="sig-name descname"><span class="pre">EvaluateMixin</span></span><a class="reference internal" href="../../../_modules/mltk/core/model/mixins/evaluate_mixin.html#EvaluateMixin"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.EvaluateMixin" title="Permalink to this definition">¶</a></dt>
 <dd><p>Provides generic evaluation properties and methods to the base <a class="reference internal" href="#mltk.core.MltkModel" title="mltk.core.MltkModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">MltkModel</span></code></a></p>
-<p>Refer to the <a class="reference external" href="https://sldriedler.github.io/mltk/docs/model_evaluation.html">Model Evaluation</a> guide for more details.</p>
+<p>Refer to the <a class="reference external" href="https://sldriedler.github.io/mltk/docs/guides/model_evaluation.html">Model Evaluation</a> guide for more details.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.EvaluateMixin.eval_steps_per_epoch">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eval_steps_per_epoch</span></span><a class="headerlink" href="#mltk.core.EvaluateMixin.eval_steps_per_epoch" title="Permalink to this definition">¶</a></dt>
@@ -1209,7 +1218,7 @@ predict will run until the input dataset is exhausted.</p>
 <p class="admonition-title">Note</p>
 <p>This mixin is specific to “classification” models</p>
 </div>
-<p>Refer to the <a class="reference external" href="https://sldriedler.github.io/mltk/docs/model_evaluation.html">Model Evaluation</a> guide for more details.</p>
+<p>Refer to the <a class="reference external" href="https://sldriedler.github.io/mltk/docs/guides/model_evaluation.html">Model Evaluation</a> guide for more details.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.EvaluateClassifierMixin.eval_shuffle">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eval_shuffle</span></span><a class="headerlink" href="#mltk.core.EvaluateClassifierMixin.eval_shuffle" title="Permalink to this definition">¶</a></dt>
@@ -1263,7 +1272,7 @@ Default: <cite>-1</cite></p>
 <p class="admonition-title">Note</p>
 <p>This mixin is specific to “auto-encoder” models</p>
 </div>
-<p>Refer to the <a class="reference external" href="https://sldriedler.github.io/mltk/docs/model_evaluation.html">Model Evaluation</a> guide for more details.</p>
+<p>Refer to the <a class="reference external" href="https://sldriedler.github.io/mltk/docs/guides/model_evaluation.html">Model Evaluation</a> guide for more details.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="mltk.core.EvaluateAutoEncoderMixin.scoring_function">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scoring_function</span></span><a class="headerlink" href="#mltk.core.EvaluateAutoEncoderMixin.scoring_function" title="Permalink to this definition">¶</a></dt>
@@ -1683,8 +1692,8 @@ and validation.</p>
 <p class="admonition-title">See also</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html">AudioFeatureGenerator documentation</a></p></li>
-<li><p><a class="reference external" href="https://sldriedler.github.io/mltk/docs/python_api/data_preprocessing.html#audiofeaturegenerator">AudioFeatureGenerator API docs</a></p></li>
-<li><p><a class="reference external" href="https://sldriedler.github.io/mltk/docs/python_api/data_preprocessing.html#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator">ParallelAudioDataGenerator API docs</a></p></li>
+<li><p><a class="reference external" href="https://sldriedler.github.io/mltk/docs/python_api/data_preprocessing/audio_feature_generator.html">AudioFeatureGenerator API docs</a></p></li>
+<li><p><a class="reference external" href="https://sldriedler.github.io/mltk/docs/python_api/data_preprocessing/audio_data_generator.html">ParallelAudioDataGenerator API docs</a></p></li>
 </ul>
 </div>
 <dl class="py property">
@@ -2239,7 +2248,7 @@ OR <a class="reference external" href="https://www.tensorflow.org/api_docs/pytho
               
           </div>
             Last updated on
-              Apr 18, 2022.
+              Apr 20, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -2270,7 +2279,7 @@ OR <a class="reference external" href="https://www.tensorflow.org/api_docs/pytho
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
-    <iframe id="iframe-survey" src="/mltk/_static/templates/survey_monkey/index.html" style="width: 100%; height: 100%;"></iframe>
+    <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   
   

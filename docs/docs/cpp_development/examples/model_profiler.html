@@ -56,6 +56,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.929109b1a0703bf65c368b8446834ec0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css" />
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -181,7 +183,7 @@
             
             <li class="md-tabs__item"><a href="https://www.tensorflow.org/learn" class="md-tabs__link">Tensorflow Documentation</a></li>
           <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">C++ Development</a></li>
-          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Examples</a></li>
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">C++ Examples</a></li>
       </ul>
     </div>
   </nav>
@@ -288,6 +290,41 @@
     </li>
     <li class="md-nav__item">
     
+    
+      <a href="../index.html" class="md-nav__link">C++ Development</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../index.html#development-modes" class="md-nav__link">Development Modes</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../index.html#source-code" class="md-nav__link">Source Code</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../index.html#examples" class="md-nav__link">Examples</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../index.html#python-wrappers" class="md-nav__link">Python Wrappers</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
       <span class="md-nav__link caption"><span class="caption-text">Audio Related</span></span>
     
     </li>
@@ -320,6 +357,13 @@
     <li class="md-nav__item">
     
     
+      <a href="../../faq.html" class="md-nav__link">Frequently Asked Questions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="../../other/quick_reference.html" class="md-nav__link">Quick Reference</a>
       
     
@@ -345,34 +389,6 @@
       
     
     </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../index.html" class="md-nav__link">C++ Development</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="../index.html#development-modes" class="md-nav__link">Development Modes</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../index.html#source-code" class="md-nav__link">Source Code</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../index.html#examples" class="md-nav__link">Examples</a>
-      
-    
-    </li></ul>
-    
-    </li>
   </ul>
   
 
@@ -395,7 +411,9 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#via-simplicity-studio" class="md-nav__link">via Simplicity Studio</a>
         </li>
-        <li class="md-nav__item"><a href="#via-vscode-or-command-line" class="md-nav__link">via VSCode or Command line</a>
+        <li class="md-nav__item"><a href="#via-cmake" class="md-nav__link">via CMake</a>
+        </li>
+        <li class="md-nav__item"><a href="#via-update-params-command" class="md-nav__link">via <code class="docutils literal notranslate"><span class="pre">update_params</span></code> command</a>
         </li></ul>
             </nav>
         </li>
@@ -434,7 +452,7 @@
               <li></li>
               <li><a href="../../../index.html"><i class="md-icon">home</i></a></li>
                 <li class="active"><a href="../index.html" >C++ Development</a></li>
-                <li class="active"><a href="index.html" accesskey="U">Examples</a></li>
+                <li class="active"><a href="index.html" accesskey="U">C++ Examples</a></li>
             </ul>
           </div>
           
@@ -475,9 +493,10 @@ forces the model to come first). After a new .tflite file is added to the
 project Simplicity Studio will automatically use the
 <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/flatbuffer-conversion">flatbuffer converter tool</a>
 to convert a .tflite file into a c file which is added to the project.</p>
+<p>Refer to the online <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/guide-replace-model#updating-or-replacing-the--tflite-file-in-a-project">documentation</a> for more details.</p>
 </section>
-<section id="via-vscode-or-command-line">
-<h3 id="via-vscode-or-command-line">via VSCode or Command line<a class="headerlink" href="#via-vscode-or-command-line" title="Permalink to this headline">¶</a></h3>
+<section id="via-cmake">
+<h3 id="via-cmake">via CMake<a class="headerlink" href="#via-cmake" title="Permalink to this headline">¶</a></h3>
 <p>The model can also be updated when building this application from <a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html">Visual Studio Code</a>
 or the CMake <a class="reference external" href="https://sldriedler.github.io/mltk/docs/command_line.html">Command Line</a>.</p>
 <p>To update the model, create/modify the file: <code class="docutils literal notranslate"><span class="pre">&lt;mltk</span> <span class="pre">repo</span> <span class="pre">root&gt;/user_options.cmake</span></code>
@@ -489,6 +508,20 @@ and add:</p>
 or the MLTK model name.</p>
 <p>With this variable set, when the model profiler application is built the
 specified model will be built into the application.</p>
+</section>
+<section id="via-update-params-command">
+<h3 id="via-update-params-command">via <code class="docutils literal notranslate"><span class="pre">update_params</span></code> command<a class="headerlink" href="#via-update-params-command" title="Permalink to this headline">¶</a></h3>
+<p>When building for an embedded target, this application supports overriding the default model built into the application.
+When the application starts, it checks the end of flash memory for a <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model file. If found, the model
+at the end of flash is used instead of the default model.</p>
+<p>To write the model to flash, use the command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk update_params &lt;model name&gt; --device
+</pre></div>
+</div>
+<p>Refer to the command’s help for more details:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk update_params --help
+</pre></div>
+</div>
 </section>
 </section>
 <section id="build-settings">
@@ -505,6 +538,17 @@ to control how the app is built.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the path to the .tflite model file to profile</span>
 <span class="c1"># in the mltk_model_profiler application</span>
 mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL ~/my_models/my_model.tflite<span class="o">)</span>
+</pre></div>
+</div>
+<p><strong>HINT:</strong><br/>
+You can also specify the path to the <code class="docutils literal notranslate"><span class="pre">.mltk.zip</span></code> model archive or just specify the MLTK model name, e.g.:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the path to the model archive</span>
+mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL ~/my_models/my_model.mltk.zip<span class="o">)</span>
+
+<span class="c1"># Specify the MLTK model name</span>
+<span class="c1"># NOTE: The model specification must be on the model search path, see:</span>
+<span class="c1">#       https://sldriedler.github.io/mltk/docs/guides/model_search_path.html</span>
+mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL image_example1<span class="o">)</span>
 </pre></div>
 </div>
 </section>
@@ -589,7 +633,7 @@ and the model executes entirely from RAM.</p>
               
           </div>
             Last updated on
-              Apr 18, 2022.
+              Apr 20, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -620,7 +664,7 @@ and the model executes entirely from RAM.</p>
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
-    <iframe id="iframe-survey" src="/mltk/_static/templates/survey_monkey/index.html" style="width: 100%; height: 100%;"></iframe>
+    <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   
   

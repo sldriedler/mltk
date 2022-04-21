@@ -73,8 +73,10 @@ project Simplicity Studio will automatically use the
 [flatbuffer converter tool](https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/flatbuffer-conversion)
 to convert a .tflite file into a c file which is added to the project.
 
+Refer to the online [documentation](https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/guide-replace-model#updating-or-replacing-the--tflite-file-in-a-project) for more details.
 
-#### via MLTK Command
+
+#### via `classify_audio` Command
 
 Alternatively, using the [mltk classify_audio <model path> --app none --device](https://siliconlabs.github.io/mltk/docs/audio/audio_utilities.html#audio-classification-utility)
 command program the `.tflite` model to the end of the device's flash.
@@ -85,7 +87,7 @@ __NOTE:__ The `--app none` option tells the command to _not_ update the audio_cl
 and only program the model file.
 
 
-#### via VSCode or Command line
+#### via CMake
 
 The model can also be updated when building this application from [Visual Studio Code](https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html)
 or the CMake [Command Line](https://siliconlabs.github.io/mltk/docs/command_line.html).

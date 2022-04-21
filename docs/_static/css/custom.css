@@ -1,3 +1,16 @@
+.dropdown {
+  width: 100% !important;
+}
+
+button.copybtn {
+  cursor: pointer;
+}
+
+details>summary:before {
+  content: none !important;
+}
+
+
 .md-nav span.caption {
     text-transform: uppercase;
 }

@@ -27,7 +27,7 @@ os.environ['MLTK_BUILD_DOCS'] = '1'
 
 import mltk
 from mltk import MLTK_DIR
-from mltk.utils.path import clean_directory, get_user_setting, recursive_listdir
+from mltk.utils.path import clean_directory, get_user_setting, recursive_listdir, fullpath
 
 
 
@@ -69,6 +69,7 @@ extensions = [
      # "myst_parser", # this is not needed when myst_nb is used
     "sphinx_markdown_tables",
     "sphinx_copybutton",
+    'sphinx_panels',
     'sphinx_material',
     'sphinx_autodoc_typehints', # This must come last
 ]
@@ -193,6 +194,14 @@ autosummary_imported_members = True
 numpydoc_show_class_members = False 
 typehints_fully_qualified = False
 set_type_checking_flag  = True
+panels_add_bootstrap_css = False
+panels_css_variables = {
+    "tabs-color-label-active": "rgba(239, 83, 80, 1.0)",
+    "tabs-color-label-inactive": "rgba(128,128,128,1.0)",
+    "tabs-color-overline": "rgba(128,128,128,.3)",
+    "tabs-color-underline": "rgba(128,128,128,.3)",
+    "tabs-size-label": "1rem",
+}
 
 autodoc_member_order = 'bysource'
 #autoclass_content = "class"
@@ -212,21 +221,49 @@ build_dir = sys.argv[-1]
 # Copy all the .md files in <mltk root>/docs
 # to <mltk root>/docs/website_builder/source/docs 
 # This allows for sphinx to generate HTML for each .md
-docs_src_dir = f'{curdir}/../..'
+docs_src_dir = fullpath(f'{curdir}/../..')
 docs_dst_dir = f'{curdir}/docs'
 clean_directory(docs_dst_dir)
+include_re = re.compile(r'```{include}\s+(.*)\s*```.*')
+cpp_path_re = re.compile(r'.*\]\((\.\.\/[\.\.\/]*cpp)[\/\)]+.*')
+mltk_path_re = re.compile(r'.*\]\((\.\.\/[\.\.\/]*mltk\/core)[\/\)]+.*')
 for fn in recursive_listdir(docs_src_dir, return_relative_paths=True):
     if not fn.endswith(('.md', '.rst')):
         continue
     if 'website_builder' in fn:
         continue
 
-    with open(f'{docs_src_dir}/{fn}', 'r') as f:
-        data = f.read()
-        # Update the relative links to point to the github repo
-        # https://github.com/siliconlabs/mltk
-        data = data.replace('](../cpp', '](https://github.com/siliconlabs/mltk/tree/master/cpp')
-    
+    src_path = f'{docs_src_dir}/{fn}'
+
+    # First check if the file contains:
+    # ```{include} <path>
+    #
+    # If it does, then update the source path to that path.
+    # This way we can process the actual markdown file
+    with open(src_path, 'r') as f:
+        data = f.read().replace('\r', '').replace('\n', '')
+        match = include_re.match(data)
+        if match:
+            relpath = match.group(1)
+            src_path = f'{os.path.dirname(src_path)}/{relpath}'
+
+    # Now process the markdown file
+    with open(src_path, 'r') as f:
+        data = ''
+        for line in f:
+            # Update the relative links to C++ code to point to the github repo
+            # https://github.com/siliconlabs/mltk/cpp
+            match = cpp_path_re.match(line)
+            if match:
+                line = line.replace(match.group(1), 'https://github.com/siliconlabs/mltk/tree/master/cpp/')
+            else:
+                # Update the relative links to python code to point to the github repo
+                # https://github.com/siliconlabs/mltk/mltk/core
+                match = mltk_path_re.match(line)
+                if match:
+                    line = line.replace(match.group(1), 'https://github.com/siliconlabs/mltk/tree/master/mltk/core/')
+            data += line
+
     dst_path = f'{docs_dst_dir}/{fn}'
     os.makedirs(os.path.dirname(dst_path), exist_ok=True)
     with open(dst_path, 'w') as f:

@@ -56,6 +56,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.929109b1a0703bf65c368b8446834ec0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -341,6 +343,13 @@
     </li>
     <li class="md-nav__item">
     
+    
+      <a href="cpp_development/index.html" class="md-nav__link">C++ Development</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
       <span class="md-nav__link caption"><span class="caption-text">Audio Related</span></span>
     
     </li>
@@ -373,6 +382,13 @@
     <li class="md-nav__item">
     
     
+      <a href="faq.html" class="md-nav__link">Frequently Asked Questions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="other/quick_reference.html" class="md-nav__link">Quick Reference</a>
       
     
@@ -395,13 +411,6 @@
     
     
       <a href="other/environment_variables.html" class="md-nav__link">Environment Variables</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="cpp_development/index.html" class="md-nav__link">C++ Development</a>
       
     
     </li>
@@ -482,34 +491,61 @@ if your computer has an NVidia GPU, then ensure the proper drivers are <a class=
 </div>
 <p>1 ) <strong>Optionally</strong> create and activate a Python <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">virtual environment</a>:</p>
 <p>This step is <strong>highly recommended</strong> as the MLTK installs other dependencies like Tensorflow into the Python environment.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Windows</span>
-python  -m venv mltk_pyvenv
+<div class="tabbed-set docutils">
+<input checked="checked" id="d54b5d76-cb25-4319-a330-a3daf1773a4c" name="82c59ccf-8b6a-4517-be6f-80eb64704faf" type="radio"/>
+<label class="tabbed-label" for="d54b5d76-cb25-4319-a330-a3daf1773a4c">
+Windows</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python  -m venv mltk_pyvenv
 .<span class="se">\m</span>ltk_pyvenv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate.bat
-
-<span class="c1"># Linux</span>
-python3 -m venv mltk_pyvenv
+</pre></div>
+</div>
+</div>
+<input id="3703d305-ab57-4046-ac58-65b0cfa1c893" name="82c59ccf-8b6a-4517-be6f-80eb64704faf" type="radio"/>
+<label class="tabbed-label" for="3703d305-ab57-4046-ac58-65b0cfa1c893">
+Linux</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3 -m venv mltk_pyvenv
 <span class="nb">source</span> ./mltk_pyvenv/bin/activate
 </pre></div>
+</div>
+</div>
 </div>
 <p>2 ) Install the MLTK Python package via <a class="reference external" href="https://pip.pypa.io/">pip</a>:</p>
 <p>This installs the pre-built Python package. This is the easiest and fastest approach to installing the MLTK.<br/>
 However, the package may not be up-to-date with the <a class="reference external" href="https://github.com/sldriedler/mltk">Github repository</a>.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Windows</span>
-pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
-
-<span class="c1"># Linux</span>
-pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
+<div class="tabbed-set docutils">
+<input checked="checked" id="6bddb567-f493-4bdf-810c-0614e7dd2f87" name="ae1d0734-e83e-4581-8750-a313de4cf3f3" type="radio"/>
+<label class="tabbed-label" for="6bddb567-f493-4bdf-810c-0614e7dd2f87">
+Windows</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
 </pre></div>
+</div>
+</div>
+<input id="a8636007-c5ab-4393-afad-a3b98aaf9e8a" name="ae1d0734-e83e-4581-8750-a313de4cf3f3" type="radio"/>
+<label class="tabbed-label" for="a8636007-c5ab-4393-afad-a3b98aaf9e8a">
+Linux</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
+</pre></div>
+</div>
+</div>
 </div>
 <p><strong>OR</strong></p>
 <p>This builds and installs the Python package from the <a class="reference external" href="https://github.com/sldriedler/mltk">Github repository</a>. This may take longer
 to install but will use the most up-to-date source code.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Windows</span>
-pip  install git+https://github.com/sldriedler/mltk.git
-
-<span class="c1"># Linux</span>
-pip3 install git+https://github.com/sldriedler/mltk.git
+<div class="tabbed-set docutils">
+<input checked="checked" id="4d112916-7dfc-4324-bd84-0106f8ae9a9a" name="5e917103-83d3-4e66-b343-c66825fc183b" type="radio"/>
+<label class="tabbed-label" for="4d112916-7dfc-4324-bd84-0106f8ae9a9a">
+Windows</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip  install git+https://github.com/sldriedler/mltk.git
 </pre></div>
+</div>
+</div>
+<input id="7b820dff-12cb-4202-822d-95fd6f3e79eb" name="5e917103-83d3-4e66-b343-c66825fc183b" type="radio"/>
+<label class="tabbed-label" for="7b820dff-12cb-4202-822d-95fd6f3e79eb">
+Linux</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip3 install git+https://github.com/sldriedler/mltk.git
+</pre></div>
+</div>
+</div>
 </div>
 <p>After the command completes, the MLTK should be available to the current Python environment.<br/>
 You can verify by issuing the command:</p>
@@ -527,20 +563,38 @@ You can verify by issuing the command:</p>
 <section id="update-python-package">
 <h3 id="update-python-package">Update Python Package<a class="headerlink" href="#update-python-package" title="Permalink to this headline">¶</a></h3>
 <p>If the MLTK Python package has already been installed, you may update to the latest MLTK by running the command:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Windows</span>
-pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
-
-<span class="c1"># Linux</span>
-pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
+<div class="tabbed-set docutils">
+<input checked="checked" id="6087b341-9b6f-4ff7-9d6e-343547c8f1a5" name="45cfa6ab-f7c4-4c71-84a4-a4b7dbc091f3" type="radio"/>
+<label class="tabbed-label" for="6087b341-9b6f-4ff7-9d6e-343547c8f1a5">
+Windows</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
 </pre></div>
 </div>
-<p>Alternatively, you can update to a specific version with:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Windows</span>
-pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk<span class="o">==</span><span class="m">0</span>.3.0
-
-<span class="c1"># Linux</span>
-pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk<span class="o">==</span><span class="m">0</span>.3.0
+</div>
+<input id="b0e653de-5d9a-48ad-93ad-eb8fb99e8415" name="45cfa6ab-f7c4-4c71-84a4-a4b7dbc091f3" type="radio"/>
+<label class="tabbed-label" for="b0e653de-5d9a-48ad-93ad-eb8fb99e8415">
+Linux</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
 </pre></div>
+</div>
+</div>
+</div>
+<p>Alternatively, you can update to a specific version with:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="6753a265-357a-4d52-9691-bc73e9967d52" name="f277f155-c0b9-4d85-ad91-ff273d986478" type="radio"/>
+<label class="tabbed-label" for="6753a265-357a-4d52-9691-bc73e9967d52">
+Windows</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk<span class="o">==</span><span class="m">0</span>.3.0
+</pre></div>
+</div>
+</div>
+<input id="0533f91c-905e-420c-8313-cd98bd9fc446" name="f277f155-c0b9-4d85-ad91-ff273d986478" type="radio"/>
+<label class="tabbed-label" for="0533f91c-905e-420c-8313-cd98bd9fc446">
+Linux</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk<span class="o">==</span><span class="m">0</span>.3.0
+</pre></div>
+</div>
+</div>
 </div>
 <p>and replace <code class="docutils literal notranslate"><span class="pre">0.3.0</span></code> with the desired version.</p>
 </section>
@@ -576,14 +630,23 @@ Additionally, a new Python virtual environment is created specifically for the M
 </pre></div>
 </div>
 <p>2 ) Run the install script at the root of the repository</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="5facf128-03b1-4f53-bdab-9359445b03ec" name="b0f6f657-54e6-46a5-ada5-134722d0081f" type="radio"/>
+<label class="tabbed-label" for="5facf128-03b1-4f53-bdab-9359445b03ec">
+Windows</label><div class="tabbed-content docutils">
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> mltk
-
-<span class="c1"># Windows</span>
-python  install_mltk.py
-
-<span class="c1"># Linux</span>
-python3 install_mltk.py
+python  .<span class="se">\i</span>nstall_mltk.py
 </pre></div>
+</div>
+</div>
+<input id="53b06c84-dfa1-4446-83c1-7d758e4759f5" name="b0f6f657-54e6-46a5-ada5-134722d0081f" type="radio"/>
+<label class="tabbed-label" for="53b06c84-dfa1-4446-83c1-7d758e4759f5">
+Linux</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> mltk
+python3 ./install_mltk.py
+</pre></div>
+</div>
+</div>
 </div>
 <p>The install script will:</p>
 <ol>
@@ -650,7 +713,7 @@ python3 install_mltk.py
               
           </div>
             Last updated on
-              Apr 18, 2022.
+              Apr 20, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -681,7 +744,7 @@ python3 install_mltk.py
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
-    <iframe id="iframe-survey" src="/mltk/_static/templates/survey_monkey/index.html" style="width: 100%; height: 100%;"></iframe>
+    <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   
   

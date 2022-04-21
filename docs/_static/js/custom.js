@@ -2,6 +2,7 @@
 window.SURVEY_URL = 'https://www.surveymonkey.com/r/XM7JZQ7';
 window.tookSurvey = localStorage.surveyUrl === window.SURVEY_URL
 window.dataLayer = window.dataLayer || [];
+window.showingSurvey = false;
 
 // Open external links in a new tab
 $(document).ready(function () {
@@ -20,8 +21,13 @@ $(window).scroll(function() {
 
     // Only show the survey dialog if the user scrolls to >50% of the page
     if(localStorage.acceptedCookies && !window.tookSurvey && offset > height * 0.5) {
-        if(!$('#dlg-survey').is(':visible')) {
-            $('#dlg-survey').css('display', 'block');
+        if(!window.showingSurvey) {
+            window.showingSurvey = true;
+
+            $('#iframe-survey').on('load', function() {
+                $('#dlg-survey').css('display', 'block');
+            });
+            $('#iframe-survey').attr('src', `${getStaticDir()}/templates/survey_monkey/index.html`)
             $("#dlg-survey-close").on("click", closeSurvey);
         }
     }
@@ -73,4 +79,15 @@ function checkIfSurveyCompleted() {
         setTimeout(checkIfSurveyCompleted, 100);
     }
 
+}
+
+function getStaticDir() {
+    let scripts= document.getElementsByTagName('script');
+    for(let i = 0; i < scripts.length; i++) {
+        let script = scripts[i];
+        let index = script.src.indexOf('/js/custom.js')
+        if(index > 0) {
+            return script.src.substring(0, index);
+        }
+    }
 }

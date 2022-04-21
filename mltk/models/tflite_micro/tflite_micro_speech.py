@@ -3,7 +3,9 @@
 
 TF-Lite Micro Speech reference model
 
-See this model's specification on Github: `tflite_micro_speech.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tflite_micro/tflite_micro_speech.py>`_.
+- Source code: `tflite_micro_speech.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tflite_micro/tflite_micro_speech.py>`_
+- Pre-trained model: `tflite_micro_speech.mltk.zip <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tflite_micro/tflite_micro_speech.mltk.zip>`_
+
 
 Taken from:
 https://github.com/SiliconLabs/platform_ml_models/tree/master/eembc/TFLite_micro_speech

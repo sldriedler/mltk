@@ -56,6 +56,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.929109b1a0703bf65c368b8446834ec0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -379,6 +381,13 @@
     </li>
     <li class="md-nav__item">
     
+    
+      <a href="cpp_development/index.html" class="md-nav__link">C++ Development</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
       <span class="md-nav__link caption"><span class="caption-text">Audio Related</span></span>
     
     </li>
@@ -411,6 +420,13 @@
     <li class="md-nav__item">
     
     
+      <a href="faq.html" class="md-nav__link">Frequently Asked Questions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="other/quick_reference.html" class="md-nav__link">Quick Reference</a>
       
     
@@ -433,13 +449,6 @@
     
     
       <a href="other/environment_variables.html" class="md-nav__link">Environment Variables</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="cpp_development/index.html" class="md-nav__link">C++ Development</a>
       
     
     </li>
@@ -582,7 +591,7 @@ Additionally, many of the tools support <code class="docutils literal notranslat
 <thead>
 <tr>
 <th>Tool Name</th>
-<th>External <code>.tflite</code> Supported?</th>
+<th>External .tflite Supported?</th>
 <th>Description</th>
 </tr>
 </thead>
@@ -601,11 +610,6 @@ Additionally, many of the tools support <code class="docutils literal notranslat
 <td><a href="https://sldriedler.github.io/mltk/docs/guides/model_visualizer.html">Model Visualizer</a></td>
 <td>Yes</td>
 <td>View model in interative graph</td>
-</tr>
-<tr>
-<td><a href="https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html">Audio Visualizer</a></td>
-<td>N/A</td>
-<td>View generated spectrograms in real-time</td>
 </tr>
 <tr>
 <td><a href="https://sldriedler.github.io/mltk/docs/guides/model_parameters.html">Model Parameters</a></td>
@@ -627,6 +631,16 @@ Additionally, many of the tools support <code class="docutils literal notranslat
 <td>No</td>
 <td>Quantize model using Tensorflow-Lite Converter</td>
 </tr>
+<tr>
+<td><a href="https://sldriedler.github.io/mltk/docs/audio/audio_utilities.html#audio-visualization-utility">Audio Visualizer</a></td>
+<td>N/A</td>
+<td>View generated spectrograms in real-time</td>
+</tr>
+<tr>
+<td><a href="https://sldriedler.github.io/mltk/docs/audio/audio_utilities.html#audio-classification-utility">Audio Classifier</a></td>
+<td>No</td>
+<td>Classify real-time audio from a microphone</td>
+</tr>
 </tbody>
 </table>
 </section>
@@ -636,6 +650,7 @@ Additionally, many of the tools support <code class="docutils literal notranslat
 This is useful as it allows for sharing the <em>exact</em> same data pre-processing algorithms between the embedded device and model training scripts.
 This ensures the embedded ML model “sees” the same data samples as what was used to train the model which should (hopefully) lead to more accurate predictions.</p>
 <p>See the <a class="reference internal" href="audio/audio_feature_generator.html"><span class="doc std std-doc">Audio Feature Generator</span></a> for details on how this is done to create spectrograms from streaming audio.</p>
+<p>Also see the <a class="reference internal" href="cpp_development/index.html"><span class="doc std std-doc">C++ Development Guide</span></a> for details on how to build wrappers.</p>
 </section>
 <section id="embedded-model-parameters">
 <h2 id="embedded-model-parameters">Embedded model parameters<a class="headerlink" href="#embedded-model-parameters" title="Permalink to this headline">¶</a></h2>
@@ -665,6 +680,7 @@ The Python wrapper is accessible via Python API, <a class="reference internal" h
 <h2 id="integration-with-the-gecko-sdk">Integration with the Gecko SDK<a class="headerlink" href="#integration-with-the-gecko-sdk" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview">Gecko SDK</a> is able to parse the <a class="reference internal" href="guides/model_parameters.html"><span class="doc std std-doc">embedded parameters</span></a> in
 a <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> and generate the corresponding source code.</p>
+<p>The MLTK <a class="reference internal" href="cpp_development/examples/index.html"><span class="doc std std-doc">example applications</span></a> can also be loaded into Silicon Labs <a class="reference internal" href="cpp_development/simplicity_studio.html"><span class="doc std std-doc">Simplicity Studio</span></a></p>
 </section>
 </section>
 
@@ -715,7 +731,7 @@ a <code class="docutils literal notranslate"><span class="pre">.tflite</span></c
               
           </div>
             Last updated on
-              Apr 18, 2022.
+              Apr 20, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -746,7 +762,7 @@ a <code class="docutils literal notranslate"><span class="pre">.tflite</span></c
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
-    <iframe id="iframe-survey" src="/mltk/_static/templates/survey_monkey/index.html" style="width: 100%; height: 100%;"></iframe>
+    <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   
   

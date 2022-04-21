@@ -56,6 +56,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.929109b1a0703bf65c368b8446834ec0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -287,6 +289,41 @@
     </li>
     <li class="md-nav__item">
     
+    
+      <a href="index.html" class="md-nav__link">C++ Development</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="index.html#development-modes" class="md-nav__link">Development Modes</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="index.html#source-code" class="md-nav__link">Source Code</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="index.html#examples" class="md-nav__link">Examples</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="index.html#python-wrappers" class="md-nav__link">Python Wrappers</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
       <span class="md-nav__link caption"><span class="caption-text">Audio Related</span></span>
     
     </li>
@@ -319,6 +356,13 @@
     <li class="md-nav__item">
     
     
+      <a href="../faq.html" class="md-nav__link">Frequently Asked Questions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="../other/quick_reference.html" class="md-nav__link">Quick Reference</a>
       
     
@@ -342,34 +386,6 @@
     
       <a href="../other/environment_variables.html" class="md-nav__link">Environment Variables</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="index.html" class="md-nav__link">C++ Development</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="index.html#development-modes" class="md-nav__link">Development Modes</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="index.html#source-code" class="md-nav__link">Source Code</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="index.html#examples" class="md-nav__link">Examples</a>
-      
-    
-    </li></ul>
     
     </li>
   </ul>
@@ -461,6 +477,8 @@
             </nav>
         </li>
         <li class="md-nav__item"><a href="#example-applications" class="md-nav__link">Example Applications</a>
+        </li>
+        <li class="md-nav__item"><a href="#python-wrappers" class="md-nav__link">Python Wrappers</a>
         </li></ul>
             </nav>
         </li>
@@ -495,8 +513,9 @@
 Using this guide, you can build C++ applications for Windows/Linux or supported embedded platforms.</p>
 <p><strong>NOTES:</strong></p>
 <ul class="simple">
-<li><p>All of the MLTK C++ source code may be found at: <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp"><strong>mltk repo</strong>/cpp</a></p></li>
-<li><p>Refer to the <a class="reference internal" href="examples/index.html"><span class="doc std std-doc">example applications</span></a> documentation for more details about what comes with the MLTK</p></li>
+<li><p>All of the MLTK C++ source code may be found at: <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp/"><strong>mltk repo</strong>/cpp</a></p></li>
+<li><p>Internally, VSCode uses CMake to build the applications</p></li>
+<li><p>Refer to the <a class="reference internal" href="examples/index.html"><span class="doc std std-doc">example applications</span></a> or <a class="reference internal" href="wrappers/index.html"><span class="doc std std-doc">Python wrappers</span></a> documentation for more details about what comes with the MLTK</p></li>
 <li><p>Alternatively, applications may be built for Silicon Lab’s embedded targets using <a class="reference internal" href="simplicity_studio.html"><span class="doc std std-doc">Simplicity Studio</span></a></p></li>
 </ul>
 <section id="install-tools">
@@ -549,31 +568,48 @@ If you’re only build for Window/Linux then you can skip this step.</p>
 git clone https://github.com/sldriedler/mltk.git
 </pre></div>
 </div>
+<p>Then navigate to the MLTK repository directory</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> mltk
+</pre></div>
+</div>
 </section>
 <section id="run-the-install-script">
 <h3 id="run-the-install-script">2) Run the install script<a class="headerlink" href="#run-the-install-script" title="Permalink to this headline">¶</a></h3>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Navigate to the mltk repo directory</span>
-<span class="nb">cd</span> mltk
-
-<span class="c1"># Windows</span>
-python .<span class="se">\i</span>nstall_mltk.py
-
-<span class="c1"># Linux</span>
-python3 ./install_mltk.py
+<div class="tabbed-set docutils">
+<input checked="checked" id="79bb5d22-e5e7-4cba-8639-f955b47ff88b" name="4f2d4c68-96dd-4d69-99db-b87b9237d95f" type="radio"/>
+<label class="tabbed-label" for="79bb5d22-e5e7-4cba-8639-f955b47ff88b">
+Windows</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python .<span class="se">\i</span>nstall_mltk.py
 </pre></div>
+</div>
+</div>
+<input id="a44f4520-86da-4c72-b19e-09f8e145045c" name="4f2d4c68-96dd-4d69-99db-b87b9237d95f" type="radio"/>
+<label class="tabbed-label" for="a44f4520-86da-4c72-b19e-09f8e145045c">
+Linux</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3 ./install_mltk.py
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="activate-the-mltk-python-virtual-environment">
 <h3 id="activate-the-mltk-python-virtual-environment">3) Activate the MLTK Python virtual environment<a class="headerlink" href="#activate-the-mltk-python-virtual-environment" title="Permalink to this headline">¶</a></h3>
 <p>Activate the MLTK’s Python virtual environment:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> mltk
-
-<span class="c1"># Windows</span>
-.<span class="se">\.</span>venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate.bat
-
-<span class="c1"># Linux</span>
-<span class="nb">source</span> ./.venv/bin/activate
+<div class="tabbed-set docutils">
+<input checked="checked" id="1878ac1a-339d-4d53-86ec-b7129eca3ba0" name="a34060a2-ee47-4275-a699-d86a8411826f" type="radio"/>
+<label class="tabbed-label" for="1878ac1a-339d-4d53-86ec-b7129eca3ba0">
+Windows</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>.<span class="se">\.</span>venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate.bat
 </pre></div>
+</div>
+</div>
+<input id="8d12c4f5-5dbd-4b5e-8944-3f6411f3a651" name="a34060a2-ee47-4275-a699-d86a8411826f" type="radio"/>
+<label class="tabbed-label" for="8d12c4f5-5dbd-4b5e-8944-3f6411f3a651">
+Linux</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ./.venv/bin/activate
+</pre></div>
+</div>
+</div>
 </div>
 <p>After activation, the <code class="docutils literal notranslate"><span class="pre">mltk</span></code> command should be available on the <a class="reference internal" href="../command_line.html"><span class="doc std std-doc">command-line</span></a>:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk --help
@@ -611,7 +647,7 @@ python3 ./install_mltk.py
 </section>
 <section id="build-for-windows-or-linux">
 <h2 id="build-for-windows-or-linux">Build for Windows or Linux<a class="headerlink" href="#build-for-windows-or-linux" title="Permalink to this headline">¶</a></h2>
-<p>Many of the MLTK <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp/shared/apps">applications</a> support running on Windows/Linux or embedded targets.<br/>
+<p>Many of the MLTK <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//shared/apps">applications</a> support running on Windows/Linux or embedded targets.<br/>
 The following describes how to build for Windows/Linux.</p>
 <section id="optionally-create-file-user-options-cmake">
 <h3 id="optionally-create-file-user-options-cmake">1) Optionally create file: user_options.cmake<a class="headerlink" href="#optionally-create-file-user-options-cmake" title="Permalink to this headline">¶</a></h3>
@@ -680,7 +716,7 @@ similar to: <code class="docutils literal notranslate"><span class="pre">J-Link<
 </pre></div>
 </div>
 <p>This creates a CMake variable and tells the build system to use the <code class="docutils literal notranslate"><span class="pre">brd2601</span></code> platform.<br/>
-The supported platforms may be found at: <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp/shared/platforms"><strong>mltk repo</strong>/cpp/shared/platforms</a></p>
+The supported platforms may be found at: <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//shared/platforms"><strong>mltk repo</strong>/cpp/shared/platforms</a></p>
 <p><strong>NOTE:</strong> If this variable is not defined, then the host operating system (e.g. <code class="docutils literal notranslate"><span class="pre">windows</span></code> or <code class="docutils literal notranslate"><span class="pre">linux</span></code>) is automatically selected.</p>
 <p>Refer to the <a class="reference internal" href="build_options.html"><span class="doc std std-doc">Build Options</span></a> for more details on the available settings.</p>
 </section>
@@ -747,7 +783,11 @@ and also a serial terminal to view the logs generated by the development board.<
 </section>
 <section id="example-applications">
 <h2 id="example-applications">Example Applications<a class="headerlink" href="#example-applications" title="Permalink to this headline">¶</a></h2>
-<p>Refer to the <a class="reference internal" href="examples/index.html"><span class="doc std std-doc">Examples Documentation</span></a> for more details about the applications that come with the MLTK.</p>
+<p>Refer to the <a class="reference internal" href="examples/index.html"><span class="doc std std-doc">Examples</span></a> documentation for more details about the applications that come with the MLTK.</p>
+</section>
+<section id="python-wrappers">
+<h2 id="python-wrappers">Python Wrappers<a class="headerlink" href="#python-wrappers" title="Permalink to this headline">¶</a></h2>
+<p>Refer to the <a class="reference internal" href="wrappers/index.html"><span class="doc std std-doc">Python wrappers</span></a> documentation for more details about the wrappers that come with the MLTK.</p>
 </section>
 </section>
 
@@ -798,7 +838,7 @@ and also a serial terminal to view the logs generated by the development board.<
               
           </div>
             Last updated on
-              Apr 18, 2022.
+              Apr 20, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -829,7 +869,7 @@ and also a serial terminal to view the logs generated by the development board.<
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
-    <iframe id="iframe-survey" src="/mltk/_static/templates/survey_monkey/index.html" style="width: 100%; height: 100%;"></iframe>
+    <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   
   

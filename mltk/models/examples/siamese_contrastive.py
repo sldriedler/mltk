@@ -1,7 +1,7 @@
 """siamese_contrastive
 *************************
 
-See this model's specification on Github: `siamese_contrastive.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/siamese_contrastive.py>`_.
+Source code: `siamese_contrastive.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/siamese_contrastive.py>`_
 
 This example was adapted from https://keras.io/examples/vision/siamese_contrastive.
 

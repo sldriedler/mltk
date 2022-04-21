@@ -45,6 +45,8 @@ def build_docs_command(
     install_pip_package('sphinx_autodoc_typehints', logger=logger)
     install_pip_package('sphinx-markdown-tables', 'sphinx_markdown_tables', logger=logger)
     install_pip_package('sphinx-copybutton', 'sphinx_copybutton', logger=logger)
+    install_pip_package('sphinx-panels', 'sphinx_panels', logger=logger)
+    
     install_pip_package('git+https://github.com/linkchecker/linkchecker.git', 'linkcheck', logger=logger)
     install_pip_package('git+https://github.com/bashtage/sphinx-material.git', 'sphinx_material', logger=logger)
 
@@ -125,7 +127,15 @@ def build_docs_command(
         if os.name == 'nt':
             linkchecker_exe += '.exe'
         index_path = os.path.abspath(fullpath(f'{MLTK_ROOT_DIR}/docs/index.html'))
-        retcode, _ = run_shell_cmd([sys.executable, linkchecker_exe, '--check-extern', '--ignore-url', r'.*assets\.slid\.es.*', index_path], outfile=logger)
+        retcode, _ = run_shell_cmd([
+            sys.executable, linkchecker_exe, 
+            '--check-extern', 
+            '--ignore-url', r'.*assets\.slid\.es.*', 
+            '--ignore-url', r'.*assets-v2\.slid\.es.*', 
+            index_path], 
+            outfile=logger,
+            logger=logger
+        )
         if retcode != 0:
             cli.abort(msg='Invalid links detected')
 

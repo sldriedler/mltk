@@ -9,9 +9,9 @@ class AudioFeatureGenerator:
 
     .. seealso::
        - `AudioFeatureGenerator documentation <https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html>`_
-       - `Microfrontend implementation <https://github.com/tensorflow/tflite-micro/tree/main/tensorflow/lite/experimental/microfrontend>`_
-       - `Tensorflow-Lite Micro feature_provider.cc <https://github.com/tensorflow/tflite-micro/blob/main/tensorflow/lite/micro/examples/micro_speech/feature_provider.cc>`_
-       - `ParallelAudioDataGenerator API docs <https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing.html#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator>`_
+       - `AudioFeatureGenerator Python Wrapper <https://siliconlabs.github.io/mltk/docs/cpp_development/wrappers/audio_feature_generator_wrapper.html>`_
+       - `Microfrontend implementation <https://github.com/siliconlabs/mltk/tree/master/cpp/shared/microfrontend>`_
+       - `ParallelAudioDataGenerator API docs <https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing/audio_data_generator.html>`_
     """
 
     def __init__(self, settings: AudioFeatureGeneratorSettings):

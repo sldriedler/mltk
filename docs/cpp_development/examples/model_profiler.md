@@ -1,2 +1,2 @@
-```{include} ../../../../../../cpp/shared/apps/model_profiler/README.md
+```{include} ../../../cpp/shared/apps/model_profiler/README.md
 ```

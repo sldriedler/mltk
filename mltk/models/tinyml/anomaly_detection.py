@@ -3,7 +3,9 @@
 
 MLPerf Tiny anomaly detection reference model
 
-See this model specification's on Github: `anomaly_detection.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/anomaly_detection.py>`_.
+- Source code: `anomaly_detection.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/anomaly_detection.py>`_
+- Pre-trained model: `anomaly_detection.mltk.zip <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/anomaly_detection.mltk.zip>`_
+
 
 Taken from:  
 https://github.com/mlcommons/tiny/tree/master/benchmark/training/anomaly_detection

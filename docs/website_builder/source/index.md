@@ -21,6 +21,7 @@
 /docs/tutorials
 /docs/examples
 /docs/python_api/index
+/docs/cpp_development/index
 ```
 
 
@@ -39,11 +40,11 @@
 :hidden:
 :caption: Other Information
 
+/docs/faq
 /docs/other/quick_reference
 /docs/guides/notebook_examples_guide
 /docs/other/settings_file
 /docs/other/environment_variables
-/docs/cpp_development/index
 
 ```
 

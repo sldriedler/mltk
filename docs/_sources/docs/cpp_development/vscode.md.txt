@@ -4,8 +4,9 @@ This describes how to development C++ applications in the MLTK using Microsoft [
 Using this guide, you can build C++ applications for Windows/Linux or supported embedded platforms.
 
 __NOTES:__  
-- All of the MLTK C++ source code may be found at: [__mltk repo__/cpp](https://github.com/sldriedler/mltk/tree/master/cpp)
-- Refer to the [example applications](./examples/index.md) documentation for more details about what comes with the MLTK
+- All of the MLTK C++ source code may be found at: [__mltk repo__/cpp](https://github.com/sldriedler/mltk/tree/master/cpp/)
+- Internally, VSCode uses CMake to build the applications
+- Refer to the [example applications](./examples/index.md) or [Python wrappers](./wrappers/index.md) documentation for more details about what comes with the MLTK
 - Alternatively, applications may be built for Silicon Lab's embedded targets using [Simplicity Studio](./simplicity_studio.md)
 
 
@@ -74,34 +75,44 @@ Next, we need to install the MLTK:
 git clone https://github.com/sldriedler/mltk.git
 ```
 
+Then navigate to the MLTK repository directory
+
+```shell
+cd mltk
+```
 
 ### 2) Run the install script
 
-```shell
+```{eval-rst}
+.. tabbed:: Windows
 
-# Navigate to the mltk repo directory
-cd mltk
+   .. code-block:: shell
 
-# Windows
-python .\install_mltk.py
+      python .\install_mltk.py
 
-# Linux
-python3 ./install_mltk.py
+.. tabbed:: Linux
+
+   .. code-block:: shell
+
+      python3 ./install_mltk.py
 ```
-
 
 ### 3) Activate the MLTK Python virtual environment
 
 Activate the MLTK's Python virtual environment:
 
-```shell
-cd mltk
+```{eval-rst}
+.. tabbed:: Windows
 
-# Windows
-.\.venv\Scripts\activate.bat
+   .. code-block:: shell
 
-# Linux
-source ./.venv/bin/activate
+      .\.venv\Scripts\activate.bat
+
+.. tabbed:: Linux
+
+   .. code-block:: shell
+
+      source ./.venv/bin/activate
 ```
 
 After activation, the `mltk` command should be available on the [command-line](../command_line.md):
@@ -151,7 +162,7 @@ It has the similar to:
 
 ## Build for Windows or Linux
 
-Many of the MLTK [applications](https://github.com/sldriedler/mltk/tree/master/cpp/shared/apps) support running on Windows/Linux or embedded targets.  
+Many of the MLTK [applications](https://github.com/sldriedler/mltk/tree/master/cpp//shared/apps) support running on Windows/Linux or embedded targets.  
 The following describes how to build for Windows/Linux.
 
 
@@ -241,7 +252,7 @@ mltk_set(MLTK_PLATFORM_NAME brd2601)
 ```
 
 This creates a CMake variable and tells the build system to use the `brd2601` platform.  
-The supported platforms may be found at: [__mltk repo__/cpp/shared/platforms](https://github.com/sldriedler/mltk/tree/master/cpp/shared/platforms)
+The supported platforms may be found at: [__mltk repo__/cpp/shared/platforms](https://github.com/sldriedler/mltk/tree/master/cpp//shared/platforms)
 
 __NOTE:__ If this variable is not defined, then the host operating system (e.g. `windows` or `linux`) is automatically selected.
 
@@ -316,4 +327,8 @@ This shows how to:
 
 ## Example Applications
 
-Refer to the [Examples Documentation](./examples/index.md) for more details about the applications that come with the MLTK.
+Refer to the [Examples](./examples/index.md) documentation for more details about the applications that come with the MLTK.
+
+## Python Wrappers
+
+Refer to the [Python wrappers](./wrappers/index.md) documentation for more details about the wrappers that come with the MLTK.

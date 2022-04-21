@@ -22,6 +22,7 @@ The features of this Python package include:
 - [Model Parameters](./docs/guides/model_parameters.md) - Embed custom parameters into the generated model file
 - [Audio Feature Generator](./docs/audio/audio_feature_generator.md) - Library and tools to convert streaming audio into spectrograms
 - [Audio Utilities](./docs/audio/audio_utilities.md) - Utilities to aid the development of audio classification models
+- [C++ Python Wrappers](./docs/cpp_development/wrappers/index.md) - Enable sharing source code between embedded targets and model training scripts
 
 
 Refer to [Why MLTK?](./docs/why_mltk.md) for more details on the benefits of using the MLTK.
@@ -45,22 +46,36 @@ See the [Model Profiler Utility](./docs/guides/model_profiler_utility.md)
 
 Install the pre-build Python package:
 
-```shell
-# Windows
-pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk
+```{eval-rst}
+.. tabbed:: Windows
 
-# Linux
-pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk
+   .. code-block:: shell
+
+      pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk
+
+.. tabbed:: Linux
+
+   .. code-block:: shell
+
+      pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk
+
 ```
 
-Build and install Python package from [Github](https://github.com/siliconlabs/mltk):
 
-```shell
-# Windows
-pip  install git+https://github.com/siliconlabs/mltk.git
+Or, build and install Python package from [Github](https://github.com/siliconlabs/mltk):
 
-# Linux
-pip3 install git+https://github.com/siliconlabs/mltk.git
+```{eval-rst}
+.. tabbed:: Windows
+
+   .. code-block:: shell
+
+      pip  install git+https://github.com/siliconlabs/mltk.git
+
+.. tabbed:: Linux
+
+   .. code-block:: shell
+
+      pip3 install git+https://github.com/siliconlabs/mltk.git
 ```
 
 Refer to [Installation Guide](./docs/installation.md) for more details on how to install the MLTK.
@@ -68,6 +83,7 @@ Refer to [Installation Guide](./docs/installation.md) for more details on how to
 
 ## Other Information
 
+- [Frequently Asked Questions](./docs/faq.md)
 - [Model Profiler Utility](./docs/guides/model_profiler_utility.md)
 - [Quick Reference](./docs/other/quick_reference.md)
 - [Settings File](./docs/other/settings_file.md)

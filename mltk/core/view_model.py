@@ -42,7 +42,7 @@ def view_model(
 ):
     """View an interactive graph of the given model in a webbrowser
 
-    Refer to the `Model Visualization <https://siliconlabs.github.io/mltk/docs/model_visualizer.html>`_ guide for more details.
+    Refer to the `Model Visualization <https://siliconlabs.github.io/mltk/docs/guides/model_visualizer.html>`_ guide for more details.
     
     Args:
         model: Either 

@@ -12,16 +12,18 @@ This assumes the MLTK has been [installed](./installation.md) and is available o
 
 If you're using a Python [virtual environment](https://docs.python.org/3/tutorial/venv.html) as described in the [installation guide](./installation.md), ensure you 'activate' it to make the `mltk` command accessible on the command prompt:
 
-__Windows:__
+```{eval-rst}
+.. tabbed:: Windows
 
-```shell
-.\mltk_pyvenv\Scripts\activate.bat
-```
+   .. code-block:: shell
 
-__Linux:__
+      .\mltk_pyvenv\Scripts\activate.bat
 
-```shell
-source ./mltk_pyvenv/bin/activate
+.. tabbed:: Linux
+
+   .. code-block:: shell
+
+      source ./mltk_pyvenv/bin/activate
 ```
 
 ### Command Format

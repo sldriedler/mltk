@@ -1,7 +1,9 @@
 """keyword_spotting_on_off
 **************************
 
-See this model's specification on Github: `keyword_spotting_on_off.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py>`_.
+- Source code: `keyword_spotting_on_off.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py>`_
+- Pre-trained model: `keyword_spotting_on_off.mltk.zip <https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.mltk.zip>`_
+
 
 This model specification script is designed to work with the
 `Keyword Spotting On/Off <https://siliconlabs.github.io/mltk/mltk/tutorials/keyword_spotting_on_off.html>`_ tutorial.

@@ -1,7 +1,9 @@
 """tflite_micro_magic_wand
 *******************************
 
-See this model's specification on Github: `tflite_micro_magic_wand.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tflite_micro/tflite_micro_magic_wand.py>`_.
+- Source code: `tflite_micro_magic_wand.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tflite_micro/tflite_micro_magic_wand.py>`_
+- Pre-trained model: `tflite_micro_magic_wand.mltk.zip <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tflite_micro/tflite_micro_magic_wand.mltk.zip>`_
+
 
 https://github.com/tensorflow/tflite-micro/tree/main/tensorflow/lite/micro/examples/magic_wand
 

@@ -1,7 +1,8 @@
 """rock_paper_scissors
 *************************
 
-See this model's specification on Github: `rock_paper_scissors.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/rock_paper_scissors.py>`_.
+- Source code: `rock_paper_scissors.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/rock_paper_scissors.py>`_.
+- Pre-trained model: `rock_paper_scissors.mltk.zip <https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/rock_paper_scissors.mltk.zip>`_.
 
 This provides an example of how to define a classification model 
 that uses the Rock/Paper/Scissors dataset with the ParallelImageGenerator as its data source.

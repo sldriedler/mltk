@@ -56,6 +56,8 @@
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.929109b1a0703bf65c368b8446834ec0.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -292,6 +294,13 @@
     </li>
     <li class="md-nav__item">
     
+    
+      <a href="docs/cpp_development/index.html" class="md-nav__link">C++ Development</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
       <span class="md-nav__link caption"><span class="caption-text">Audio Related</span></span>
     
     </li>
@@ -324,6 +333,13 @@
     <li class="md-nav__item">
     
     
+      <a href="docs/faq.html" class="md-nav__link">Frequently Asked Questions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="docs/other/quick_reference.html" class="md-nav__link">Quick Reference</a>
       
     
@@ -346,13 +362,6 @@
     
     
       <a href="docs/other/environment_variables.html" class="md-nav__link">Environment Variables</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="docs/cpp_development/index.html" class="md-nav__link">C++ Development</a>
       
     
     </li>
@@ -423,6 +432,7 @@ of machine learning models for Silicon Lab’s embedded platforms.</p>
 <li><p><a class="reference internal" href="docs/guides/model_parameters.html"><span class="doc std std-doc">Model Parameters</span></a> - Embed custom parameters into the generated model file</p></li>
 <li><p><a class="reference internal" href="docs/audio/audio_feature_generator.html"><span class="doc std std-doc">Audio Feature Generator</span></a> - Library and tools to convert streaming audio into spectrograms</p></li>
 <li><p><a class="reference internal" href="docs/audio/audio_utilities.html"><span class="doc std std-doc">Audio Utilities</span></a> - Utilities to aid the development of audio classification models</p></li>
+<li><p><a class="reference internal" href="docs/cpp_development/wrappers/index.html"><span class="doc std std-doc">C++ Python Wrappers</span></a> - Enable sharing source code between embedded targets and model training scripts</p></li>
 </ul>
 <p>Refer to <a class="reference internal" href="docs/why_mltk.html"><span class="doc std std-doc">Why MLTK?</span></a> for more details on the benefits of using the MLTK.</p>
 <div class="admonition hint">
@@ -436,26 +446,45 @@ See the <a class="reference internal" href="docs/guides/model_profiler_utility.h
 <section id="installation">
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Install the pre-build Python package:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Windows</span>
-pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk
-
-<span class="c1"># Linux</span>
-pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk
+<div class="tabbed-set docutils">
+<input checked="checked" id="d22f1b4a-c609-4f3e-8820-153cef6f39bc" name="11c54026-1363-498b-be00-2d93b706ff9f" type="radio"/>
+<label class="tabbed-label" for="d22f1b4a-c609-4f3e-8820-153cef6f39bc">
+Windows</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk
 </pre></div>
 </div>
-<p>Build and install Python package from <a class="reference external" href="https://github.com/sldriedler/mltk">Github</a>:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Windows</span>
-pip  install git+https://github.com/sldriedler/mltk.git
-
-<span class="c1"># Linux</span>
-pip3 install git+https://github.com/sldriedler/mltk.git
+</div>
+<input id="95578a52-887a-45e4-9489-b7bf89a8c445" name="11c54026-1363-498b-be00-2d93b706ff9f" type="radio"/>
+<label class="tabbed-label" for="95578a52-887a-45e4-9489-b7bf89a8c445">
+Linux</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk
 </pre></div>
+</div>
+</div>
+</div>
+<p>Or, build and install Python package from <a class="reference external" href="https://github.com/sldriedler/mltk">Github</a>:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="3294394c-c08e-442a-ab70-9e6f5134adcf" name="6aecb428-4fc0-4137-91c6-2855185a7098" type="radio"/>
+<label class="tabbed-label" for="3294394c-c08e-442a-ab70-9e6f5134adcf">
+Windows</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip  install git+https://github.com/sldriedler/mltk.git
+</pre></div>
+</div>
+</div>
+<input id="fabcd790-53bf-4ba5-a707-84ebc1112ef7" name="6aecb428-4fc0-4137-91c6-2855185a7098" type="radio"/>
+<label class="tabbed-label" for="fabcd790-53bf-4ba5-a707-84ebc1112ef7">
+Linux</label><div class="tabbed-content docutils">
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip3 install git+https://github.com/sldriedler/mltk.git
+</pre></div>
+</div>
+</div>
 </div>
 <p>Refer to <a class="reference internal" href="docs/installation.html"><span class="doc std std-doc">Installation Guide</span></a> for more details on how to install the MLTK.</p>
 </section>
 <section id="other-information">
 <h2 id="other-information">Other Information<a class="headerlink" href="#other-information" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p><a class="reference internal" href="docs/faq.html"><span class="doc std std-doc">Frequently Asked Questions</span></a></p></li>
 <li><p><a class="reference internal" href="docs/guides/model_profiler_utility.html"><span class="doc std std-doc">Model Profiler Utility</span></a></p></li>
 <li><p><a class="reference internal" href="docs/other/quick_reference.html"><span class="doc std std-doc">Quick Reference</span></a></p></li>
 <li><p><a class="reference internal" href="docs/other/settings_file.html"><span class="doc std std-doc">Settings File</span></a></p></li>
@@ -530,7 +559,7 @@ misrepresented as being the original software.</p></li>
               
           </div>
             Last updated on
-              Apr 18, 2022.
+              Apr 20, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

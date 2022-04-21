@@ -89,4 +89,8 @@ The built executable will be in the build directory, e.g.:
 
 ## Example Applications
 
-Refer to the [Examples Documentation](./examples/index.md) for more details about the applications that come with the MLTK.
+Refer to the [Examples](./examples/index.md) documentation for more details about the applications that come with the MLTK.
+
+## Python Wrappers
+
+Refer to the [Python wrappers](./wrappers/index.md) documentation for more details about the wrappers that come with the MLTK.

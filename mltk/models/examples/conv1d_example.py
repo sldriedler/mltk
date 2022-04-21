@@ -1,7 +1,7 @@
 """conv1d_example
 ********************
 
-See this model specification's on Github: `conv1d_example.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/conv1d_example.py>`_.
+Source code: `conv1d_example.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/conv1d_example.py>`_
 
 This demonstrates how to create a Conv1D model.
 

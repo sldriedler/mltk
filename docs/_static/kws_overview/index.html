@@ -37,7 +37,7 @@
 <div class="sl-block" data-block-type="text" style="height: auto; width: 259px; left: 714px; top: 490px;" data-name="text-f3d01b" data-block-id="3ff0bb601be5977fd8d2fafe07da7023"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;">
 <p><strong><span style="font-size:0.7em">Notify firmware application</span></strong></p>
 </div></div>
-<div class="sl-block" data-block-type="image" style="width: 133px; height: 133px; left: 43px; top: 472px;" data-name="image-f96534" data-block-id="6ef9b7c2fc72e2a895ebf4a57e39462e"><div class="sl-block-content" style="z-index: 17;"><img style="" data-natural-width="512" data-natural-height="512" data-src="keyword_spotting_overview/171a3509aee3ab34c1eb36ce4ee11a31.png"></div></div></section><section data-id="8adf84d2f64b03d2adc2a47a7e7b0189"><div class="sl-block" data-block-type="text" style="width: 806px; left: -3px; top: 0px; height: auto;" data-block-id="9d623280886283164f7df699001e04b5"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(204, 0, 0);">
+<div class="sl-block" data-block-type="image" style="width: 133px; height: 133px; left: 43px; top: 472px; min-width: 1px; min-height: 1px;" data-name="image-f96534" data-block-id="6ef9b7c2fc72e2a895ebf4a57e39462e"><div class="sl-block-content" style="z-index: 17;"><img style="" data-natural-width="512" data-natural-height="512" data-lazy-loaded="" data-src="keyword_spotting_overview/171a3509aee3ab34c1eb36ce4ee11a31.png"></div></div></section><section data-id="8adf84d2f64b03d2adc2a47a7e7b0189"><div class="sl-block" data-block-type="text" style="width: 806px; left: -3px; top: 0px; height: auto;" data-block-id="9d623280886283164f7df699001e04b5"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(204, 0, 0);">
 <h2 style="text-align:left">How is it implemented?</h2>
 </div></div>
 <div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 93px; height: auto;" data-block-id="a202da58e89f1ea2514a9c141b253c21"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(0, 0, 0); font-size: 120%;">
@@ -45,7 +45,7 @@
 	<li>Convert audio to spectrogram image</li>
 	<li>Run spectrogram image through <a href="https://en.wikipedia.org/wiki/Convolutional_neural_network" target="_blank">CNN</a> ML model</li>
 	<li>The output of ML model is the probability of each possible keyword being seen in the spectrogram</li>
-	<li>Execute steps 1-3 multiple times to gain a running average of each keywords' probability. If a given keyword's average probability is greater than a threshold, then the keyword is considered detected</li>
+	<li>Optionally, execute steps 1-3 multiple times to gain a running average of each keywords' probability. If a given keyword's average probability is greater than a threshold, then the keyword is considered detected</li>
 </ol>
 </div></div>
 
@@ -82,10 +82,10 @@
    keyword_id = ARGMAX(averaged_predictions)
    notify_application(keyword_id)</code></pre></div></div>
 <div class="sl-block" data-block-type="text" style="height: auto; width: 388.5px; left: 298.5px; top: 538.5px;" data-block-id="7c6d7a75bba0aa9bd5400bdcd4907b6f" data-name="text-e743be"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22; line-height: 0.702;" data-has-line-height="">
-<p><span style="font-size:15px">Repeat step 1-3 multiple times and calculate a running average of each keywords' probability</span></p>
+<p><span style="font-size:15px">Optionally, repeat step 1-3 multiple times and calculate a running average of each keywords' probability</span></p>
 </div></div>
 <div class="sl-block" data-block-type="text" style="height: auto; width: 388.5px; left: 80px; top: 617.5px;" data-block-id="41e3c1ce0f8a7b96d6546a05d2d76b74" data-name="text-ac505b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23; line-height: 0.702;" data-has-line-height="">
-<p><span style="font-size:15px">4) If the averaged probability of a given keyword exceeds a threshold, then the keyword is considered detected. Notify the application.</span></p>
+<p><span style="font-size:15px">4) If the probability of a given keyword exceeds a threshold, then the keyword is considered detected. Notify the application.</span></p>
 </div></div></section><section data-id="5025d1c335fde5b87146125909c931c7"><div class="sl-block" data-block-type="text" style="width: 806px; left: 0px; top: 0px; height: auto;" data-block-id="02fc3493371872e1a5040b06f0b06b06"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(204, 0, 0);">
 <h2 style="text-align:left">Note About Latency</h2>
 </div></div>
@@ -94,8 +94,8 @@
 <div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 93px;" data-name="text-38207b" data-block-id="a1b30082b944ad5a0c7bb11add4c3ef0"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
 <ul>
 	<li>For a keyword to be detected, it needs to be "seen" multiple times by the ML model for its average probability to exceed the threshold</li>
-	<li>The means the processing time directly affects the embedded device's ability to detect keywords</li>
-	<li>In other words, the longer it takes the device to process the audio sample, e.g. &lt;Spectrogram Generation Time&gt; + &lt;ML Inference Time&gt;, the less times a keyword is processed which reduces the averaging and thus keyword detection confidence</li>
+	<li>This means the processing time directly affects the embedded device's ability to detect keywords</li>
+	<li>In other words, the longer it takes the device to process the audio sample, e.g. &lt;Spectrogram Generation Time&gt; + &lt;ML Inference Time&gt;, the fewer times a keyword is processed which reduces the averaging and thus keyword detection confidence</li>
 </ul>
 </div></div></section><section data-id="34d5244799320ca3f00eef106afc9b0f"><div class="sl-block" data-block-type="text" style="width: 806px; left: 0px; top: 0px; height: auto;" data-block-id="72a23bce17e26c724bc17ec38835cd4c"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(204, 0, 0);">
 <h2 style="text-align:left">Fast Processing</h2>
@@ -107,7 +107,7 @@
 </div></div>
 <div class="sl-block" data-block-type="image" style="width: 465.072px; height: 365px; left: 217px; top: 335px; min-width: 1px; min-height: 1px;" data-name="image-57c4f4" data-block-id="c24cea8653d2ccecb9a1eafd72bc6984"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="883" data-natural-height="693" data-lazy-loaded="" data-src="keyword_spotting_overview/800de06dc2129a7b5f1cc37cf65ac1d9.gif"></div></div>
 <div class="sl-block" data-block-type="text" style="height: auto; width: 220px; left: 720px; top: 616px;" data-name="text-414f9c" data-block-id="7f4c44c5ce6a38ef8708651950a458cd"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; line-height: 0.741;" data-has-line-height="">
-<p><span style="font-size:0.5em">NOTE: This video was created using the <strong>view_audio</strong> MLTK command</span></p>
+<p><span style="font-size:0.5em">NOTE: This video was created using the <a href="https://sldriedler.github.io/mltk/docs/audio/audio_utilities.html#audio-visualization-utility" target="_blank"><strong>view_audio</strong> </a>MLTK command</span></p>
 </div></div></section><section data-id="5f4ffe63233d75945af2c459b7b018bb"><div class="sl-block" data-block-type="text" style="width: 806px; left: 0px; top: 0px; height: auto;" data-block-id="e59f57003b60014095cd23b3a11a106e"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(204, 0, 0);">
 <h2 style="text-align:left">Slow Processing</h2>
 </div></div>
@@ -145,14 +145,28 @@
 		<li>Some Silicon Labs MCUs feature the MVP hardware accelerator which can reduce ML model processing time by 2x</li>
 	</ul>
 	</li>
-	<li>The MLTK features a <a href="https://sldriedler.github.io/mltk/docs/model_profiler.html" target="_blank">Model Profiler</a> which indicates the processing time required by the ML model</li>
+	<li>The MLTK features a <a href="https://sldriedler.github.io/mltk/docs/guides/model_profiler.html" target="_blank">Model Profiler</a> which indicates the processing time required by the ML model</li>
+</ul>
+</div></div></section><section data-id="4e893652e4dd152434ca68cf3f875bb5"><div class="sl-block" data-block-type="text" style="width: 956px; left: 0px; top: 0px; height: auto;" data-block-id="675ccfab3761a19f2772d8a0f9dc8211"><div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(204, 0, 0);">
+<h2 style="text-align:left">Additional Reading</h2>
+</div></div>
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 960px; left: 0px; top: 116px;" data-name="text-38207b" data-block-id="a17ec9cafbee17eb376841025392e766"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<ul>
+	<li>
+<a href="https://sldriedler.github.io/mltk/mltk/tutorials/keyword_spotting_on_off.html" target="_blank">Keyword Spotting Tutorial</a> - End-to-end tutorial describing how to create a "Keyword Spotting" application</li>
+	<li>
+<a href="https://sldriedler.github.io/mltk/docs/audio/audio_utilities.html" target="_blank">Audio Utilities</a> - Utilities to aid the development of audio-based machine learning models</li>
+	<li>
+<a href="https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html" target="_blank">AudioFeatureGenerator </a>- Software library to generate spectrograms from streaming audio</li>
 </ul>
 </div></div></section>
 			</div>
 		</div>
 
 		<script>
-			var SLConfig = {"deck": {"id":2288886,"slug":"keyword_spotting_overview","title":"Keyword Spotting Overview","description":"Describes the typical ML model development flow using the Silicon Labs Machine Learning Development Kit","width":960,"height":700,"margin":0.05,"visibility":"self","published_at":"2021-11-22T23:04:35.549Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/dab4fdc62e80a086df2325ca325b1c2d/thumb.jpg?1638319537","view_count":2,"user":{"id":2033618,"username":"danriedler","name":"Dan Riedler","description":null,"thumbnail_url":"https://lh3.googleusercontent.com/a/AATXAJx99pOnw21KOfAHAk4hb-pywH8e52C0cDNbVWMlxQ=s96-c","account_type":"lite","team_id":null,"settings":{"id":23845475,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"opensans","theme_color":"silver-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":true,"slide_count":8,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":1,"data_updated_at":1638400352840,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":true,"notes":{}}};
+			var SLConfig = {"deck": {"id":2288886,"slug":"keyword_spotting_overview","title":"Keyword Spotting Overview","description":"Describes the typical ML model development flow using the Silicon Labs Machine Learning Development Kit","width":960,"height":700,"margin":0.05,"visibility":"self","published_at":"2021-11-22T23:04:35.549Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/dab4fdc62e80a086df2325ca325b1c2d/thumb.jpg?1638319537","view_count":2,"user":{"id":2033618,"username":"danriedler","name":"Dan Riedler","description":null,"thumbnail_url":"https://lh3.googleusercontent.com/a/AATXAJx99pOnw21KOfAHAk4hb-pywH8e52C0cDNbVWMlxQ=s96-c","account_type":"lite","team_id":null,"settings":{"id":23845475,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null}},"background_transition":"slide","transition":"slide","theme_id":null,"theme_font":"opensans","theme_color":"silver-blue","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":true,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":true,"slide_count":9,"rtl":false,"version":2,"collaborative":null,"deck_user_editor_limit":1,"data_updated_at":1650389594617,"font_typekit":null,"font_google":null,"time_limit":null,"navigation_mode":"default","upsizing_enabled":true,"notes":{}}};
 
 
 			// Use local fonts

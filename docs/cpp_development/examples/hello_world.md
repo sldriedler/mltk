@@ -1,2 +1,2 @@
-```{include} ../../../../../../cpp/shared/apps/hello_world/README.md
+```{include} ../../../cpp/shared/apps/hello_world/README.md
 ```

@@ -35,7 +35,7 @@ def quantize_model(
     This uses the Tensorflow `TfliteConverter <https://www.tensorflow.org/lite/convert>`_ internally.
     This will also add any metadata to the generated `.tflite` model file.
 
-    Refer to the `Model Quantization <https://siliconlabs.github.io/mltk/docs/model_quantization.html>`_ guide for more details.
+    Refer to the `Model Quantization <https://siliconlabs.github.io/mltk/docs/guides/model_quantization.html>`_ guide for more details.
 
     Args:
         model: :py:class:`mltk.core.MltkModel` instance, name of MLTK model, path to model archive (.mltk.zip) or specification script (.py)

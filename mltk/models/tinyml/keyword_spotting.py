@@ -3,7 +3,9 @@
 
 Keyword spotting for 10 words
 
-See this model's specification on Github: `keyword_spotting.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/keyword_spotting.py>`_.
+- Source code: `keyword_spotting.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/keyword_spotting.py>`_
+- Pre-trained model: `keyword_spotting.mltk.zip <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/keyword_spotting.mltk.zip>`_
+
 
 This was adapted from:
 

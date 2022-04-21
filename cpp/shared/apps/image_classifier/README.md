@@ -7,4 +7,4 @@ This application allows for classifying images retrieved from an [Arducam](https
 ## Build, Run, Debug
 
 See the online documentation for how to build and run this application:  
-https://sldriedler.github.io/mltk/docs/other/cpp_development_with_vscode.html
+[https://siliconlabs.github.io/mltk/docs/cpp_development](https://siliconlabs.github.io/mltk/docs/cpp_development)

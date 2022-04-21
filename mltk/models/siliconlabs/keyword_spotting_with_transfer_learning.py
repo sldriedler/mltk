@@ -1,7 +1,9 @@
 """keyword_spotting_with_transfer_learning
 ********************************************
 
-See this model's specification on Github: `keyword_spotting_with_transfer_learning.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py>`_.
+- Source code: `keyword_spotting_with_transfer_learning.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py>`_
+- Pre-trained model: `keyword_spotting_with_transfer_learning.mltk.zip <https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.mltk.zip>`_
+
 
 This model specification script is designed to work with the
 `Keyword Spotting with Transfer Learning <https://siliconlabs.github.io/mltk/mltk/tutorials/keyword_spotting_with_transfer_learning.html>`_ tutorial.

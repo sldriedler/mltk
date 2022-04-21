@@ -56,6 +56,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.929109b1a0703bf65c368b8446834ec0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/custom.css" />
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -72,6 +74,7 @@
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="C++ Python Wrappers" href="../wrappers/index.html" />
     <link rel="prev" title="Model Profiler" href="model_profiler.html" />
   
    
@@ -180,7 +183,7 @@
             
             <li class="md-tabs__item"><a href="https://www.tensorflow.org/learn" class="md-tabs__link">Tensorflow Documentation</a></li>
           <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">C++ Development</a></li>
-          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Examples</a></li>
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">C++ Examples</a></li>
       </ul>
     </div>
   </nav>
@@ -287,6 +290,41 @@
     </li>
     <li class="md-nav__item">
     
+    
+      <a href="../index.html" class="md-nav__link">C++ Development</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../index.html#development-modes" class="md-nav__link">Development Modes</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../index.html#source-code" class="md-nav__link">Source Code</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../index.html#examples" class="md-nav__link">Examples</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../index.html#python-wrappers" class="md-nav__link">Python Wrappers</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
       <span class="md-nav__link caption"><span class="caption-text">Audio Related</span></span>
     
     </li>
@@ -319,6 +357,13 @@
     <li class="md-nav__item">
     
     
+      <a href="../../faq.html" class="md-nav__link">Frequently Asked Questions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="../../other/quick_reference.html" class="md-nav__link">Quick Reference</a>
       
     
@@ -342,34 +387,6 @@
     
       <a href="../../other/environment_variables.html" class="md-nav__link">Environment Variables</a>
       
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../index.html" class="md-nav__link">C++ Development</a>
-      <ul class="md-nav__list"> 
-    <li class="md-nav__item">
-    
-    
-      <a href="../index.html#development-modes" class="md-nav__link">Development Modes</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../index.html#source-code" class="md-nav__link">Source Code</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="../index.html#examples" class="md-nav__link">Examples</a>
-      
-    
-    </li></ul>
     
     </li>
   </ul>
@@ -396,9 +413,9 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#via-simplicity-studio" class="md-nav__link">via Simplicity Studio</a>
         </li>
-        <li class="md-nav__item"><a href="#via-mltk-command" class="md-nav__link">via MLTK Command</a>
+        <li class="md-nav__item"><a href="#via-classify-audio-command" class="md-nav__link">via <code class="docutils literal notranslate"><span class="pre">classify_audio</span></code> Command</a>
         </li>
-        <li class="md-nav__item"><a href="#via-vscode-or-command-line" class="md-nav__link">via VSCode or Command line</a>
+        <li class="md-nav__item"><a href="#via-cmake" class="md-nav__link">via CMake</a>
         </li></ul>
             </nav>
         </li></ul>
@@ -433,7 +450,7 @@
               <li></li>
               <li><a href="../../../index.html"><i class="md-icon">home</i></a></li>
                 <li class="active"><a href="../index.html" >C++ Development</a></li>
-                <li class="active"><a href="index.html" accesskey="U">Examples</a></li>
+                <li class="active"><a href="index.html" accesskey="U">C++ Examples</a></li>
             </ul>
           </div>
           
@@ -499,9 +516,10 @@ forces the model to come first). After a new .tflite file is added to the
 project Simplicity Studio will automatically use the
 <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/flatbuffer-conversion">flatbuffer converter tool</a>
 to convert a .tflite file into a c file which is added to the project.</p>
+<p>Refer to the online <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/guide-replace-model#updating-or-replacing-the--tflite-file-in-a-project">documentation</a> for more details.</p>
 </section>
-<section id="via-mltk-command">
-<h4 id="via-mltk-command">via MLTK Command<a class="headerlink" href="#via-mltk-command" title="Permalink to this headline">¶</a></h4>
+<section id="via-classify-audio-command">
+<h4 id="via-classify-audio-command">via <code class="docutils literal notranslate"><span class="pre">classify_audio</span></code> Command<a class="headerlink" href="#via-classify-audio-command" title="Permalink to this headline">¶</a></h4>
 <p>Alternatively, using the <a class="reference external" href="https://sldriedler.github.io/mltk/docs/audio/audio_utilities.html#audio-classification-utility">mltk classify_audio <model path=""> –app none –device</model></a>
 command program the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model to the end of the device’s flash.
 On startup, the application will detect the new model and use that instead
@@ -509,8 +527,8 @@ of the model built into the firmware.</p>
 <p><strong>NOTE:</strong> The <code class="docutils literal notranslate"><span class="pre">--app</span> <span class="pre">none</span></code> option tells the command to <em>not</em> update the audio_classifier application
 and only program the model file.</p>
 </section>
-<section id="via-vscode-or-command-line">
-<h4 id="via-vscode-or-command-line">via VSCode or Command line<a class="headerlink" href="#via-vscode-or-command-line" title="Permalink to this headline">¶</a></h4>
+<section id="via-cmake">
+<h4 id="via-cmake">via CMake<a class="headerlink" href="#via-cmake" title="Permalink to this headline">¶</a></h4>
 <p>The model can also be updated when building this application from <a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html">Visual Studio Code</a>
 or the CMake <a class="reference external" href="https://sldriedler.github.io/mltk/docs/command_line.html">Command Line</a>.</p>
 <p>To update the model, create/modify the file: <code class="docutils literal notranslate"><span class="pre">&lt;mltk</span> <span class="pre">repo</span> <span class="pre">root&gt;/user_options.cmake</span></code>
@@ -588,6 +606,17 @@ and audio is processed using the <strong><a class="reference external" href="htt
             </a>
           
           
+            <a href="../wrappers/index.html" title="C++ Python Wrappers"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> C++ Python Wrappers </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
         </a>
         
       </nav>
@@ -600,7 +629,7 @@ and audio is processed using the <strong><a class="reference external" href="htt
               
           </div>
             Last updated on
-              Apr 18, 2022.
+              Apr 20, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -631,7 +660,7 @@ and audio is processed using the <strong><a class="reference external" href="htt
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
-    <iframe id="iframe-survey" src="/mltk/_static/templates/survey_monkey/index.html" style="width: 100%; height: 100%;"></iframe>
+    <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   
   

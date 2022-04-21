@@ -3,7 +3,7 @@
 
 Binary classification (ResNetv1-10 with CIFAR10)
 
-See this model specification's on Github: `binary_classification.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/binary_classification.py>`_.
+Source code: `binary_classification.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/binary_classification.py>`_
 
 This demonstrates how to classify two images:  
 

@@ -1,7 +1,7 @@
-# Examples
+# C++ Examples
 
-The MLTK comes with several example C++ applications and demos.  
-The source code for the examples may be found on Github at [__mltk__/cpp/shared/apps](../cpp/shared/apps)
+The MLTK supports [C++ development](../index.md) and comes with several example C++ applications and demos.  
+The source code for the examples may be found on Github at [__mltk__/cpp/shared/apps](../../../cpp/shared/apps)
 
 The following examples are available:  
 - [Hello World](./hello_world.md) - Print "Hello world" to console

@@ -9,7 +9,7 @@ from ..model_attributes import MltkModelAttributesDecorator, CallableType
 class EvaluateMixin(BaseMixin):
     """Provides generic evaluation properties and methods to the base :py:class:`~MltkModel`
     
-    Refer to the `Model Evaluation <https://siliconlabs.github.io/mltk/docs/model_evaluation.html>`_ guide for more details.
+    Refer to the `Model Evaluation <https://siliconlabs.github.io/mltk/docs/guides/model_evaluation.html>`_ guide for more details.
     """
 
     @property

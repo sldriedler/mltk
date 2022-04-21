@@ -3,7 +3,8 @@
 
 Image classification (ResNetv1-10 with CIFAR10)
 
-See this model specification's on Github: `image_classification.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/image_classification.py>`_.
+- Source code: `image_classification.py <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/image_classification.py>`_
+- Pre-trained model: `image_classification.mltk.zip <https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/image_classification.mltk.zip>`_
 
 
 This was adapted from:
