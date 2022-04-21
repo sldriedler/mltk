@@ -1,36 +1,17 @@
 
-window.SURVEY_URL = 'https://www.surveymonkey.com/r/XM7JZQ7';
-window.tookSurvey = localStorage.surveyUrl === window.SURVEY_URL
+window.SURVEY_URL = 'https://www.surveymonkey.com/r/JDGSDJC';
+window.SHOW_SURVEY_AFTER_SECONDS = 20*60; // Show the survey after 20min of activity
+
 window.dataLayer = window.dataLayer || [];
+window.loadingSurvey = false;
 window.showingSurvey = false;
+window.tookSurvey = localStorage.surveyUrl === window.SURVEY_URL
+
 
 // Open external links in a new tab
 $(document).ready(function () {
     checkIfAcceptedCookies();
     $('a[href^="http://"], a[href^="https://"]').not('a[class*=internal]').attr('target', '_blank');
-});
-
-
-$(window).scroll(function() {
-    let offset = $(window).scrollTop();
-    let winHeight = $(window).height();
-    let docHeight = $(document).height();
-    let height = docHeight - winHeight;
-
-    //console.log(`${offset} ${docHeight} ${height}`)
-
-    // Only show the survey dialog if the user scrolls to >50% of the page
-    if(localStorage.acceptedCookies && !window.tookSurvey && offset > height * 0.5) {
-        if(!window.showingSurvey) {
-            window.showingSurvey = true;
-
-            $('#iframe-survey').on('load', function() {
-                $('#dlg-survey').css('display', 'block');
-            });
-            $('#iframe-survey').attr('src', `${getStaticDir()}/templates/survey_monkey/index.html`)
-            $("#dlg-survey-close").on("click", closeSurvey);
-        }
-    }
 });
 
 
@@ -60,34 +41,65 @@ function checkIfAcceptedCookies() {
 
 function onAcceptedCookies() {
     initialiseGoogleAnalytics();
-    $('#survey-link').attr('href', window.SURVEY_URL);
-    checkIfSurveyCompleted();
+    $('#survey-link').on('click', function() {
+        window.tookSurvey = false;
+        window.loadingSurvey = false;
+        window.showingSurvey = false;
+        showSurvey();
+    });
+    if(!window.tookSurvey) {
+        localStorage.lastActivityTimestamp = Date.now() / 1000;
+        if(!localStorage.activeSeconds) {
+            localStorage.activeSeconds = 0;
+        }
+        $(window).scroll(updateActivity);
+        $(document).on('mousemove', updateActivity);
+    }
+}
+
+function updateActivity() {
+    let now = Date.now() / 1000;
+    let elapsed = now - parseFloat(localStorage.lastActivityTimestamp);
+    
+    if(!elapsed || elapsed < 1) { 
+        return
+    }
+    localStorage.lastActivityTimestamp = now;
+
+    if(elapsed > 5*60) { // If more than 5min elapsed, then assume the user walked away so ignore this activity
+        return;
+    }
+
+    let totalSeconds = parseFloat(localStorage.activeSeconds) + elapsed;
+    localStorage.activeSeconds = totalSeconds;
+    if(totalSeconds >= window.SHOW_SURVEY_AFTER_SECONDS) {
+        showSurvey();
+    }
+}
+
+
+function showSurvey() {
+    if(localStorage.acceptedCookies && !window.tookSurvey && !window.loadingSurvey) {
+        window.loadingSurvey = true;
+
+        $('#iframe-survey').on('load', function() {
+            if(window.showingSurvey) {
+                closeSurvey();
+            } else {
+                window.showingSurvey = true;
+                $('#dlg-survey').css('display', 'block');
+            }
+        });
+        $('#iframe-survey').attr('src', window.SURVEY_URL);
+        $("#dlg-survey-close").on("click", closeSurvey);
+    }
 }
 
 function closeSurvey() {
     console.info('Took survey');
     window.tookSurvey = true;
-    localStorage.surveyUrl = window.SURVEY_URL
+    localStorage.surveyUrl = window.SURVEY_URL;
     $('#dlg-survey').css('display', 'none');
-}
-
-function checkIfSurveyCompleted() {
-    if(localStorage.surveyUrl === window.SURVEY_URL) {
-        window.tookSurvey = true;
-        $('#dlg-survey').css('display', 'none');
-    } else {
-        setTimeout(checkIfSurveyCompleted, 100);
-    }
-
-}
-
-function getStaticDir() {
-    let scripts= document.getElementsByTagName('script');
-    for(let i = 0; i < scripts.length; i++) {
-        let script = scripts[i];
-        let index = script.src.indexOf('/js/custom.js')
-        if(index > 0) {
-            return script.src.substring(0, index);
-        }
-    }
+    $('#iframe-survey').off('load');
+    $('#iframe-survey').attr('src', '');
 }

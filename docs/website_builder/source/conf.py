@@ -196,7 +196,7 @@ typehints_fully_qualified = False
 set_type_checking_flag  = True
 panels_add_bootstrap_css = False
 panels_css_variables = {
-    "tabs-color-label-active": "rgba(239, 83, 80, 1.0)",
+    "tabs-color-label-active": "#ef5350",
     "tabs-color-label-inactive": "rgba(128,128,128,1.0)",
     "tabs-color-overline": "rgba(128,128,128,.3)",
     "tabs-color-underline": "rgba(128,128,128,.3)",

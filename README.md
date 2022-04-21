@@ -1,7 +1,6 @@
 # Silicon Labs Machine Learning Toolkit (MLTK)
 
-```{warning} 
-NOTICE:  
+```{warning}
 This package is considered EXPERIMENTAL - SILICON LABS DOES NOT OFFER ANY WARRANTIES AND DISCLAIMS ALL IMPLIED WARRANTIES CONCERNING THIS SOFTWARE. 
 This package is made available as a self-serve reference supported only by the on-line documentation, and community support. 
 There are no Silicon Labs support services for this software at this time.

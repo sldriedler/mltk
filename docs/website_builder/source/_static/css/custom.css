@@ -36,6 +36,18 @@ details>summary:before {
     font-size: inherit !important;
 }
 
+.md-footer-nav {
+  background-color: inherit !important;
+  color: #ef5350 !important;
+  font-weight: 600 !important;
+}
+
+.md-footer-nav__direction {
+  color: rgba(239, 83, 80, 0.87) !important;
+}
+
+
+
 .breadcrumbs {
 	  clear: both;
     position: relative;
@@ -245,6 +257,7 @@ details>summary:before {
 
 .survey-link  a {
   color: #ef5350 !important;
+  cursor: pointer;
 }
 
 .survey-link .pulse {
