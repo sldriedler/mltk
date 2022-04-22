@@ -41,39 +41,35 @@ function checkIfAcceptedCookies() {
 
 function onAcceptedCookies() {
     initialiseGoogleAnalytics();
+    initializeSurvey();
+}
+
+
+function initializeSurvey() {
     $('#survey-link').on('click', function() {
         window.tookSurvey = false;
         window.loadingSurvey = false;
         window.showingSurvey = false;
         showSurvey();
     });
+
     if(!window.tookSurvey) {
-        localStorage.lastActivityTimestamp = Date.now() / 1000;
-        if(!localStorage.activeSeconds) {
+        // If the survey was previously taken, but a new survey URL is available
+        // then reset the activity counter
+        if(localStorage.surveyUrl && localStorage.surveyUrl !== window.SURVEY_URL) {
+            localStorage.activeSeconds = 0;
+        } 
+        // Otherwise, if no counter has been previously set
+        // then set one now
+        else if(!localStorage.activeSeconds) {
             localStorage.activeSeconds = 0;
         }
-        $(window).scroll(updateActivity);
-        $(document).on('mousemove', updateActivity);
-    }
-}
 
-function updateActivity() {
-    let now = Date.now() / 1000;
-    let elapsed = now - parseFloat(localStorage.lastActivityTimestamp);
-    
-    if(!elapsed || elapsed < 1) { 
-        return
-    }
-    localStorage.lastActivityTimestamp = now;
+        localStorage.lastActivityTimestamp = Date.now() / 1000;
 
-    if(elapsed > 5*60) { // If more than 5min elapsed, then assume the user walked away so ignore this activity
-        return;
-    }
-
-    let totalSeconds = parseFloat(localStorage.activeSeconds) + elapsed;
-    localStorage.activeSeconds = totalSeconds;
-    if(totalSeconds >= window.SHOW_SURVEY_AFTER_SECONDS) {
-        showSurvey();
+        // Track mouse movement and scrolling
+        $(window).scroll(updateSurveyActivity);
+        $(document).on('mousemove', updateSurveyActivity);
     }
 }
 
@@ -102,4 +98,24 @@ function closeSurvey() {
     $('#dlg-survey').css('display', 'none');
     $('#iframe-survey').off('load');
     $('#iframe-survey').attr('src', '');
+}
+
+function updateSurveyActivity() {
+    let now = Date.now() / 1000;
+    let elapsed = now - parseFloat(localStorage.lastActivityTimestamp);
+    
+    if(!elapsed || elapsed < 1) { 
+        return
+    }
+    localStorage.lastActivityTimestamp = now;
+
+    if(elapsed > 5*60) { // If more than 5min elapsed, then assume the user walked away so ignore this activity
+        return;
+    }
+
+    let totalSeconds = parseFloat(localStorage.activeSeconds) + elapsed;
+    localStorage.activeSeconds = totalSeconds;
+    if(totalSeconds >= window.SHOW_SURVEY_AFTER_SECONDS) {
+        showSurvey();
+    }
 }

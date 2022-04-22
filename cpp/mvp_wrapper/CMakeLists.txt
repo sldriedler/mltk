@@ -32,7 +32,7 @@ include(${CMAKE_CURRENT_LIST_DIR}/../tflite_micro_wrapper/tflite_micro_wrapper_h
 
 # Find the tflite micro mvp kernels which we'll link against
 find_package(mltk_tflite_micro_mvp_kernels REQUIRED)
-
+find_package(mltk_tflite_micro_model REQUIRED)
 
 
 ####################################################

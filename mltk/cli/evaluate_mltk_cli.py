@@ -52,6 +52,9 @@ This option places an upper limit on the number of samples per class that are us
     verbose: bool = typer.Option(False, '--verbose', '-v', 
         help='Enable verbose console logs'
     ),
+    test: bool = typer.Option(False,
+        help='Use the model created by the test training. This does the same thing as: mltk evaluate my_model-test'
+    ),
 ):
     """Evaluate a trained ML model
     
@@ -103,6 +106,7 @@ This option places an upper limit on the number of samples per class that are us
     try:
         mltk_model = load_mltk_model(
             model,  
+            test=test,
             print_not_found_err=True
         )
     except Exception as e:

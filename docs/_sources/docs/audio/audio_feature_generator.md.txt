@@ -92,7 +92,7 @@ The AudioFeatureGenerator Python API docs may be found here: [mltk.core.preproce
 
 ### Source Code
 
-- __C++ Python Wrapper__ - [cpp/audio_feature_generator_wrapper](https://github.com/sldriedler/mltk/tree/master/cpp/shared/audio_feature_generator_wrapper)  
+- __C++ Python Wrapper__ - [cpp/audio_feature_generator_wrapper](https://github.com/sldriedler/mltk/tree/master/cpp/audio_feature_generator_wrapper)  
 - __Python API__ - [mltk/core/preprocess/audio/audio_feature_generator](https://github.com/sldriedler/mltk/tree/master/mltk/core/preprocess/audio/audio_feature_generator)
 
 

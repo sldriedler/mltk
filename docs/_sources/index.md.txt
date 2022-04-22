@@ -40,7 +40,7 @@
 :hidden:
 :caption: Other Information
 
-/docs/faq
+/docs/faq/index
 /docs/other/quick_reference
 /docs/guides/notebook_examples_guide
 /docs/other/settings_file

@@ -50,6 +50,9 @@ May be one of the following:
     evaluate: bool = typer.Option(True,
         help='After training, evaluate the .h5 and .tflite models'
     ),
+    test: bool = typer.Option(False,
+        help='Do a dryrun of training the model. This does the same thing as: mltk train my_model-test'
+    ),
 ):
     """Train an ML model
     
@@ -111,6 +114,7 @@ May be one of the following:
     try:
         mltk_model = load_mltk_model(
             model,  
+            test=test,
             print_not_found_err=True
         )
     except Exception as e:

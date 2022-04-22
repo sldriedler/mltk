@@ -107,10 +107,15 @@ def discover_and_import_commands(root_cli):
         search_paths.extend(env_paths.split(os.pathsep))
 
     search_paths.extend([ 
-        f'{MLTK_DIR}/cli',
-        f'{MLTK_ROOT_DIR}/cpp/tools/utils'
+        f'{MLTK_DIR}/cli'
     ])
 
+    # If we're executing from the MLTK repo
+    # (i.e. NOT the pip Python package)
+    # then include the C++ CLI in the search path
+    cpp_cli_path = f'{MLTK_ROOT_DIR}/cpp/tools/utils'
+    if os.path.exists(cpp_cli_path):
+        search_paths.append(cpp_cli_path)
 
     # Find all *_mltk_cli.py files in the search paths
     # If we find a command that matches the one provided on the command line

@@ -82,7 +82,7 @@ Refer to [Installation Guide](./docs/installation.md) for more details on how to
 
 ## Other Information
 
-- [Frequently Asked Questions](./docs/faq.md)
+- [Frequently Asked Questions](./docs/faq/index.md)
 - [Model Profiler Utility](./docs/guides/model_profiler_utility.md)
 - [Quick Reference](./docs/other/quick_reference.md)
 - [Settings File](./docs/other/settings_file.md)
