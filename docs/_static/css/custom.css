@@ -36,6 +36,10 @@ button[data-md-color-primary=red] {
   }
 }
 
+[data-md-color-primary=red] .md-nav__extra_link:active {
+  color: #D91E2A
+}
+
 
 .md-nav span.caption {
     text-transform: uppercase;

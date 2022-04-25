@@ -24,7 +24,7 @@ The features of this Python package include:
 - [Model Quantization](https://siliconlabs.github.io/mltk/docs/guides/model_quantization.html) - Reduce the memory footprint of an ML model by using the [Tensorflow-Lite Converter](https://www.tensorflow.org/lite/convert)
 - [Model Parameters](https://siliconlabs.github.io/mltk/docs/guides/model_parameters.html) - Embed custom parameters into the generated model file
 - [Audio Utilities](https://siliconlabs.github.io/mltk/docs/audio/audio_utilities.html) - Utilities to visualize and classify real-time audio for keyword spotting
-- [Python C++ Wrappers](https://siliconlabs.github.io/mltk/docs/other/repository_overview.html) - Execute C++ libraries (including [Tensorflow-Lite Micro](https://github.com/tensorflow/tflite-micro)) from a Python interface
+- [Python C++ Wrappers](https://siliconlabs.github.io/mltk/docs/cpp_development/wrappers/index.html) - Execute C++ libraries (including [Tensorflow-Lite Micro](https://github.com/tensorflow/tflite-micro)) from a Python interface
 
 
 

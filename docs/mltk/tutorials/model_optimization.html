@@ -57,7 +57,7 @@
 </script>
   
   
-    <title>Model Optimization &#8212; MLTK 0.5.0 documentation</title>
+    <title>Model Optimization for MVP Hardware Accelerator &#8212; MLTK 0.6.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
@@ -106,11 +106,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="MLTK 0.5.0 documentation"
+        <a href="../../index.html" title="MLTK 0.6.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../_static/logo.png"
-                   alt="MLTK 0.5.0 documentation logo">
+                   alt="MLTK 0.6.0 documentation logo">
           
         </a>
       </div>
@@ -120,7 +120,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Machine Learning Toolkit</span>
-          <span class="md-header-nav__topic"> Model Optimization </span>
+          <span class="md-header-nav__topic"> Model Optimization for MVP Hardware Accelerator </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -201,13 +201,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="MLTK 0.5.0 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="MLTK 0.6.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="MLTK 0.5.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
@@ -289,15 +289,15 @@
     
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> Model Optimization </label>
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Model Optimization for MVP Hardware Accelerator </label>
     
-      <a href="#" class="md-nav__link md-nav__link--active">Model Optimization</a>
+      <a href="#" class="md-nav__link md-nav__link--active">Model Optimization for MVP Hardware Accelerator</a>
       
         
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#mltk-tutorials-model-optimization--page-root" class="md-nav__link">Model Optimization</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#mltk-tutorials-model-optimization--page-root" class="md-nav__link">Model Optimization for MVP Hardware Accelerator</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#running-this-tutorial" class="md-nav__link">Running this Tutorial</a>
         </li>
@@ -458,7 +458,7 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#mltk-tutorials-model-optimization--page-root" class="md-nav__link">Model Optimization</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#mltk-tutorials-model-optimization--page-root" class="md-nav__link">Model Optimization for MVP Hardware Accelerator</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#running-this-tutorial" class="md-nav__link">Running this Tutorial</a>
         </li>
@@ -519,9 +519,10 @@
 
           <article class="md-content__inner md-typeset" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="model-optimization">
-<h1 id="mltk-tutorials-model-optimization--page-root">Model Optimization<a class="headerlink" href="#mltk-tutorials-model-optimization--page-root" title="Permalink to this headline">¶</a></h1>
-<p>This tutorial describes how to optimize a keyword spotting model for the Silicon Lab’s development board featuring the MVP hardware accelerator.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="model-optimization-for-mvp-hardware-accelerator">
+<h1 id="mltk-tutorials-model-optimization--page-root">Model Optimization for MVP Hardware Accelerator<a class="headerlink" href="#mltk-tutorials-model-optimization--page-root" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial describes how to optimize a keyword spotting model for the Silicon Lab’s development board featuring the MVP hardware accelerator.
+It uses the various tools offered by the MLTK to optimize a machine learning model so that it can efficiently run on the embedded hardware.</p>
 <p>In this tutorial, we use the industry-standard classification model <a class="reference external" href="https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html">MobileNetV2</a> to detect the keywords:</p>
 <ul class="simple">
 <li><p><strong>left</strong></p></li>
@@ -535,7 +536,7 @@
 <p>In this tutorial, you will learn the following:</p>
 <ul class="simple">
 <li><p>How to create a <a class="reference internal" href="../../docs/guides/model_specification.html"><span class="doc std std-doc">model specification</span></a> using <a class="reference external" href="https://arxiv.org/abs/1801.04381">MobileNetV2</a></p></li>
-<li><p>How to use the <span class="xref myst">Model Profiler</span> to profile the model on the development board</p></li>
+<li><p>How to use the <a class="reference internal" href="../../docs/guides/model_profiler.html"><span class="doc std std-doc">Model Profiler</span></a> to profile the model on the development board</p></li>
 <li><p>How to use the <code class="docutils literal notranslate"><span class="pre">view_audio</span></code> command to view the spectrogram generated by the <a class="reference internal" href="../../docs/audio/audio_feature_generator.html"><span class="doc std std-doc">AudioFeatureGenerator</span></a></p></li>
 <li><p>How to adjust model parameters to fit within the resource constraints of the development board</p></li>
 <li><p>How to train the model</p></li>

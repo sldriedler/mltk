@@ -57,7 +57,7 @@
 </script>
   
   
-    <title>Keyword Spotting - On/Off &#8212; MLTK 0.5.0 documentation</title>
+    <title>Keyword Spotting - On/Off &#8212; MLTK 0.6.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
@@ -81,7 +81,7 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Model Optimization" href="model_optimization.html" />
+    <link rel="next" title="Model Optimization for MVP Hardware Accelerator" href="model_optimization.html" />
     <link rel="prev" title="Tutorials" href="../../docs/tutorials.html" />
   
    
@@ -106,11 +106,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="MLTK 0.5.0 documentation"
+        <a href="../../index.html" title="MLTK 0.6.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../_static/logo.png"
-                   alt="MLTK 0.5.0 documentation logo">
+                   alt="MLTK 0.6.0 documentation logo">
           
         </a>
       </div>
@@ -201,13 +201,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="MLTK 0.5.0 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="MLTK 0.6.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="MLTK 0.5.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
@@ -406,11 +406,11 @@
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#deploying-model-to-gecko-sdk-project" class="md-nav__link">Deploying Model to Gecko SDK Project</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#deploying-the-model" class="md-nav__link">Deploying the Model</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#using-the-mltk" class="md-nav__link">Using the MLTK</a>
-        </li>
         <li class="md-nav__item"><a href="#using-simplicity-studio" class="md-nav__link">Using Simplicity Studio</a>
+        </li>
+        <li class="md-nav__item"><a href="#using-the-mltk" class="md-nav__link">Using the MLTK</a>
         </li></ul>
             </nav>
         </li></ul>
@@ -427,7 +427,7 @@
     <li class="md-nav__item">
     
     
-      <a href="model_optimization.html" class="md-nav__link">Model Optimization</a>
+      <a href="model_optimization.html" class="md-nav__link">Model Optimization for MVP Hardware Accelerator</a>
       
     
     </li>
@@ -664,11 +664,11 @@
         </li></ul>
             </nav>
         </li>
-        <li class="md-nav__item"><a href="#deploying-model-to-gecko-sdk-project" class="md-nav__link">Deploying Model to Gecko SDK Project</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#deploying-the-model" class="md-nav__link">Deploying the Model</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#using-the-mltk" class="md-nav__link">Using the MLTK</a>
-        </li>
         <li class="md-nav__item"><a href="#using-simplicity-studio" class="md-nav__link">Using Simplicity Studio</a>
+        </li>
+        <li class="md-nav__item"><a href="#using-the-mltk" class="md-nav__link">Using the MLTK</a>
         </li></ul>
             </nav>
         </li></ul>
@@ -706,7 +706,7 @@
 <li><p><strong>On</strong></p></li>
 <li><p><strong>Off</strong></p></li>
 </ul>
-<p>This tutorial is designed to work with the <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview">Gecko SDK</a> sample application: <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview#voice-control-light">Voice Control Light</a>.</p>
+<p>This tutorial is designed to work with the <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/overview">Gecko SDK</a> sample application: <a class="reference external" href="https://github.com/SiliconLabs/gecko_sdk/tree/gsdk_4.0/app/common/example/voice_control_light">Voice Control Light</a>.</p>
 <section id="overview">
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <section id="objectives">
@@ -733,7 +733,7 @@
 <li><p><a class="reference external" href="#model-training">Training the model</a></p></li>
 <li><p><a class="reference external" href="#model-evaluation">Evaluating the model</a></p></li>
 <li><p><a class="reference external" href="#model-testing">Testing the model</a></p></li>
-<li><p><a class="reference external" href="#deploying-model-to-gecko-sdk-project">Deploying model to a Gecko SDK project</a></p></li>
+<li><p><a class="reference external" href="#deploying-the-model">Deploying the model to an embedded device</a></p></li>
 </ol>
 </section>
 <section id="running-this-tutorial-from-a-notebook">
@@ -787,22 +787,19 @@ Options:
   --help     Show this message and exit.
 
 Commands:
-  classify_audio            Classify keywords/events detected in a...
-  commander                 Silab's Commander Utility
-  custom                    Custom Model Operations
-  evaluate                  Evaluate a trained ML model
-  profile                   Profile a model
-  profile_energy            Profile energy on development board
-  quantize                  Quantize a model into a .tflite file
-  release_fw                Build an embedded firmware image and release...
-  release_mltk_profiler     Build a mltk_profiler wheel for a specific...
-  release_python_package    Build a MLTK wheel for a specific Python...
-  release_sl_mvp_simulator  Build the GSDK MVPv1 simulator static library...
-  summarize                 Generate a summary of a model
-  train                     Train an ML model
-  update_params             Update the parameters of a previously trained...
-  view                      View an interactive graph of the given model...
-  view_audio                View the spectrograms generated by the...
+  build           MLTK build commands
+  classify_audio  Classify keywords/events detected in a microphone's...
+  commander       Silab's Commander Utility
+  custom          Custom Model Operations
+  evaluate        Evaluate a trained ML model
+  profile         Profile a model
+  quantize        Quantize a model into a .tflite file
+  summarize       Generate a summary of a model
+  train           Train an ML model
+  update_params   Update the parameters of a previously trained model
+  utest           Run the all unit tests
+  view            View an interactive graph of the given model in a...
+  view_audio      View the spectrograms generated by the...
 </pre></div>
 </div>
 </div>
@@ -927,7 +924,7 @@ the audio samples during training (see the <a class="reference external" href="#
 <p>From your favorite text editor, create a model specification Python script file, e.g:
 <code class="docutils literal notranslate"><span class="pre">my_keyword_spotting_on_off.py</span></code></p>
 <p>The name of this file is the name given to the model. So all subsequent <code class="docutils literal notranslate"><span class="pre">mltk</span></code> commands will use the model name <code class="docutils literal notranslate"><span class="pre">my_keyword_spotting_on_off</span></code>, e.g:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mltk train my_keyword_spotting_on_off</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk train my_keyword_spotting_on_off
 </pre></div>
 </div>
 <p>You may use any name as long as it contains alphanumeric or underscore characters.</p>
@@ -1388,11 +1385,11 @@ Once the model is trained, this option is not required.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 00001: LearningRateScheduler setting learning rate to 0.001.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: LearningRateScheduler setting learning rate to 0.001.
 
-Epoch 00002: LearningRateScheduler setting learning rate to 0.00095.
+Epoch 2: LearningRateScheduler setting learning rate to 0.00095.
 
-Epoch 00003: LearningRateScheduler setting learning rate to 0.0009025.
+Epoch 3: LearningRateScheduler setting learning rate to 0.0009025.
 Model: "keyword_spotting_on_off"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -1439,17 +1436,18 @@ Total MACs: 278.144 k
 Total OPs: 574.468 k
 Name: keyword_spotting_on_off
 Version: 1
-Description: Keyword spotting classifier to detect: "yes" and "no"
+Description: Keyword spotting classifier to detect: "on" and "off"
 Classes: on, off, _unknown_, _silence_
-hash: None
-date: None
+hash: 
+date: 
+runtime_memory_size: 0
 average_window_duration_ms: 1000
 detection_threshold: 160
 suppression_ms: 750
 minimum_count: 3
-volume_db: 5.0
-latency_ms: 0
-log_level: info
+volume_gain: 2
+latency_ms: 100
+verbose_model_output_logs: False
 </pre></div>
 </div>
 </div>
@@ -1463,11 +1461,13 @@ log_level: info
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 00001: LearningRateScheduler setting learning rate to 0.001.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: LearningRateScheduler setting learning rate to 0.001.
 
-Epoch 00002: LearningRateScheduler setting learning rate to 0.00095.
+Epoch 2: LearningRateScheduler setting learning rate to 0.00095.
 
-Epoch 00003: LearningRateScheduler setting learning rate to 0.0009025.
+Epoch 3: LearningRateScheduler setting learning rate to 0.0009025.
+C:\Users\reed\workspace\silabs\mltk\.venv\lib\site-packages\tensorflow\lite\python\convert.py:746: UserWarning: Statistics for quantized inputs were expected, but not specified; continuing anyway.
+  warnings.warn("Statistics for quantized inputs were expected, but not "
 +-------+-----------------+----------------+----------------+-----------------------------------------------------+
 | Index | OpCode          | Input(s)       | Output(s)      | Config                                              |
 +-------+-----------------+----------------+----------------+-----------------------------------------------------+
@@ -1484,12 +1484,7 @@ Epoch 00003: LearningRateScheduler setting learning rate to 0.0009025.
 | 4     | reshape         | 1x4x32 (int8)  | 128 (int8)     | BuiltinOptionsType=0                                |
 |       |                 | 2 (int32)      |                |                                                     |
 | 5     | fully_connected | 128 (int8)     | 4 (int8)       | Activation:none                                     |
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fully_quantize: 0, inference_type: 6, input_inference_type: 9, output_inference_type: 9
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>|       |                 | 128 (int8)     |                |                                                     |
+|       |                 | 128 (int8)     |                |                                                     |
 |       |                 | 4 (int32)      |                |                                                     |
 | 6     | softmax         | 4 (int8)       | 4 (int8)       | BuiltinOptionsType=9                                |
 +-------+-----------------+----------------+----------------+-----------------------------------------------------+
@@ -1497,18 +1492,19 @@ Total MACs: 278.144 k
 Total OPs: 563.084 k
 Name: keyword_spotting_on_off
 Version: 1
-Description: Keyword spotting classifier to detect: "yes" and "no"
+Description: Keyword spotting classifier to detect: "on" and "off"
 Classes: on, off, _unknown_, _silence_
-hash: 102e96587c119c99331aa21caf03f86f
-date: 2021-12-09T18:19:01.639Z
+hash: a5c31da1954ca849eed61dd1007ddf58
+date: 2022-04-25T18:23:56.543Z
+runtime_memory_size: 7052
 average_window_duration_ms: 1000
 detection_threshold: 160
 suppression_ms: 750
 minimum_count: 3
-volume_db: 5.0
-latency_ms: 0
-log_level: info
-samplewise_norm.rescale: 0
+volume_gain: 2
+latency_ms: 100
+verbose_model_output_logs: False
+samplewise_norm.rescale: 0.0
 samplewise_norm.mean_and_std: False
 fe.sample_rate_hz: 8000
 fe.sample_length_ms: 1000
@@ -1529,7 +1525,7 @@ fe.pcan_gain_bits: 21
 fe.log_scale_enable: True
 fe.log_scale_shift: 6
 fe.fft_length: 256
-.tflite file size: 14.3kB
+.tflite file size: 14.4kB
 </pre></div>
 </div>
 </div>
@@ -1618,11 +1614,13 @@ If it’s determined that the model does not fit within the time or memory const
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 00001: LearningRateScheduler setting learning rate to 0.001.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: LearningRateScheduler setting learning rate to 0.001.
 
-Epoch 00002: LearningRateScheduler setting learning rate to 0.00095.
+Epoch 2: LearningRateScheduler setting learning rate to 0.00095.
 
-Epoch 00003: LearningRateScheduler setting learning rate to 0.0009025.
+Epoch 3: LearningRateScheduler setting learning rate to 0.0009025.
+C:\Users\reed\workspace\silabs\mltk\.venv\lib\site-packages\tensorflow\lite\python\convert.py:746: UserWarning: Statistics for quantized inputs were expected, but not specified; continuing anyway.
+  warnings.warn("Statistics for quantized inputs were expected, but not "
 
 Profiling Summary
 Name: keyword_spotting_on_off
@@ -1631,14 +1629,14 @@ Input Shape: 1x49x32x1
 Input Data Type: int8
 Output Shape: 1x4
 Output Data Type: int8
-Model File Size (bytes): 14.3k
-Runtime Memory Size (bytes): 7.4k
-# Operations: 574.5k
-# Multiply-Accumulates: 278.1k
-# Layers: 7
-# Unsupported Layers: 0
-# Accelerator Cycles: 428.1k
-# CPU Cycles: 76.8k
+Flash, Model File Size (bytes): 14.4k
+RAM, Runtime Memory Size (bytes): 6.8k
+Operation Count: 574.5k
+Multiply-Accumulate Count: 278.1k
+Layer Count: 7
+Unsupported Layer Count: 0
+Accelerator Cycle Count: 427.8k
+CPU Cycle Count: 76.8k
 CPU Utilization (%): 16.7
 Clock Rate (hz): 80.0M
 Time (s): 5.7m
@@ -1658,14 +1656,11 @@ Model Layers
 | 2     | conv_2d         | 260.7k | 129.0k | 164.3k     | 15.9k      | 45.7u      | 2.1m     | 1x13x8x16,32x3x3x16,32 | 1x7x4x32     | Padding:same stride:2x2 activation:relu             |
 | 3     | max_pool_2d     | 896.0  | 0      | 576.0      | 27.3k      | 446.4n     | 341.3u   | 1x7x4x32               | 1x1x4x32     | Padding:valid stride:1x7 filter:1x7 activation:none |
 | 4     | reshape         | 0      | 0      | 0          | 264.9      | 0.0p       | 3.3u     | 1x1x4x32,2             | 1x128        | BuiltinOptionsType=0                                |
-| 5     | fully_connected | 1.0k   | 512.0  | 1.0k       | 1.8k       | 50.5n      | 22.1u    | 1x128,4x128,4          | 1x4          | Activation:none                                     |
+| 5     | fully_connected | 1.0k   | 512.0  | 784.0      | 1.8k       | 50.5n      | 22.2u    | 1x128,4x128,4          | 1x4          | Activation:none                                     |
 | 6     | softmax         | 20.0   | 0      | 0          | 4.1k       | 16.5n      | 51.8u    | 1x4                    | 1x4          | BuiltinOptionsType=9                                |
 +-------+-----------------+--------+--------+------------+------------+------------+----------+------------------------+--------------+-----------------------------------------------------+
-Generating profiling report at C:/Users/reed/.mltk/models/keyword_spotting_on_off/profiling
-Profiling time: 58.501360 seconds
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fully_quantize: 0, inference_type: 6, input_inference_type: 9, output_inference_type: 9
+Generating profiling report at C:/Users/reed/.mltk/models/keyword_spotting_on_off-test/profiling
+Profiling time: 57.664001 seconds
 </pre></div>
 </div>
 </div>
@@ -1687,16 +1682,16 @@ Profiling time: 58.501360 seconds
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 00001: LearningRateScheduler setting learning rate to 0.001.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1: LearningRateScheduler setting learning rate to 0.001.
 
-Epoch 00002: LearningRateScheduler setting learning rate to 0.00095.
+Epoch 2: LearningRateScheduler setting learning rate to 0.00095.
 
-Epoch 00003: LearningRateScheduler setting learning rate to 0.0009025.
-
-https://www.dropbox.com/s/evr0sdiw4yazfcc/mltk_model_profiler-brd2601a-mvp-e89314cf.zip?dl=1: 0.00B [00:00, ?B/s]
-https://www.dropbox.com/s/evr0sdiw4yazfcc/mltk_model_profiler-brd2601a-mvp-e89314cf.zip?dl=1:   2%|▏         | 8.00k/376k [00:01&lt;01:04, 5.81kB/s]
-https://www.dropbox.com/s/evr0sdiw4yazfcc/mltk_model_profiler-brd2601a-mvp-e89314cf.zip?dl=1:  34%|███▍      | 128k/376k [00:01&lt;00:02, 118kB/s]  
-https://www.dropbox.com/s/evr0sdiw4yazfcc/mltk_model_profiler-brd2601a-mvp-e89314cf.zip?dl=1: 376kB [00:01, 241kB/s]                           
+Epoch 3: LearningRateScheduler setting learning rate to 0.0009025.
+C:\Users\reed\workspace\silabs\mltk\.venv\lib\site-packages\tensorflow\lite\python\convert.py:746: UserWarning: Statistics for quantized inputs were expected, but not specified; continuing anyway.
+  warnings.warn("Statistics for quantized inputs were expected, but not "
+Extracting: C:/Users/reed/.mltk/downloads/mltk_model_profiler-brd2601-mvp-616ee87e.zip
+to: C:/Users/reed/.mltk/firmware/mltk_model_profiler-brd2601-mvp
+(This may take awhile, please be patient ...)
 
 Profiling Summary
 Name: keyword_spotting_on_off
@@ -1705,40 +1700,35 @@ Input Shape: 1x49x32x1
 Input Data Type: int8
 Output Shape: 1x4
 Output Data Type: int8
-Model File Size (bytes): 14.3k
-Runtime Memory Size (bytes): 6.6k
-# Operations: 574.5k
-# Multiply-Accumulates: 278.1k
-# Layers: 7
-# Unsupported Layers: 0
-# Accelerator Cycles: 439.7k
-# CPU Cycles: 82.2k
-CPU Utilization (%): 16.2
+Flash, Model File Size (bytes): 14.4k
+RAM, Runtime Memory Size (bytes): 6.8k
+Operation Count: 574.5k
+Multiply-Accumulate Count: 278.1k
+Layer Count: 7
+Unsupported Layer Count: 0
+Accelerator Cycle Count: 439.8k
+CPU Cycle Count: 92.3k
+CPU Utilization (%): 18.9
 Clock Rate (hz): 80.0M
-Time (s): 6.4m
-Ops/s: 90.3M
-MACs/s: 43.7M
-Inference/s: 157.2
+Time (s): 6.1m
+Ops/s: 93.9M
+MACs/s: 45.4M
+Inference/s: 163.4
 
 Model Layers
 +-------+-----------------+--------+--------+------------+------------+----------+------------------------+--------------+-----------------------------------------------------+
 | Index | OpCode          | # Ops  | # MACs | Acc Cycles | CPU Cycles | Time (s) | Input Shape            | Output Shape | Options                                             |
 +-------+-----------------+--------+--------+------------+------------+----------+------------------------+--------------+-----------------------------------------------------+
-| 0     | conv_2d         | 67.2k  | 28.8k  | 98.4k      | 16.0k      | 1.5m     | 1x49x32x1,8x3x3x1,8    | 1x25x16x8    | Padding:same stride:2x2 activation:relu             |
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fully_quantize: 0, inference_type: 6, input_inference_type: 9, output_inference_type: 9
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>| 1     | conv_2d         | 244.6k | 119.8k | 173.5k     | 15.8k      | 2.3m     | 1x25x16x8,16x3x3x8,16  | 1x13x8x16    | Padding:same stride:2x2 activation:relu             |
-| 2     | conv_2d         | 260.7k | 129.0k | 165.9k     | 15.8k      | 2.2m     | 1x13x8x16,32x3x3x16,32 | 1x7x4x32     | Padding:same stride:2x2 activation:relu             |
-| 3     | max_pool_2d     | 896.0  | 0      | 800.0      | 27.2k      | 330.0u   | 1x7x4x32               | 1x1x4x32     | Padding:valid stride:1x7 filter:1x7 activation:none |
-| 4     | reshape         | 0      | 0      | 0          | 1.5k       | 30.0u    | 1x1x4x32,2             | 1x128        | BuiltinOptionsType=0                                |
-| 5     | fully_connected | 1.0k   | 512.0  | 1.1k       | 1.9k       | 60.0u    | 1x128,4x128,4          | 1x4          | Activation:none                                     |
-| 6     | softmax         | 20.0   | 0      | 0          | 4.1k       | 30.0u    | 1x4                    | 1x4          | BuiltinOptionsType=9                                |
+| 0     | conv_2d         | 67.2k  | 28.8k  | 98.5k      | 19.1k      | 1.3m     | 1x49x32x1,8x3x3x1,8    | 1x25x16x8    | Padding:same stride:2x2 activation:relu             |
+| 1     | conv_2d         | 244.6k | 119.8k | 173.6k     | 18.7k      | 2.2m     | 1x25x16x8,16x3x3x8,16  | 1x13x8x16    | Padding:same stride:2x2 activation:relu             |
+| 2     | conv_2d         | 260.7k | 129.0k | 166.2k     | 18.8k      | 2.1m     | 1x13x8x16,32x3x3x16,32 | 1x7x4x32     | Padding:same stride:2x2 activation:relu             |
+| 3     | max_pool_2d     | 896.0  | 0      | 800.0      | 28.2k      | 360.0u   | 1x7x4x32               | 1x1x4x32     | Padding:valid stride:1x7 filter:1x7 activation:none |
+| 4     | reshape         | 0      | 0      | 0          | 1.1k       | 0        | 1x1x4x32,2             | 1x128        | BuiltinOptionsType=0                                |
+| 5     | fully_connected | 1.0k   | 512.0  | 809.0      | 2.1k       | 60.0u    | 1x128,4x128,4          | 1x4          | Activation:none                                     |
+| 6     | softmax         | 20.0   | 0      | 0          | 4.3k       | 30.0u    | 1x4                    | 1x4          | BuiltinOptionsType=9                                |
 +-------+-----------------+--------+--------+------------+------------+----------+------------------------+--------------+-----------------------------------------------------+
-Generating profiling report at C:/Users/reed/.mltk/models/keyword_spotting_on_off/profiling
-Profiling time: 75.367375 seconds
+Generating profiling report at C:/Users/reed/.mltk/models/keyword_spotting_on_off-test/profiling
+Profiling time: 91.943971 seconds
 </pre></div>
 </div>
 </div>
@@ -1765,7 +1755,7 @@ With the hardware accelerator, many of the model’s calculations can be offload
 <p>Refer to the <a class="reference internal" href="../../docs/guides/model_training.html"><span class="doc std std-doc">Model Training Guide</span></a> for more details about this process.</p>
 <section id="train-as-a-dry-run">
 <h3 id="train-as-a-dry-run">Train as a “dry run”<a class="headerlink" href="#train-as-a-dry-run" title="Permalink to this headline">¶</a></h3>
-<p>Before fully training the model, sometimes it is useful to train the model as a “dry run” to ensure the end-to-end training process works. Here, the model is trained for 1 epoch on a subset of the dataset.</p>
+<p>Before fully training the model, sometimes it is useful to train the model as a “dry run” to ensure the end-to-end training process works. Here, the model is trained for a few epochs on a subset of the dataset.</p>
 <p>To train as a dry run, append <code class="docutils literal notranslate"><span class="pre">-test</span></code> to the model name.<br/>
 At the end of training, a <a class="reference internal" href="../../docs/guides/model_archive.html"><span class="doc std std-doc">Model Archive</span></a> with <code class="docutils literal notranslate"><span class="pre">-test</span></code> appended to the archive name is generated in the same directory as the model specification script.</p>
 <div class="cell docutils container">
@@ -2135,22 +2125,25 @@ Options:
                                   Amount of milliseconds to wait after a
                                   keyword is detected before detecting new
                                   keywords
-  -l, --latency &lt;latency ms&gt;      This simulates the amount of time in
-                                  milliseconds an audio loop takes. This helps
-                                  to provide a better idea of how well the
-                                  given model will execute on an embedded
-                                  device
+  -l, --latency &lt;latency ms&gt;      This the amount of time in milliseconds
+                                  between processing loops
   -m, --microphone &lt;name&gt;         For non-embedded, this specifies the name of
                                   the PC microphone to use
-  -u, --volume &lt;volume dB&gt;        Set the volume (in dB) scaler (i.e.
-                                  amplitude) to apply to the microphone data.
-                                  If 0 or omitted, no scaler is applied
+  -u, --volume &lt;volume gain&gt;      Set the volume gain scaler (i.e. amplitude)
+                                  to apply to the microphone data. If 0 or
+                                  omitted, no scaler is applied
   -x, --dump-audio                Dump the raw microphone and generate a
                                   corresponding .wav file
-  -z, --dump-spectrograms         Dump the generated spectrograms to .jpg
-                                  images and .mp4 video
+  -w, --dump-raw-spectrograms     Dump the raw (i.e. unquantized) generated
+                                  spectrograms to .jpg images and .mp4 video
+  -z, --dump-spectrograms         Dump the quantized generated spectrograms to
+                                  .jpg images and .mp4 video
   -i, --sensitivity FLOAT         Sensitivity of the activity indicator LED.
                                   Much less than 1.0 has higher sensitivity
+  --app &lt;path&gt;                    By default, the audio_classifier app is automatically downloaded. 
+                                  This option allows for overriding with a custom built app.
+                                  Alternatively, if using the --device option, set this option to "none" to NOT program the audio_classifier app to the device.
+                                  In this case, ONLY the .tflite will be programmed and the existing audio_classifier app will be re-used.
   --test                          Run as a unit test
   --help                          Show this message and exit.
 </pre></div>
@@ -2230,23 +2223,10 @@ When the command completes, a log directory will contain the dumped audio sound 
 </div>
 </section>
 </section>
-<section id="deploying-model-to-gecko-sdk-project">
-<h2 id="deploying-model-to-gecko-sdk-project">Deploying Model to Gecko SDK Project<a class="headerlink" href="#deploying-model-to-gecko-sdk-project" title="Permalink to this headline">¶</a></h2>
+<section id="deploying-the-model">
+<h2 id="deploying-the-model">Deploying the Model<a class="headerlink" href="#deploying-the-model" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have a trained model, it is time to run it in on an embedded device.</p>
 <p>There are several different ways this can be done:</p>
-<section id="using-the-mltk">
-<h3 id="using-the-mltk">Using the MLTK<a class="headerlink" href="#using-the-mltk" title="Permalink to this headline">¶</a></h3>
-<p>The MLTK supports building <a class="reference internal" href="../../docs/cpp_development/index.html"><span class="doc std std-doc">C++ Applications</span></a>.</p>
-<p>It also features an <a class="reference internal" href="../../docs/cpp_development/examples/audio_classifier.html"><span class="doc std std-doc">audio_classifier</span></a> C++ application
-which can be built using:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../../docs/cpp_development/vscode.html"><span class="doc std std-doc">Visual Studio Code</span></a></p></li>
-<li><p><a class="reference internal" href="../../docs/cpp_development/simplicity_studio.html"><span class="doc std std-doc">Simplicity Studio</span></a></p></li>
-<li><p><a class="reference internal" href="../../docs/cpp_development/command_line.html"><span class="doc std std-doc">Command Line</span></a></p></li>
-</ul>
-<p>Refer to the <a class="reference internal" href="../../docs/cpp_development/examples/audio_classifier.html"><span class="doc std std-doc">audio_classifier</span></a> application’s documentation
-for how include your model into the built application.</p>
-</section>
 <section id="using-simplicity-studio">
 <h3 id="using-simplicity-studio">Using Simplicity Studio<a class="headerlink" href="#using-simplicity-studio" title="Permalink to this headline">¶</a></h3>
 <p>The standard Gecko SDK also features an <a class="reference external" href="https://github.com/SiliconLabs/gecko_sdk/tree/gsdk_4.0/app/common/example/audio_classifier">audio_classifier</a> application.</p>
@@ -2261,6 +2241,19 @@ for how include your model into the built application.</p>
 </ol>
 <p>When Simplicity Studio builds the project, it finds the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model file and generates a C header file which contains a C <code class="docutils literal notranslate"><span class="pre">uint8_t</span></code> array of the binary data in the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code>. The firmware then references the C array and loads it into the <a class="reference external" href="https://github.com/tensorflow/tflite-micro">Tensorflow-Lite Micro Interpreter</a>.</p>
 <p>See the <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/getting-started">Getting Started with Machine Learning</a> Gecko SDK guide for more details.</p>
+</section>
+<section id="using-the-mltk">
+<h3 id="using-the-mltk">Using the MLTK<a class="headerlink" href="#using-the-mltk" title="Permalink to this headline">¶</a></h3>
+<p>The MLTK supports building <a class="reference internal" href="../../docs/cpp_development/index.html"><span class="doc std std-doc">C++ Applications</span></a>.</p>
+<p>It also features an <a class="reference internal" href="../../docs/cpp_development/examples/audio_classifier.html"><span class="doc std std-doc">audio_classifier</span></a> C++ application
+which can be built using:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../docs/cpp_development/vscode.html"><span class="doc std std-doc">Visual Studio Code</span></a></p></li>
+<li><p><a class="reference internal" href="../../docs/cpp_development/simplicity_studio.html"><span class="doc std std-doc">Simplicity Studio</span></a></p></li>
+<li><p><a class="reference internal" href="../../docs/cpp_development/command_line.html"><span class="doc std std-doc">Command Line</span></a></p></li>
+</ul>
+<p>Refer to the <a class="reference internal" href="../../docs/cpp_development/examples/audio_classifier.html"><span class="doc std std-doc">audio_classifier</span></a> application’s documentation
+for how include your model into the built application.</p>
 </section>
 </section>
 </section>
@@ -2289,12 +2282,12 @@ for how include your model into the built application.</p>
             </a>
           
           
-            <a href="model_optimization.html" title="Model Optimization"
+            <a href="model_optimization.html" title="Model Optimization for MVP Hardware Accelerator"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Model Optimization </span>
+                class="md-footer-nav__direction"> Next </span> Model Optimization for MVP Hardware Accelerator </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

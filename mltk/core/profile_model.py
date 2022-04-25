@@ -310,7 +310,7 @@ def _load_tflite_model(
     elif isinstance(model, str):
         
         if build and model.endswith(('.tflite', '.mltk.zip')):
-            raise RuntimeError('Cannot use --build option with .tflite or .mltk.zip model argument')
+            raise RuntimeError('Cannot use --build option with .tflite or .mltk.zip model argument. Must be model name or path to model specification (.py)')
 
         if model.endswith('.tflite'):
             model_name = os.path.basename(model[:-len('.tflite')])

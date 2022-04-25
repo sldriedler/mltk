@@ -56,7 +56,7 @@
 </script>
   
   
-    <title>mltk.core.profile_model &#8212; MLTK 0.5.0 documentation</title>
+    <title>mltk.core.profile_model &#8212; MLTK 0.6.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
@@ -103,11 +103,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../../index.html" title="MLTK 0.5.0 documentation"
+        <a href="../../../index.html" title="MLTK 0.6.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../../_static/logo.png"
-                   alt="MLTK 0.5.0 documentation logo">
+                   alt="MLTK 0.6.0 documentation logo">
           
         </a>
       </div>
@@ -198,13 +198,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../../index.html" title="MLTK 0.5.0 documentation" class="md-nav__button md-logo">
+    <a href="../../../index.html" title="MLTK 0.6.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="MLTK 0.5.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
       <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
@@ -714,7 +714,7 @@
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         
         <span class="k">if</span> <span class="n">build</span> <span class="ow">and</span> <span class="n">model</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s1">'.tflite'</span><span class="p">,</span> <span class="s1">'.mltk.zip'</span><span class="p">)):</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">'Cannot use --build option with .tflite or .mltk.zip model argument'</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">'Cannot use --build option with .tflite or .mltk.zip model argument. Must be model name or path to model specification (.py)'</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'.tflite'</span><span class="p">):</span>
             <span class="n">model_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">model</span><span class="p">[:</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="s1">'.tflite'</span><span class="p">)])</span>

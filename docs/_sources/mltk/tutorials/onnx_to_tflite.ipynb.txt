@@ -2160,7 +2160,11 @@
 
     "\n",
 
-    "Refer to the [Gecko SDK Documentation](https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/getting-started) for more details."
+    "Refer to the following links for more details:\n",
+
+    "- [Gecko SDK Documentation](https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/getting-started)\n",
+
+    "- [MLTK C++ Development](../../docs/cpp_development/index.md)"
 
    ]
 

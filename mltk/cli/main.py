@@ -40,14 +40,14 @@ def main():
         context_settings=dict(
             max_content_width=100
         ),
-        add_completion=False
+        add_completion=True
     )
 
     cli.build_cli = typer.Typer(
         context_settings=dict(
             max_content_width=100
         ),
-        add_completion=False
+        add_completion=True
     )
     cli.root_cli.add_typer(cli.build_cli, name='build', short_help='MLTK build commands')
 
