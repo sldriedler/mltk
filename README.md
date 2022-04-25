@@ -37,7 +37,7 @@ See the [Model Profiler Utility](./docs/guides/model_profiler_utility.md)
 ```{eval-rst}
 .. raw:: html
 
-   <iframe src="./_static/overview/index.html" height="100%" width="100%" frameborder="0" class="overview-iframe" allowfullscreen></iframe>
+   <iframe src="./_static/overview/index.html" height="100%" width="100%" frameborder="0" class="slideshow-iframe" allowfullscreen></iframe>
 ```
 
 
