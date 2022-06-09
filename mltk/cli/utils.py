@@ -16,7 +16,7 @@ from click.parser import OptionParser
 from mltk.utils.logger import add_console_logger, make_filelike, redirect_stream
 from mltk.utils.logger import get_logger as get_base_logger
 from mltk.utils.python import debugger_is_active
-from mltk.utils.system import pretty_time_str
+from mltk.utils.string_formatting import pretty_time_str
 from mltk.utils import path
 from mltk.utils.gpu import check_tensorflow_cuda_compatibility_error
 

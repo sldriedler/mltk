@@ -23,9 +23,11 @@ public:
         void* accelerator,
         bool enable_profiler,
         bool enable_recorder,
-        bool force_buffer_overlap
+        bool force_buffer_overlap,
+        int runtime_memory_size
     );
 
+    bool invoke() const;
     py::dict get_details() const;
     py::array get_input(int index);
     py::array get_output(int index);
@@ -33,8 +35,9 @@ public:
     py::list get_recorded_data();
 
 private:
-    std::string flatbuffer_data;
-    std::string runtime_buffer;
+    const void* _accelerator_wrapper;
+    std::string _flatbuffer_data;
+    std::string _runtime_memory;
 };
 
 

@@ -10,7 +10,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="title" content="Machine Learning Toolkit">
 <meta name="description" content="A Python package with command-line utilities and scripts to aid the development of machine learning models for Silicon Lab's embedded platforms">
-<meta name="keywords" content="machine learning, ml, ai, iot, Internet of things, aiot, tinyml, tensorflow, tensorflow-lite, tflite, embedded, mcu, Microcontrollers, hardware, python, c++, cmake, keras, numpy, silabs, silicon labs">
+<meta name="keywords" content="machine learning, machine-learning, machinelearning, ml, ai, iot, Internet of things, aiot, tinyml, tensorflow, tensorflow-lite, tensorflow-lite-micro, keras-tensorflow, keras, tflite, embedded, embedded-systems, mcu, Microcontrollers, hardware, python, c++, cmake, keras, numpy, silabs, silicon labs">
 <meta name="robots" content="index, follow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="language" content="English">
@@ -51,9 +51,9 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="../../_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-965PJZXVMY"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5MW943WF"></script>
 <script>
-    window.gTrackingId = 'G-965PJZXVMY';
+    window.gTrackingId = 'G-HZ5MW943WF';
 </script>
   
   
@@ -155,7 +155,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -210,7 +210,7 @@
        title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -520,7 +520,7 @@
 Using this guide, you can build C++ applications for Windows/Linux or supported embedded platforms.</p>
 <p><strong>NOTES:</strong></p>
 <ul class="simple">
-<li><p>All of the MLTK C++ source code may be found at: <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp/"><strong>mltk repo</strong>/cpp</a></p></li>
+<li><p>All of the MLTK C++ source code may be found at: <a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp/"><strong>mltk repo</strong>/cpp</a></p></li>
 <li><p>Internally, VSCode uses CMake to build the applications</p></li>
 <li><p>Refer to the <a class="reference internal" href="examples/index.html"><span class="doc std std-doc">example applications</span></a> or <a class="reference internal" href="wrappers/index.html"><span class="doc std std-doc">Python wrappers</span></a> documentation for more details about what comes with the MLTK</p></li>
 <li><p>Alternatively, applications may be built for Silicon Lab’s embedded targets using <a class="reference internal" href="simplicity_studio.html"><span class="doc std std-doc">Simplicity Studio</span></a></p></li>
@@ -572,7 +572,7 @@ If you’re only build for Window/Linux then you can skip this step.</p>
 <section id="clone-the-mltk-repository">
 <h3 id="clone-the-mltk-repository">1) Clone the MLTK repository<a class="headerlink" href="#clone-the-mltk-repository" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone the MLTK GIT repository</span>
-git clone https://github.com/sldriedler/mltk.git
+git clone https://github.com/siliconlabs/mltk.git
 </pre></div>
 </div>
 <p>Then navigate to the MLTK repository directory</p>
@@ -583,15 +583,15 @@ git clone https://github.com/sldriedler/mltk.git
 <section id="run-the-install-script">
 <h3 id="run-the-install-script">2) Run the install script<a class="headerlink" href="#run-the-install-script" title="Permalink to this headline">¶</a></h3>
 <div class="tabbed-set docutils">
-<input checked="checked" id="414d9513-5883-4cf3-bd63-a5e0760cf80d" name="74fc0a57-2e25-4722-a4fc-b12fa99cc513" type="radio"/>
-<label class="tabbed-label" for="414d9513-5883-4cf3-bd63-a5e0760cf80d">
+<input checked="checked" id="16551ef9-58f0-4315-aeb4-d934fdd78b94" name="15b7a074-7af7-4c33-83f8-5ba5ae9e9de9" type="radio"/>
+<label class="tabbed-label" for="16551ef9-58f0-4315-aeb4-d934fdd78b94">
 Windows</label><div class="tabbed-content docutils">
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python .<span class="se">\i</span>nstall_mltk.py
 </pre></div>
 </div>
 </div>
-<input id="223e0825-eebc-4969-9e81-0904b2525303" name="74fc0a57-2e25-4722-a4fc-b12fa99cc513" type="radio"/>
-<label class="tabbed-label" for="223e0825-eebc-4969-9e81-0904b2525303">
+<input id="3d76aedc-5714-4303-9a01-645e2bc9349d" name="15b7a074-7af7-4c33-83f8-5ba5ae9e9de9" type="radio"/>
+<label class="tabbed-label" for="3d76aedc-5714-4303-9a01-645e2bc9349d">
 Linux</label><div class="tabbed-content docutils">
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3 ./install_mltk.py
 </pre></div>
@@ -603,15 +603,15 @@ Linux</label><div class="tabbed-content docutils">
 <h3 id="activate-the-mltk-python-virtual-environment">3) Activate the MLTK Python virtual environment<a class="headerlink" href="#activate-the-mltk-python-virtual-environment" title="Permalink to this headline">¶</a></h3>
 <p>Activate the MLTK’s Python virtual environment:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="31729d55-908b-4423-9e24-b35c93dab231" name="64a5e8c6-0982-40ac-9283-904503b305ef" type="radio"/>
-<label class="tabbed-label" for="31729d55-908b-4423-9e24-b35c93dab231">
+<input checked="checked" id="07196806-f670-4cec-a5c2-37ec91df0f74" name="e540e43e-1ff2-49d1-b9e6-e7d543f15343" type="radio"/>
+<label class="tabbed-label" for="07196806-f670-4cec-a5c2-37ec91df0f74">
 Windows</label><div class="tabbed-content docutils">
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>.<span class="se">\.</span>venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate.bat
 </pre></div>
 </div>
 </div>
-<input id="3595f2c9-c973-470b-8c69-99174631c939" name="64a5e8c6-0982-40ac-9283-904503b305ef" type="radio"/>
-<label class="tabbed-label" for="3595f2c9-c973-470b-8c69-99174631c939">
+<input id="c371a7c9-3072-4077-97ca-c5f76b8a8c2e" name="e540e43e-1ff2-49d1-b9e6-e7d543f15343" type="radio"/>
+<label class="tabbed-label" for="c371a7c9-3072-4077-97ca-c5f76b8a8c2e">
 Linux</label><div class="tabbed-content docutils">
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ./.venv/bin/activate
 </pre></div>
@@ -654,7 +654,7 @@ Linux</label><div class="tabbed-content docutils">
 </section>
 <section id="build-for-windows-or-linux">
 <h2 id="build-for-windows-or-linux">Build for Windows or Linux<a class="headerlink" href="#build-for-windows-or-linux" title="Permalink to this headline">¶</a></h2>
-<p>Many of the MLTK <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//shared/apps">applications</a> support running on Windows/Linux or embedded targets.<br/>
+<p>Many of the MLTK <a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp//shared/apps">applications</a> support running on Windows/Linux or embedded targets.<br/>
 The following describes how to build for Windows/Linux.</p>
 <section id="optionally-create-file-user-options-cmake">
 <h3 id="optionally-create-file-user-options-cmake">1) Optionally create file: user_options.cmake<a class="headerlink" href="#optionally-create-file-user-options-cmake" title="Permalink to this headline">¶</a></h3>
@@ -723,7 +723,7 @@ similar to: <code class="docutils literal notranslate"><span class="pre">J-Link<
 </pre></div>
 </div>
 <p>This creates a CMake variable and tells the build system to use the <code class="docutils literal notranslate"><span class="pre">brd2601</span></code> platform.<br/>
-The supported platforms may be found at: <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//shared/platforms"><strong>mltk repo</strong>/cpp/shared/platforms</a></p>
+The supported platforms may be found at: <a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp//shared/platforms"><strong>mltk repo</strong>/cpp/shared/platforms</a></p>
 <p><strong>NOTE:</strong> If this variable is not defined, then the host operating system (e.g. <code class="docutils literal notranslate"><span class="pre">windows</span></code> or <code class="docutils literal notranslate"><span class="pre">linux</span></code>) is automatically selected.</p>
 <p>Refer to the <a class="reference internal" href="build_options.html"><span class="doc std std-doc">Build Options</span></a> for more details on the available settings.</p>
 </section>
@@ -845,7 +845,7 @@ and also a serial terminal to view the logs generated by the development board.<
               
           </div>
             Last updated on
-              Apr 25, 2022.
+              Apr 26, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

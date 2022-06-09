@@ -10,7 +10,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="title" content="Machine Learning Toolkit">
 <meta name="description" content="A Python package with command-line utilities and scripts to aid the development of machine learning models for Silicon Lab's embedded platforms">
-<meta name="keywords" content="machine learning, ml, ai, iot, Internet of things, aiot, tinyml, tensorflow, tensorflow-lite, tflite, embedded, mcu, Microcontrollers, hardware, python, c++, cmake, keras, numpy, silabs, silicon labs">
+<meta name="keywords" content="machine learning, machine-learning, machinelearning, ml, ai, iot, Internet of things, aiot, tinyml, tensorflow, tensorflow-lite, tensorflow-lite-micro, keras-tensorflow, keras, tflite, embedded, embedded-systems, mcu, Microcontrollers, hardware, python, c++, cmake, keras, numpy, silabs, silicon labs">
 <meta name="robots" content="index, follow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="language" content="English">
@@ -51,9 +51,9 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="../../_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-965PJZXVMY"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5MW943WF"></script>
 <script>
-    window.gTrackingId = 'G-965PJZXVMY';
+    window.gTrackingId = 'G-HZ5MW943WF';
 </script>
   
   
@@ -155,7 +155,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -210,7 +210,7 @@
        title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -525,8 +525,8 @@
             
   <section class="tex2jax_ignore mathjax_ignore" id="keyword-spotting-with-transfer-learning">
 <h1 id="mltk-tutorials-keyword-spotting-with-transfer-learning--page-root">Keyword Spotting with Transfer Learning<a class="headerlink" href="#mltk-tutorials-keyword-spotting-with-transfer-learning--page-root" title="Permalink to this headline">¶</a></h1>
-<p>This tutorial describes how to use the weights from the pre-trained trained model <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a>,
-as a starting point for training a new model, <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py">keyword_spotting_with_transfer_learning.py</a>, to detect the keywords:</p>
+<p>This tutorial describes how to use the weights from the pre-trained trained model <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a>,
+as a starting point for training a new model, <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py">keyword_spotting_with_transfer_learning.py</a>, to detect the keywords:</p>
 <ul class="simple">
 <li><p><strong>one</strong></p></li>
 <li><p><strong>two</strong></p></li>
@@ -557,7 +557,7 @@ the Keras API to enable transfer learning.</p>
 <li><p><a class="reference internal" href="../../docs/overview.html"><span class="doc std std-doc">MLTK Overview</span></a> - An overview of the core concepts used by the MLTK</p></li>
 <li><p><a class="reference internal" href="../../docs/audio/keyword_spotting_overview.html"><span class="doc std std-doc">Keyword Spotting Overview</span></a> - An overview of how keyword spotting works</p></li>
 <li><p><a class="reference internal" href="keyword_spotting_on_off.html"><span class="doc std std-doc">Keyword Spotting Tutorial</span></a> - Detailed tutorial describing how to create a Keyword Spotting model using the MLTK</p></li>
-<li><p><a class="reference internal" href="model_optimization.html"><span class="doc std std-doc">Model Optimization Tutorial</span></a> - Describes how to develop the <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a> model used by this tutorial</p></li>
+<li><p><a class="reference internal" href="model_optimization.html"><span class="doc std std-doc">Model Optimization Tutorial</span></a> - Describes how to develop the <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a> model used by this tutorial</p></li>
 </ul>
 </section>
 <section id="basic-concept">
@@ -583,7 +583,7 @@ It just needs to learn how to map the abstract, compressed representation of the
 </section>
 <section id="base-model-overview">
 <h2 id="base-model-overview">Base Model Overview<a class="headerlink" href="#base-model-overview" title="Permalink to this headline">¶</a></h2>
-<p>The pre-trained, base model, whose weights are transferred to the new model, may be found on Github: <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a>.</p>
+<p>The pre-trained, base model, whose weights are transferred to the new model, may be found on Github: <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a>.</p>
 <p>This model is built using <a class="reference external" href="https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html">MobileNetv2</a>, an industry-standard classification model developed by Google.
 MobileNetV2 is a useful model because it is generic enough that it can be applied to most classification tasks but still runs efficiently on embedded devices.</p>
 <p>This model is designed to detect the following keywords:</p>
@@ -627,8 +627,8 @@ MobileNetV2 is a useful model because it is generic enough that it can be applie
 </section>
 <section id="configure-model-specification-with-transfer-learning">
 <h2 id="configure-model-specification-with-transfer-learning">Configure Model Specification with Transfer Learning<a class="headerlink" href="#configure-model-specification-with-transfer-learning" title="Permalink to this headline">¶</a></h2>
-<p>The completed model specification used by this tutorial may be found on Github: <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py">keyword_spotting_with_transfer_learning.py</a></p>
-<p>This model specification is very similar to the base model specification, <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a>, with the following key differences:</p>
+<p>The completed model specification used by this tutorial may be found on Github: <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py">keyword_spotting_with_transfer_learning.py</a></p>
+<p>This model specification is very similar to the base model specification, <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a>, with the following key differences:</p>
 <section id="update-description">
 <h3 id="update-description">Update description<a class="headerlink" href="#update-description" title="Permalink to this headline">¶</a></h3>
 <p>Update the model’s description to help keep track of it in the field.</p>
@@ -847,7 +847,7 @@ Since we’re only training for 10 epochs, this should complete relatively quick
               
           </div>
             Last updated on
-              Apr 25, 2022.
+              Apr 26, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

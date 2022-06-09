@@ -6,17 +6,17 @@ recorded from a microphone. The detection is visualized using the LED's on the
 board and the classification results are written to the VCOM serialport.
 
 See the online documentation for how to build and run this application:  
-[https://sldriedler.github.io/mltk/docs/cpp_development/index.html](https://sldriedler.github.io/mltk/docs/cpp_development/index.html)
+[https://siliconlabs.github.io/mltk/docs/cpp_development/index.html](https://siliconlabs.github.io/mltk/docs/cpp_development/index.html)
 
-If using [Visual Studio Code](https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html) 
-or the [Command Line](https://sldriedler.github.io/mltk/docs/cpp_development/command_line.html) select the `mltk_audio_classifier` CMake target.  
-If using [Simplicity Studio](https://sldriedler.github.io/mltk/docs/cpp_development/simplicity_studio.html) select the `MLTK - Audio Classifier` Project.
+If using [Visual Studio Code](https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html) 
+or the [Command Line](https://siliconlabs.github.io/mltk/docs/cpp_development/command_line.html) select the `mltk_audio_classifier` CMake target.  
+If using [Simplicity Studio](https://siliconlabs.github.io/mltk/docs/cpp_development/simplicity_studio.html) select the `MLTK - Audio Classifier` Project.
 
 
-__NOTE:__ This application is able to be built for Windows/Linux _or_ an embedded target.
+__NOTE:__ This application is able to be built for Windows/Linux _or_ a supported embedded target.
 
 __NOTE:__ This application is designed to be used with the MLTK command:
-[mltk classify_audio](https://sldriedler.github.io/mltk/docs/audio/audio_utilities.html#audio-classification-utility)
+[mltk classify_audio](https://siliconlabs.github.io/mltk/docs/audio/audio_utilities.html#audio-classification-utility)
 
 
 ## Behavior
@@ -51,14 +51,14 @@ results. This behavior can be disabled in the application configuration file.
 The default model used in this application is called `keyword_spotting_on_off.tflite`
 and is able to classify audio into 4 different classes labeled "on", "off",
 "_unknown_", "_silence_". The source for the model can be found here: 
-[https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py)
+[https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py)
 
 
 ### Updating the model
 
 The application is designed to work with an audio classification model created
 using the Silicon Labs Machine Learning Toolkit
-([MLTK](https://sldriedler.github.io/mltk/mltk/tutorials/keyword_spotting_on_off.html)). 
+([MLTK](https://siliconlabs.github.io/mltk/mltk/tutorials/keyword_spotting_on_off.html)). 
 Use the MLTK to train a new audio classifier model and replace the model inside this example with the new audio
 classification model. 
 
@@ -78,7 +78,7 @@ Refer to the online [documentation](https://docs.silabs.com/gecko-platform/lates
 
 #### via `classify_audio` Command
 
-Alternatively, using the [mltk classify_audio <model path> --app none --device](https://sldriedler.github.io/mltk/docs/audio/audio_utilities.html#audio-classification-utility)
+Alternatively, using the [mltk classify_audio <model path> --app none --device](https://siliconlabs.github.io/mltk/docs/audio/audio_utilities.html#audio-classification-utility)
 command program the `.tflite` model to the end of the device's flash.
 On startup, the application will detect the new model and use that instead
 of the model built into the firmware.
@@ -89,8 +89,8 @@ and only program the model file.
 
 #### via CMake
 
-The model can also be updated when building this application from [Visual Studio Code](https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html)
-or the CMake [Command Line](https://sldriedler.github.io/mltk/docs/command_line.html).
+The model can also be updated when building this application from [Visual Studio Code](https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html)
+or the CMake [Command Line](https://siliconlabs.github.io/mltk/docs/command_line.html).
 
 To update the model, create/modify the file: `<mltk repo root>/user_options.cmake`
 and add:
@@ -128,7 +128,7 @@ It has been modified as follows:
 In order for the audio classification to work correctly we need to use the same
 audio feature generator configuration parameters for inference as is used when
 training the model. When using the MLTK to train an audio classification model
-the model [parameters](https://sldriedler.github.io/mltk/docs/guides/model_parameters.html#audiodatasetmixin) 
+the model [parameters](https://siliconlabs.github.io/mltk/docs/guides/model_parameters.html#audiodatasetmixin) 
 will be embedded in the metadata section of the `.tflite`
 file. The model parameters are extracted from the `.tflite` at runtime.
 
@@ -136,10 +136,10 @@ file. The model parameters are extracted from the `.tflite` at runtime.
 ## References
 
 The example is based on TensorFlow's example called **[micro speech](https://github.com/tensorflow/tflite-micro/tree/main/tensorflow/lite/micro/examples/micro_speech)**
-and audio is processed using the **[audio feature generator](https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html)**.
+and audio is processed using the **[audio feature generator](https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html)**.
 
-- [MLTK Documentation](https://sldriedler.github.io/mltk)
-- [Audio Feature Generator](https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html)
-- [Audio Utilities](https://sldriedler.github.io/mltk/docs/audio/audio_utilities.html)
+- [MLTK Documentation](https://siliconlabs.github.io/mltk)
+- [Audio Feature Generator](https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html)
+- [Audio Utilities](https://siliconlabs.github.io/mltk/docs/audio/audio_utilities.html)
 - [Gecko SDK Machine Learning Documentation](https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/getting-started)
 - [TensorFlow Lite Micro](https://www.tensorflow.org/lite/microcontrollers)

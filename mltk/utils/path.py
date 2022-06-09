@@ -181,13 +181,12 @@ def remove_directory(path:str):
         return
 
     retries = 5
-    while retries > 0:
-        if not os.path.exists(path):
-            break
+    while retries > 0 and os.path.exists(path):
         try:
-            shutil.rmtree(path)
-            retries = 0
+            shutil.rmtree(path, ignore_errors=True)
         except:
+            pass
+        finally:
             time.sleep(.001)
             retries -= 1
 
@@ -270,7 +269,7 @@ def recursive_listdir(
             This can either be a string, re.Pattern, or a callback function
             If return_relative_paths=False then the tested path is the absolute path with forward slashes
             If return_relative_paths=True then the tested path is the path relative to the base_dir with forward slashes
-            If a callback function is given, if the function returns True then the path is INCLUDE, else it is excluded
+            If a callback function is given, if the function returns True then the path is INCLUDED, else it is excluded
         return_relative_paths: If true then return paths relative to the base_dir, else return absolute paths
 
     Returns:
@@ -282,9 +281,9 @@ def recursive_listdir(
     if regex is not None:
         if isinstance(regex, str):
             regex = re.compile(regex)
-            regex_func = lambda p: regex.match(p)
+            regex_func = regex.match
         elif isinstance(regex, re.Pattern):
-            regex_func = lambda p: regex.match(p)
+            regex_func = regex.match
         else:
             regex_func = regex
     else:

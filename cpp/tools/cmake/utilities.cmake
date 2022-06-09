@@ -320,6 +320,31 @@ function(mltk_git_hash directory git_hash)
 endfunction()
 
 ####################################################################
+# mltk_git_version
+#
+# Populate the git_version variable with the shorthand
+# git hash and date of the given directory.
+#
+# This runs the following command:
+# git show -s --date=short --pretty='%h (%ad)'
+#
+# which has an output similar to:
+# 3a3e27f9 (2022-06-06)
+#
+# directory - Directory to retrieve git hash from
+# git_version - Variable to populate with git hash & version
+function(mltk_git_version directory git_version)
+  set(_cmd_arg "--pretty=%h (%ad)")
+  execute_process(
+    COMMAND git show -s --date=short ${_cmd_arg}
+    WORKING_DIRECTORY ${directory}
+    OUTPUT_VARIABLE _hash
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+  set(${git_version} ${_hash} PARENT_SCOPE)
+endfunction()
+
+####################################################################
 # mltk_update_module_path
 #
 # Update the CMAKE_MODULE_PATH to enable finding packages 
@@ -562,6 +587,7 @@ mltk_set(MLTK_PLATFORM_NAME brd2601)\n \
     if(MLTK_PLATFORM_IS_EMBEDDED AND NOT ${CMAKE_SYSTEM_PROCESSOR} MATCHES "arm")
       mltk_error("MLTK_PLATFORM_NAME=${MLTK_PLATFORM_NAME} but NOT using ARM toolchain, you probably need to switch toolchains or comment out MLTK_PLATFORM_NAME in user_options.cmake. You likely need to clean your build directory as well")
     endif()
+    set(MLTK_PREVIOUS_PLATFORM_NAME ${MLTK_PLATFORM_NAME} CACHE STRING "Name of last built platform")
     
     # Load any platform-specific settings
     if(COMMAND mltk_platform_load_options)
@@ -698,8 +724,15 @@ macro(mltk_load_python)
 
     find_package(Python3 REQUIRED)
 
+    mltk_debug("Python executable: ${Python3_EXECUTABLE}")
+    mltk_get(MLTK_ALLOW_EXTERNAL_PYTHON_EXECUTABLE)
+    if(NOT MLTK_ALLOW_EXTERNAL_PYTHON_EXECUTABLE AND NOT "${Python3_EXECUTABLE}" MATCHES "^${VENV_DIR}/.*")
+      get_filename_component(mltk_root_dir "${MLTK_DIR}/.." ABSOLUTE)
+      mltk_error("\n\nFailed to find the Python executable in ${VENV_DIR}\nBe sure to first run:\npython ${mltk_root_dir}/install_mltk.py\nOr set the CMake variable: MLTK_ALLOW_EXTERNAL_PYTHON_EXECUTABLE=ON  (not recommended)\n\n")
+    endif()
+
     set(PYTHON_EXECUTABLE ${Python3_EXECUTABLE} CACHE INTERNAL "Python executable path")
-    mltk_debug("Python executable: ${PYTHON_EXECUTABLE}")
+    
   endif()
 endmacro()
 
@@ -929,9 +962,14 @@ macro(mltk_add_tflite_model target tflite_path)
   if(NOT EXISTS ${_generated_model_output_path})
       file(WRITE ${_generated_model_output_path})
   endif()
+
+  mltk_get(TFLITE_MICRO_ACCELERATOR)
+  if(TFLITE_MICRO_ACCELERATOR)
+    set(_accelerator_arg --accelerator ${TFLITE_MICRO_ACCELERATOR})
+  endif()
   
   add_custom_target(${target}_generate_model
-      COMMAND ${PYTHON_EXECUTABLE} ${MLTK_CPP_UTILS_DIR}/generate_model_header.py "${tflite_path}" --name "sl_tflite_model_array" --length_name "sl_tflite_model_len" --output "${_generated_model_output_path}"
+      COMMAND ${PYTHON_EXECUTABLE} ${MLTK_CPP_UTILS_DIR}/generate_model_header.py "${tflite_path}" --name "sl_tflite_model_array" --length_name "sl_tflite_model_len" --output "${_generated_model_output_path}" ${_accelerator_arg}
       COMMENT "Generating ${target}_generated_model.tflite.c from ${tflite_path}"
       BYPRODUCTS ${_generated_model_output_path}
   )

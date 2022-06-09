@@ -50,13 +50,13 @@ Install the pre-build Python package:
 
    .. code-block:: shell
 
-      pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk
+      pip  install silabs-mltk
 
 .. tabbed:: Linux
 
    .. code-block:: shell
 
-      pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk
+      pip3 install silabs-mltk
 
 ```
 

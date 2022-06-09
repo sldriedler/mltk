@@ -90,7 +90,7 @@
 
     "- Refer to the [Notebook Examples Guide](../../docs/guides/notebook_examples_guide.md) for more details\n",
 
-    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/keyword_spotting_on_off.ipynb) to run this tutorial interactively in your browser\n",
+    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/keyword_spotting_on_off.ipynb) to run this tutorial interactively in your browser\n",
 
     "\n",
 
@@ -150,7 +150,7 @@
 
    "source": [
 
-    "!pip install --extra-index-url https://test.pypi.org/simple/ --upgrade silabs-mltk"
+    "!pip install --upgrade silabs-mltk"
 
    ]
 
@@ -520,7 +520,7 @@
 
     "\n",
 
-    "The completed model specification used for this tutorial may be found on Github: [keyword_spotting_on_off.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py).  \n",
+    "The completed model specification used for this tutorial may be found on Github: [keyword_spotting_on_off.py](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py).  \n",
 
     "\n",
 
@@ -1118,7 +1118,7 @@
 
     "#       or a Python function\n",
 
-    "# See: https://sldriedler.github.io/mltk/docs/python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin.dataset\n",
+    "# See: https://siliconlabs.github.io/mltk/docs/python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin.dataset\n",
 
     "my_model.dataset = speech_commands_v2\n",
 
@@ -1410,7 +1410,7 @@
 
     "Please note that many times you do not need to define you own model. Instead, you can use a pre-defined model\n",
 
-    "such as [MobileNetV1](../../docs/python_api/models/common_models.html#mobilenet-v1) or [ResNetv1-10](../../docs/python_api/models/common_models.html#resnetv1-10). The MLTK provides some common models as Python packages in the [Shared Models](../../docs/python_api/models/common_models.md) section with example usage such as [image_classification.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/tinyml/image_classification.py).\n",
+    "such as [MobileNetV1](../../docs/python_api/models/common_models.html#mobilenet-v1) or [ResNetv1-10](../../docs/python_api/models/common_models.html#resnetv1-10). The MLTK provides some common models as Python packages in the [Shared Models](../../docs/python_api/models/common_models.md) section with example usage such as [image_classification.py](https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/image_classification.py).\n",
 
     "\n",
 

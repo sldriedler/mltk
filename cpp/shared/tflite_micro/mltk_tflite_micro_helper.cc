@@ -11,7 +11,12 @@ namespace mltk
 static Logger *mltk_logger =  nullptr;
 bool model_profiler_enabled = false;
 bool model_recorder_enabled = false;
-const TfliteMicroAccelerator* _accelerator = nullptr;
+
+#ifdef TFLITE_MICRO_VERSION_STR
+const char* TFLITE_MICRO_VERSION = TFLITE_MICRO_VERSION_STR;
+#else 
+const char* TFLITE_MICRO_VERSION = nullptr;
+#endif
 
 
 /*************************************************************************************************/
@@ -73,28 +78,33 @@ bool set_log_level(LogLevel level)
 
 /*************************************************************************************************/
 #ifndef MLTK_DLL_IMPORT 
-void mltk_tflite_micro_set_accelerator(const TfliteMicroAccelerator* accelerator)
+static const TfliteMicroAccelerator* _registered_accelerator = nullptr;
+extern "C" void mltk_tflite_micro_set_accelerator(const TfliteMicroAccelerator* accelerator)
 {
-    _accelerator = accelerator;
+    _registered_accelerator = accelerator;
+}
+#endif
+
+/*************************************************************************************************/
+#ifndef MLTK_DLL_IMPORT 
+extern "C" const TfliteMicroAccelerator* mltk_tflite_micro_get_registered_accelerator()
+{
+    return _registered_accelerator;
 }
 #endif
 
 
 #ifndef TFLITE_MICRO_ACCELERATOR
 /*************************************************************************************************/
-void mltk_tflite_micro_register_accelerator()
+extern "C" void mltk_tflite_micro_register_accelerator()
 {
     // This is just a placeholder if no accelerator is built into the binary / shared library
     // (i.e. each accelerator also defines this API and internally calls mltk_tflite_micro_set_accelerator())
-    _accelerator = nullptr;
+    mltk_tflite_micro_set_accelerator(nullptr);
 }
 #endif
 
-/*************************************************************************************************/
-const TfliteMicroAccelerator* mltk_tflite_micro_get_registered_accelerator()
-{
-    return _accelerator;
-}
+
 
 /*************************************************************************************************/
 const void* get_metadata_from_tflite_flatbuffer(const void* tflite_flatbuffer, const char* tag, uint32_t* length)
@@ -161,17 +171,21 @@ const void* get_metadata_from_tflite_flatbuffer(const void* tflite_flatbuffer, c
 /*************************************************************************************************/
 int TfliteMicroErrorReporter::Report(const char* format, va_list args)
 {
-    auto& logger = get_logger();
-    const auto orig_flags = logger.flags();
-    logger.flags().clear(logging::Newline);
-    logger.vwrite(logging::Error, format, args);
-    logger.write(logging::Error, "\n");
-    logger.flags(orig_flags);
+    if(enabled)
+    {
+        auto& logger = get_logger();
+        const auto orig_flags = logger.flags();
+        logger.flags().clear(logging::Newline);
+        logger.vwrite(logging::Error, format, args);
+        logger.write(logging::Error, "\n");
+        logger.flags(orig_flags);
+    }
+
     return 0;
 }
 
 /*************************************************************************************************/
-bool get_tflite_flatbuffer_from_end_of_flash(const uint8_t** flatbuffer, uint32_t* length)
+bool get_tflite_flatbuffer_from_end_of_flash(const uint8_t** flatbuffer, uint32_t* length, const uint32_t* flash_end_addr)
 {
     *flatbuffer = nullptr;
     if(length != nullptr)
@@ -180,7 +194,7 @@ bool get_tflite_flatbuffer_from_end_of_flash(const uint8_t** flatbuffer, uint32_
     }
 
 #ifdef __arm__
-    const uint32_t *flash_end_addr = (const uint32_t*)(FLASH_BASE + FLASH_SIZE);
+    flash_end_addr = (flash_end_addr==nullptr) ? (const uint32_t*)(FLASH_BASE + FLASH_SIZE) : flash_end_addr;
 
     const uint32_t tflite_length = *(flash_end_addr-1);
     if(tflite_length == 0 || tflite_length > 1024*1024)
@@ -189,8 +203,7 @@ bool get_tflite_flatbuffer_from_end_of_flash(const uint8_t** flatbuffer, uint32_
     }
 
     const uint8_t* tflite_flatbuffer = (const uint8_t*)flash_end_addr - sizeof(uint32_t) - tflite_length;
-    flatbuffers::Verifier verifier(tflite_flatbuffer, tflite_length);
-    if(tflite::VerifyModelBuffer(verifier))
+    if(verify_model_flatbuffer(tflite_flatbuffer, tflite_length))
     {
         *flatbuffer = tflite_flatbuffer;
         if(length != nullptr)
@@ -205,6 +218,12 @@ bool get_tflite_flatbuffer_from_end_of_flash(const uint8_t** flatbuffer, uint32_
     return false;
 }
 
+/*************************************************************************************************/
+bool verify_model_flatbuffer(const void* flatbuffer, int flatbuffer_length)
+{
+    flatbuffers::Verifier verifier((const uint8_t*)flatbuffer, flatbuffer_length);
+    return tflite::VerifyModelBuffer(verifier);
+}
 
 
 

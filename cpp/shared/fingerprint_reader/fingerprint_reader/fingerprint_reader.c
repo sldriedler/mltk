@@ -109,6 +109,8 @@ sl_status_t fingerprint_reader_init(const fingerprint_reader_config_t* config)
     );
     GPIOINT_Init();
     GPIOINT_CallbackRegister(FINGERPRINT_READER_ACTIVITY_PIN, on_finger_detected_irq_handler);
+    
+    reader_context.initialized = true;
    
     return SL_STATUS_OK;
 }

@@ -208,7 +208,7 @@ class ImageDatasetMixin(DataGeneratorDatasetMixin):
         # First download the dataset if necessary
         if self.dataset is None:
             raise Exception('Must specify dataset, e.g.: mltk_model.dataset = tf.keras.datasets.cifar10')
-        dataset_data = _load_dataset(self.dataset)
+        dataset_data = load_dataset(self.dataset)
 
         if not classes:
             if not self.classes or not isinstance(self.classes, (list,tuple)):
@@ -466,7 +466,7 @@ class ImageDatasetMixin(DataGeneratorDatasetMixin):
             self.set_model_parameter('samplewise_norm.mean_and_std', self.datagen.samplewise_center and self.datagen.samplewise_std_normalization)
     
 
-def _load_dataset(dataset) -> Union[str,tuple]:
+def load_dataset(dataset) -> Union[str,tuple]:
     if isinstance(dataset,str):
         return dataset 
 

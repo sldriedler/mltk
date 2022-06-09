@@ -10,7 +10,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="title" content="Machine Learning Toolkit">
 <meta name="description" content="A Python package with command-line utilities and scripts to aid the development of machine learning models for Silicon Lab's embedded platforms">
-<meta name="keywords" content="machine learning, ml, ai, iot, Internet of things, aiot, tinyml, tensorflow, tensorflow-lite, tflite, embedded, mcu, Microcontrollers, hardware, python, c++, cmake, keras, numpy, silabs, silicon labs">
+<meta name="keywords" content="machine learning, machine-learning, machinelearning, ml, ai, iot, Internet of things, aiot, tinyml, tensorflow, tensorflow-lite, tensorflow-lite-micro, keras-tensorflow, keras, tflite, embedded, embedded-systems, mcu, Microcontrollers, hardware, python, c++, cmake, keras, numpy, silabs, silicon labs">
 <meta name="robots" content="index, follow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="language" content="English">
@@ -51,9 +51,9 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="../../../_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-965PJZXVMY"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5MW943WF"></script>
 <script>
-    window.gTrackingId = 'G-965PJZXVMY';
+    window.gTrackingId = 'G-HZ5MW943WF';
 </script>
   
   
@@ -155,7 +155,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -211,7 +211,7 @@
        title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -469,22 +469,22 @@
   <section class="tex2jax_ignore mathjax_ignore" id="model-profiler">
 <h1 id="docs-cpp-development-examples-model-profiler--page-root">Model Profiler<a class="headerlink" href="#docs-cpp-development-examples-model-profiler--page-root" title="Permalink to this headline">¶</a></h1>
 <p>The model profiler application allows for running <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model files in the Tensorflow-Lite Micro interpreter with optional hardware acceleration.
-The model profiler application can run in the simulator or on a supported embedded platform.</p>
+The model profiler application can run on Windows/Linux via simulator <em>or</em> on a supported embedded platform.</p>
 <p>If a hardware simulator is used, then only accelerator cycles are profiled.<br/>
 If an embedded platform is used, then accelerator cycles and CPU cycles are profiled.</p>
-<p><strong>NOTE:</strong> This application is able to be built for Windows/Linux <em>or</em> an embedded target.</p>
+<p><strong>NOTE:</strong> This application is able to be built for Windows/Linux <em>or</em> a supported embedded target.</p>
 <p><strong>NOTE:</strong> Rather than build this C++ application, you may also profile models using:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://sldriedler.github.io/mltk/docs/guides/model_profiler.html">Command Line</a> - Profile a .tflite model using the <code class="docutils literal notranslate"><span class="pre">mltk</span> <span class="pre">profile</span></code> command line</p></li>
-<li><p><a class="reference external" href="https://sldriedler.github.io/mltk/docs/guides/model_profiler_utility.html">Model Profiler Utility</a> - Profile a .tflite using a standalone utility with a webpage interface</p></li>
+<li><p><a class="reference external" href="https://siliconlabs.github.io/mltk/docs/guides/model_profiler.html">Command Line</a> - Profile a .tflite model using the <code class="docutils literal notranslate"><span class="pre">mltk</span> <span class="pre">profile</span></code> command line</p></li>
+<li><p><a class="reference external" href="https://siliconlabs.github.io/mltk/docs/guides/model_profiler_utility.html">Model Profiler Utility</a> - Profile a .tflite using a standalone utility with a webpage interface</p></li>
 </ul>
 <section id="build-run-debug">
 <h2 id="build-run-debug">Build, Run, Debug<a class="headerlink" href="#build-run-debug" title="Permalink to this headline">¶</a></h2>
 <p>See the online documentation for how to build and run this application:<br/>
-<a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/index.html">https://sldriedler.github.io/mltk/docs/cpp_development/index.html</a></p>
-<p>If using <a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html">Visual Studio Code</a>
-or the <a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/command_line.html">Command Line</a> select the <code class="docutils literal notranslate"><span class="pre">mltk_model_profiler</span></code> CMake target.<br/>
-If using <a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/simplicity_studio.html">Simplicity Studio</a> select the <code class="docutils literal notranslate"><span class="pre">MLTK</span> <span class="pre">-</span> <span class="pre">Model</span> <span class="pre">Profiler</span></code> Project.</p>
+<a class="reference external" href="https://siliconlabs.github.io/mltk/docs/cpp_development/index.html">https://siliconlabs.github.io/mltk/docs/cpp_development/index.html</a></p>
+<p>If using <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html">Visual Studio Code</a>
+or the <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/cpp_development/command_line.html">Command Line</a> select the <code class="docutils literal notranslate"><span class="pre">mltk_model_profiler</span></code> CMake target.<br/>
+If using <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/cpp_development/simplicity_studio.html">Simplicity Studio</a> select the <code class="docutils literal notranslate"><span class="pre">MLTK</span> <span class="pre">-</span> <span class="pre">Model</span> <span class="pre">Profiler</span></code> Project.</p>
 </section>
 <section id="updating-the-model">
 <h2 id="updating-the-model">Updating the model<a class="headerlink" href="#updating-the-model" title="Permalink to this headline">¶</a></h2>
@@ -504,8 +504,8 @@ to convert a .tflite file into a c file which is added to the project.</p>
 </section>
 <section id="via-cmake">
 <h3 id="via-cmake">via CMake<a class="headerlink" href="#via-cmake" title="Permalink to this headline">¶</a></h3>
-<p>The model can also be updated when building this application from <a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html">Visual Studio Code</a>
-or the CMake <a class="reference external" href="https://sldriedler.github.io/mltk/docs/command_line.html">Command Line</a>.</p>
+<p>The model can also be updated when building this application from <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html">Visual Studio Code</a>
+or the CMake <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/command_line.html">Command Line</a>.</p>
 <p>To update the model, create/modify the file: <code class="docutils literal notranslate"><span class="pre">&lt;mltk</span> <span class="pre">repo</span> <span class="pre">root&gt;/user_options.cmake</span></code>
 and add:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mltk_set</span><span class="p">(</span><span class="n">MODEL_PROFILER_MODEL</span> <span class="o">&lt;</span><span class="n">model</span> <span class="n">name</span> <span class="ow">or</span> <span class="n">path</span><span class="o">&gt;</span><span class="p">)</span>
@@ -533,8 +533,8 @@ at the end of flash is used instead of the default model.</p>
 </section>
 <section id="build-settings">
 <h2 id="build-settings">Build Settings<a class="headerlink" href="#build-settings" title="Permalink to this headline">¶</a></h2>
-<p>When building this application using <a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html">Visual Studio Code</a>
-or the <a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/command_line.html">Command Line</a> several options may be configured
+<p>When building this application using <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html">Visual Studio Code</a>
+or the <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/cpp_development/command_line.html">Command Line</a> several options may be configured
 to control how the app is built.</p>
 <p>To specify the settings, create/modify the file:<br/>
 <code class="docutils literal notranslate"><span class="pre">&lt;mltk</span> <span class="pre">repo</span> <span class="pre">root&gt;/user_options.cmake</span></code></p>
@@ -554,7 +554,7 @@ mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL ~/my_models/my_model.mltk.z
 
 <span class="c1"># Specify the MLTK model name</span>
 <span class="c1"># NOTE: The model specification must be on the model search path, see:</span>
-<span class="c1">#       https://sldriedler.github.io/mltk/docs/guides/model_search_path.html</span>
+<span class="c1">#       https://siliconlabs.github.io/mltk/docs/guides/model_search_path.html</span>
 mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL image_example1<span class="o">)</span>
 </pre></div>
 </div>
@@ -640,7 +640,7 @@ and the model executes entirely from RAM.</p>
               
           </div>
             Last updated on
-              Apr 25, 2022.
+              Apr 26, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

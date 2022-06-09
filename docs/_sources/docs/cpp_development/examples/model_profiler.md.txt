@@ -1,29 +1,29 @@
 # Model Profiler
 
 The model profiler application allows for running `.tflite` model files in the Tensorflow-Lite Micro interpreter with optional hardware acceleration.
-The model profiler application can run in the simulator or on a supported embedded platform.
+The model profiler application can run on Windows/Linux via simulator _or_ on a supported embedded platform.
 
 If a hardware simulator is used, then only accelerator cycles are profiled.  
 If an embedded platform is used, then accelerator cycles and CPU cycles are profiled.
 
 
-__NOTE:__ This application is able to be built for Windows/Linux _or_ an embedded target.
+__NOTE:__ This application is able to be built for Windows/Linux _or_ a supported embedded target.
 
 
 __NOTE:__ Rather than build this C++ application, you may also profile models using:  
-- [Command Line](https://sldriedler.github.io/mltk/docs/guides/model_profiler.html) - Profile a .tflite model using the `mltk profile` command line
-- [Model Profiler Utility](https://sldriedler.github.io/mltk/docs/guides/model_profiler_utility.html) - Profile a .tflite using a standalone utility with a webpage interface
+- [Command Line](https://siliconlabs.github.io/mltk/docs/guides/model_profiler.html) - Profile a .tflite model using the `mltk profile` command line
+- [Model Profiler Utility](https://siliconlabs.github.io/mltk/docs/guides/model_profiler_utility.html) - Profile a .tflite using a standalone utility with a webpage interface
 
 
 ## Build, Run, Debug
 
 See the online documentation for how to build and run this application:  
-[https://sldriedler.github.io/mltk/docs/cpp_development/index.html](https://sldriedler.github.io/mltk/docs/cpp_development/index.html)
+[https://siliconlabs.github.io/mltk/docs/cpp_development/index.html](https://siliconlabs.github.io/mltk/docs/cpp_development/index.html)
 
 
-If using [Visual Studio Code](https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html) 
-or the [Command Line](https://sldriedler.github.io/mltk/docs/cpp_development/command_line.html) select the `mltk_model_profiler` CMake target.  
-If using [Simplicity Studio](https://sldriedler.github.io/mltk/docs/cpp_development/simplicity_studio.html) select the `MLTK - Model Profiler` Project.
+If using [Visual Studio Code](https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html) 
+or the [Command Line](https://siliconlabs.github.io/mltk/docs/cpp_development/command_line.html) select the `mltk_model_profiler` CMake target.  
+If using [Simplicity Studio](https://siliconlabs.github.io/mltk/docs/cpp_development/simplicity_studio.html) select the `MLTK - Model Profiler` Project.
 
 
 ## Updating the model
@@ -48,8 +48,8 @@ Refer to the online [documentation](https://docs.silabs.com/gecko-platform/lates
 
 ### via CMake
 
-The model can also be updated when building this application from [Visual Studio Code](https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html)
-or the CMake [Command Line](https://sldriedler.github.io/mltk/docs/command_line.html).
+The model can also be updated when building this application from [Visual Studio Code](https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html)
+or the CMake [Command Line](https://siliconlabs.github.io/mltk/docs/command_line.html).
 
 To update the model, create/modify the file: `<mltk repo root>/user_options.cmake`
 and add:
@@ -88,8 +88,8 @@ mltk update_params --help
 
 ## Build Settings
 
-When building this application using [Visual Studio Code](https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html) 
-or the [Command Line](https://sldriedler.github.io/mltk/docs/cpp_development/command_line.html) several options may be configured 
+When building this application using [Visual Studio Code](https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html) 
+or the [Command Line](https://siliconlabs.github.io/mltk/docs/cpp_development/command_line.html) several options may be configured 
 to control how the app is built.
 
 To specify the settings, create/modify the file:  
@@ -118,7 +118,7 @@ mltk_set(MODEL_PROFILER_MODEL ~/my_models/my_model.mltk.zip)
 
 # Specify the MLTK model name
 # NOTE: The model specification must be on the model search path, see:
-#       https://sldriedler.github.io/mltk/docs/guides/model_search_path.html
+#       https://siliconlabs.github.io/mltk/docs/guides/model_search_path.html
 mltk_set(MODEL_PROFILER_MODEL image_example1)
 ```
 

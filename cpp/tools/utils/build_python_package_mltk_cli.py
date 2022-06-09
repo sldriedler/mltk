@@ -218,6 +218,7 @@ Release for all supported Python versions.
 
 
     if release_test:
+        test_pypi_token = get_user_setting('test_pypi_token')
         if test_pypi_token is None:
             cli.abort(
                 msg='When using the --release-test option, the file ~/.mltk/user_settings.yaml must have the line: "test_pypi_token: <token>"'
@@ -226,6 +227,7 @@ Release for all supported Python versions.
         _check_pip_version(python_venv_exe, python_version, use_test_pypi=True, logger=logger)
     
     if release_public:
+        pypi_token = get_user_setting('pypi_token')
         if pypi_token is None:
             cli.abort(
                 msg='When using the --release-public option, the file ~/.mltk/user_settings.yaml must have the line: "pypi_token: <token>"'

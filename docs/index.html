@@ -10,7 +10,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="title" content="Machine Learning Toolkit">
 <meta name="description" content="A Python package with command-line utilities and scripts to aid the development of machine learning models for Silicon Lab's embedded platforms">
-<meta name="keywords" content="machine learning, ml, ai, iot, Internet of things, aiot, tinyml, tensorflow, tensorflow-lite, tflite, embedded, mcu, Microcontrollers, hardware, python, c++, cmake, keras, numpy, silabs, silicon labs">
+<meta name="keywords" content="machine learning, machine-learning, machinelearning, ml, ai, iot, Internet of things, aiot, tinyml, tensorflow, tensorflow-lite, tensorflow-lite-micro, keras-tensorflow, keras, tflite, embedded, embedded-systems, mcu, Microcontrollers, hardware, python, c++, cmake, keras, numpy, silabs, silicon labs">
 <meta name="robots" content="index, follow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="language" content="English">
@@ -51,9 +51,9 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-965PJZXVMY"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5MW943WF"></script>
 <script>
-    window.gTrackingId = 'G-965PJZXVMY';
+    window.gTrackingId = 'G-HZ5MW943WF';
 </script>
   
   
@@ -154,7 +154,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -215,7 +215,7 @@
        title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -453,34 +453,34 @@ See the <a class="reference internal" href="docs/guides/model_profiler_utility.h
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Install the pre-build Python package:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="8973a13c-e33b-438c-b94e-0e9e11885e42" name="13dc89d4-5a8f-4f31-9b25-34342df0640c" type="radio"/>
-<label class="tabbed-label" for="8973a13c-e33b-438c-b94e-0e9e11885e42">
+<input checked="checked" id="cb62f967-9a62-4aa6-a5d3-f3d60d3bb811" name="dbcec586-b177-4236-9791-126b7abf087e" type="radio"/>
+<label class="tabbed-label" for="cb62f967-9a62-4aa6-a5d3-f3d60d3bb811">
 Windows</label><div class="tabbed-content docutils">
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip  install silabs-mltk
 </pre></div>
 </div>
 </div>
-<input id="d7be19e8-77ea-4237-9186-80f2051636bc" name="13dc89d4-5a8f-4f31-9b25-34342df0640c" type="radio"/>
-<label class="tabbed-label" for="d7be19e8-77ea-4237-9186-80f2051636bc">
+<input id="46ba4499-1011-416e-bd6c-6e368a2944d9" name="dbcec586-b177-4236-9791-126b7abf087e" type="radio"/>
+<label class="tabbed-label" for="46ba4499-1011-416e-bd6c-6e368a2944d9">
 Linux</label><div class="tabbed-content docutils">
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip3 install silabs-mltk
 </pre></div>
 </div>
 </div>
 </div>
-<p>Or, build and install Python package from <a class="reference external" href="https://github.com/sldriedler/mltk">Github</a>:</p>
+<p>Or, build and install Python package from <a class="reference external" href="https://github.com/siliconlabs/mltk">Github</a>:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="c7f0cab2-125b-4f55-b3e5-02c450af287a" name="575e9df5-f67f-4a85-9dcc-f46bd1b2c9de" type="radio"/>
-<label class="tabbed-label" for="c7f0cab2-125b-4f55-b3e5-02c450af287a">
+<input checked="checked" id="c6e6a430-5bbe-4eae-8347-db42a085c9ab" name="e135bc1d-b2c7-4f6c-a99c-ff3afd81b53e" type="radio"/>
+<label class="tabbed-label" for="c6e6a430-5bbe-4eae-8347-db42a085c9ab">
 Windows</label><div class="tabbed-content docutils">
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip  install git+https://github.com/sldriedler/mltk.git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip  install git+https://github.com/siliconlabs/mltk.git
 </pre></div>
 </div>
 </div>
-<input id="f536e459-807f-46bf-b73d-6132de567006" name="575e9df5-f67f-4a85-9dcc-f46bd1b2c9de" type="radio"/>
-<label class="tabbed-label" for="f536e459-807f-46bf-b73d-6132de567006">
+<input id="536f0b11-6f81-4e8e-b74a-63d0f872ee93" name="e135bc1d-b2c7-4f6c-a99c-ff3afd81b53e" type="radio"/>
+<label class="tabbed-label" for="536f0b11-6f81-4e8e-b74a-63d0f872ee93">
 Linux</label><div class="tabbed-content docutils">
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip3 install git+https://github.com/sldriedler/mltk.git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip3 install git+https://github.com/siliconlabs/mltk.git
 </pre></div>
 </div>
 </div>
@@ -565,7 +565,7 @@ misrepresented as being the original software.</p></li>
               
           </div>
             Last updated on
-              Apr 25, 2022.
+              Apr 26, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

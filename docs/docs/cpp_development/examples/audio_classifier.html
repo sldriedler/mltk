@@ -10,7 +10,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="title" content="Machine Learning Toolkit">
 <meta name="description" content="A Python package with command-line utilities and scripts to aid the development of machine learning models for Silicon Lab's embedded platforms">
-<meta name="keywords" content="machine learning, ml, ai, iot, Internet of things, aiot, tinyml, tensorflow, tensorflow-lite, tflite, embedded, mcu, Microcontrollers, hardware, python, c++, cmake, keras, numpy, silabs, silicon labs">
+<meta name="keywords" content="machine learning, machine-learning, machinelearning, ml, ai, iot, Internet of things, aiot, tinyml, tensorflow, tensorflow-lite, tensorflow-lite-micro, keras-tensorflow, keras, tflite, embedded, embedded-systems, mcu, Microcontrollers, hardware, python, c++, cmake, keras, numpy, silabs, silicon labs">
 <meta name="robots" content="index, follow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="language" content="English">
@@ -51,9 +51,9 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="../../../_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-965PJZXVMY"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5MW943WF"></script>
 <script>
-    window.gTrackingId = 'G-965PJZXVMY';
+    window.gTrackingId = 'G-HZ5MW943WF';
 </script>
   
   
@@ -155,7 +155,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -211,7 +211,7 @@
        title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -471,13 +471,13 @@ classification machine learning models to classify words from audio data
 recorded from a microphone. The detection is visualized using the LED’s on the
 board and the classification results are written to the VCOM serialport.</p>
 <p>See the online documentation for how to build and run this application:<br/>
-<a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/index.html">https://sldriedler.github.io/mltk/docs/cpp_development/index.html</a></p>
-<p>If using <a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html">Visual Studio Code</a>
-or the <a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/command_line.html">Command Line</a> select the <code class="docutils literal notranslate"><span class="pre">mltk_audio_classifier</span></code> CMake target.<br/>
-If using <a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/simplicity_studio.html">Simplicity Studio</a> select the <code class="docutils literal notranslate"><span class="pre">MLTK</span> <span class="pre">-</span> <span class="pre">Audio</span> <span class="pre">Classifier</span></code> Project.</p>
-<p><strong>NOTE:</strong> This application is able to be built for Windows/Linux <em>or</em> an embedded target.</p>
+<a class="reference external" href="https://siliconlabs.github.io/mltk/docs/cpp_development/index.html">https://siliconlabs.github.io/mltk/docs/cpp_development/index.html</a></p>
+<p>If using <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html">Visual Studio Code</a>
+or the <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/cpp_development/command_line.html">Command Line</a> select the <code class="docutils literal notranslate"><span class="pre">mltk_audio_classifier</span></code> CMake target.<br/>
+If using <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/cpp_development/simplicity_studio.html">Simplicity Studio</a> select the <code class="docutils literal notranslate"><span class="pre">MLTK</span> <span class="pre">-</span> <span class="pre">Audio</span> <span class="pre">Classifier</span></code> Project.</p>
+<p><strong>NOTE:</strong> This application is able to be built for Windows/Linux <em>or</em> a supported embedded target.</p>
 <p><strong>NOTE:</strong> This application is designed to be used with the MLTK command:
-<a class="reference external" href="https://sldriedler.github.io/mltk/docs/audio/audio_utilities.html#audio-classification-utility">mltk classify_audio</a></p>
+<a class="reference external" href="https://siliconlabs.github.io/mltk/docs/audio/audio_utilities.html#audio-classification-utility">mltk classify_audio</a></p>
 <section id="behavior">
 <h2 id="behavior">Behavior<a class="headerlink" href="#behavior" title="Permalink to this headline">¶</a></h2>
 <p>The application is using two LEDs to show detection and activity and it is
@@ -506,12 +506,12 @@ results. This behavior can be disabled in the application configuration file.</p
 <p>The default model used in this application is called <code class="docutils literal notranslate"><span class="pre">keyword_spotting_on_off.tflite</span></code>
 and is able to classify audio into 4 different classes labeled “on”, “off”,
 “<em>unknown</em>”, “<em>silence</em>”. The source for the model can be found here:
-<a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py">https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py</a></p>
+<a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py">https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py</a></p>
 <section id="updating-the-model">
 <h3 id="updating-the-model">Updating the model<a class="headerlink" href="#updating-the-model" title="Permalink to this headline">¶</a></h3>
 <p>The application is designed to work with an audio classification model created
 using the Silicon Labs Machine Learning Toolkit
-(<a class="reference external" href="https://sldriedler.github.io/mltk/mltk/tutorials/keyword_spotting_on_off.html">MLTK</a>).
+(<a class="reference external" href="https://siliconlabs.github.io/mltk/mltk/tutorials/keyword_spotting_on_off.html">MLTK</a>).
 Use the MLTK to train a new audio classifier model and replace the model inside this example with the new audio
 classification model.</p>
 <section id="via-simplicity-studio">
@@ -527,7 +527,7 @@ to convert a .tflite file into a c file which is added to the project.</p>
 </section>
 <section id="via-classify-audio-command">
 <h4 id="via-classify-audio-command">via <code class="docutils literal notranslate"><span class="pre">classify_audio</span></code> Command<a class="headerlink" href="#via-classify-audio-command" title="Permalink to this headline">¶</a></h4>
-<p>Alternatively, using the <a class="reference external" href="https://sldriedler.github.io/mltk/docs/audio/audio_utilities.html#audio-classification-utility">mltk classify_audio <model path=""> –app none –device</model></a>
+<p>Alternatively, using the <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/audio/audio_utilities.html#audio-classification-utility">mltk classify_audio <model path=""> –app none –device</model></a>
 command program the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model to the end of the device’s flash.
 On startup, the application will detect the new model and use that instead
 of the model built into the firmware.</p>
@@ -536,8 +536,8 @@ and only program the model file.</p>
 </section>
 <section id="via-cmake">
 <h4 id="via-cmake">via CMake<a class="headerlink" href="#via-cmake" title="Permalink to this headline">¶</a></h4>
-<p>The model can also be updated when building this application from <a class="reference external" href="https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html">Visual Studio Code</a>
-or the CMake <a class="reference external" href="https://sldriedler.github.io/mltk/docs/command_line.html">Command Line</a>.</p>
+<p>The model can also be updated when building this application from <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html">Visual Studio Code</a>
+or the CMake <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/command_line.html">Command Line</a>.</p>
 <p>To update the model, create/modify the file: <code class="docutils literal notranslate"><span class="pre">&lt;mltk</span> <span class="pre">repo</span> <span class="pre">root&gt;/user_options.cmake</span></code>
 and add:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mltk_set</span><span class="p">(</span><span class="n">AUDIO_CLASSIFIER_MODEL</span> <span class="o">&lt;</span><span class="n">model</span> <span class="n">name</span> <span class="ow">or</span> <span class="n">path</span><span class="o">&gt;</span><span class="p">)</span>
@@ -570,7 +570,7 @@ for capture by Python script (using the <code class="docutils literal notranslat
 <p>In order for the audio classification to work correctly we need to use the same
 audio feature generator configuration parameters for inference as is used when
 training the model. When using the MLTK to train an audio classification model
-the model <a class="reference external" href="https://sldriedler.github.io/mltk/docs/guides/model_parameters.html#audiodatasetmixin">parameters</a>
+the model <a class="reference external" href="https://siliconlabs.github.io/mltk/docs/guides/model_parameters.html#audiodatasetmixin">parameters</a>
 will be embedded in the metadata section of the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code>
 file. The model parameters are extracted from the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> at runtime.</p>
 </section>
@@ -578,11 +578,11 @@ file. The model parameters are extracted from the <code class="docutils literal 
 <section id="references">
 <h2 id="references">References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
 <p>The example is based on TensorFlow’s example called <strong><a class="reference external" href="https://github.com/tensorflow/tflite-micro/tree/main/tensorflow/lite/micro/examples/micro_speech">micro speech</a></strong>
-and audio is processed using the <strong><a class="reference external" href="https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html">audio feature generator</a></strong>.</p>
+and audio is processed using the <strong><a class="reference external" href="https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html">audio feature generator</a></strong>.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://sldriedler.github.io/mltk">MLTK Documentation</a></p></li>
-<li><p><a class="reference external" href="https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html">Audio Feature Generator</a></p></li>
-<li><p><a class="reference external" href="https://sldriedler.github.io/mltk/docs/audio/audio_utilities.html">Audio Utilities</a></p></li>
+<li><p><a class="reference external" href="https://siliconlabs.github.io/mltk">MLTK Documentation</a></p></li>
+<li><p><a class="reference external" href="https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html">Audio Feature Generator</a></p></li>
+<li><p><a class="reference external" href="https://siliconlabs.github.io/mltk/docs/audio/audio_utilities.html">Audio Utilities</a></p></li>
 <li><p><a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/tensorflow/getting-started">Gecko SDK Machine Learning Documentation</a></p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/lite/microcontrollers">TensorFlow Lite Micro</a></p></li>
 </ul>
@@ -636,7 +636,7 @@ and audio is processed using the <strong><a class="reference external" href="htt
               
           </div>
             Last updated on
-              Apr 25, 2022.
+              Apr 26, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

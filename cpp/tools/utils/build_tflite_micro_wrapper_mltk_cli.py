@@ -18,7 +18,8 @@ def build_tflite_micro_wrapper_command(
         help='Use the <mltk>/user_options.cmake file while building the wrapper. If omitted then this file is IGNORED'
     ),
     use_new_quantization: bool = typer.Option(False, '--new-quantization', '-q', 
-        help='Add the TFLITE_MICRO_OVERRIDE_QUANTIZED_MULTIPLIER_API option'
+        help='This option is deprecated. The new quantization method is now always used',
+        hidden=True,
     ),
     debug: bool = typer.Option(False, '--debug', '-d',
         help='Build debug version of tflite wrapper')
@@ -35,6 +36,8 @@ def build_tflite_micro_wrapper_command(
     """
 
     logger = cli.get_logger(verbose=verbose)
+    if use_new_quantization:
+        logger.warning('--new-quantization is deprecated as the new quantization method is now always enabled')
 
     try:
         build_tflite_micro_wrapper(
@@ -42,7 +45,6 @@ def build_tflite_micro_wrapper_command(
             clean=clean,
             verbose=verbose,
             use_user_options=use_user_options,
-            enable_new_quantization=use_new_quantization,
             debug=debug
         )
     except Exception as e:
@@ -56,16 +58,10 @@ def build_tflite_micro_wrapper(
     verbose:bool=True,
     logger:logging.Logger=None,
     use_user_options=False,
-    enable_new_quantization=False, 
     debug:bool=False,
 ):  
     """Build the TF-Lite Micro Python wrapper for the current OS/Python environment"""
     logger = logger or logging.getLogger()
-
-    
-    additional_variables = []
-    if enable_new_quantization:
-        additional_variables.append('TFLITE_MICRO_OVERRIDE_QUANTIZED_MULTIPLIER_API=ON')
 
     build_mltk_target(
         target='mltk_tflite_micro_wrapper',
@@ -76,5 +72,4 @@ def build_tflite_micro_wrapper(
         debug=debug,
         logger=logger,
         use_user_options=use_user_options,
-        additional_variables=additional_variables
     )

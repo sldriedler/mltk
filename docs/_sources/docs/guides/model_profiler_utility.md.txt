@@ -15,7 +15,7 @@ __No installation required__.
 
 The model profile utility may be downloaded from here:  
 - [Windows](https://www.dropbox.com/s/acz22zktqdet9ww/mltk_model_profiler.exe?dl=1)
-- Linux (Coming Soon!)
+- [Linux](https://www.dropbox.com/s/0vm9zrl4rg2gioy/mltk_model_profiler?dl=1)
 
 
 ## Usage

@@ -14,9 +14,9 @@
 
     "\n",
 
-    "This tutorial describes how to use the weights from the pre-trained trained model [keyword_spotting_mobilenetv2](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py),\n",
+    "This tutorial describes how to use the weights from the pre-trained trained model [keyword_spotting_mobilenetv2](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py),\n",
 
-    "as a starting point for training a new model, [keyword_spotting_with_transfer_learning.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py), to detect the keywords:\n",
+    "as a starting point for training a new model, [keyword_spotting_with_transfer_learning.py](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py), to detect the keywords:\n",
 
     "\n",
 
@@ -98,7 +98,7 @@
 
     "- [Keyword Spotting Tutorial](../../mltk/tutorials/keyword_spotting_on_off.md) - Detailed tutorial describing how to create a Keyword Spotting model using the MLTK\n",
 
-    "- [Model Optimization Tutorial](../../mltk/tutorials/model_optimization.md) - Describes how to develop the [keyword_spotting_mobilenetv2](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py) model used by this tutorial"
+    "- [Model Optimization Tutorial](../../mltk/tutorials/model_optimization.md) - Describes how to develop the [keyword_spotting_mobilenetv2](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py) model used by this tutorial"
 
    ]
 
@@ -176,7 +176,7 @@
 
     "\n",
 
-    "The pre-trained, base model, whose weights are transferred to the new model, may be found on Github: [keyword_spotting_mobilenetv2](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py).\n",
+    "The pre-trained, base model, whose weights are transferred to the new model, may be found on Github: [keyword_spotting_mobilenetv2](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py).\n",
 
     "\n",
 
@@ -302,11 +302,11 @@
 
     "\n",
 
-    "The completed model specification used by this tutorial may be found on Github: [keyword_spotting_with_transfer_learning.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py)\n",
+    "The completed model specification used by this tutorial may be found on Github: [keyword_spotting_with_transfer_learning.py](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py)\n",
 
     "\n",
 
-    "This model specification is very similar to the base model specification, [keyword_spotting_mobilenetv2](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py), with the following key differences:"
+    "This model specification is very similar to the base model specification, [keyword_spotting_mobilenetv2](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py), with the following key differences:"
 
    ]
 

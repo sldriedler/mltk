@@ -10,7 +10,7 @@ Contains grayscale images of the hand gestures:
 
 from mltk.utils.archive_downloader import download_verify_extract
 
-DOWNLOAD_URL = 'https://github.com/sldriedler/mltk_assets/raw/master/datasets/rock_paper_scissors.7z'
+DOWNLOAD_URL = 'https://github.com/SiliconLabs/mltk_assets/raw/master/datasets/rock_paper_scissors.7z'
 VERIFY_SHA1 = '1CE48F66F7FF999958550147D75ABA8DA185280C'
 
 

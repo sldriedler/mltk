@@ -10,7 +10,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="title" content="Machine Learning Toolkit">
 <meta name="description" content="A Python package with command-line utilities and scripts to aid the development of machine learning models for Silicon Lab's embedded platforms">
-<meta name="keywords" content="machine learning, ml, ai, iot, Internet of things, aiot, tinyml, tensorflow, tensorflow-lite, tflite, embedded, mcu, Microcontrollers, hardware, python, c++, cmake, keras, numpy, silabs, silicon labs">
+<meta name="keywords" content="machine learning, machine-learning, machinelearning, ml, ai, iot, Internet of things, aiot, tinyml, tensorflow, tensorflow-lite, tensorflow-lite-micro, keras-tensorflow, keras, tflite, embedded, embedded-systems, mcu, Microcontrollers, hardware, python, c++, cmake, keras, numpy, silabs, silicon labs">
 <meta name="robots" content="index, follow">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="language" content="English">
@@ -51,9 +51,9 @@
   <meta name="theme-color" content="#3f51b5">
   <script src="../../_static/javascripts/modernizr.js"></script>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-965PJZXVMY"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HZ5MW943WF"></script>
 <script>
-    window.gTrackingId = 'G-965PJZXVMY';
+    window.gTrackingId = 'G-HZ5MW943WF';
 </script>
   
   
@@ -155,7 +155,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -210,7 +210,7 @@
        title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -472,7 +472,7 @@ Some of the more common settings include:</p>
 <section id="mltk-platform-name">
 <h2 id="mltk-platform-name">MLTK_PLATFORM_NAME<a class="headerlink" href="#mltk-platform-name" title="Permalink to this headline">¶</a></h2>
 <p>Build for a supported embedded platform.</p>
-<p>The supported platforms may be found at: <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//shared/platforms"><strong>mltk</strong>/cpp/shared/platform</a></p>
+<p>The supported platforms may be found at: <a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp//shared/platforms"><strong>mltk</strong>/cpp/shared/platform</a></p>
 <p><strong>NOTE:</strong> If this variable is not defined, then the host operating system (e.g. <code class="docutils literal notranslate"><span class="pre">windows</span></code> or <code class="docutils literal notranslate"><span class="pre">linux</span></code>) is automatically selected.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the embedded platform</span>
 <span class="n">mltk_set</span><span class="p">(</span><span class="n">MLTK_PLATFORM_NAME</span> <span class="n">brd2601</span><span class="p">)</span>
@@ -512,7 +512,7 @@ mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL ~/my_models/my_model.mltk.z
 
 <span class="c1"># Specify the MLTK model name</span>
 <span class="c1"># NOTE: The model specification must be on the model search path, see:</span>
-<span class="c1">#       https://sldriedler.github.io/mltk/docs/guides/model_search_path.html</span>
+<span class="c1">#       https://siliconlabs.github.io/mltk/docs/guides/model_search_path.html</span>
 mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL image_example1<span class="o">)</span>
 </pre></div>
 </div>
@@ -531,14 +531,14 @@ mltk_set<span class="o">(</span>AUDIO_CLASSIFIER_MODEL ~/my_models/my_model.mltk
 
 <span class="c1"># Specify the MLTK model name</span>
 <span class="c1"># NOTE: The model specification must be on the model search path, see:</span>
-<span class="c1">#       https://sldriedler.github.io/mltk/docs/guides/model_search_path.html</span>
+<span class="c1">#       https://siliconlabs.github.io/mltk/docs/guides/model_search_path.html</span>
 mltk_set<span class="o">(</span>AUDIO_CLASSIFIER_MODEL image_example1<span class="o">)</span>
 </pre></div>
 </div>
 </section>
 <section id="mltk-run-model-from-ram">
 <h2 id="mltk-run-model-from-ram">MLTK_RUN_MODEL_FROM_RAM<a class="headerlink" href="#mltk-run-model-from-ram" title="Permalink to this headline">¶</a></h2>
-<p>In the <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//shared/apps/model_profiler"><strong>mltk</strong>/cpp/shared/apps/model_profiler</a> app, load the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model into RAM before
+<p>In the <a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp//shared/apps/model_profiler"><strong>mltk</strong>/cpp/shared/apps/model_profiler</a> app, load the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model into RAM before
 running inference. This causes all models weights and filters to
 reside in RAM as well.</p>
 <p><strong>NOTE:</strong> Bobcat only has 256K of RAM total. So the model
@@ -596,7 +596,7 @@ must be small enough to fit the model + TFLM working memory.</p>
               
           </div>
             Last updated on
-              Apr 25, 2022.
+              Apr 26, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

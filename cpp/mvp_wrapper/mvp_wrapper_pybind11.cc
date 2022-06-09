@@ -16,6 +16,7 @@ extern "C" void sli_mvp_set_simulator_backend_enabled(bool);
 namespace mltk
 {
     extern bool mvpv1_calculate_accelerator_cycles_only;
+    extern "C" const TfliteMicroAccelerator* mltk_tflite_micro_get_accelerator();
 }
 
 

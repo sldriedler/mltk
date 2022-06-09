@@ -18,10 +18,14 @@ The MLTK supports three modes of installation:
 This describes how to install the MLTK Python package into your Python3 environment.  
 
 ```{note} 
-- Before installing, you must have [Python3.7, 3.8, or 3.9](https://www.python.org/downloads/) installed on your computer.
-- Installing the MLTK will also install Google [Tensorflow](https://www.tensorflow.org/install) into your Python environment,  
-  if your computer has an NVidia GPU, then ensure the proper drivers are [installed](https://www.tensorflow.org/install/gpu).
+- Before installing, you must have [Python3.7, 3.8, or 3.9](https://www.python.org/downloads/) installed on your computer
+- Installing the MLTK will also install Google [Tensorflow](https://www.tensorflow.org/install) into your Python environment,
+  if your computer has an NVidia GPU, then ensure the proper drivers are [installed](https://www.tensorflow.org/install/gpu)
+- If you're using Windows, be sure to install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) which is required by [Tensorflow](https://www.tensorflow.org/install/pip)
+
 ```
+
+
 
 
 1 ) __Optionally__ create and activate a Python [virtual environment](https://docs.python.org/3/tutorial/venv.html): 
@@ -56,13 +60,13 @@ This step is __highly recommended__ as the MLTK installs other dependencies like
 
     .. code-block:: shell
 
-        pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
+        pip  install silabs-mltk --upgrade
 
   .. tabbed:: Linux
 
     .. code-block:: shell
     
-        pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
+        pip3 install silabs-mltk --upgrade
   ```
 
   __OR__
@@ -113,13 +117,13 @@ If the MLTK Python package has already been installed, you may update to the lat
 
    .. code-block:: shell
 
-      pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
+      pip  install silabs-mltk --upgrade
 
 .. tabbed:: Linux
 
    .. code-block:: shell
 
-      pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk --upgrade
+      pip3 install silabs-mltk --upgrade
 ```
 
 Alternatively, you can update to a specific version with:
@@ -129,16 +133,16 @@ Alternatively, you can update to a specific version with:
 
    .. code-block:: shell
 
-      pip  install --extra-index-url https://test.pypi.org/simple silabs-mltk==0.3.0
+      pip  install silabs-mltk==0.6.0
 
 .. tabbed:: Linux
 
    .. code-block:: shell
 
-      pip3 install --extra-index-url https://test.pypi.org/simple silabs-mltk==0.3.0
+      pip3 install silabs-mltk==0.6.0
 ```
 
-and replace `0.3.0` with the desired version.
+and replace `0.6.0` with the desired version.
 
 
 

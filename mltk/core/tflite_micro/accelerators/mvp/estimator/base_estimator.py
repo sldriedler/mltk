@@ -143,6 +143,9 @@ def extract_model_parameters(
     layer_input = tflite_layer.inputs[0]
     layer_output = tflite_layer.outputs[0]
 
+    input_shape_base = 0 if len(layer_input.shape) == 2 else 1
+    output_shape_base = 0 if len(layer_input.shape) == 2 else 1
+
     try:
         for name in feature_names:
             if name == 'accelerator_cycles':
@@ -166,15 +169,15 @@ def extract_model_parameters(
             elif name == 'output_flat_size': 
                 params['output_flat_size'] = layer_output.shape.flat_size
             elif name == 'input_height':
-                params['input_height'] = layer_input.shape[1]
+                params['input_height'] = layer_input.shape[input_shape_base+0]
             elif name == 'input_width':
-                params['input_width'] = layer_input.shape[2]
+                params['input_width'] = layer_input.shape[input_shape_base+1]
             elif name == 'input_depth':
                 params['input_depth'] = 1 if len(layer_input.shape) != 4 else layer_input.shape[3] 
             elif name == 'output_height':
-                params['output_height'] = layer_output.shape[1]
+                params['output_height'] = layer_output.shape[output_shape_base+0]
             elif name == 'output_width':
-                params['output_width'] = layer_output.shape[2]
+                params['output_width'] = layer_output.shape[output_shape_base+1]
             elif name == 'output_depth':
                 params['output_depth'] = 1 if len(layer_output.shape) != 4 else layer_output.shape[3] 
             elif name == 'stride_height':

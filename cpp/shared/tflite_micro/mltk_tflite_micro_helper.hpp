@@ -92,27 +92,28 @@ class TfliteMicroErrorReporter : public tflite::ErrorReporter
  public:
   int Report(const char* format, va_list args) override;
   TF_LITE_REMOVE_VIRTUAL_DELETE
+  bool enabled = true;
 };
 
 
 
 extern bool model_profiler_enabled;
 extern bool model_recorder_enabled;
-
+extern const char* TFLITE_MICRO_VERSION;
 
 
 extern "C" DLL_EXPORT void issue_unsupported_kernel_message(const char* fmt, ...);
 extern "C" DLL_EXPORT void mltk_tflite_micro_set_accelerator(const TfliteMicroAccelerator* accelerator);
+extern "C" DLL_EXPORT const TfliteMicroAccelerator* mltk_tflite_micro_get_registered_accelerator();
 extern "C" void mltk_tflite_micro_register_accelerator();
-extern "C" const TfliteMicroAccelerator* mltk_tflite_micro_get_accelerator();
-extern "C" const TfliteMicroAccelerator* mltk_tflite_micro_get_registered_accelerator();
+
 
 
 Logger& get_logger();
 bool set_log_level(LogLevel level);
 TfLiteStatus allocate_scratch_buffer(TfLiteContext *ctx, unsigned size_bytes, int *scratch_buffer_index);
 const void* get_metadata_from_tflite_flatbuffer(const void* tflite_flatbuffer, const char* tag, uint32_t* length = nullptr);
-bool get_tflite_flatbuffer_from_end_of_flash(const uint8_t** tflite_flatbuffer, uint32_t* length = nullptr);
+bool get_tflite_flatbuffer_from_end_of_flash(const uint8_t** tflite_flatbuffer, uint32_t* length=nullptr, const uint32_t* flash_end_addr=nullptr);
 
 
 
@@ -172,6 +173,9 @@ inline int div_floor(const int numerator, const int denominator, int upper_limit
 
     return std::min(floor, upper_limit);
 }
+
+
+bool verify_model_flatbuffer(const void* flatbuffer, int flatbuffer_length);
 
 
 } // namespace mltk
