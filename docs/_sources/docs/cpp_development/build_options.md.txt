@@ -27,7 +27,7 @@ mltk_set(MLTK_CMAKE_LOG_LEVEL debug)
 
 Build for a supported embedded platform.
 
-The supported platforms may be found at: [__mltk__/cpp/shared/platform](https://github.com/siliconlabs/mltk/tree/master/cpp//shared/platforms)
+The supported platforms may be found at: [__mltk__/cpp/shared/platform](https://github.com/sldriedler/mltk/tree/master/cpp//shared/platforms)
 
 __NOTE:__ If this variable is not defined, then the host operating system (e.g. `windows` or `linux`) is automatically selected.
 
@@ -77,7 +77,7 @@ mltk_set(MODEL_PROFILER_MODEL ~/my_models/my_model.mltk.zip)
 
 # Specify the MLTK model name
 # NOTE: The model specification must be on the model search path, see:
-#       https://siliconlabs.github.io/mltk/docs/guides/model_search_path.html
+#       https://sldriedler.github.io/mltk/docs/guides/model_search_path.html
 mltk_set(MODEL_PROFILER_MODEL image_example1)
 ```
 
@@ -100,14 +100,14 @@ mltk_set(AUDIO_CLASSIFIER_MODEL ~/my_models/my_model.mltk.zip)
 
 # Specify the MLTK model name
 # NOTE: The model specification must be on the model search path, see:
-#       https://siliconlabs.github.io/mltk/docs/guides/model_search_path.html
+#       https://sldriedler.github.io/mltk/docs/guides/model_search_path.html
 mltk_set(AUDIO_CLASSIFIER_MODEL image_example1)
 ```
 
 
 ## MLTK_RUN_MODEL_FROM_RAM
 
-In the [__mltk__/cpp/shared/apps/model_profiler](https://github.com/siliconlabs/mltk/tree/master/cpp//shared/apps/model_profiler) app, load the `.tflite` model into RAM before
+In the [__mltk__/cpp/shared/apps/model_profiler](https://github.com/sldriedler/mltk/tree/master/cpp//shared/apps/model_profiler) app, load the `.tflite` model into RAM before
 running inference. This causes all models weights and filters to 
 reside in RAM as well.
 

@@ -2,7 +2,7 @@
 
 The MLTK comes with datasets that are used by the [reference models](../models/index.md).
 
-The source code for these datasets may be found on Github: [https://github.com/siliconlabs/mltk/tree/master/mltk/datasets](https://github.com/siliconlabs/mltk/tree/master/mltk/datasets).
+The source code for these datasets may be found on Github: [https://github.com/sldriedler/mltk/tree/master/mltk/datasets](https://github.com/sldriedler/mltk/tree/master/mltk/datasets).
 
 ```{contents}
 :depth: 1
@@ -21,6 +21,18 @@ The source code for these datasets may be found on Github: [https://github.com/s
 
 ```{eval-rst}
 .. automodule:: mltk.datasets.image.rock_paper_scissors_v1
+```
+```{eval-rst}
+.. automodule:: mltk.datasets.image.rock_paper_scissors_v2
+```
+```{eval-rst}
+.. automodule:: mltk.datasets.image.mnist
+```
+```{eval-rst}
+.. automodule:: mltk.datasets.image.cifar10
+```
+```{eval-rst}
+.. automodule:: mltk.datasets.image.fashion_mnist
 ```
 
 

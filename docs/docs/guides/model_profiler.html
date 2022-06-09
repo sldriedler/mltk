@@ -55,13 +55,14 @@
 <script>
     window.gTrackingId = 'G-HZ5MW943WF';
 </script>
+<meta name="google-site-verification" content="FnYPzMkMEeT_U1C1c1JyJuz6vfQgjVuNWrw7PSuSYi4" />
   
   
-    <title>Model Profiler &#8212; MLTK 0.6.0 documentation</title>
+    <title>Model Profiler &#8212; MLTK 0.7.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.63bdf2d2865d068e5434884f20825da9.css" />
@@ -106,11 +107,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="MLTK 0.6.0 documentation"
+        <a href="../../index.html" title="MLTK 0.7.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../_static/logo.png"
-                   alt="MLTK 0.6.0 documentation logo">
+                   alt="MLTK 0.7.0 documentation logo">
           
         </a>
       </div>
@@ -155,7 +156,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -208,16 +209,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="MLTK 0.6.0 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="MLTK 0.7.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.7.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -436,7 +437,28 @@
     <li class="md-nav__item">
     
     
+      <a href="../python_api/models/index.html" class="md-nav__link">Reference Models</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../python_api/datasets/index.html" class="md-nav__link">Reference Datasets</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="../cpp_development/index.html" class="md-nav__link">C++ Development</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../cpp_development/examples/index.html" class="md-nav__link">C++ Examples</a>
       
     
     </li>
@@ -587,7 +609,7 @@
 
           <article class="md-content__inner md-typeset" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="model-profiler">
+  <section id="model-profiler">
 <h1 id="docs-guides-model-profiler--page-root">Model Profiler<a class="headerlink" href="#docs-guides-model-profiler--page-root" title="Permalink to this headline">¶</a></h1>
 <p>The MLTK model profiler provides information about how efficiently a model may run on an embedded target.<br/>
 The model profiler allows for executing a <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model file in a simulator <em>or</em> on a physical embedded target.</p>
@@ -608,7 +630,7 @@ i.e. The <code class="docutils literal notranslate"><span class="pre">.tflite</s
 <h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Command-line: <code class="docutils literal notranslate"><span class="pre">mltk</span> <span class="pre">profile</span> <span class="pre">--help</span></code></p></li>
-<li><p>Python API: <a class="reference internal" href="../python_api/operations.html#mltk.core.profile_model" title="mltk.core.profile_model"><span class="xref myst py py-func">profile_model</span></a></p></li>
+<li><p>Python API: <span class="xref myst">profile_model</span></p></li>
 <li><p>Python API examples: <a class="reference internal" href="../../mltk/examples/profile_model.html"><span class="doc std std-doc">profile_model.ipynb</span></a></p></li>
 </ul>
 </section>
@@ -885,7 +907,7 @@ This command will also provide measured profiling results for:</p>
 model will execute on an embedded device before investing time and energy into training it.
 For this reason, the MLTK <code class="docutils literal notranslate"><span class="pre">profile</span></code> command features a <code class="docutils literal notranslate"><span class="pre">--build</span></code> flag to build a model
 and profile it <em>before</em> the model is fully trained.</p>
-<p>In this example, the <a class="reference internal" href="../python_api/models/examples/image_example1.html#module-mltk.models.examples.image_example1" title="mltk.models.examples.image_example1"><span class="xref myst py py-mod">image_example1 model</span></a> is built
+<p>In this example, the <span class="xref myst">image_example1 model</span> is built
 at command-execution-time and profiled in the MVP hardware simulator.
 Note that <em>only</em> the <a class="reference internal" href="model_specification.html"><span class="doc std std-doc">model specification</span></a> script is required,
 it does <em>not</em> need to be trained first.</p>
@@ -896,7 +918,7 @@ it does <em>not</em> need to be trained first.</p>
 </section>
 <section id="python-api">
 <h2 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">¶</a></h2>
-<p>The model profiler is accessible via <a class="reference internal" href="../python_api/operations.html#mltk.core.profile_model" title="mltk.core.profile_model"><span class="xref myst py py-func">profile_model</span></a> API.</p>
+<p>The model profiler is accessible via <span class="xref myst">profile_model</span> API.</p>
 <p>Examples using this API may be found in <a class="reference internal" href="../../mltk/examples/profile_model.html"><span class="doc std std-doc">profile_model.ipynb</span></a></p>
 </section>
 </section>
@@ -948,7 +970,7 @@ it does <em>not</em> need to be trained first.</p>
               
           </div>
             Last updated on
-              Apr 26, 2022.
+              Jun 09, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

@@ -55,13 +55,14 @@
 <script>
     window.gTrackingId = 'G-HZ5MW943WF';
 </script>
+<meta name="google-site-verification" content="FnYPzMkMEeT_U1C1c1JyJuz6vfQgjVuNWrw7PSuSYi4" />
   
   
-    <title>Tensorflow-Lite Micro Python Wrapper &#8212; MLTK 0.6.0 documentation</title>
+    <title>Tensorflow-Lite Micro Python Wrapper &#8212; MLTK 0.7.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.63bdf2d2865d068e5434884f20825da9.css" />
@@ -106,11 +107,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../../index.html" title="MLTK 0.6.0 documentation"
+        <a href="../../../index.html" title="MLTK 0.7.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../../_static/logo.png"
-                   alt="MLTK 0.6.0 documentation logo">
+                   alt="MLTK 0.7.0 documentation logo">
           
         </a>
       </div>
@@ -155,7 +156,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -202,16 +203,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../../index.html" title="MLTK 0.6.0 documentation" class="md-nav__button md-logo">
+    <a href="../../../index.html" title="MLTK 0.7.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.7.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -298,6 +299,20 @@
     <li class="md-nav__item">
     
     
+      <a href="../../python_api/models/index.html" class="md-nav__link">Reference Models</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../python_api/datasets/index.html" class="md-nav__link">Reference Datasets</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="../index.html" class="md-nav__link">C++ Development</a>
       <ul class="md-nav__list"> 
     <li class="md-nav__item">
@@ -328,6 +343,13 @@
       
     
     </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../examples/index.html" class="md-nav__link">C++ Examples</a>
+      
     
     </li>
     <li class="md-nav__item">
@@ -456,7 +478,7 @@
 
           <article class="md-content__inner md-typeset" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="tensorflow-lite-micro-python-wrapper">
+  <section id="tensorflow-lite-micro-python-wrapper">
 <h1 id="docs-cpp-development-wrappers-tflite-micro-wrapper--page-root">Tensorflow-Lite Micro Python Wrapper<a class="headerlink" href="#docs-cpp-development-wrappers-tflite-micro-wrapper--page-root" title="Permalink to this headline">¶</a></h1>
 <p>This allows for accessing the <a class="reference external" href="https://github.com/tensorflow/tflite-micro">Tensorflow-Lite Micro</a> (TFLM) C++ interpreter from a Python script.</p>
 <p>This is useful as it allows for executing <a class="reference external" href="https://www.tensorflow.org/lite/convert">.tflite</a> model files from a Python script running on Windows/Linux (i.e. without requiring an embedded device).</p>
@@ -465,21 +487,21 @@
 <li><p>Required working memory (i.e. RAM)</p></li>
 <li><p>If any of the layers of the model are not supported by TFLM</p></li>
 </ul>
-<p>This wrapper is made accessible to a Python script via the <a class="reference internal" href="../../python_api/core/tflite_micro_model.html#mltk.core.tflite_micro.TfliteMicro" title="mltk.core.tflite_micro.TfliteMicro"><span class="xref myst py py-class">TfliteMicro</span></a> Python API.
+<p>This wrapper is made accessible to a Python script via the <span class="xref myst">TfliteMicro</span> Python API.
 This Python API loads the C++ Python wrapper shared library into the Python runtime.</p>
 <section id="source-code">
 <h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp//tflite_micro_wrapper">Python wrapper</a> - This makes the Tensorflow-Lite Micro C++ library accessible to Python</p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp//shared/tflite_micro">Tensorflow-Lite Micro</a> - This is the Tensorflow-Lite Micro C++ library plus some additional helpers to aid development (<strong>NOTE:</strong> The actual TFLM <a class="reference external" href="https://github.com/tensorflow/tflite-micro">library</a> is downloaded by the build scripts)</p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp//shared/tflite_micro_model">TfliteMicroModel</a> - This is a helper C++ library to make interfacing to the TFLM library easier for applications</p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/mltk/core//tflite_micro">Python API</a> - Python package that loads this C++ wrapper</p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//tflite_micro_wrapper">Python wrapper</a> - This makes the Tensorflow-Lite Micro C++ library accessible to Python</p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//shared/tflite_micro">Tensorflow-Lite Micro</a> - This is the Tensorflow-Lite Micro C++ library plus some additional helpers to aid development (<strong>NOTE:</strong> The actual TFLM <a class="reference external" href="https://github.com/tensorflow/tflite-micro">library</a> is downloaded by the build scripts)</p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//shared/tflite_micro_model">TfliteMicroModel</a> - This is a helper C++ library to make interfacing to the TFLM library easier for applications</p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/mltk/core//tflite_micro">Python API</a> - Python package that loads this C++ wrapper</p></li>
 </ul>
 </section>
 <section id="additional-links">
 <h2 id="additional-links">Additional Links<a class="headerlink" href="#additional-links" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../python_api/core/tflite_micro_model.html#mltk.core.tflite_micro.TfliteMicro" title="mltk.core.tflite_micro.TfliteMicro"><span class="xref myst py py-class">Python API documentation</span></a></p></li>
+<li><p><span class="xref myst">Python API documentation</span></p></li>
 <li><p><a class="reference internal" href="../index.html"><span class="doc std std-doc">C++ Development documentation</span></a></p></li>
 </ul>
 </section>
@@ -495,7 +517,7 @@ This Python API loads the C++ Python wrapper shared library into the Python runt
 <section id="automatic-build">
 <h3 id="automatic-build">Automatic Build<a class="headerlink" href="#automatic-build" title="Permalink to this headline">¶</a></h3>
 <p>This wrapper is automatically built when installing from source, e.g.:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/siliconlabs/mltk.git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/sldriedler/mltk.git
 <span class="nb">cd</span> mltk
 pip install -e .
 </pre></div>
@@ -572,7 +594,7 @@ pip install -e .
               
           </div>
             Last updated on
-              Apr 26, 2022.
+              Jun 09, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

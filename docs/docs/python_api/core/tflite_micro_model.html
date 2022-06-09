@@ -55,13 +55,14 @@
 <script>
     window.gTrackingId = 'G-HZ5MW943WF';
 </script>
+<meta name="google-site-verification" content="FnYPzMkMEeT_U1C1c1JyJuz6vfQgjVuNWrw7PSuSYi4" />
   
   
-    <title>TfliteMicro &#8212; MLTK 0.6.0 documentation</title>
+    <title>TfliteMicro &#8212; MLTK 0.7.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.63bdf2d2865d068e5434884f20825da9.css" />
@@ -106,11 +107,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../../index.html" title="MLTK 0.6.0 documentation"
+        <a href="../../../index.html" title="MLTK 0.7.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../../_static/logo.png"
-                   alt="MLTK 0.6.0 documentation logo">
+                   alt="MLTK 0.7.0 documentation logo">
           
         </a>
       </div>
@@ -155,7 +156,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -202,16 +203,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../../index.html" title="MLTK 0.6.0 documentation" class="md-nav__button md-logo">
+    <a href="../../../index.html" title="MLTK 0.7.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.7.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -317,8 +318,17 @@
     <li class="md-nav__item">
     
     
+      <a href="dictionary.fbs.html" class="md-nav__link">TfliteModelParameters Flatbuffer Schema</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="../data_preprocessing/index.html" class="md-nav__link">Data Preprocessing</a>
       
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -334,13 +344,18 @@
       <a href="../datasets/index.html" class="md-nav__link">Reference Datasets</a>
       
     
-    </li></ul>
-    
     </li>
     <li class="md-nav__item">
     
     
       <a href="../../cpp_development/index.html" class="md-nav__link">C++ Development</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../cpp_development/examples/index.html" class="md-nav__link">C++ Examples</a>
       
     
     </li>
@@ -466,632 +481,26 @@
 
           <article class="md-content__inner md-typeset" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="tflitemicro">
+  <section id="tflitemicro">
 <h1 id="docs-python-api-core-tflite-micro-model--page-root">TfliteMicro<a class="headerlink" href="#docs-python-api-core-tflite-micro-model--page-root" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_micro.</span></span><span class="sig-name descname"><span class="pre">TfliteMicro</span></span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro" title="Permalink to this definition">¶</a></dt>
-<dd><p>This class wraps the TF-Lite Micro C++ library</p>
-<p>This class allows for loading a .tflite model file
-into the TF-Lite Micro (TFLM) C++ library and running inference
-using either the TFLM reference kernels or hardware accelerated kernels.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.git_hash">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">git_hash</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.git_hash"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.git_hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the GIT hash of the MLTK repo used to compile the wrapper library</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.api_version">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">api_version</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.api_version"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.api_version" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the TFLM API version number.
-This is used to ensure accelerator wrappers are compatible with
-this TFLM wrapper</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.set_log_level">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_log_level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.set_log_level"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.set_log_level" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the C++ wrapper logging level</p>
-<dl class="simple">
-<dt>NOTE: This sets the level in the C++ wrapper, NOT the Python logger.</dt><dd><p>Increasing the logging level can help with throughput as each
-log generated by the wrapper needs to be forwarded to the Python logger.</p>
-</dd>
-</dl>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The previous log level</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.get_log_level">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_log_level</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.get_log_level"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.get_log_level" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the C++ wrapper’s logging level</p>
-<p>NOTE: This returns the C++ wrapper’s logging level, NOT the Python logger.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.set_logger">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_logger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.set_logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.set_logger" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the wrapper’s Python logger</p>
-<p>This logger will be invoked by the C++ wrapper’s logging callback.</p>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.get_logger">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_logger</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.get_logger"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.get_logger" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the wrapper’s Python logger</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Logger</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.normalize_accelerator_name">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">normalize_accelerator_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">accelerator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.normalize_accelerator_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.normalize_accelerator_name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a case-insensitive accelerator name, normalize
-the name to the format used by the C++ library</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Normalized name of accelerator or None if accelerator
-is unknown</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.get_supported_accelerators">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_supported_accelerators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.get_supported_accelerators"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.get_supported_accelerators" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a list of supported accelerators by name</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.accelerator_is_supported">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accelerator_is_supported</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">accelerator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.accelerator_is_supported"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.accelerator_is_supported" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return if the given accelerator is supported</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.load_tflite_model">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_tflite_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accelerator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_profiler</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_recorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_buffer_overlap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.load_tflite_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.load_tflite_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load the TF-Lite Micro interpreter with the given .tflite model</p>
-<p>NOTE:
-- Only 1 model may be loaded at a time
-- You must call unload_model() when the model is no longer needed</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#mltk.core.tflite_micro.TfliteMicroModel" title="mltk.core.tflite_micro.tflite_micro_model.TfliteMicroModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TfliteMicroModel</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.unload_model">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unload_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.unload_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.unload_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unload a previously loaded model</p>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.profile_model">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">profile_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accelerator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_estimates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disable_simulator_backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.profile_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.profile_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Profile the given model in the simulator and optionally determine metric estimates</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="../operations.html#mltk.core.profiling_results.ProfilingModelResults" title="mltk.core.profiling_results.ProfilingModelResults"><code class="xref py py-class docutils literal notranslate"><span class="pre">ProfilingModelResults</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.record_model">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">record_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accelerator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_accelerator_recorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disable_simulator_backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_model_details</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.record_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.record_model" title="Permalink to this definition">¶</a></dt>
-<dd><p>Run one inference and record each model layer’s input/output tensors</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <a class="reference internal" href="tflite_model.html#mltk.core.TfliteModel" title="mltk.core.tflite_model.tflite_model.TfliteModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">TfliteModel</span></code></a>]) – path to .tflite model file or TfliteModel instance</p></li>
-<li><p><strong>input_data</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]) – Model input0 data as numpy array or list of numpy arrays for each model input</p></li>
-<li><p><strong>accelerator</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Optional accelerator to use for inference</p></li>
-<li><p><strong>enable_accelerator_recorder</strong> – If enabled, record the data/instructions generated by the hardware accelerator
-The recorded data with be stored in each layers’ metadata property, .e.g.: <code class="docutils literal notranslate"><span class="pre">layer.metadata['accelerator_data']</span></code>.
-If a given layer was not accelerated, then the metadata will be None, .e.g.: <code class="docutils literal notranslate"><span class="pre">layer.metadata['accelerator_data']</span> <span class="pre">=</span> <span class="pre">None</span></code>
-Each layers’ recorded data is a dictionary with the entries specific to the hardware accelerator.</p></li>
-<li><p><strong>disable_simulator_backend</strong> – Disable the simulator backend while running the accelerator recorder.
-This can greatly improve execution time, however, the generated data output (i.e. output tensors) is invalid</p></li>
-<li><p><strong>return_model_details</strong> – Also return the recorded model’s TfliteModelDetails</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="tflite_model.html#mltk.core.tflite_model.TfliteLayer" title="mltk.core.tflite_model.tflite_layer.TfliteLayer"><code class="xref py py-class docutils literal notranslate"><span class="pre">TfliteLayer</span></code></a>]</p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Return a list of TfliteLayers with the tensor data
-updated with the recorded values from the previous inference</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.add_accelerator_path">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">add_accelerator_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.add_accelerator_path"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.add_accelerator_path" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add an accelerator search path</p>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicro.register_accelerator">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register_accelerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">accelerator</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro.html#TfliteMicro.register_accelerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicro.register_accelerator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Register a TFLM accelerator instance</p>
-</dd></dl>
-</dd></dl>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="tflitemicromodel">
+<section id="tflitemicromodel">
 <h1 id="tflitemicromodel">TfliteMicroModel<a class="headerlink" href="#tflitemicromodel" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_micro.</span></span><span class="sig-name descname"><span class="pre">TfliteMicroModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tflm_wrapper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tflm_accelerator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flatbuffer_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_profiler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enable_recorder</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_buffer_overlap</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_model.html#TfliteMicroModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel" title="Permalink to this definition">¶</a></dt>
-<dd><p>“This class wrappers the TF-Lite Micro interpreter loaded with a .tflite model</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel.accelerator">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accelerator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator" title="mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator"><span class="pre">mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator</span></a></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel.accelerator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reference to hardware accelerator used by model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator" title="mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">TfliteMicroAccelerator</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel.layer_errors">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">layer_errors</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#mltk.core.tflite_micro.TfliteMicroLayerError" title="mltk.core.tflite_micro.tflite_micro_model.TfliteMicroLayerError"><span class="pre">mltk.core.tflite_micro.tflite_micro_model.TfliteMicroLayerError</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel.layer_errors" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of error messages triggered by kernels while loading the model.
-Typically, these errors indicate that a given model layer is not supported by
-a hardware accelerator and had to fallback to a default kernel implementation.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#mltk.core.tflite_micro.TfliteMicroLayerError" title="mltk.core.tflite_micro.tflite_micro_model.TfliteMicroLayerError"><code class="xref py py-class docutils literal notranslate"><span class="pre">TfliteMicroLayerError</span></code></a>]</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel.details">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">details</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#mltk.core.tflite_micro.TfliteMicroModelDetails" title="mltk.core.tflite_micro.tflite_micro_model.TfliteMicroModelDetails"><span class="pre">mltk.core.tflite_micro.tflite_micro_model.TfliteMicroModelDetails</span></a></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel.details" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return details about loaded model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#mltk.core.tflite_micro.TfliteMicroModelDetails" title="mltk.core.tflite_micro.tflite_micro_model.TfliteMicroModelDetails"><code class="xref py py-class docutils literal notranslate"><span class="pre">TfliteMicroModelDetails</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel.input_size">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">input_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel.input_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of input tensors</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel.input">
-<span class="sig-name descname"><span class="pre">input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_model.html#TfliteMicroModel.input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel.input" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a reference to a model input tensor
-If the value argument is provided then copy the value to the input tensor’s buffer</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel.output_size">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">output_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel.output_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of output tensors</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel.output">
-<span class="sig-name descname"><span class="pre">output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_model.html#TfliteMicroModel.output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel.output" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a reference to a model output tensor</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel.invoke">
-<span class="sig-name descname"><span class="pre">invoke</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_model.html#TfliteMicroModel.invoke"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel.invoke" title="Permalink to this definition">¶</a></dt>
-<dd><p>Invoke the model to execute one inference</p>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel.is_profiler_enabled">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_profiler_enabled</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel.is_profiler_enabled" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return if the profiler is enabled</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel.get_profiling_results">
-<span class="sig-name descname"><span class="pre">get_profiling_results</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_model.html#TfliteMicroModel.get_profiling_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel.get_profiling_results" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the profiling results of each model layer</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#mltk.core.tflite_micro.TfliteMicroProfiledLayerResult" title="mltk.core.tflite_micro.tflite_micro_model.TfliteMicroProfiledLayerResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">TfliteMicroProfiledLayerResult</span></code></a>]</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list where each entry contains the profiling results
-of the associated model layer</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel.is_recorder_enabled">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_recorder_enabled</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel.is_recorder_enabled" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return if the tensor recorder is enabled</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel.get_recorded_data">
-<span class="sig-name descname"><span class="pre">get_recorded_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_model.html#TfliteMicroModel.get_recorded_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel.get_recorded_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the recorded contents of each model layers’ tensors</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#mltk.core.tflite_micro.TfliteMicroRecordedLayerResult" title="mltk.core.tflite_micro.tflite_micro_model.TfliteMicroRecordedLayerResult"><code class="xref py py-class docutils literal notranslate"><span class="pre">TfliteMicroRecordedLayerResult</span></code></a>]</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list where each entry contains the input/output tensors
-of the associated model layer</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModel.get_layer_error">
-<span class="sig-name descname"><span class="pre">get_layer_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_model.html#TfliteMicroModel.get_layer_error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModel.get_layer_error" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the TfliteMicroLayerError at the given layer index if found else return None</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="#mltk.core.tflite_micro.TfliteMicroLayerError" title="mltk.core.tflite_micro.tflite_micro_model.TfliteMicroLayerError"><code class="xref py py-class docutils literal notranslate"><span class="pre">TfliteMicroLayerError</span></code></a></p>
-</dd>
-</dl>
-</dd></dl>
-</dd></dl>
 <section id="tflitemicromodeldetails">
 <h2 id="tflitemicromodeldetails">TfliteMicroModelDetails<a class="headerlink" href="#tflitemicromodeldetails" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModelDetails">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_micro.</span></span><span class="sig-name descname"><span class="pre">TfliteMicroModelDetails</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wrapper_details</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_model.html#TfliteMicroModelDetails"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModelDetails" title="Permalink to this definition">¶</a></dt>
-<dd><p>TF-Lite Micro Model Details</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModelDetails.name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModelDetails.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name of model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModelDetails.version">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModelDetails.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>Version of model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModelDetails.date">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">date</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModelDetails.date" title="Permalink to this definition">¶</a></dt>
-<dd><p>Date of model in ISO8601 format</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModelDetails.description">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModelDetails.description" title="Permalink to this definition">¶</a></dt>
-<dd><p>Description of model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModelDetails.classes">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">classes</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModelDetails.classes" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of class labels</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModelDetails.hash">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hash</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModelDetails.hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Unique hash of model data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModelDetails.accelerator">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accelerator</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModelDetails.accelerator" title="Permalink to this definition">¶</a></dt>
-<dd><p>Accelerater kernels loaded into TFLM interpreter</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroModelDetails.runtime_memory_size">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">runtime_memory_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroModelDetails.runtime_memory_size" title="Permalink to this definition">¶</a></dt>
-<dd><p>Total amount of RAM required at runtime to run model</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-</dd></dl>
 </section>
 <section id="tflitemicrolayererror">
 <h2 id="tflitemicrolayererror">TfliteMicroLayerError<a class="headerlink" href="#tflitemicrolayererror" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroLayerError">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_micro.</span></span><span class="sig-name descname"><span class="pre">TfliteMicroLayerError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_model.html#TfliteMicroLayerError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroLayerError" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroLayerError.index">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroLayerError.index" title="Permalink to this definition">¶</a></dt>
-<dd><p>The layer’s index</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroLayerError.name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroLayerError.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The layer’s full name</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroLayerError.msg">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">msg</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroLayerError.msg" title="Permalink to this definition">¶</a></dt>
-<dd><p>The layer’s error msg</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-</dd></dl>
 </section>
 <section id="tflitemicroprofiledlayerresult">
 <h2 id="tflitemicroprofiledlayerresult">TfliteMicroProfiledLayerResult<a class="headerlink" href="#tflitemicroprofiledlayerresult" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroProfiledLayerResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_micro.</span></span><span class="sig-name descname"><span class="pre">TfliteMicroProfiledLayerResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_model.html#TfliteMicroProfiledLayerResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroProfiledLayerResult" title="Permalink to this definition">¶</a></dt>
-<dd><p>Result of profiling a specifc model layer</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>Name of layer</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.macs">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">macs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.macs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of Multiple-Accumulate operations required by this profiler</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.ops">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ops</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.ops" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of operations required by this profiler</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.accelerator_cycles">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accelerator_cycles</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.accelerator_cycles" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of accelerator clock cycles required by this profiler</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.time">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">time</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Time in seconds required by this layer</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.cpu_cycles">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cpu_cycles</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.cpu_cycles" title="Permalink to this definition">¶</a></dt>
-<dd><p>Number of CPU clock cycles required by this layer</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.energy">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">energy</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroProfiledLayerResult.energy" title="Permalink to this definition">¶</a></dt>
-<dd><p>nergy in Joules required by this layer
-The energy is relative to the ‘baseline’ energy (i.e. energy used while the device was idling)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-</dd></dl>
 </section>
 <section id="tflitemicrorecordedlayerresult">
 <h2 id="tflitemicrorecordedlayerresult">TfliteMicroRecordedLayerResult<a class="headerlink" href="#tflitemicrorecordedlayerresult" title="Permalink to this headline">¶</a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroRecordedLayerResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_micro.</span></span><span class="sig-name descname"><span class="pre">TfliteMicroRecordedLayerResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">result</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_model.html#TfliteMicroRecordedLayerResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroRecordedLayerResult" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroRecordedLayerResult.inputs">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">inputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroRecordedLayerResult.inputs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Recorded input tensor data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.TfliteMicroRecordedLayerResult.outputs">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.tflite_micro.TfliteMicroRecordedLayerResult.outputs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Recorded output tensor data</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]</p>
-</dd>
-</dl>
-</dd></dl>
-</dd></dl>
 </section>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="tflitemicroaccelerator">
+<section id="tflitemicroaccelerator">
 <h1 id="tflitemicroaccelerator">TfliteMicroAccelerator<a class="headerlink" href="#tflitemicroaccelerator" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.tflite_micro.tflite_micro_accelerator.</span></span><span class="sig-name descname"><span class="pre">TfliteMicroAccelerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">accelerator_wrapper</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_accelerator.html#TfliteMicroAccelerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator" title="Permalink to this definition">¶</a></dt>
-<dd><p>TF-Lite Micro Accelerator</p>
-<p>This class allows for providing hardware-accelerated
-kernels to the TFLM interpreter.</p>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.name" title="Permalink to this definition">¶</a></dt>
-<dd><p>The name of the accelerator</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.api_version">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">api_version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.api_version" title="Permalink to this definition">¶</a></dt>
-<dd><p>The API version number this wrapper was built with
-This number must match the tflite_micro_wrapper’s API version</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.git_hash">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">git_hash</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.git_hash" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the GIT hash of the MLTK repo used to compile the wrapper library</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
-</dd>
-</dl>
-</dd></dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.accelerator_wrapper">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">accelerator_wrapper</span></span><a class="headerlink" href="#mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.accelerator_wrapper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the TfliteMicroAcceleratorWrapper instance</p>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.estimate_profiling_results">
-<span class="sig-name descname"><span class="pre">estimate_profiling_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_accelerator.html#TfliteMicroAccelerator.estimate_profiling_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.estimate_profiling_results" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update the given ProfilingModelResults with estimated model metrics</p>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.enable_recorder">
-<span class="sig-name descname"><span class="pre">enable_recorder</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_accelerator.html#TfliteMicroAccelerator.enable_recorder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.enable_recorder" title="Permalink to this definition">¶</a></dt>
-<dd><p>Enable the accelerator data/instruction recorder</p>
-</dd></dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.get_recorded_data">
-<span class="sig-name descname"><span class="pre">get_recorded_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/tflite_micro/tflite_micro_accelerator.html#TfliteMicroAccelerator.get_recorded_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.tflite_micro.tflite_micro_accelerator.TfliteMicroAccelerator.get_recorded_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the data/instructions generated by the hardware accelerator</p>
-<p>NOTE: Each layers’ data is returned as a dictionary and is specific to the hardware
-accelerator.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>]]]</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list where each entry contains a dictionary with data/instructions generated by
-the hardware accelerator. If a layer was not accelerated then the
-list entry is None</p>
-</dd>
-</dl>
-</dd></dl>
-</dd></dl>
 </section>
 
 
@@ -1141,7 +550,7 @@ list entry is None</p>
               
           </div>
             Last updated on
-              Apr 26, 2022.
+              Jun 09, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

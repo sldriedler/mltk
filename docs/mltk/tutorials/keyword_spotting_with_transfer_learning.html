@@ -55,13 +55,14 @@
 <script>
     window.gTrackingId = 'G-HZ5MW943WF';
 </script>
+<meta name="google-site-verification" content="FnYPzMkMEeT_U1C1c1JyJuz6vfQgjVuNWrw7PSuSYi4" />
   
   
-    <title>Keyword Spotting with Transfer Learning &#8212; MLTK 0.6.0 documentation</title>
+    <title>Keyword Spotting with Transfer Learning &#8212; MLTK 0.7.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.63bdf2d2865d068e5434884f20825da9.css" />
@@ -81,7 +82,7 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ONNX to TF-Lite Model Conversion" href="onnx_to_tflite.html" />
+    <link rel="next" title="Fingerprint Authentication" href="fingerprint_authentication.html" />
     <link rel="prev" title="Model Optimization for MVP Hardware Accelerator" href="model_optimization.html" />
   
    
@@ -106,11 +107,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="MLTK 0.6.0 documentation"
+        <a href="../../index.html" title="MLTK 0.7.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../_static/logo.png"
-                   alt="MLTK 0.6.0 documentation logo">
+                   alt="MLTK 0.7.0 documentation logo">
           
         </a>
       </div>
@@ -155,7 +156,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -201,16 +202,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="MLTK 0.6.0 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="MLTK 0.7.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.7.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -288,6 +289,13 @@
     <li class="md-nav__item">
     
     
+      <a href="image_classification.html" class="md-nav__link">Image Classification - Rock, Paper, Scissors</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="model_optimization.html" class="md-nav__link">Model Optimization for MVP Hardware Accelerator</a>
       
     
@@ -306,6 +314,8 @@
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#mltk-tutorials-keyword-spotting-with-transfer-learning--page-root" class="md-nav__link">Keyword Spotting with Transfer Learning</a><nav class="md-nav">
               <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#quick-links" class="md-nav__link">Quick Links</a>
+        </li>
         <li class="md-nav__item"><a href="#running-this-tutorial" class="md-nav__link">Running this Tutorial</a>
         </li>
         <li class="md-nav__item"><a href="#recommended-reading" class="md-nav__link">Recommended Reading</a>
@@ -353,6 +363,13 @@
     <li class="md-nav__item">
     
     
+      <a href="fingerprint_authentication.html" class="md-nav__link">Fingerprint Authentication</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="onnx_to_tflite.html" class="md-nav__link">ONNX to TF-Lite Model Conversion</a>
       
     
@@ -376,7 +393,28 @@
     <li class="md-nav__item">
     
     
+      <a href="../../docs/python_api/models/index.html" class="md-nav__link">Reference Models</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../docs/python_api/datasets/index.html" class="md-nav__link">Reference Datasets</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="../../docs/cpp_development/index.html" class="md-nav__link">C++ Development</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../docs/cpp_development/examples/index.html" class="md-nav__link">C++ Examples</a>
       
     
     </li>
@@ -462,6 +500,8 @@
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#mltk-tutorials-keyword-spotting-with-transfer-learning--page-root" class="md-nav__link">Keyword Spotting with Transfer Learning</a><nav class="md-nav">
               <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#quick-links" class="md-nav__link">Quick Links</a>
+        </li>
         <li class="md-nav__item"><a href="#running-this-tutorial" class="md-nav__link">Running this Tutorial</a>
         </li>
         <li class="md-nav__item"><a href="#recommended-reading" class="md-nav__link">Recommended Reading</a>
@@ -523,10 +563,10 @@
 
           <article class="md-content__inner md-typeset" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="keyword-spotting-with-transfer-learning">
+  <section id="keyword-spotting-with-transfer-learning">
 <h1 id="mltk-tutorials-keyword-spotting-with-transfer-learning--page-root">Keyword Spotting with Transfer Learning<a class="headerlink" href="#mltk-tutorials-keyword-spotting-with-transfer-learning--page-root" title="Permalink to this headline">¶</a></h1>
-<p>This tutorial describes how to use the weights from the pre-trained trained model <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a>,
-as a starting point for training a new model, <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py">keyword_spotting_with_transfer_learning.py</a>, to detect the keywords:</p>
+<p>This tutorial describes how to use the weights from the pre-trained trained model <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a>,
+as a starting point for training a new model, <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py">keyword_spotting_with_transfer_learning.py</a>, to detect the keywords:</p>
 <ul class="simple">
 <li><p><strong>one</strong></p></li>
 <li><p><strong>two</strong></p></li>
@@ -542,6 +582,15 @@ as a starting point for training a new model, <a class="reference external" href
 the new model can leverage the knowledge learnt from another model.</p>
 <p>See the <a class="reference external" href="https://keras.io/guides/transfer_learning">Keras Documentation</a> for more details about how to use
 the Keras API to enable transfer learning.</p>
+<section id="quick-links">
+<h2 id="quick-links">Quick Links<a class="headerlink" href="#quick-links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/SiliconLabs/mltk/blob/master/mltk/tutorials/keyword_spotting_with_transfer_learning.ipynb">GitHub Source</a> - View this tutorial on Github</p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/keyword_spotting_with_transfer_learning.ipynb">Run on Colab</a> - Run this tutorial on Google Colab</p></li>
+<li><p><a class="reference internal" href="../../docs/cpp_development/examples/audio_classifier.html"><span class="doc std std-doc">C++ Example Application</span></a> - View this tutorial’s associated C++ example application</p></li>
+<li><p><a class="reference internal" href="../../docs/python_api/models/siliconlabs/keyword_spotting_with_transfer_learning.html"><span class="doc std std-doc">Machine Learning Model</span></a> - View this tutorial’s associated machine learning model</p></li>
+</ul>
+</section>
 <section id="running-this-tutorial">
 <h2 id="running-this-tutorial">Running this Tutorial<a class="headerlink" href="#running-this-tutorial" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -557,7 +606,7 @@ the Keras API to enable transfer learning.</p>
 <li><p><a class="reference internal" href="../../docs/overview.html"><span class="doc std std-doc">MLTK Overview</span></a> - An overview of the core concepts used by the MLTK</p></li>
 <li><p><a class="reference internal" href="../../docs/audio/keyword_spotting_overview.html"><span class="doc std std-doc">Keyword Spotting Overview</span></a> - An overview of how keyword spotting works</p></li>
 <li><p><a class="reference internal" href="keyword_spotting_on_off.html"><span class="doc std std-doc">Keyword Spotting Tutorial</span></a> - Detailed tutorial describing how to create a Keyword Spotting model using the MLTK</p></li>
-<li><p><a class="reference internal" href="model_optimization.html"><span class="doc std std-doc">Model Optimization Tutorial</span></a> - Describes how to develop the <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a> model used by this tutorial</p></li>
+<li><p><a class="reference internal" href="model_optimization.html"><span class="doc std std-doc">Model Optimization Tutorial</span></a> - Describes how to develop the <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a> model used by this tutorial</p></li>
 </ul>
 </section>
 <section id="basic-concept">
@@ -583,7 +632,7 @@ It just needs to learn how to map the abstract, compressed representation of the
 </section>
 <section id="base-model-overview">
 <h2 id="base-model-overview">Base Model Overview<a class="headerlink" href="#base-model-overview" title="Permalink to this headline">¶</a></h2>
-<p>The pre-trained, base model, whose weights are transferred to the new model, may be found on Github: <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a>.</p>
+<p>The pre-trained, base model, whose weights are transferred to the new model, may be found on Github: <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a>.</p>
 <p>This model is built using <a class="reference external" href="https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html">MobileNetv2</a>, an industry-standard classification model developed by Google.
 MobileNetV2 is a useful model because it is generic enough that it can be applied to most classification tasks but still runs efficiently on embedded devices.</p>
 <p>This model is designed to detect the following keywords:</p>
@@ -627,8 +676,8 @@ MobileNetV2 is a useful model because it is generic enough that it can be applie
 </section>
 <section id="configure-model-specification-with-transfer-learning">
 <h2 id="configure-model-specification-with-transfer-learning">Configure Model Specification with Transfer Learning<a class="headerlink" href="#configure-model-specification-with-transfer-learning" title="Permalink to this headline">¶</a></h2>
-<p>The completed model specification used by this tutorial may be found on Github: <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py">keyword_spotting_with_transfer_learning.py</a></p>
-<p>This model specification is very similar to the base model specification, <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a>, with the following key differences:</p>
+<p>The completed model specification used by this tutorial may be found on Github: <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_with_transfer_learning.py">keyword_spotting_with_transfer_learning.py</a></p>
+<p>This model specification is very similar to the base model specification, <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py">keyword_spotting_mobilenetv2</a>, with the following key differences:</p>
 <section id="update-description">
 <h3 id="update-description">Update description<a class="headerlink" href="#update-description" title="Permalink to this headline">¶</a></h3>
 <p>Update the model’s description to help keep track of it in the field.</p>
@@ -706,7 +755,7 @@ MobileNetV2 is a useful model because it is generic enough that it can be applie
 <h3 id="load-the-weights-from-the-base-model">Load the weights from the base model<a class="headerlink" href="#load-the-weights-from-the-base-model" title="Permalink to this headline">¶</a></h3>
 <p>The most important change is actually loading the weights from the base model into this model.</p>
 <p>To loads the weights:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Instantiate a <a class="reference external" href="../../docs/python_api/models/common_models.html#mobilenet-v2">MobileNetV2()</a> instance</p></li>
 <li><p>Load the keyword_spotting_mobilenetv2 <a class="reference internal" href="../../docs/python_api/core/mltk_model.html"><span class="doc std std-doc">MtlkObject</span></a></p></li>
 <li><p>Retrieve the path to the model’s .h5 file in the model’s <a class="reference internal" href="../../docs/guides/model_archive.html"><span class="doc std std-doc">archive</span></a>. The .h5 model file contains the trained weights</p></li>
@@ -824,12 +873,12 @@ Since we’re only training for 10 epochs, this should complete relatively quick
             </a>
           
           
-            <a href="onnx_to_tflite.html" title="ONNX to TF-Lite Model Conversion"
+            <a href="fingerprint_authentication.html" title="Fingerprint Authentication"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> ONNX to TF-Lite Model Conversion </span>
+                class="md-footer-nav__direction"> Next </span> Fingerprint Authentication </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -847,7 +896,7 @@ Since we’re only training for 10 epochs, this should complete relatively quick
               
           </div>
             Last updated on
-              Apr 26, 2022.
+              Jun 09, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

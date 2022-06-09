@@ -55,13 +55,14 @@
 <script>
     window.gTrackingId = 'G-HZ5MW943WF';
 </script>
+<meta name="google-site-verification" content="FnYPzMkMEeT_U1C1c1JyJuz6vfQgjVuNWrw7PSuSYi4" />
   
   
-    <title>KerasModel &#8212; MLTK 0.6.0 documentation</title>
+    <title>KerasModel &#8212; MLTK 0.7.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.63bdf2d2865d068e5434884f20825da9.css" />
@@ -106,11 +107,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../../index.html" title="MLTK 0.6.0 documentation"
+        <a href="../../../index.html" title="MLTK 0.7.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../../_static/logo.png"
-                   alt="MLTK 0.6.0 documentation logo">
+                   alt="MLTK 0.7.0 documentation logo">
           
         </a>
       </div>
@@ -155,7 +156,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -202,16 +203,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../../index.html" title="MLTK 0.6.0 documentation" class="md-nav__button md-logo">
+    <a href="../../../index.html" title="MLTK 0.7.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.7.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -317,8 +318,17 @@
     <li class="md-nav__item">
     
     
+      <a href="dictionary.fbs.html" class="md-nav__link">TfliteModelParameters Flatbuffer Schema</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="../data_preprocessing/index.html" class="md-nav__link">Data Preprocessing</a>
       
+    
+    </li></ul>
     
     </li>
     <li class="md-nav__item">
@@ -334,13 +344,18 @@
       <a href="../datasets/index.html" class="md-nav__link">Reference Datasets</a>
       
     
-    </li></ul>
-    
     </li>
     <li class="md-nav__item">
     
     
       <a href="../../cpp_development/index.html" class="md-nav__link">C++ Development</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../cpp_development/examples/index.html" class="md-nav__link">C++ Examples</a>
       
     
     </li>
@@ -449,104 +464,8 @@
 
           <article class="md-content__inner md-typeset" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="kerasmodel">
+  <section id="kerasmodel">
 <h1 id="docs-python-api-core-keras-model--page-root">KerasModel<a class="headerlink" href="#docs-python-api-core-keras-model--page-root" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="mltk.core.KerasModel">
-<span class="sig-prename descclassname"><span class="pre">mltk.core.</span></span><span class="sig-name descname"><span class="pre">KerasModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#mltk.core.KerasModel" title="Permalink to this definition">¶</a></dt>
-<dd><p><cite>Model</cite> groups layers into an object with training and inference features.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>inputs</strong> – The input(s) of the model: a <cite>keras.Input</cite> object or list of
-<cite>keras.Input</cite> objects.</p></li>
-<li><p><strong>outputs</strong> – The output(s) of the model. See Functional API example below.</p></li>
-<li><p><strong>name</strong> – String, the name of the model.</p></li>
-</ul>
-</dd>
-</dl>
-<p>There are two ways to instantiate a <cite>Model</cite>:</p>
-<p>1 - With the “Functional API”, where you start from <cite>Input</cite>,
-you chain layer calls to specify the model’s forward pass,
-and finally you create your model from inputs and outputs:</p>
-<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
-import tensorflow as tf</p>
-<p>inputs = tf.keras.Input(shape=(3,))
-x = tf.keras.layers.Dense(4, activation=tf.nn.relu)(inputs)
-outputs = tf.keras.layers.Dense(5, activation=tf.nn.softmax)(x)
-model = tf.keras.Model(inputs=inputs, outputs=outputs)
-<a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
-<p>Note: Only dicts, lists, and tuples of input tensors are supported. Nested
-inputs are not supported (e.g. lists of list or dicts of dict).</p>
-<p>A new Functional API model can also be created by using the
-intermediate tensors. This enables you to quickly extract sub-components
-of the model.</p>
-<p>Example:</p>
-<p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a>python
-inputs = keras.Input(shape=(None, None, 3))
-processed = keras.layers.RandomCrop(width=32, height=32)(inputs)
-conv = keras.layers.Conv2D(filters=2, kernel_size=3)(processed)
-pooling = keras.layers.GlobalAveragePooling2D()(conv)
-feature = keras.layers.Dense(10)(pooling)</p>
-<p>full_model = keras.Model(inputs, feature)
-backbone = keras.Model(processed, conv)
-activations = keras.Model(conv, feature)
-<a href="#id13"><span class="problematic" id="id14">``</span></a><a href="#id15"><span class="problematic" id="id16">`</span></a></p>
-<p>Note that the <cite>backbone</cite> and <cite>activations</cite> models are not
-created with <cite>keras.Input</cite> objects, but with the tensors that are originated
-from <cite>keras.Inputs</cite> objects. Under the hood, the layers and weights will
-be shared across these models, so that user can train the <cite>full_model</cite>, and
-use <cite>backbone</cite> or <cite>activations</cite> to do feature extraction.
-The inputs and outputs of the model can be nested structures of tensors as
-well, and the created models are standard Functional API models that support
-all the existing APIs.</p>
-<p>2 - By subclassing the <cite>Model</cite> class: in that case, you should define your
-layers in <cite>__init__()</cite> and you should implement the model’s forward pass
-in <cite>call()</cite>.</p>
-<p><a href="#id17"><span class="problematic" id="id18">``</span></a><a href="#id19"><span class="problematic" id="id20">`</span></a>python
-import tensorflow as tf</p>
-<p>class MyModel(tf.keras.Model):</p>
-<blockquote>
-<div><dl class="simple">
-<dt>def __init__(self):</dt><dd><p>super().__init__()
-self.dense1 = tf.keras.layers.Dense(4, activation=tf.nn.relu)
-self.dense2 = tf.keras.layers.Dense(5, activation=tf.nn.softmax)</p>
-</dd>
-<dt>def call(self, inputs):</dt><dd><p>x = self.dense1(inputs)
-return self.dense2(x)</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>model = MyModel()
-<a href="#id21"><span class="problematic" id="id22">``</span></a><a href="#id23"><span class="problematic" id="id24">`</span></a></p>
-<p>If you subclass <cite>Model</cite>, you can optionally have
-a <cite>training</cite> argument (boolean) in <cite>call()</cite>, which you can use to specify
-a different behavior in training and inference:</p>
-<p><a href="#id25"><span class="problematic" id="id26">``</span></a><a href="#id27"><span class="problematic" id="id28">`</span></a>python
-import tensorflow as tf</p>
-<p>class MyModel(tf.keras.Model):</p>
-<blockquote>
-<div><dl>
-<dt>def __init__(self):</dt><dd><p>super().__init__()
-self.dense1 = tf.keras.layers.Dense(4, activation=tf.nn.relu)
-self.dense2 = tf.keras.layers.Dense(5, activation=tf.nn.softmax)
-self.dropout = tf.keras.layers.Dropout(0.5)</p>
-</dd>
-<dt>def call(self, inputs, training=False):</dt><dd><p>x = self.dense1(inputs)
-if training:</p>
-<blockquote>
-<div><p>x = self.dropout(x, training=training)</p>
-</div></blockquote>
-<p>return self.dense2(x)</p>
-</dd>
-</dl>
-</div></blockquote>
-<p>model = MyModel()
-<a href="#id29"><span class="problematic" id="id30">``</span></a><a href="#id31"><span class="problematic" id="id32">`</span></a></p>
-<p>Once the model is created, you can config the model with losses and metrics
-with <cite>model.compile()</cite>, train the model with <cite>model.fit()</cite>, or use the model
-to do prediction with <cite>model.predict()</cite>.</p>
-</dd></dl>
 </section>
 
 
@@ -596,7 +515,7 @@ to do prediction with <cite>model.predict()</cite>.</p>
               
           </div>
             Last updated on
-              Apr 26, 2022.
+              Jun 09, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

@@ -55,13 +55,14 @@
 <script>
     window.gTrackingId = 'G-HZ5MW943WF';
 </script>
+<meta name="google-site-verification" content="FnYPzMkMEeT_U1C1c1JyJuz6vfQgjVuNWrw7PSuSYi4" />
   
   
-    <title>Model Specification &#8212; MLTK 0.6.0 documentation</title>
+    <title>Model Specification &#8212; MLTK 0.7.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.63bdf2d2865d068e5434884f20825da9.css" />
@@ -106,11 +107,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="MLTK 0.6.0 documentation"
+        <a href="../../index.html" title="MLTK 0.7.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../_static/logo.png"
-                   alt="MLTK 0.6.0 documentation logo">
+                   alt="MLTK 0.7.0 documentation logo">
           
         </a>
       </div>
@@ -155,7 +156,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -208,16 +209,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="MLTK 0.6.0 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="MLTK 0.7.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="MLTK 0.6.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.7.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -436,7 +437,28 @@
     <li class="md-nav__item">
     
     
+      <a href="../python_api/models/index.html" class="md-nav__link">Reference Models</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../python_api/datasets/index.html" class="md-nav__link">Reference Datasets</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="../cpp_development/index.html" class="md-nav__link">C++ Development</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../cpp_development/examples/index.html" class="md-nav__link">C++ Examples</a>
       
     
     </li>
@@ -587,7 +609,7 @@
 
           <article class="md-content__inner md-typeset" role="main">
             
-  <section class="tex2jax_ignore mathjax_ignore" id="model-specification">
+  <section id="model-specification">
 <h1 id="docs-guides-model-specification--page-root">Model Specification<a class="headerlink" href="#docs-guides-model-specification--page-root" title="Permalink to this headline">¶</a></h1>
 <section id="overview">
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
@@ -615,7 +637,7 @@ would have a model name: <code class="docutils literal notranslate"><span class=
 </section>
 <section id="discoverable-models">
 <h3 id="discoverable-models">Discoverable Models<a class="headerlink" href="#discoverable-models" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="../python_api/core/utilities.html#mltk.core.list_mltk_models" title="mltk.core.list_mltk_models"><span class="xref myst py py-func">list_mltk_models</span></a> API returns all <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.MltkModel" title="mltk.core.MltkModel"><span class="xref myst py py-class">MltkModel</span></a> models found on the
+<p>The <span class="xref myst">list_mltk_models</span> API returns all <span class="xref myst">MltkModel</span> models found on the
 <a class="reference internal" href="model_search_path.html"><span class="doc std std-doc">Model Search Path</span></a>. To make this API efficient, it only parses the text of the Python
 scripts found on the model search path for the delimiter <code class="docutils literal notranslate"><span class="pre">@mltk_model</span></code> (as opposed to loading each model as a Python module).</p>
 <p>Thus, to make your model discoverable by this API, add <code class="docutils literal notranslate"><span class="pre">@mltk_model</span></code> to your model specification script.</p>
@@ -623,9 +645,9 @@ scripts found on the model search path for the delimiter <code class="docutils l
 </section>
 <section id="mltkmodel-class-instance">
 <h2 id="mltkmodel-class-instance">MltkModel Class Instance<a class="headerlink" href="#mltkmodel-class-instance" title="Permalink to this headline">¶</a></h2>
-<p>The core of the model specification script is the <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.MltkModel" title="mltk.core.MltkModel"><span class="xref myst py py-class">MltkModel</span></a> class instance.<br/>
+<p>The core of the model specification script is the <span class="xref myst">MltkModel</span> class instance.<br/>
 This is a Python class that contains all of the model settings and properties.
-Additional properties are added to the <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.MltkModel" title="mltk.core.MltkModel"><span class="xref myst py py-class">MltkModel</span></a> by inheriting additional model “mixins”.</p>
+Additional properties are added to the <span class="xref myst">MltkModel</span> by inheriting additional model “mixins”.</p>
 <p>For example, the following might be added to the top of model specification script:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a new MyModel class which inherits the </span>
 <span class="c1"># MltkModel and several mixins</span>
@@ -644,13 +666,13 @@ Additional properties are added to the <a class="reference internal" href="../py
 </pre></div>
 </div>
 <p>Here we define our model’s class object: <code class="docutils literal notranslate"><span class="pre">MyModel</span></code>.</p>
-<p>At a minimum, this class must inherit <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.MltkModel" title="mltk.core.MltkModel"><span class="xref myst py py-class">MltkModel</span></a>.</p>
+<p>At a minimum, this class must inherit <span class="xref myst">MltkModel</span>.</p>
 <p>However, to use this model for training or evaluation, it should also inherit others “mixins” such as:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin" title="mltk.core.TrainMixin"><span class="xref myst py py-class">TrainMixin</span></a> - Enables model training, see <a class="reference internal" href="model_training.html"><span class="doc std std-doc">Model Training</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateClassifierMixin" title="mltk.core.EvaluateClassifierMixin"><span class="xref myst py py-class">EvaluateClassifierMixin</span></a> - Enables model evaluation, see <a class="reference internal" href="model_evaluation.html"><span class="doc std std-doc">Model Evaluation</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.ImageDatasetMixin" title="mltk.core.ImageDatasetMixin"><span class="xref myst py py-class">ImageDatasetMixin</span></a> - Enables image datasets</p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin" title="mltk.core.AudioDatasetMixin"><span class="xref myst py py-class">AudioDatasetMixin</span></a> - Enables audio datasets</p></li>
+<li><p><span class="xref myst">TrainMixin</span> - Enables model training, see <a class="reference internal" href="model_training.html"><span class="doc std std-doc">Model Training</span></a></p></li>
+<li><p><span class="xref myst">EvaluateClassifierMixin</span> - Enables model evaluation, see <a class="reference internal" href="model_evaluation.html"><span class="doc std std-doc">Model Evaluation</span></a></p></li>
+<li><p><span class="xref myst">ImageDatasetMixin</span> - Enables image datasets</p></li>
+<li><p><span class="xref myst">AudioDatasetMixin</span> - Enables audio datasets</p></li>
 </ul>
 <p>The rest of the model specification script populates the various parameters of the model instance, e.g.:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># General Settings</span>
@@ -677,10 +699,10 @@ Additional properties are added to the <a class="reference internal" href="../py
 <section id="model-layout">
 <h3 id="model-layout">Model Layout<a class="headerlink" href="#model-layout" title="Permalink to this headline">¶</a></h3>
 <p>The actual machine learning model is defined using the <a class="reference external" href="https://keras.io/api">Keras API</a>.
-The model is defined in a function that builds a <a class="reference internal" href="../python_api/core/keras_model.html#mltk.core.KerasModel" title="mltk.core.KerasModel"><span class="xref myst py py-func">KerasModel</span></a>.
-The model specification then sets the model property <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.build_model_function" title="mltk.core.TrainMixin.build_model_function"><span class="xref myst py py-attr">TrainMixin.build_model_function</span></a>
+The model is defined in a function that builds a <span class="xref myst">KerasModel</span>.
+The model specification then sets the model property <span class="xref myst">TrainMixin.build_model_function</span>
 to reference the function. At model training time, the model building function is invoked and the built
-<a class="reference internal" href="../python_api/core/keras_model.html#mltk.core.KerasModel" title="mltk.core.KerasModel"><span class="xref myst py py-func">KerasModel</span></a> is trained using Tensorflow.</p>
+<span class="xref myst">KerasModel</span> is trained using Tensorflow.</p>
 <p>For example, a model specification script might have:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_model_builder</span><span class="p">(</span><span class="n">my_model</span><span class="p">:</span> <span class="n">MyModel</span><span class="p">):</span>
     <span class="n">keras_model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">my_model</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
@@ -728,7 +750,7 @@ should be used over hardcoded values, e.g.:</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.build_model_function" title="mltk.core.TrainMixin.build_model_function"><span class="xref myst py py-attr">TrainMixin.build_model_function</span></a></p></li>
+<li><p><span class="xref myst">TrainMixin.build_model_function</span></p></li>
 <li><p><a class="reference external" href="https://keras.io/api">Keras API</a></p></li>
 </ul>
 </div>
@@ -744,9 +766,9 @@ should be used over hardcoded values, e.g.:</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.MltkModel.version" title="mltk.core.MltkModel.version"><span class="xref myst py py-attr">MltkModel.version</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.MltkModel.description" title="mltk.core.MltkModel.description"><span class="xref myst py py-attr">MltkModel.description</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.MltkModel.log_dir" title="mltk.core.MltkModel.log_dir"><span class="xref myst py py-attr">MltkModel.log_dir</span></a></p></li>
+<li><p><span class="xref myst">MltkModel.version</span></p></li>
+<li><p><span class="xref myst">MltkModel.description</span></p></li>
+<li><p><span class="xref myst">MltkModel.log_dir</span></p></li>
 </ul>
 </div>
 </section>
@@ -760,12 +782,12 @@ should be used over hardcoded values, e.g.:</p>
 </div>
 <p>Also see:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin" title="mltk.core.TrainMixin"><span class="xref myst py py-class">TrainMixin</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.epochs" title="mltk.core.TrainMixin.epochs"><span class="xref myst py py-attr">TrainMixin.epochs</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.batch_size" title="mltk.core.TrainMixin.batch_size"><span class="xref myst py py-attr">TrainMixin.batch_size</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.optimizer" title="mltk.core.TrainMixin.optimizer"><span class="xref myst py py-attr">TrainMixin.optimizer</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.metrics" title="mltk.core.TrainMixin.metrics"><span class="xref myst py py-attr">TrainMixin.metrics</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.loss" title="mltk.core.TrainMixin.loss"><span class="xref myst py py-attr">TrainMixin.loss</span></a></p></li>
+<li><p><span class="xref myst">TrainMixin</span></p></li>
+<li><p><span class="xref myst">TrainMixin.epochs</span></p></li>
+<li><p><span class="xref myst">TrainMixin.batch_size</span></p></li>
+<li><p><span class="xref myst">TrainMixin.optimizer</span></p></li>
+<li><p><span class="xref myst">TrainMixin.metrics</span></p></li>
+<li><p><span class="xref myst">TrainMixin.loss</span></p></li>
 </ul>
 </section>
 <section id="training-keras-callback-settings">
@@ -782,13 +804,13 @@ The MLTK provides properties for some of the more common callbacks, e.g.:</p>
 <p class="admonition-title">See also</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="model_training.html"><span class="doc std std-doc">Model Training</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin" title="mltk.core.TrainMixin"><span class="xref myst py py-class">TrainMixin</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.train_callbacks" title="mltk.core.TrainMixin.train_callbacks"><span class="xref myst py py-attr">TrainMixin.train_callbacks</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.lr_schedule" title="mltk.core.TrainMixin.lr_schedule"><span class="xref myst py py-attr">TrainMixin.lr_schedule</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.reduce_lr_on_plateau" title="mltk.core.TrainMixin.reduce_lr_on_plateau"><span class="xref myst py py-attr">TrainMixin.reduce_lr_on_plateau</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.tensorboard" title="mltk.core.TrainMixin.tensorboard"><span class="xref myst py py-attr">TrainMixin.tensorboard</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.checkpoint" title="mltk.core.TrainMixin.checkpoint"><span class="xref myst py py-attr">TrainMixin.checkpoint</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.early_stopping" title="mltk.core.TrainMixin.early_stopping"><span class="xref myst py py-attr">TrainMixin.early_stopping</span></a></p></li>
+<li><p><span class="xref myst">TrainMixin</span></p></li>
+<li><p><span class="xref myst">TrainMixin.train_callbacks</span></p></li>
+<li><p><span class="xref myst">TrainMixin.lr_schedule</span></p></li>
+<li><p><span class="xref myst">TrainMixin.reduce_lr_on_plateau</span></p></li>
+<li><p><span class="xref myst">TrainMixin.tensorboard</span></p></li>
+<li><p><span class="xref myst">TrainMixin.checkpoint</span></p></li>
+<li><p><span class="xref myst">TrainMixin.early_stopping</span></p></li>
 </ul>
 </div>
 </section>
@@ -797,7 +819,7 @@ The MLTK provides properties for some of the more common callbacks, e.g.:</p>
 <p>At the end of training, a quantized <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model file is generated.
 This is the file that is programmed into the embedded device and executed by <a class="reference external" href="https://github.com/tensorflow/tflite-micro">Tensorflow-Lite Micro</a>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> is generated by the Tensorflow-Lite <a class="reference external" href="https://www.tensorflow.org/lite/convert">Converter</a>.
-The settings for the converter are defined in the model specification script using the model property: <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.tflite_converter" title="mltk.core.TrainMixin.tflite_converter"><span class="xref myst py py-attr">TrainMixin.tflite_converter</span></a>.</p>
+The settings for the converter are defined in the model specification script using the model property: <span class="xref myst">TrainMixin.tflite_converter</span>.</p>
 <p>For example, the model specification script might have:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span><span class="o">.</span><span class="n">tflite_converter</span><span class="p">[</span><span class="s1">'optimizations'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">lite</span><span class="o">.</span><span class="n">Optimize</span><span class="o">.</span><span class="n">DEFAULT</span><span class="p">]</span>
 <span class="n">my_model</span><span class="o">.</span><span class="n">tflite_converter</span><span class="p">[</span><span class="s1">'supported_ops'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">tf</span><span class="o">.</span><span class="n">lite</span><span class="o">.</span><span class="n">OpsSet</span><span class="o">.</span><span class="n">TFLITE_BUILTINS_INT8</span><span class="p">]</span>
@@ -812,7 +834,7 @@ See <a class="reference internal" href="model_quantization.html"><span class="do
 <p class="admonition-title">See also</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="model_quantization.html"><span class="doc std std-doc">Model Quantization</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.TrainMixin.tflite_converter" title="mltk.core.TrainMixin.tflite_converter"><span class="xref myst py py-attr">TrainMixin.tflite_converter</span></a></p></li>
+<li><p><span class="xref myst">TrainMixin.tflite_converter</span></p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/lite/TFLiteConverter">TFLiteConverter</a></p></li>
 <li><p><a class="reference external" href="https://www.tensorflow.org/lite/performance/post_training_quantization">Post-training Quantization</a></p></li>
 </ul>
@@ -821,14 +843,14 @@ See <a class="reference internal" href="model_quantization.html"><span class="do
 <section id="basic-dataset-settings">
 <h3 id="basic-dataset-settings">Basic Dataset Settings<a class="headerlink" href="#basic-dataset-settings" title="Permalink to this headline">¶</a></h3>
 <p>Basic dataset settings includes information such as the dataset directory, the “class mode”, the class labels, input shape, etc. These settings are strongly dependent on the type of machine learning model that is being trained and/or evaluated.</p>
-<p>At a minimum, the <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.DatasetMixin" title="mltk.core.DatasetMixin"><span class="xref myst py py-class">DatasetMixin</span></a> should be inherited by the model specification’s <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.MltkModel" title="mltk.core.MltkModel"><span class="xref myst py py-class">MltkModel</span></a> class. This mixin is generic and its properties directly map to the parameters required by
+<p>At a minimum, the <span class="xref myst">DatasetMixin</span> should be inherited by the model specification’s <span class="xref myst">MltkModel</span> class. This mixin is generic and its properties directly map to the parameters required by
 <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/Model#fit">KerasModel.fit()</a> (the Tensorflow function that actually trains the model)</p>
 <p>Alternatively, the MLTK features other dataset mixins that are specific to the dataset type:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin" title="mltk.core.AudioDatasetMixin"><span class="xref myst py py-class">AudioDatasetMixin</span></a> - Used for audio datasets (i.e. the samples in the dataset are audio files)</p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.ImageDatasetMixin" title="mltk.core.ImageDatasetMixin"><span class="xref myst py py-class">ImageDatasetMixin</span></a> - Used for image datasets (i.e. the samples in the dataset are images)</p></li>
+<li><p><span class="xref myst">AudioDatasetMixin</span> - Used for audio datasets (i.e. the samples in the dataset are audio files)</p></li>
+<li><p><span class="xref myst">ImageDatasetMixin</span> - Used for image datasets (i.e. the samples in the dataset are images)</p></li>
 </ul>
-<p>These are useful as they manage some of the details required to process these types of datasets (whereas the <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.DatasetMixin" title="mltk.core.DatasetMixin"><span class="xref myst py py-class">DatasetMixin</span></a> is generic and all details must be handled manually).</p>
+<p>These are useful as they manage some of the details required to process these types of datasets (whereas the <span class="xref myst">DatasetMixin</span> is generic and all details must be handled manually).</p>
 <p>For example, an audio-based model specification script might have:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mltk_model</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">speech_commands_v2</span>
 <span class="n">mltk_model</span><span class="o">.</span><span class="n">class_mode</span> <span class="o">=</span> <span class="s1">'categorical'</span>
@@ -845,17 +867,17 @@ See <a class="reference internal" href="model_quantization.html"><span class="do
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.DatasetMixin" title="mltk.core.DatasetMixin"><span class="xref myst py py-class">DatasetMixin</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin" title="mltk.core.AudioDatasetMixin"><span class="xref myst py py-class">AudioDatasetMixin</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.ImageDatasetMixin" title="mltk.core.ImageDatasetMixin"><span class="xref myst py py-class">ImageDatasetMixin</span></a></p></li>
+<li><p><span class="xref myst">DatasetMixin</span></p></li>
+<li><p><span class="xref myst">AudioDatasetMixin</span></p></li>
+<li><p><span class="xref myst">ImageDatasetMixin</span></p></li>
 </ul>
 </div>
 </section>
 <section id="dataset-augmentation-settings">
 <h3 id="dataset-augmentation-settings">Dataset Augmentation Settings<a class="headerlink" href="#dataset-augmentation-settings" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin" title="mltk.core.AudioDatasetMixin"><span class="xref myst py py-class">AudioDatasetMixin</span></a> and <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.ImageDatasetMixin" title="mltk.core.ImageDatasetMixin"><span class="xref myst py py-class">ImageDatasetMixin</span></a> mixins
+<p>The <span class="xref myst">AudioDatasetMixin</span> and <span class="xref myst">ImageDatasetMixin</span> mixins
 are useful because they allow for augmenting the dataset during training (which is useful as it effectively increases the size of the dataset which can lead to a more robust model).</p>
-<p>These settings are configured in the <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin.datagen" title="mltk.core.AudioDatasetMixin.datagen"><span class="xref myst py py-attr">AudioDatasetMixin.datagen</span></a> and <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.ImageDatasetMixin.datagen" title="mltk.core.ImageDatasetMixin.datagen"><span class="xref myst py py-attr">ImageDatasetMixin.datagen</span></a> properties.</p>
+<p>These settings are configured in the <span class="xref myst">AudioDatasetMixin.datagen</span> and <span class="xref myst">ImageDatasetMixin.datagen</span> properties.</p>
 <p>For example, an audio-based model specification script might have:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mltk_model</span><span class="o">.</span><span class="n">datagen</span> <span class="o">=</span> <span class="n">ParallelAudioDataGenerator</span><span class="p">(</span>
     <span class="n">unknown_class_percentage</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
@@ -881,10 +903,10 @@ are useful because they allow for augmenting the dataset during training (which 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin" title="mltk.core.AudioDatasetMixin"><span class="xref myst py py-class">AudioDatasetMixin</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.ImageDatasetMixin" title="mltk.core.ImageDatasetMixin"><span class="xref myst py py-class">ImageDatasetMixin</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/data_preprocessing/audio_data_generator.html#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator" title="mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator"><span class="xref myst py py-class">ParallelAudioDataGenerator</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/data_preprocessing/image_data_generator.html#mltk.core.preprocess.image.parallel_generator.ParallelImageDataGenerator" title="mltk.core.preprocess.image.parallel_generator.ParallelImageDataGenerator"><span class="xref myst py py-class">ParallelImageDataGenerator</span></a></p></li>
+<li><p><span class="xref myst">AudioDatasetMixin</span></p></li>
+<li><p><span class="xref myst">ImageDatasetMixin</span></p></li>
+<li><p><span class="xref myst">ParallelAudioDataGenerator</span></p></li>
+<li><p><span class="xref myst">ParallelImageDataGenerator</span></p></li>
 </ul>
 </div>
 </section>
@@ -894,15 +916,15 @@ are useful because they allow for augmenting the dataset during training (which 
 the training settings, it can also be used for configuring the model evaluation settings.</p>
 <p><a class="reference internal" href="model_evaluation.html"><span class="doc std std-doc">Model evaluation</span></a> is enabled by inheriting one of the following mixins:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateClassifierMixin" title="mltk.core.EvaluateClassifierMixin"><span class="xref myst py py-class">EvaluateClassifierMixin</span></a> - Evaluate a classification model</p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateAutoEncoderMixin" title="mltk.core.EvaluateAutoEncoderMixin"><span class="xref myst py py-class">EvaluateAutoEncoderMixin</span></a> - Evaluate an auto-encoder model</p></li>
+<li><p><span class="xref myst">EvaluateClassifierMixin</span> - Evaluate a classification model</p></li>
+<li><p><span class="xref myst">EvaluateAutoEncoderMixin</span> - Evaluate an auto-encoder model</p></li>
 </ul>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="model_evaluation.html"><span class="doc std std-doc">Model evaluation</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateClassifierMixin" title="mltk.core.EvaluateClassifierMixin"><span class="xref myst py py-class">EvaluateClassifierMixin</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateAutoEncoderMixin" title="mltk.core.EvaluateAutoEncoderMixin"><span class="xref myst py py-class">EvaluateAutoEncoderMixin</span></a></p></li>
+<li><p><span class="xref myst">EvaluateClassifierMixin</span></p></li>
+<li><p><span class="xref myst">EvaluateAutoEncoderMixin</span></p></li>
 </ul>
 </div>
 </section>
@@ -924,7 +946,7 @@ of the generated <code class="docutils literal notranslate"><span class="pre">.t
 <p class="admonition-title">See also</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="model_parameters.html"><span class="doc std std-doc">Model Parameters</span></a></p></li>
-<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.MltkModel.model_parameters" title="mltk.core.MltkModel.model_parameters"><span class="xref myst py py-attr">MltkModel.model_parameters</span></a></p></li>
+<li><p><span class="xref myst">MltkModel.model_parameters</span></p></li>
 </ul>
 </div>
 </section>
@@ -933,17 +955,17 @@ of the generated <code class="docutils literal notranslate"><span class="pre">.t
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>See the <a class="reference internal" href="../python_api/models/index.html"><span class="doc std std-doc">reference models</span></a> for complete model specification scripts:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py">siliconlabs.keyword_spotting_on_off</a></p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/image_example1.py">examples.image_example1</a></p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/audio_example1.py">examples.audio_example1</a></p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/conv1d_example.py">examples.conv1d_example</a></p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/siamese_contrastive.py">examples.siamese_contrastive</a></p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/tflite_micro/tflite_micro_speech.py">tflite_micro.tflite_micro_speech</a></p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/tflite_micro/tflite_micro_magic_wand.py">tflite_micro.tflite_micro_magic_wand</a></p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/anomaly_detection.py">tinyml.anomaly_detection</a></p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/image_classification.py">tinyml.image_classification</a></p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/keyword_spotting.py">tinyml.keyword_spotting</a></p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/visual_wake_words.py">tinyml.visual_wake_words</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py">siliconlabs.keyword_spotting_on_off</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/examples/image_example1.py">examples.image_example1</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/examples/audio_example1.py">examples.audio_example1</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/examples/conv1d_example.py">examples.conv1d_example</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/examples/siamese_contrastive.py">examples.siamese_contrastive</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/tflite_micro/tflite_micro_speech.py">tflite_micro.tflite_micro_speech</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/tflite_micro/tflite_micro_magic_wand.py">tflite_micro.tflite_micro_magic_wand</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/tinyml/anomaly_detection.py">tinyml.anomaly_detection</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/tinyml/image_classification.py">tinyml.image_classification</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/tinyml/keyword_spotting.py">tinyml.keyword_spotting</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/tinyml/visual_wake_words.py">tinyml.visual_wake_words</a></p></li>
 </ul>
 </section>
 </section>
@@ -995,7 +1017,7 @@ of the generated <code class="docutils literal notranslate"><span class="pre">.t
               
           </div>
             Last updated on
-              Apr 26, 2022.
+              Jun 09, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

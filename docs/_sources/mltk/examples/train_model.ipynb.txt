@@ -14,7 +14,7 @@
 
     "\n",
 
-    "This demonstrates how to use the [train_model](../../docs/python_api/operations.html#train-model) API.\n",
+    "This demonstrates how to use the [train_model](../../docs/python_api/operations.md#train_model) API.\n",
 
     "\n",
 
@@ -26,7 +26,7 @@
 
     "\n",
 
-    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/examples/train_model.ipynb) to run this example interactively in your browser  \n",
+    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/examples/train_model.ipynb) to run this example interactively in your browser  \n",
 
     "- Refer to the [Notebook Examples Guide](../../docs/guides/notebook_examples_guide.md) for how to run this example locally in VSCode  "
 
@@ -122,7 +122,7 @@
 
     "\n",
 
-    "__NOTE:__ Internally, the [load_mltk_model](../../docs/python_api/core/utilities.html#load-mltk-model) API is used to load the model.  \n",
+    "__NOTE:__ Internally, the [load_mltk_model](../../docs/python_api/core/utilities.md#load_mltk_model) API is used to load the model.  \n",
 
     "See [Model Search Path](../../docs/guides/model_search_path.md) for how to update the model search path for your model."
 
@@ -232,7 +232,7 @@
 
     "\n",
 
-    "__NOTE:__ Internally, the [load_mltk_model](../../docs/python_api/core/utilities.html#load-mltk-model) API is used to load the model.  \n",
+    "__NOTE:__ Internally, the [load_mltk_model](../../docs/python_api/core/utilities.md#load_mltk_model) API is used to load the model.  \n",
 
     "See [Model Search Path](../../docs/guides/model_search_path.md) for how to update the model search path for your model."
 
