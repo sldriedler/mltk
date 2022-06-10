@@ -186,9 +186,12 @@ setup(
         'mltk.models.examples': [
             'audio_example1.mltk.zip', 
             'image_example1.mltk.zip', 
+            'autoencoder_example.mltk.zip',
         ],
         'mltk.models.siliconlabs': [
+            'fingerprint_signature_generator.mltk.zip',
             'keyword_spotting_on_off.mltk.zip',
+            'keyword_spotting_on_off_v2.mltk.zip',
             'keyword_spotting_mobilenetv2.mltk.zip',
             'keyword_spotting_with_transfer_learning.mltk.zip',
             'rock_paper_scissors.mltk.zip'

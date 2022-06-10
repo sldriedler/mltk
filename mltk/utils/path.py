@@ -6,6 +6,7 @@ import glob
 import shutil
 import tempfile
 import datetime
+import subprocess
 from pathlib import Path
 from typing import Callable, List, Union, Iterator, Tuple
 
@@ -180,10 +181,17 @@ def remove_directory(path:str):
     if not path:
         return
 
+    def _remove_dir(d):
+        if os.name == 'nt':
+            subprocess.check_output(['cmd', '/C', 'rmdir', '/S', '/Q', os.path.abspath(d)])
+        else:
+            subprocess.check_output(['rm', '-rf', os.path.abspath(d)])
+
+
     retries = 5
     while retries > 0 and os.path.exists(path):
         try:
-            shutil.rmtree(path, ignore_errors=True)
+            _remove_dir(path)
         except:
             pass
         finally:

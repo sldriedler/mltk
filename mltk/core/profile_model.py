@@ -90,7 +90,7 @@ def profile_model_in_simulator(
     """
 
     logger = get_mltk_logger()
-    logger.info('Profiling model in simulator')
+    logger.error('Profiling model in simulator ...')
 
     # Profile the model in the hardware simulator
     # and estimate various metrics if possible
