@@ -14,7 +14,7 @@ __NOTES:__
 
 ## Quick Links
 
-- [GitHub Source](https://github.com/SiliconLabs/mltk/tree/master/cpp/shared/apps/audio_classifier) - View this example's source code on Github
+- [GitHub Source](https://github.com/sldriedler/mltk/tree/master/cpp/shared/apps/audio_classifier) - View this example's source code on Github
 - [Online documentation](https://sldriedler.github.io/mltk/docs/cpp_development/examples/audio_classifier.html) - View this example's online documentation
 - [Keyword Spotting Tutorial](https://sldriedler.github.io/mltk/mltk/tutorials/keyword_spotting_on_off.html) - View this example's associated tutorial
 - [Audio classifier utility](https://sldriedler.github.io/mltk/docs/audio/audio_utilities.html#audio-classification-utility) - View the audio classifier utility's documentation

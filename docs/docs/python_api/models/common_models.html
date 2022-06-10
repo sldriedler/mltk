@@ -83,7 +83,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Reference Datasets" href="../datasets/index.html" />
-    <link rel="prev" title="&lt;no title&gt;" href="tflite_micro/tflite_micro_speech.html" />
+    <link rel="prev" title="tflite_micro_speech" href="tflite_micro/tflite_micro_speech.html" />
   
    
 
@@ -510,18 +510,184 @@
 models that may be applied to a variety of ML problems.</p>
 <section id="arm-depthwiseconv2d">
 <h2 id="arm-depthwiseconv2d">ARM DepthwiseConv2D<a class="headerlink" href="#arm-depthwiseconv2d" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mltk.models.shared.dsconv_arm.DepthwiseSeparableConv2D_ARM">
+<span class="sig-prename descclassname"><span class="pre">mltk.models.shared.dsconv_arm.</span></span><span class="sig-name descname"><span class="pre">DepthwiseSeparableConv2D_ARM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape=(50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_classes=12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filters=64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regularizer=&lt;keras.regularizers.L2</span> <span class="pre">object&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/models/shared/dsconv_arm.html#DepthwiseSeparableConv2D_ARM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.models.shared.dsconv_arm.DepthwiseSeparableConv2D_ARM" title="Permalink to this definition">¶</a></dt>
+<dd><p>ARM DepthwiseConv2D for Keyword Spotting</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/pdf/1711.07128.pdf">https://arxiv.org/pdf/1711.07128.pdf</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ARM-software/ML-KWS-for-MCU">https://github.com/ARM-software/ML-KWS-for-MCU</a></p></li>
+<li><p><a class="reference external" href="https://github.com/SiliconLabs/platform_ml_models/blob/master/eembc/KWS10_ARM_DSConv/dsconv_arm_eembc.py">https://github.com/SiliconLabs/platform_ml_models/blob/master/eembc/KWS10_ARM_DSConv/dsconv_arm_eembc.py</a></p></li>
+</ul>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+</dd>
+</dl>
+</dd></dl>
 </section>
 <section id="fully-connected-auto-encoder">
 <h2 id="fully-connected-auto-encoder">Fully Connected Auto-encoder<a class="headerlink" href="#fully-connected-auto-encoder" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mltk.models.shared.fully_connected_autoencoder.FullyConnectedAutoEncoder">
+<span class="sig-prename descclassname"><span class="pre">mltk.models.shared.fully_connected_autoencoder.</span></span><span class="sig-name descname"><span class="pre">FullyConnectedAutoEncoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(5,</span> <span class="pre">128,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dense_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latent_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/models/shared/fully_connected_autoencoder.html#FullyConnectedAutoEncoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.models.shared.fully_connected_autoencoder.FullyConnectedAutoEncoder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fully Connected Auto-encoder</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://dcase.community/challenge2020/task-unsupervised-detection-of-anomalous-sounds">http://dcase.community/challenge2020/task-unsupervised-detection-of-anomalous-sounds</a></p></li>
+<li><p><a class="reference external" href="https://github.com/y-kawagu/dcase2020_task2_baseline">https://github.com/y-kawagu/dcase2020_task2_baseline</a></p></li>
+<li><p><a class="reference external" href="https://github.com/SiliconLabs/platform_ml_models/blob/master/eembc/ToyADMOS_FC_AE/toyadmos_autoencoder_eembc.py">https://github.com/SiliconLabs/platform_ml_models/blob/master/eembc/ToyADMOS_FC_AE/toyadmos_autoencoder_eembc.py</a></p></li>
+</ul>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+</dd>
+</dl>
+</dd></dl>
 </section>
 <section id="mobilenet-v1">
 <h2 id="mobilenet-v1">MobileNet v1<a class="headerlink" href="#mobilenet-v1" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mltk.models.shared.mobilenet_v1.MobileNetV1">
+<span class="sig-prename descclassname"><span class="pre">mltk.models.shared.mobilenet_v1.</span></span><span class="sig-name descname"><span class="pre">MobileNetV1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(96,</span> <span class="pre">96,</span> <span class="pre">3)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_classes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_filters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/models/shared/mobilenet_v1.html#MobileNetV1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.models.shared.mobilenet_v1.MobileNetV1" title="Permalink to this definition">¶</a></dt>
+<dd><p>MobileNet v1</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.md">https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.md</a></p></li>
+<li><p><a class="reference external" href="https://github.com/SiliconLabs/platform_ml_models/blob/master/eembc/Person_detection/mobilenet_v1_eembc.py">https://github.com/SiliconLabs/platform_ml_models/blob/master/eembc/Person_detection/mobilenet_v1_eembc.py</a></p></li>
+</ul>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+</dd>
+</dl>
+</dd></dl>
 </section>
 <section id="mobilenet-v2">
 <h2 id="mobilenet-v2">MobileNet v2<a class="headerlink" href="#mobilenet-v2" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mltk.models.shared.mobilenet_v2.MobileNetV2">
+<span class="sig-prename descclassname"><span class="pre">mltk.models.shared.mobilenet_v2.</span></span><span class="sig-name descname"><span class="pre">MobileNetV2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.35</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pooling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classifier_activation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'softmax'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_block_filters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/models/shared/mobilenet_v2.html#MobileNetV2"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.models.shared.mobilenet_v2.MobileNetV2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instantiates the MobileNetV2 architecture.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/abs/1801.04381">MobileNetV2: Inverted Residuals and Linear Bottlenecks</a></p></li>
+</ul>
+</div>
+<p>Optionally loads weights pre-trained on ImageNet.</p>
+<p>Note: each Keras Application expects a specific kind of input preprocessing.
+For MobileNetV2, call <code class="docutils literal notranslate"><span class="pre">tf.keras.applications.mobilenet_v2.preprocess_input</span></code>
+on your inputs before passing them to the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_shape</strong> – shape tuple, to be specified if you would
+like to use a model with an input image resolution that is not
+(224, 224, 3).
+It should have exactly 3 inputs channels (224, 224, 3).</p></li>
+<li><p><strong>alpha</strong> – <p>Float between 0 and 1. controls the width of the network.
+This is known as the width multiplier in the MobileNetV2 paper,
+but the name is kept for consistency with <code class="docutils literal notranslate"><span class="pre">applications.MobileNetV1</span></code>
+model in Keras.</p>
+<ul>
+<li><dl class="simple">
+<dt>If <code class="docutils literal notranslate"><span class="pre">alpha</span></code> &lt; 1.0, proportionally decreases the number</dt><dd><p>of filters in each layer.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>If <code class="docutils literal notranslate"><span class="pre">alpha</span></code> &gt; 1.0, proportionally increases the number</dt><dd><p>of filters in each layer.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>If <code class="docutils literal notranslate"><span class="pre">alpha</span></code> = 1, default number of filters from the paper</dt><dd><p>are used at each layer.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p></li>
+<li><p><strong>include_top</strong> – Boolean, whether to include the fully-connected
+layer at the top of the network. Defaults to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>pooling</strong> – <p>String, optional pooling mode for feature extraction
+when <code class="docutils literal notranslate"><span class="pre">include_top</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">None</span></code> means that the output of the model</dt><dd><p>will be the 4D tensor output of the
+last convolutional block.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">avg</span></code> means that global average pooling</dt><dd><p>will be applied to the output of the
+last convolutional block, and thus
+the output of the model will be a
+2D tensor.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">max</span></code> means that global max pooling will</dt><dd><p>be applied.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p></li>
+<li><p><strong>classes</strong> – Integer, optional number of classes to classify images
+into, only to be specified if <code class="docutils literal notranslate"><span class="pre">include_top</span></code> is True, and
+if no <code class="docutils literal notranslate"><span class="pre">weights</span></code> argument is specified.</p></li>
+<li><p><strong>classifier_activation</strong> – A <code class="docutils literal notranslate"><span class="pre">str</span></code> or callable. The activation function to use
+on the “top” layer. Ignored unless <code class="docutils literal notranslate"><span class="pre">include_top=True</span></code>. Set
+<code class="docutils literal notranslate"><span class="pre">classifier_activation=None</span></code> to return the logits of the “top” layer.</p></li>
+<li><p><strong>last_block_filters</strong> – The number of filters to use in the last block of the model.
+If omitted, default to 1280 which the standard model uses. Due to hardware constraints,
+this value must be decreased  (&lt; 1024) to be fully optimized by the MVP hardare.</p></li>
+<li><p><strong>**kwargs</strong> – For backwards compatibility only.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A <cite>keras.Model</cite> instance.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ValueError</strong> – in case of invalid argument for <code class="docutils literal notranslate"><span class="pre">weights</span></code>,
+    or invalid input shape or invalid alpha, rows when
+    weights=’imagenet’</p></li>
+<li><p><strong>ValueError</strong> – if <code class="docutils literal notranslate"><span class="pre">classifier_activation</span></code> is not <code class="docutils literal notranslate"><span class="pre">softmax</span></code> or <code class="docutils literal notranslate"><span class="pre">None</span></code> when
+    using a pretrained top layer.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
 </section>
 <section id="resnetv1-10">
 <h2 id="resnetv1-10">ResNetv1-10<a class="headerlink" href="#resnetv1-10" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mltk.models.shared.resnet_v1.ResNet10V1">
+<span class="sig-prename descclassname"><span class="pre">mltk.models.shared.resnet_v1.</span></span><span class="sig-name descname"><span class="pre">ResNet10V1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(32,</span> <span class="pre">32,</span> <span class="pre">3)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_classes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_filters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">16</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/models/shared/resnet_v1.html#ResNet10V1"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.models.shared.resnet_v1.ResNet10V1" title="Permalink to this definition">¶</a></dt>
+<dd><p>ResNetv1-10</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/pdf/1512.03385.pdf">https://arxiv.org/pdf/1512.03385.pdf</a></p></li>
+<li><p><a class="reference external" href="https://keras.io/api/applications/resnet/">https://keras.io/api/applications/resnet/</a></p></li>
+<li><p><a class="reference external" href="https://github.com/SiliconLabs/platform_ml_models/blob/master/eembc/CIFAR10_ResNetv1/resnet_v1_eembc.py">https://github.com/SiliconLabs/platform_ml_models/blob/master/eembc/CIFAR10_ResNetv1/resnet_v1_eembc.py</a></p></li>
+</ul>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+</dd>
+</dl>
+</dd></dl>
 </section>
 </section>
 
@@ -535,7 +701,7 @@ models that may be applied to a variety of ML problems.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="tflite_micro/tflite_micro_speech.html" title="&lt;no title&gt;"
+            <a href="tflite_micro/tflite_micro_speech.html" title="tflite_micro_speech"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -544,7 +710,7 @@ models that may be applied to a variety of ML problems.</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> &lt;no title&gt; </span>
+                      class="md-footer-nav__direction"> Previous </span> tflite_micro_speech </span>
               </div>
             </a>
           
@@ -572,7 +738,7 @@ models that may be applied to a variety of ML problems.</p>
               
           </div>
             Last updated on
-              Jun 09, 2022.
+              Jun 10, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

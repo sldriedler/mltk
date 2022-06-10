@@ -49,14 +49,14 @@ def build_docs_command(
 
 
     install_pip_package('sphinx==4.2.0', logger=logger)
-    install_pip_package('myst-parser', 'myst_parser', logger=logger)
-    install_pip_package('myst-nb', 'myst_nb', logger=logger)
-    install_pip_package('numpydoc', logger=logger)
-    install_pip_package('sphinx_autodoc_typehints', logger=logger)
-    install_pip_package('sphinx-markdown-tables', 'sphinx_markdown_tables', logger=logger)
-    install_pip_package('sphinx-copybutton', 'sphinx_copybutton', logger=logger)
-    install_pip_package('sphinx-panels', 'sphinx_panels', logger=logger)
-    install_pip_package('nbclient==0.5.*', 'nbclient', logger=logger)
+    install_pip_package('myst-parser==0.17.2', 'myst_parser', logger=logger)
+    install_pip_package('myst-nb==0.15.0', 'myst_nb', logger=logger)
+    install_pip_package('numpydoc==1.3.1', logger=logger)
+    install_pip_package('sphinx_autodoc_typehints==1.18.2', logger=logger)
+    install_pip_package('sphinx-markdown-tables==0.0.15', 'sphinx_markdown_tables', logger=logger)
+    install_pip_package('sphinx-copybutton==0.5.0', 'sphinx_copybutton', logger=logger)
+    install_pip_package('sphinx-panels==0.6.0', 'sphinx_panels', logger=logger)
+    install_pip_package('nbclient==0.5.13', 'nbclient', logger=logger)
     
     install_pip_package('git+https://github.com/linkchecker/linkchecker.git', 'linkcheck', logger=logger)
     install_pip_package('git+https://github.com/bashtage/sphinx-material.git', 'sphinx_material', logger=logger)
@@ -177,8 +177,11 @@ def _copy_file(src, dst, repo_name=None):
     # then update any URLs found in the html docs files
     if repo_name:
         data = data.replace('siliconlabs.github.io/mltk', f'{repo_name}.github.io/mltk')
+        data = data.replace('SiliconLabs.github.io/mltk', f'{repo_name}.github.io/mltk')
         data = data.replace('github/siliconlabs/mltk', f'github/{repo_name}/mltk')
+        data = data.replace('github/SiliconLabs/mltk', f'github/{repo_name}/mltk')
         data = data.replace('github.com/siliconlabs/mltk', f'github.com/{repo_name}/mltk')
+        data = data.replace('github.com/SiliconLabs/mltk', f'github.com/{repo_name}/mltk')
 
     with open(dst, 'w', encoding='utf-8') as f:
         f.write(data)

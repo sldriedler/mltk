@@ -132,7 +132,7 @@ def extract_model_parameters(
     if isinstance(model, list):
         feature_names = model
     else:
-        feature_names = model.estimator.feature_names
+        feature_names = model.feature_names
     params = {}
 
     if isinstance(layer, ProfilingLayerResult):

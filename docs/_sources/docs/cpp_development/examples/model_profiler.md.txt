@@ -16,7 +16,7 @@ __NOTES:__
 
 ## Quick Links
 
-- [GitHub Source](https://github.com/SiliconLabs/mltk/tree/master/cpp/shared/apps/model_profiler) - View this example's source code on Github
+- [GitHub Source](https://github.com/sldriedler/mltk/tree/master/cpp/shared/apps/model_profiler) - View this example's source code on Github
 - [Online documentation](https://sldriedler.github.io/mltk/docs/cpp_development/examples/model_profiler.html) - View this example's online documentation
 - [Model Profiler Command Line](https://sldriedler.github.io/mltk/docs/guides/model_profiler.html) - View the MLTK's model profiler documentation
 - [Model Profiler Utility](https://sldriedler.github.io/mltk/docs/guides/model_profiler_utility.html) - View the MTLK's model profiler stand-alone utility's documentation

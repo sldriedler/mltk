@@ -633,7 +633,7 @@ Refer to the <a class="reference internal" href="../tutorials.html"><span class=
 <h2 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Command-line: <code class="docutils literal notranslate"><span class="pre">mltk</span> <span class="pre">evaluate</span> <span class="pre">--help</span></code></p></li>
-<li><p>Python API: <span class="xref myst">evaluate_model</span></p></li>
+<li><p>Python API: <a class="reference internal" href="../python_api/operations.html#mltk.core.evaluate_model" title="mltk.core.evaluate_model"><span class="xref myst py py-func">evaluate_model</span></a></p></li>
 <li><p>Python API examples: <a class="reference internal" href="../../mltk/examples/evaluate_model.html"><span class="doc std std-doc">evaluate_model.ipynb</span></a></p></li>
 </ul>
 </section>
@@ -657,7 +657,7 @@ The evaluation results indicate how well the model might perform with real data.
 <li><p><strong>Tensorflow-Lite Model</strong> - This is the <a class="reference external" href="https://www.tensorflow.org/lite/convert">converted</a>, <strong>quantized</strong> model with int8 weights that can execute on an embedded device, file extension: <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> (see <a class="reference internal" href="model_quantization.html"><span class="doc std std-doc">Model Quantization</span></a>)</p></li>
 </ul>
 <p>Both these models should produce similar results, however, the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model may be ~1-5% less accuracy than the <code class="docutils literal notranslate"><span class="pre">.h5</span></code> due to the quantization (i.e. compression) of its weights.</p>
-<p>By default, the <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> command or <span class="xref myst">evaluate_model</span> API  will use the <code class="docutils literal notranslate"><span class="pre">.h5</span></code> model for evaluation.<br/>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> command or <a class="reference internal" href="../python_api/operations.html#mltk.core.evaluate_model" title="mltk.core.evaluate_model"><span class="xref myst py py-func">evaluate_model</span></a> API  will use the <code class="docutils literal notranslate"><span class="pre">.h5</span></code> model for evaluation.<br/>
 Specify the <code class="docutils literal notranslate"><span class="pre">--tflite</span></code> option to evaluate using the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> (i.e. quantized) model.</p>
 </section>
 <section id="model-profiling-vs-model-evaluation">
@@ -672,12 +672,12 @@ Specify the <code class="docutils literal notranslate"><span class="pre">--tflit
 <section id="model-specification">
 <h2 id="model-specification">Model Specification<a class="headerlink" href="#model-specification" title="Permalink to this headline">¶</a></h2>
 <p>All model parameters are defined in the <a class="reference internal" href="model_specification.html"><span class="doc std std-doc">Model Specification</span></a> script.
-This is a standard Python script that defines a <span class="xref myst">MltkModel</span> instance.</p>
-<p>To enable evaluation, the <span class="xref myst">MltkModel</span> instance must inherit an evaluation “mixin” such as:</p>
+This is a standard Python script that defines a <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.MltkModel" title="mltk.core.MltkModel"><span class="xref myst py py-class">MltkModel</span></a> instance.</p>
+<p>To enable evaluation, the <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.MltkModel" title="mltk.core.MltkModel"><span class="xref myst py py-class">MltkModel</span></a> instance must inherit an evaluation “mixin” such as:</p>
 <ul class="simple">
-<li><p><span class="xref myst">EvaluateMixin</span> - Generic evaluation for custom models</p></li>
-<li><p><span class="xref myst">EvaluateClassifierMixin</span> - Evaluate a classification model</p></li>
-<li><p><span class="xref myst">EvaluateAutoEncoderMixin</span> - Evaluate an auto-encoder model</p></li>
+<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateMixin" title="mltk.core.EvaluateMixin"><span class="xref myst py py-class">EvaluateMixin</span></a> - Generic evaluation for custom models</p></li>
+<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateClassifierMixin" title="mltk.core.EvaluateClassifierMixin"><span class="xref myst py py-class">EvaluateClassifierMixin</span></a> - Evaluate a classification model</p></li>
+<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateAutoEncoderMixin" title="mltk.core.EvaluateAutoEncoderMixin"><span class="xref myst py py-class">EvaluateAutoEncoderMixin</span></a> - Evaluate an auto-encoder model</p></li>
 </ul>
 <p>For example, the following might be added to the top of <code class="docutils literal notranslate"><span class="pre">my_model_v1.py</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a new MyModel class which inherits the </span>
@@ -696,7 +696,7 @@ This is a standard Python script that defines a <span class="xref myst">MltkMode
 </pre></div>
 </div>
 <p>Here we define our model’s class object: <code class="docutils literal notranslate"><span class="pre">MyModel</span></code>.</p>
-<p>Among other mixins, this custom class inherits <span class="xref myst">EvaluateClassifierMixin</span>
+<p>Among other mixins, this custom class inherits <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateClassifierMixin" title="mltk.core.EvaluateClassifierMixin"><span class="xref myst py py-class">EvaluateClassifierMixin</span></a>
 which enables the MLTK’s evaluation feature with this classification model.</p>
 <p>See the <a class="reference internal" href="model_specification.html"><span class="doc std std-doc">Model Specification</span></a> documentation for more details.</p>
 </section>
@@ -704,14 +704,14 @@ which enables the MLTK’s evaluation feature with this classification model.</p
 <h2 id="evaluation-results">Evaluation Results<a class="headerlink" href="#evaluation-results" title="Permalink to this headline">¶</a></h2>
 <p>The results generated by model evaluation are specific to the evaluation “mixin” used in the model specification:</p>
 <ul class="simple">
-<li><p><span class="xref myst">EvaluateClassifierMixin</span> - Generate “classifier” specific evaluation results</p></li>
-<li><p><span class="xref myst">EvaluateAutoEncoderMixin</span> - Generate “auto encoder” specific evaluation results</p></li>
-<li><p><span class="xref myst">EvaluateMixin</span> - Generate custom evaluation results</p></li>
+<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateClassifierMixin" title="mltk.core.EvaluateClassifierMixin"><span class="xref myst py py-class">EvaluateClassifierMixin</span></a> - Generate “classifier” specific evaluation results</p></li>
+<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateAutoEncoderMixin" title="mltk.core.EvaluateAutoEncoderMixin"><span class="xref myst py py-class">EvaluateAutoEncoderMixin</span></a> - Generate “auto encoder” specific evaluation results</p></li>
+<li><p><a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateMixin" title="mltk.core.EvaluateMixin"><span class="xref myst py py-class">EvaluateMixin</span></a> - Generate custom evaluation results</p></li>
 </ul>
 <section id="evaluateclassifiermixin">
 <h3 id="evaluateclassifiermixin">EvaluateClassifierMixin<a class="headerlink" href="#evaluateclassifiermixin" title="Permalink to this headline">¶</a></h3>
-<p>The <span class="xref myst">EvaluateClassifierMixin</span> is specific to “Classifier” models.<br/>
-It returns a <span class="xref myst">ClassifierEvaluationResults</span> object.</p>
+<p>The <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateClassifierMixin" title="mltk.core.EvaluateClassifierMixin"><span class="xref myst py py-class">EvaluateClassifierMixin</span></a> is specific to “Classifier” models.<br/>
+It returns a <a class="reference internal" href="../python_api/operations.html#mltk.core.ClassifierEvaluationResults" title="mltk.core.ClassifierEvaluationResults"><span class="xref myst py py-class">ClassifierEvaluationResults</span></a> object.</p>
 <p>The following diagrams are generated by this mixin:</p>
 <section id="confusion-matrix">
 <h4 id="confusion-matrix">Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this headline">¶</a></h4>
@@ -746,8 +746,8 @@ It returns a <span class="xref myst">ClassifierEvaluationResults</span> object.<
 </section>
 <section id="evaluateautoencodermixin">
 <h3 id="evaluateautoencodermixin">EvaluateAutoEncoderMixin<a class="headerlink" href="#evaluateautoencodermixin" title="Permalink to this headline">¶</a></h3>
-<p>The <span class="xref myst">EvaluateAutoEncoderMixin</span> is specific to “Auto Encoder” models.<br/>
-It returns a <span class="xref myst">AutoEncoderEvaluationResults</span> object.</p>
+<p>The <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.EvaluateAutoEncoderMixin" title="mltk.core.EvaluateAutoEncoderMixin"><span class="xref myst py py-class">EvaluateAutoEncoderMixin</span></a> is specific to “Auto Encoder” models.<br/>
+It returns a <a class="reference internal" href="../python_api/operations.html#mltk.core.AutoEncoderEvaluationResults" title="mltk.core.AutoEncoderEvaluationResults"><span class="xref myst py py-class">AutoEncoderEvaluationResults</span></a> object.</p>
 </section>
 </section>
 <section id="command">
@@ -760,7 +760,7 @@ It returns a <span class="xref myst">AutoEncoderEvaluationResults</span> object.
 <p>The following are examples of how evaluation can be invoked from the command-line:</p>
 <section id="example-1-evaluate-classification-h5-model">
 <h3 id="example-1-evaluate-classification-h5-model">Example 1: Evaluate Classification .h5 Model<a class="headerlink" href="#example-1-evaluate-classification-h5-model" title="Permalink to this headline">¶</a></h3>
-<p>The following example evaluates the <span class="xref myst">image_example1 model</span>
+<p>The following example evaluates the <a class="reference internal" href="../python_api/models/examples/image_example1.html#module-mltk.models.examples.image_example1" title="mltk.models.examples.image_example1"><span class="xref myst py py-mod">image_example1 model</span></a>
 using the <code class="docutils literal notranslate"><span class="pre">.h5</span></code> (i.e. non-quantized, float32 weights) model file.<br/>
 This is a “classification” model, i.e. given an input, the model predicts to which
 “class” the input belongs.</p>
@@ -772,7 +772,7 @@ Additionally, the <code class="docutils literal notranslate"><span class="pre">-
 </section>
 <section id="example-2-evaluate-classification-tflite-model">
 <h3 id="example-2-evaluate-classification-tflite-model">Example 2: Evaluate Classification .tflite Model<a class="headerlink" href="#example-2-evaluate-classification-tflite-model" title="Permalink to this headline">¶</a></h3>
-<p>The following example evaluates the <span class="xref myst">image_example1 model</span>
+<p>The following example evaluates the <a class="reference internal" href="../python_api/models/examples/image_example1.html#module-mltk.models.examples.image_example1" title="mltk.models.examples.image_example1"><span class="xref myst py py-mod">image_example1 model</span></a>
 using the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> (i.e. quantized, int8 weights) model file.<br/>
 This is a “classification” model, i.e. given an input, the model predicts to which
 “class” the input belongs.</p>
@@ -784,7 +784,7 @@ Additionally, the <code class="docutils literal notranslate"><span class="pre">-
 </section>
 <section id="example-3-evaluate-auto-encoder-h5-model">
 <h3 id="example-3-evaluate-auto-encoder-h5-model">Example 3: Evaluate Auto-Encoder .h5 Model<a class="headerlink" href="#example-3-evaluate-auto-encoder-h5-model" title="Permalink to this headline">¶</a></h3>
-<p>The following example evaluates the <span class="xref myst">anomaly_detection model</span>
+<p>The following example evaluates the <a class="reference internal" href="../python_api/models/tinyml/anomaly_detection.html#module-mltk.models.tinyml.anomaly_detection" title="mltk.models.tinyml.anomaly_detection"><span class="xref myst py py-mod">anomaly_detection model</span></a>
 using the <code class="docutils literal notranslate"><span class="pre">.h5</span></code> (i.e. non-quantized, float32 weights) model file.<br/>
 This is an “auto-encoder” model, i.e. given an input, the model attempts to reconstruct
 the same input. The worse the reconstruction, the further the input is from what the
@@ -799,7 +799,7 @@ option dumps a comparison image between the input and reconstructed image.</p>
 </section>
 <section id="python-api">
 <h2 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permalink to this headline">¶</a></h2>
-<p>Model evaluation is accessible via <span class="xref myst">evaluate_model</span> API.</p>
+<p>Model evaluation is accessible via <a class="reference internal" href="../python_api/operations.html#mltk.core.evaluate_model" title="mltk.core.evaluate_model"><span class="xref myst py py-func">evaluate_model</span></a> API.</p>
 <p>Examples using this API may be found in <a class="reference internal" href="../../mltk/examples/evaluate_model.html"><span class="doc std std-doc">evaluate_model.ipynb</span></a></p>
 </section>
 </section>
@@ -851,7 +851,7 @@ option dumps a comparison image between the input and reconstructed image.</p>
               
           </div>
             Last updated on
-              Jun 09, 2022.
+              Jun 10, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

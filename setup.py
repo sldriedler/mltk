@@ -157,11 +157,13 @@ setup(
         'pyaml<22.0',
         'tensorflow>2.3,<3.0',
         'tensorflow_probability>=0.12.2',
-        'tflite-support==0.2.0',
+        'tflite-support',
+        'protobuf>=3.18,<3.20', # The MLTK does NOT have a dependency on this, but tflite-support and tensorflow do
+        'onnx',
+        'onnxruntime',
         'flatbuffers<2.0',
-        'numpy<1.22', # The MLTK does not have a dependency on the numpy API version. A package used by TF, Numba, currently expects 1.21
+        'numpy',
         'scipy<2.0',
-        'scikit-learn==1.0.1', # This version is required by the profiling estimators
         'matplotlib<4.0',
         'tqdm<5.0',
         'pillow<9.0',

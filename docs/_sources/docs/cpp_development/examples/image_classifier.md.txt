@@ -10,7 +10,7 @@ __NOTE:__ This application _only_ supports running on supported embedded targets
 
 ## Quick Links
 
-- [GitHub Source](https://github.com/SiliconLabs/mltk/tree/master/cpp/shared/apps/image_classifier) - View this example's source code on Github
+- [GitHub Source](https://github.com/sldriedler/mltk/tree/master/cpp/shared/apps/image_classifier) - View this example's source code on Github
 - [Hardware Setup](#hardware-setup) - View the required hardware setup for this example
 - [Online documentation](https://sldriedler.github.io/mltk/docs/cpp_development/examples/image_classifier.html) - View this example's online documentation
 - [Image Classification Tutorial](https://sldriedler.github.io/mltk/mltk/tutorials/image_classification.html) - View this example's associated tutorial

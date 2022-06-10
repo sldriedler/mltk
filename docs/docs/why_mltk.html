@@ -692,17 +692,17 @@ the model are in lock-step with the <code class="docutils literal notranslate"><
 <section id="integration-with-tensorflow">
 <h2 id="integration-with-tensorflow">Integration with Tensorflow<a class="headerlink" href="#integration-with-tensorflow" title="Permalink to this headline">¶</a></h2>
 <p>All model layout/architecture design and training is done using stock-standard <a class="reference external" href="https://www.tensorflow.org/">Tensorflow</a>.<br/>
-The details are contained within a <a class="reference internal" href="guides/model_specification.html"><span class="doc std std-doc">single python script</span></a> and exported via simple API, <span class="xref myst">TrainMixin</span>.</p>
+The details are contained within a <a class="reference internal" href="guides/model_specification.html"><span class="doc std std-doc">single python script</span></a> and exported via simple API, <a class="reference internal" href="python_api/core/mltk_model.html#mltk.core.TrainMixin" title="mltk.core.TrainMixin"><span class="xref myst py py-class">TrainMixin</span></a>.</p>
 </section>
 <section id="integration-with-tensorflow-lite">
 <h2 id="integration-with-tensorflow-lite">Integration with Tensorflow-Lite<a class="headerlink" href="#integration-with-tensorflow-lite" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="guides/model_quantization.html"><span class="doc std std-doc">Model quantization</span></a> is automatically done at the end of training using the standard <a class="reference external" href="https://www.tensorflow.org/lite/convert">Tensorflow-Lite Converter</a>.<br/>
-The MLTK also features a Python API, <span class="xref myst">TfliteModel</span> to access the contents of a generated <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model file.</p>
+The MLTK also features a Python API, <a class="reference internal" href="python_api/core/tflite_model.html#mltk.core.TfliteModel" title="mltk.core.TfliteModel"><span class="xref myst py py-class">TfliteModel</span></a> to access the contents of a generated <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model file.</p>
 </section>
 <section id="integration-with-tensorflow-lite-micro">
 <h2 id="integration-with-tensorflow-lite-micro">Integration with Tensorflow-Lite Micro<a class="headerlink" href="#integration-with-tensorflow-lite-micro" title="Permalink to this headline">¶</a></h2>
 <p>The MLTK features a <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp/tflite_micro_wrapper">C++ Python wrapper</a> to execute <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model files in the <a class="reference external" href="https://github.com/tensorflow/tflite-micro">Tensorflow-Lite Micro Interpreter</a> from a Python script.<br/>
-The Python wrapper is accessible via Python API, <span class="xref myst">TfliteMicro</span>.</p>
+The Python wrapper is accessible via Python API, <a class="reference internal" href="python_api/core/tflite_micro_model.html#mltk.core.tflite_micro.TfliteMicro" title="mltk.core.tflite_micro.TfliteMicro"><span class="xref myst py py-class">TfliteMicro</span></a>.</p>
 <p>This is useful as it allows for determining if a given <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model is supported by TFLM and how much RAM it will consume.</p>
 </section>
 <section id="integration-with-the-gecko-sdk">
@@ -760,7 +760,7 @@ a <code class="docutils literal notranslate"><span class="pre">.tflite</span></c
               
           </div>
             Last updated on
-              Jun 09, 2022.
+              Jun 10, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

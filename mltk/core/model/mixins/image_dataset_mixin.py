@@ -391,6 +391,11 @@ class ImageDatasetMixin(DataGeneratorDatasetMixin):
                     batch_y = np.argmax(batch_y, -1)
                 validation_labels.extend(batch_y)
             validation_labels = np.asarray(validation_labels, dtype=np.int32)
+
+            try:
+                validation_datagen.reset()
+            except:
+                pass
          
         else:
             raise Exception(

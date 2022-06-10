@@ -621,7 +621,7 @@ The MLTK also features the same component with slight modifications so that it c
 <p>The C++ Python <a class="reference internal" href="../cpp_development/wrappers/audio_feature_generator_wrapper.html"><span class="doc std std-doc">wrapper</span></a> allows for executing the AudioFeatureGenerator component from a Python script.
 This allows for executing the <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/api/group-ml-audio-feature-generation">AudioFeatureGenerator</a> software library during model training. This is useful because the <em>exact</em> spectrogram generation algorithms used by the embedded device at runtime may also be used during model training which should (hopefully) lead to more accurate model predictions.</p>
 <p>The MLTK uses <a class="reference external" href="https://pybind11.readthedocs.io/en/latest/">pybind11</a> to wrap the <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/api/group-ml-audio-feature-generation">AudioFeatureGenerator</a> software library and generate a Windows/Linux binary that can be loaded into the Python runtime environment.</p>
-<p>The AudioFeatureGenerator Python API docs may be found here: <span class="xref myst">mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator</span>.</p>
+<p>The AudioFeatureGenerator Python API docs may be found here: <a class="reference internal" href="../python_api/data_preprocessing/audio_feature_generator.html#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator" title="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator"><span class="xref myst py py-class">mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator</span></a>.</p>
 <section id="id1">
 <h3 id="id1">Source Code<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -631,17 +631,17 @@ This allows for executing the <a class="reference external" href="https://docs.s
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When <a class="reference internal" href="../installation.html"><span class="doc std std-doc">installing</span></a> the MLTK for local development, the C++ wrapper is automatically built into a Windows/Linux shared library (<code class="docutils literal notranslate"><span class="pre">.dll</span></code> / <code class="docutils literal notranslate"><span class="pre">.so</span></code>) and copied to the Python <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/mltk/core/preprocess/audio/audio_feature_generator">directory</a>.
-When the <span class="xref myst">AudioFeatureGenerator</span> Python library is invoked by your Python scripts, the C++ wrapper shared library is loaded into the Python runtime environment.</p>
+When the <a class="reference internal" href="../python_api/data_preprocessing/audio_feature_generator.html#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator" title="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator"><span class="xref myst py py-class">AudioFeatureGenerator</span></a> Python library is invoked by your Python scripts, the C++ wrapper shared library is loaded into the Python runtime environment.</p>
 </div>
 </section>
 <section id="usage">
 <h3 id="usage">Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
 <p>The recommended way of using the AudioFeatureGenerator <a class="reference internal" href="../cpp_development/wrappers/audio_feature_generator_wrapper.html"><span class="doc std std-doc">C++ wrapper</span></a>
-is via the <span class="xref myst">ParallelAudioDataGenerator</span> which is required by the
-<span class="xref myst">AudioDatasetMixin</span>.</p>
+is via the <a class="reference internal" href="../python_api/data_preprocessing/audio_data_generator.html#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator" title="mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator"><span class="xref myst py py-class">ParallelAudioDataGenerator</span></a> which is required by the
+<a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin" title="mltk.core.AudioDatasetMixin"><span class="xref myst py py-class">AudioDatasetMixin</span></a>.</p>
 <p>Refer to the <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_on_off.py">keyword_spotting_on_off.py</a> <a class="reference internal" href="../guides/model_specification.html"><span class="doc std std-doc">model specification</span></a> for an example of how this is used.</p>
 <p>Basically,</p>
-<p>1 ) In your <a class="reference internal" href="../guides/model_specification.html"><span class="doc std std-doc">model specification</span></a> file, define a model object to inherit the <span class="xref myst">AudioDatasetMixin</span>, e.g.:</p>
+<p>1 ) In your <a class="reference internal" href="../guides/model_specification.html"><span class="doc std std-doc">model specification</span></a> file, define a model object to inherit the <a class="reference internal" href="../python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin" title="mltk.core.AudioDatasetMixin"><span class="xref myst py py-class">AudioDatasetMixin</span></a>, e.g.:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyModel</span><span class="p">(</span>
     <span class="n">MltkModel</span><span class="p">,</span> 
     <span class="n">TrainMixin</span><span class="p">,</span> 
@@ -676,7 +676,7 @@ is via the <span class="xref myst">ParallelAudioDataGenerator</span> which is re
 <span class="n">frontend_settings</span><span class="o">.</span><span class="n">log_scale_shift</span> <span class="o">=</span> <span class="mi">6</span>
 </pre></div>
 </div>
-<p>3 ) Configure the <span class="xref myst">ParallelAudioDataGenerator</span> to use the settings, e.g.:</p>
+<p>3 ) Configure the <a class="reference internal" href="../python_api/data_preprocessing/audio_data_generator.html#mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator" title="mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator"><span class="xref myst py py-class">ParallelAudioDataGenerator</span></a> to use the settings, e.g.:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span><span class="o">.</span><span class="n">datagen</span> <span class="o">=</span> <span class="n">ParallelAudioDataGenerator</span><span class="p">(</span>
     <span class="n">frontend_settings</span><span class="o">=</span><span class="n">frontend_settings</span><span class="p">,</span>
     <span class="o">...</span>
@@ -689,7 +689,7 @@ is via the <span class="xref myst">ParallelAudioDataGenerator</span> which is re
 </section>
 <section id="audio-visualizer-utility">
 <h2 id="audio-visualizer-utility">Audio Visualizer Utility<a class="headerlink" href="#audio-visualizer-utility" title="Permalink to this headline">¶</a></h2>
-<p>The Audio Visualizer Utility provides a graphical interface to the <span class="xref myst">C++ Python wrapper</span> and thus
+<p>The Audio Visualizer Utility provides a graphical interface to the <a class="reference internal" href="../python_api/data_preprocessing/audio_feature_generator.html#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator" title="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator"><span class="xref myst py py-class">C++ Python wrapper</span></a> and thus
 <a class="reference external" href="https://docs.silabs.com/gecko-platform/latest/machine-learning/api/group-ml-audio-feature-generation">Gecko SDK AudioFeatureGenerator</a> software library.
 It allows for adjusting the various spectrogram settings and seeing how the resulting spectrogram is affected in real-time.</p>
 <p>To use the Audio Visualizer utility, issue the command:</p>
@@ -748,7 +748,7 @@ It allows for adjusting the various spectrogram settings and seeing how the resu
               
           </div>
             Last updated on
-              Jun 09, 2022.
+              Jun 10, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

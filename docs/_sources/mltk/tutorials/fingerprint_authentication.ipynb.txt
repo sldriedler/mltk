@@ -32,7 +32,7 @@
 
     "\n",
 
-    "- [GitHub Source](https://github.com/SiliconLabs/mltk/blob/master/mltk/tutorials/fingerprint_authenticator.ipynb) - View this tutorial on Github\n",
+    "- [GitHub Source](https://github.com/sldriedler/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb) - View this tutorial on Github\n",
 
     "- [Run on Colab](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb) - Run this tutorial on Google Colab\n",
 
@@ -612,7 +612,7 @@
 
     "\n",
 
-    "The preprocessing algorithm source may be found in [fingerprint_signature_generator_dataset.py](https://github.com/SiliconLabs/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator_dataset.py)\n",
+    "The preprocessing algorithm source may be found in [fingerprint_signature_generator_dataset.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator_dataset.py)\n",
 
     "\n",
 
@@ -626,7 +626,7 @@
 
     "\n",
 
-    "__NOTE:__ These algorithms are used to preprocess the training dataset _and_ on the embedded device at runtime (see [data_preprocessor.cc](https://github.com/SiliconLabs/mltk/blob/master/cpp/shared/apps/fingerprint_authenticator/data_preprocessor.cc))"
+    "__NOTE:__ These algorithms are used to preprocess the training dataset _and_ on the embedded device at runtime (see [data_preprocessor.cc](https://github.com/sldriedler/mltk/blob/master/cpp/shared/apps/fingerprint_authenticator/data_preprocessor.cc))"
 
    ]
 
@@ -656,7 +656,7 @@
 
     "\n",
 
-    "The [fingerprint_signature_generator_dataset.py](https://github.com/SiliconLabs/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator_dataset.py) script is used to generate the image pairs from the fingerprint dataset. "
+    "The [fingerprint_signature_generator_dataset.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator_dataset.py) script is used to generate the image pairs from the fingerprint dataset. "
 
    ]
 
@@ -828,7 +828,7 @@
 
     "\n",
 
-    "And then read by the firmware application at runtime: [data_preprocessor.cc](https://github.com/SiliconLabs/mltk/blob/master/cpp/shared/apps/fingerprint_authenticator/data_preprocessor.cc)\n",
+    "And then read by the firmware application at runtime: [data_preprocessor.cc](https://github.com/sldriedler/mltk/blob/master/cpp/shared/apps/fingerprint_authenticator/data_preprocessor.cc)\n",
 
     "\n"
 

@@ -40,7 +40,7 @@
 
     "\n",
 
-    "- [GitHub Source](https://github.com/SiliconLabs/mltk/blob/master/mltk/tutorials/image_classification.ipynb) - View this tutorial on Github\n",
+    "- [GitHub Source](https://github.com/sldriedler/mltk/blob/master/mltk/tutorials/image_classification.ipynb) - View this tutorial on Github\n",
 
     "- [Run on Colab](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/image_classification.ipynb) - Run this tutorial on Google Colab\n",
 

@@ -8,7 +8,7 @@ __NOTE:__ This application is able to be built for Windows/Linux _or_ a supporte
 
 ## Quick Links
 
-- [GitHub Source](https://github.com/SiliconLabs/mltk/tree/master/cpp/shared/apps/hello_world) - View this example's source code on Github
+- [GitHub Source](https://github.com/sldriedler/mltk/tree/master/cpp/shared/apps/hello_world) - View this example's source code on Github
 - [Online documentation](https://sldriedler.github.io/mltk/docs/cpp_development/examples/hello_world.html) - View this example's online documentation
 
 

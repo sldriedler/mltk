@@ -473,8 +473,378 @@
             
   <section id="audiofeaturegenerator">
 <h1 id="docs-python-api-data-preprocessing-audio-feature-generator--page-root">AudioFeatureGenerator<a class="headerlink" href="#docs-python-api-data-preprocessing-audio-feature-generator--page-root" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.preprocess.audio.audio_feature_generator.</span></span><span class="sig-name descname"><span class="pre">AudioFeatureGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">settings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/preprocess/audio/audio_feature_generator/audio_feature_generator.html#AudioFeatureGenerator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator" title="Permalink to this definition">¶</a></dt>
+<dd><p>AudioFeatureGenerator Interface</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference external" href="../../../docs/audio/audio_feature_generator.html">AudioFeatureGenerator documentation</a></p></li>
+<li><p><a class="reference external" href="../../../docs/cpp_development/wrappers/audio_feature_generator_wrapper.html">AudioFeatureGenerator Python Wrapper</a></p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp/shared/microfrontend">Microfrontend implementation</a></p></li>
+<li><p><a class="reference external" href="../../../docs/python_api/data_preprocessing/audio_data_generator.html">ParallelAudioDataGenerator API docs</a></p></li>
+</ul>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator.process_sample">
+<span class="sig-name descname"><span class="pre">process_sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype=&lt;class</span> <span class="pre">'numpy.float32'&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/preprocess/audio/audio_feature_generator/audio_feature_generator.html#AudioFeatureGenerator.process_sample"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator.process_sample" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert the provided 1D audio sample to a 2D spectrogram using the AudioFeatureGenerator</p>
+<p>The generated 2D spectrogram dimensions are calculated as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sample_length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sample_length_ms</span><span class="o">*</span><span class="n">sample_rate_hz</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">window_size_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">window_size_ms</span> <span class="o">*</span> <span class="n">sample_rate_hz</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">window_step_length</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">window_step_ms</span> <span class="o">*</span> <span class="n">sample_rate_hz</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">height</span> <span class="o">=</span> <span class="n">n_features</span> <span class="o">=</span> <span class="p">(</span><span class="n">sample_length</span> <span class="o">-</span> <span class="n">window_size_length</span><span class="p">)</span> <span class="o">//</span> <span class="n">window_step_length</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">width</span> <span class="o">=</span> <span class="n">n_channels</span> <span class="o">=</span> <span class="n">AudioFeatureGeneratorSettings</span><span class="o">.</span><span class="n">filterbank_n_channels</span>
+</pre></div>
+</div>
+<p>The dtype argument specifies the data type of the returned spectrogram.
+This must be one of the following:</p>
+<ul class="simple">
+<li><p><strong>uint16</strong>: This the raw value generated by the internal AudioFeatureGenerator library</p></li>
+<li><p><strong>float32</strong>: This is the uint16 value directly casted to a float32</p></li>
+<li><dl class="simple">
+<dt><strong>int8</strong>: This is the int8 value generated by the TFLM “micro features” library.</dt><dd><p>Refer to the following for the magic that happens here: <a class="reference external" href="https://github.com/tensorflow/tflite-micro/blob/main/tensorflow/lite/micro/examples/micro_speech/micro_features/micro_features_generator.cc#L84">micro_features_generator.cc#L84</a></p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sample</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – [sample_length] int16 audio sample</p></li>
+<li><p><strong>dtype</strong> – Output data type, must be int8, uint16, or float32</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>[n_features, n_channels] int8, uint16, or float32  spectrogram</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator.activity_was_detected">
+<span class="sig-name descname"><span class="pre">activity_was_detected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/preprocess/audio/audio_feature_generator/audio_feature_generator.html#AudioFeatureGenerator.activity_was_detected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGenerator.activity_was_detected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return if activity was detected in the previously processed sample</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
 <section id="audiofeaturegenerator-settings">
 <h2 id="audiofeaturegenerator-settings">AudioFeatureGenerator Settings<a class="headerlink" href="#audiofeaturegenerator-settings" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">mltk.core.preprocess.audio.audio_feature_generator.</span></span><span class="sig-name descname"><span class="pre">AudioFeatureGeneratorSettings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/core/preprocess/audio/audio_feature_generator/audio_feature_generator_settings.html#AudioFeatureGeneratorSettings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings" title="Permalink to this definition">¶</a></dt>
+<dd><p>AudioFeatureGenerator Settings</p>
+<p>See the <a class="reference external" href="../../../docs/audio/audio_feature_generator.html">Audio Feature Generator</a> guide for more details.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.spectrogram_shape">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spectrogram_shape</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.spectrogram_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the generated spectrogram shape as (height, width) i.e. (n_features, filterbank_n_channels)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.sample_rate_hz">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sample_rate_hz</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.sample_rate_hz" title="Permalink to this definition">¶</a></dt>
+<dd><p>The sample rate of the audio in Hz, default 16000</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.sample_length_ms">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sample_length_ms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.sample_length_ms" title="Permalink to this definition">¶</a></dt>
+<dd><p>The length of an audio sample in milliseconds, default 1000</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.window_size_ms">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">window_size_ms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.window_size_ms" title="Permalink to this definition">¶</a></dt>
+<dd><p>length of desired time frames in ms, default 25</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.window_step_ms">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">window_step_ms</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.window_step_ms" title="Permalink to this definition">¶</a></dt>
+<dd><p>length of step size for the next frame in ms, default 10</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.filterbank_n_channels">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filterbank_n_channels</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.filterbank_n_channels" title="Permalink to this definition">¶</a></dt>
+<dd><p>the number of filterbank channels to use, default 32</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.filterbank_upper_band_limit">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filterbank_upper_band_limit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.filterbank_upper_band_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Float, the highest frequency included in the filterbanks, default 7500.0
+NOTE: This should be no more than sample_rate_hz / 2</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.filterbank_lower_band_limit">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filterbank_lower_band_limit</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.filterbank_lower_band_limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>the lowest frequency included in the filterbanks, default 125.0</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.noise_reduction_enable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">noise_reduction_enable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.noise_reduction_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable/disable noise reduction module, default false</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.noise_reduction_smoothing_bits">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">noise_reduction_smoothing_bits</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.noise_reduction_smoothing_bits" title="Permalink to this definition">¶</a></dt>
+<dd><p>scale up signal by 2^(smoothing_bits) before reduction, default 10</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.noise_reduction_even_smoothing">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">noise_reduction_even_smoothing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.noise_reduction_even_smoothing" title="Permalink to this definition">¶</a></dt>
+<dd><p>smoothing coefficient for even-numbered channels, default 0.025</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.noise_reduction_odd_smoothing">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">noise_reduction_odd_smoothing</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.noise_reduction_odd_smoothing" title="Permalink to this definition">¶</a></dt>
+<dd><p>smoothing coefficient for odd-numbered channels, default 0.06</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.noise_reduction_min_signal_remaining">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">noise_reduction_min_signal_remaining</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.noise_reduction_min_signal_remaining" title="Permalink to this definition">¶</a></dt>
+<dd><p>fraction of signal to preserve in smoothing, default 0.05</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.pcan_enable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pcan_enable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.pcan_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>enable PCAN auto gain control, default false</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.pcan_strength">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pcan_strength</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.pcan_strength" title="Permalink to this definition">¶</a></dt>
+<dd><p>gain normalization exponent, default 0.95</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.pcan_offset">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pcan_offset</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.pcan_offset" title="Permalink to this definition">¶</a></dt>
+<dd><p>positive value added in the normalization denominator, default 80.0</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.pcan_gain_bits">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pcan_gain_bits</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.pcan_gain_bits" title="Permalink to this definition">¶</a></dt>
+<dd><p>number of fractional bits in the gain, default 21</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.log_scale_enable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log_scale_enable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.log_scale_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>enable logarithmic scaling of filterbanks, default true</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.log_scale_shift">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log_scale_shift</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.log_scale_shift" title="Permalink to this definition">¶</a></dt>
+<dd><p>scale filterbanks by 2^(scale_shift), default 6</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.activity_detection_enable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activity_detection_enable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.activity_detection_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable the activity detection block.
+This indicates when activity, such as a speech command, is detected in the audio stream,
+default False</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.activity_detection_alpha_a">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activity_detection_alpha_a</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.activity_detection_alpha_a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activity detection filter A coefficient
+The activity detection “fast filter” coefficient.
+The filter is a 1-real pole IIR filter: <code class="docutils literal notranslate"><span class="pre">computes</span> <span class="pre">out</span> <span class="pre">=</span> <span class="pre">(1-k)*in</span> <span class="pre">+</span> <span class="pre">k*out</span></code>
+Default 0.5</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.activity_detection_alpha_b">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activity_detection_alpha_b</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.activity_detection_alpha_b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Activity detection filter B coefficient
+The activity detection “slow filter” coefficient.
+The filter is a 1-real pole IIR filter: <code class="docutils literal notranslate"><span class="pre">computes</span> <span class="pre">out</span> <span class="pre">=</span> <span class="pre">(1-k)*in</span> <span class="pre">+</span> <span class="pre">k*out</span></code>
+Default 0.8</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.activity_detection_arm_threshold">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activity_detection_arm_threshold</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.activity_detection_arm_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Threshold for arming the detection block
+The threshold for when there should be considered possible activity in the audio stream
+Default 0.75</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.activity_detection_trip_threshold">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activity_detection_trip_threshold</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.activity_detection_trip_threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Threshold for tripping the detection block
+The threshold for when activity is considered detected in the audio stream
+Default 0.8</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.dc_notch_filter_enable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dc_notch_filter_enable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.dc_notch_filter_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable the DC notch filter
+This will help negate any DC components in the audio signal
+Default False</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.dc_notch_filter_coefficient">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dc_notch_filter_coefficient</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.dc_notch_filter_coefficient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Coefficient used by DC notch filter</p>
+<p>The DC notch filter coefficient k in Q(16,15) format, <code class="docutils literal notranslate"><span class="pre">H(z)</span> <span class="pre">=</span> <span class="pre">(1</span> <span class="pre">-</span> <span class="pre">z^-1)/(1</span> <span class="pre">-</span> <span class="pre">k*z^-1)</span></code>
+Default 0.95</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.quantize_dynamic_scale_enable">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">quantize_dynamic_scale_enable</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.quantize_dynamic_scale_enable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable dynamic quantization</p>
+<p>Enable dynamic quantization of the generated audio spectrogram.
+With this, the max spectrogram value is mapped to +127,
+and the max spectrogram minus <a class="reference internal" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.quantize_dynamic_scale_range_db" title="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.quantize_dynamic_scale_range_db"><code class="xref py py-class docutils literal notranslate"><span class="pre">quantize_dynamic_scale_range_db</span></code></a> is mapped to -128.
+Anything below max spectrogram minus <a class="reference internal" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.quantize_dynamic_scale_range_db" title="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.quantize_dynamic_scale_range_db"><code class="xref py py-class docutils literal notranslate"><span class="pre">quantize_dynamic_scale_range_db</span></code></a> is mapped to -128.
+Default False</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.quantize_dynamic_scale_range_db">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">quantize_dynamic_scale_range_db</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#mltk.core.preprocess.audio.audio_feature_generator.AudioFeatureGeneratorSettings.quantize_dynamic_scale_range_db" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rhe dynamic range in dB used by the dynamic quantization, default 40.0</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+</dd></dl>
 </section>
 </section>
 
@@ -525,7 +895,7 @@
               
           </div>
             Last updated on
-              Jun 09, 2022.
+              Jun 10, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
