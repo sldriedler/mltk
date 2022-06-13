@@ -707,16 +707,19 @@ macro(mltk_load_python)
 
   if(NOT PYTHON_EXECUTABLE_in_cache)
 
-    get_filename_component(VENV_DIR ${MLTK_DIR}/../.venv ABSOLUTE)
+    mltk_get(MLTK_PYTHON_VENV_DIR)
+    if(NOT MLTK_PYTHON_VENV_DIR)
+      get_filename_component(MLTK_PYTHON_VENV_DIR ${MLTK_DIR}/../.venv ABSOLUTE)
+    endif()
 
-    if(EXISTS "${VENV_DIR}")
+    if(EXISTS "${MLTK_PYTHON_VENV_DIR}")
       # Ensure we find the Python in the virtual environment if one exists
-      mltk_debug("VENV_DIR=${VENV_DIR}")
+      mltk_debug("MLTK_PYTHON_VENV_DIR=${MLTK_PYTHON_VENV_DIR}")
       set(Python3_FIND_VIRTUALENV ONLY)
       set(Python3_FIND_STRATEGY LOCATION)
       set(Python3_FIND_REGISTRY NEVER)
-      set(Python3_ROOT_DIR "${VENV_DIR}")
-      set(ENV{VIRTUAL_ENV} "${VENV_DIR}")
+      set(Python3_ROOT_DIR "${MLTK_PYTHON_VENV_DIR}")
+      set(ENV{VIRTUAL_ENV} "${MLTK_PYTHON_VENV_DIR}")
       unset(Python3_FOUND) # Ensure Python is found again
       unset(Python3_Interpreter_FOUND)
       unset(Python3_EXECUTABLE)
@@ -726,9 +729,9 @@ macro(mltk_load_python)
 
     mltk_debug("Python executable: ${Python3_EXECUTABLE}")
     mltk_get(MLTK_ALLOW_EXTERNAL_PYTHON_EXECUTABLE)
-    if(NOT MLTK_ALLOW_EXTERNAL_PYTHON_EXECUTABLE AND NOT "${Python3_EXECUTABLE}" MATCHES "^${VENV_DIR}/.*")
+    if(NOT MLTK_ALLOW_EXTERNAL_PYTHON_EXECUTABLE AND NOT "${Python3_EXECUTABLE}" MATCHES "^${MLTK_PYTHON_VENV_DIR}/.*")
       get_filename_component(mltk_root_dir "${MLTK_DIR}/.." ABSOLUTE)
-      mltk_error("\n\nFailed to find the Python executable in ${VENV_DIR}\nBe sure to first run:\npython ${mltk_root_dir}/install_mltk.py\nOr set the CMake variable: MLTK_ALLOW_EXTERNAL_PYTHON_EXECUTABLE=ON  (not recommended)\n\n")
+      mltk_error("\n\nFailed to find the Python executable in ${MLTK_PYTHON_VENV_DIR}\nBe sure to first run:\npython ${mltk_root_dir}/install_mltk.py\nOr set the CMake variable: MLTK_ALLOW_EXTERNAL_PYTHON_EXECUTABLE=ON  (not recommended)\n\n")
     endif()
 
     set(PYTHON_EXECUTABLE ${Python3_EXECUTABLE} CACHE INTERNAL "Python executable path")
