@@ -674,7 +674,12 @@ def _retrieve_data(x):
         return x.numpy()
 
     data = []
-    max_samples = getattr(x, 'samples', 10000)
+    if hasattr(x, 'max_samples'):
+        max_samples = getattr(x, 'max_samples')
+    elif hasattr(x, 'samples'):
+        max_samples = getattr(x, 'samples')
+    else:
+        max_samples = 10000
 
     for batch_x, _ in x:
         if len(data) >= max_samples: 

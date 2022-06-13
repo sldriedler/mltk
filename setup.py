@@ -68,6 +68,7 @@ freely, subject to the following restrictions:
 import os
 import sys
 import time
+import subprocess
 from setuptools import setup, find_packages
 from setuptools.command.build_py import build_py
 
@@ -126,9 +127,15 @@ except:
 
 
 additional_install_dependencies = []
-if python_version == '37':
-    additional_install_dependencies.append('pickle5')
 
+# If we're running Python3.7 then we also need to install pickle5
+if python_version == '37':
+    print('Adding pickle5 to install dependencies')
+    additional_install_dependencies.append('pickle5')
+# Other ensure pickle5 is NOT installed as that will break other dependencies
+else:
+    print('Uninstalling pickle5 (if necessary)')
+    subprocess.run([sys.executable, '-m', 'pip', 'uninstall', 'pickle5'])
 
 setup(
     name='silabs-mltk',

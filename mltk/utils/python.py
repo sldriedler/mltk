@@ -168,14 +168,18 @@ def prepend_exception_msg(e:Exception, msg:str) -> Exception:
     e.args = (msg, *e.args)
     all_str = True 
     for x in e.args:
-        if not isinstance(x,str):
+        try:
+            str(x)
+        except:
             all_str = False 
             break 
+
     # If every entry in the exception msg is a string
     # then make it look pretty by combining into a coma-separated string
     if all_str:
-        s = ', '.join(e.args)
+        s = ', '.join(str(x) for x in e.args)
         e.args = (s, )
+
     return e 
 
 
@@ -184,13 +188,16 @@ def append_exception_msg(e:Exception, msg:str) -> Exception:
     e.args = (*e.args, msg)
     all_str = True 
     for x in e.args:
-        if not isinstance(x,str):
+        try:
+            str(x)
+        except:
             all_str = False 
             break 
+
     # If every entry in the exception msg is a string
     # then make it look pretty by combining into a coma-separated string
     if all_str:
-        s = ', '.join(e.args)
+        s = ', '.join(str(x) for x in e.args)
         e.args = (s, )
     return e 
 

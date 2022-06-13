@@ -205,7 +205,7 @@ Release for all supported Python versions.
         env = os.environ.copy()
         if 'PYTHONHOME' in env:
             del env['PYTHONHOME']
-        env['PATH'] = os.path.abspath(f'{mltk_release_dir}/.venv') + os.pathsep + env['PATH']
+        env['PATH'] = os.path.dirname(python_exe) + os.pathsep + env['PATH']
 
         retcode, retmsg = run_shell_cmd(
             [python_exe, f'./install_mltk.py'], 
@@ -219,9 +219,9 @@ Release for all supported Python versions.
 
 
     if os.name == 'nt':
-        python_venv_exe = f'{mltk_release_dir}/.venv/Scripts/python.exe'  
+        python_venv_exe = f'{python_venv_dir}/Scripts/python.exe'  
     else:
-        python_venv_exe = f'{python_venv_dir}/.venv/bin/python3'
+        python_venv_exe = f'{python_venv_dir}/bin/python3'
 
 
     if release_test:
