@@ -106,8 +106,14 @@ In this case, ONLY the .tflite will be programmed and the existing fingerprint_a
     logger = cli.get_logger()
     latest_image_q = collections.deque(maxlen=1)
 
-    install_pip_package('opencv-python', 'cv2', logger=logger)
-    from cv2 import cv2
+    try:
+        install_pip_package('opencv-python', 'cv2', logger=logger)
+        from cv2 import cv2
+    except Exception as e:
+        try:
+            import cv2
+        except:
+            raise RuntimeError('Failed import cv2 Python package')
 
     if generate_dataset:
         disable_inference = True
@@ -381,11 +387,10 @@ In this case, ONLY the .tflite will be programmed and the existing fingerprint_a
         port=port,
         baud=115200, 
         outfile=logger,
-        start_regex=re.compile(r'.*Fingerprint Authenticator.*', re.IGNORECASE),
+        start_regex=re.compile(r'.*app starting.*', re.IGNORECASE),
         fail_regex=[
             re.compile(r'.*hardfault.*', re.IGNORECASE), 
             re.compile(r'.*assert.*', re.IGNORECASE), 
-            re.compile(r'.*failed.*', re.IGNORECASE)
         ]
     ) as reader:
         commander.reset_device()
@@ -394,15 +399,14 @@ In this case, ONLY the .tflite will be programmed and the existing fingerprint_a
         
         stop_jlink_event = None
         stop_dataset_event = None
-        if dump_image_dir:
-            # Wait for the device to be ready
-            while True:
-                reader.read(timeout=0.10)
-                # Check if any errors ocurred
-                if reader.error_message:
-                    raise RuntimeError(f'Device error: {reader.error_message}')
-                if reader.started:
-                    break
+        # Wait for the device to be ready
+        while True:
+            reader.read(timeout=0.10)
+            # Check if any errors ocurred
+            if reader.error_message:
+                raise RuntimeError(f'Device error: {reader.error_message}')
+            if reader.started:
+                break
 
         stop_jlink_event = _start_jlink_processor(
             dump_image_dir=dump_image_dir

@@ -139,7 +139,6 @@ This module must be connected to the USART peripheral of the embedded target.
 
 The following default pin mappings are used by:  
 -  __BRD2601__
--  __BRD4166__
 
 | R503 Pin              | Board Expansion Header Pin |
 | --------------------- | -------------------------- |

@@ -150,8 +150,14 @@ In this case, ONLY the .tflite will be programmed and the existing image_classif
     logger = cli.get_logger()
     latest_image_q = collections.deque(maxlen=1)
 
-    install_pip_package('opencv-python', 'cv2', logger=logger)
-    from cv2 import cv2
+    try:
+        install_pip_package('opencv-python', 'cv2', logger=logger)
+        from cv2 import cv2
+    except Exception as e:
+        try:
+            import cv2
+        except:
+            raise RuntimeError('Failed import cv2 Python package')
 
     if disable_inference:
         logger.warning('Disabling inference on the device')

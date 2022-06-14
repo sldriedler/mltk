@@ -34,10 +34,6 @@ mltk_fingerprint_authenticator-brd2601-none:
   date: '2022-06-08T15:21:40.664Z'
   sha1: 3081051ef5bb04ce548169f08b1e5fac02fe8ecb
   url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_fingerprint_authenticator/mltk_fingerprint_authenticator-brd2601-none-dd0094c6.zip
-mltk_fingerprint_authenticator-brd4166-none:
-  date: '2022-06-08T15:17:14.066Z'
-  sha1: 2b0346938a55ae32dd76d18b2874a965a36e6f37
-  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_fingerprint_authenticator/mltk_fingerprint_authenticator-brd4166-none-44e1063d.zip
 mltk_fingerprint_authenticator-brd4186-mvp:
   date: '2022-06-08T15:20:07.030Z'
   sha1: 28cf0c263dbf37d6e3e8a8db661cc809f0f86ff7

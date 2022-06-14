@@ -170,13 +170,17 @@ In this case, ONLY the .tflite will be programmed and the existing audio_classif
 
     logger = cli.get_logger()
 
+    have_cv2 = False
     try:
         install_pip_package('opencv-python', 'cv2', logger=logger)
         from cv2 import cv2
         have_cv2 = True
-    except:
-        have_cv2 = False
-
+    except Exception as e:
+        try:
+            import cv2
+            have_cv2 = True 
+        except:
+            pass
 
     accelerator = cli.parse_accelerator_option(accelerator)
 
