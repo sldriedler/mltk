@@ -22,10 +22,6 @@ mltk_audio_classifier-windows-none:
   date: '2022-06-01T17:06:30.371Z'
   sha1: 63e7ce5a6a93ec318747329830bac62c466b7b0d
   url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_audio_classifier/mltk_audio_classifier-windows-none-ac9856e1.zip
-mltk_fingerprint_authenticator-brd2204-none:
-  date: '2022-06-08T15:15:48.030Z'
-  sha1: c259d160ca496959bb9653617cea8e7a6ad21b1f
-  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_fingerprint_authenticator/mltk_fingerprint_authenticator-brd2204-none-f8d3bf51.zip
 mltk_fingerprint_authenticator-brd2601-mvp:
   date: '2022-06-08T15:23:08.042Z'
   sha1: 73da978068488cf179cf5eb37500f2e1b62c6c61
@@ -34,18 +30,6 @@ mltk_fingerprint_authenticator-brd2601-none:
   date: '2022-06-08T15:21:40.664Z'
   sha1: 3081051ef5bb04ce548169f08b1e5fac02fe8ecb
   url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_fingerprint_authenticator/mltk_fingerprint_authenticator-brd2601-none-dd0094c6.zip
-mltk_fingerprint_authenticator-brd4186-mvp:
-  date: '2022-06-08T15:20:07.030Z'
-  sha1: 28cf0c263dbf37d6e3e8a8db661cc809f0f86ff7
-  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_fingerprint_authenticator/mltk_fingerprint_authenticator-brd4186-mvp-8a2fe1a9.zip
-mltk_fingerprint_authenticator-brd4186-none:
-  date: '2022-06-08T15:18:38.072Z'
-  sha1: 2be18203ada848f51669ca6fe40236d63d4b256d
-  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_fingerprint_authenticator/mltk_fingerprint_authenticator-brd4186-none-652a7e40.zip
-mltk_image_classifier-brd2204-none:
-  date: '2022-05-26T23:01:41.541Z'
-  sha1: dbe3d962910ea6272d51076f7f1944b012088657
-  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_image_classifier/mltk_image_classifier-brd2204-none-94eb15ba.zip
 mltk_image_classifier-brd2601-mvp:
   date: '2022-05-26T23:08:39.965Z'
   sha1: f2b6c8f6dd33d4d3abd87a7bf9dad2a40a2a63f2
@@ -55,17 +39,9 @@ mltk_image_classifier-brd2601-none:
   sha1: 2aae3885a5161db6f78abafb60980e90bc1df1e4
   url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_image_classifier/mltk_image_classifier-brd2601-none-9743c9dc.zip
 mltk_image_classifier-brd4166-none:
-  date: '2022-05-26T23:03:07.055Z'
-  sha1: 02c344d714a2abadc233aa5d45eba025299175e8
-  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_image_classifier/mltk_image_classifier-brd4166-none-3b0a01af.zip
-mltk_image_classifier-brd4186-mvp:
-  date: '2022-05-26T23:05:53.792Z'
-  sha1: f363c6d0c65057e91fbe10383d15de2971043ec8
-  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_image_classifier/mltk_image_classifier-brd4186-mvp-bc5ecdba.zip
-mltk_image_classifier-brd4186-none:
-  date: '2022-05-26T23:04:29.242Z'
-  sha1: 9dceec6cb676b28fe58bf0af7b0f0dda8670859a
-  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_image_classifier/mltk_image_classifier-brd4186-none-06ef9689.zip
+  date: '2022-06-14T16:23:53.628Z'
+  sha1: 786446fb2ee740bc673d0fb166ecdb87022be97c
+  url: https://github.com/sldriedler/mltk_assets/raw/master/applications/mltk_image_classifier/mltk_image_classifier-brd4166-none-4f31e09e.zip
 mltk_model_profiler-brd2204-none:
   date: '2022-05-26T22:46:18.929Z'
   sha1: 60c83da64c6de89b522f66fe91943d9032170e59

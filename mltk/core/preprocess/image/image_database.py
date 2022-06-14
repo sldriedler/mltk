@@ -1,7 +1,17 @@
 
 import collections
 import numpy as np
-from cv2 import cv2
+
+from mltk.utils.python import install_pip_package
+
+try:
+    install_pip_package('opencv-python', 'cv2')
+    from cv2 import cv2
+except Exception as e:
+    try:
+        import cv2
+    except:
+        raise RuntimeError('Failed import cv2 Python package')
 
 
 

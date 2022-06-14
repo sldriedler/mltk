@@ -79,20 +79,28 @@ function(tflite_micro_link_python_wrapper target lib_dir)
     # So first generate a .def from the .dll (which has a .pyd extension)
     # then, generate a .a from the .def and .pyd
     string(REGEX REPLACE "\.pyd$" "" fullname_no_ext ${TFLITE_MICRO_WRAPPER_FULLNAME})
+    # NOTE: The generated .a file needs to be in a sub-directory of the mltk repo root,
+    # e.g. <mltk root>/build
+    # Ideally, the .a would be generated at ${CMAKE_CURRENT_BINARY_DIR}/${fullname_no_ext}.a
+    # but this causes issues with Python3.7 where the shared symbols are not properly imported
+    # at runtime. The work-around is to generate the .a at <mltk root>/build.
+    get_filename_component(mltk_build_dir "${MLTK_DIR}/../build" ABSOLUTE)
+    file(MAKE_DIRECTORY ${mltk_build_dir})
+    set(tflite_micro_archive_path "${mltk_build_dir}/${fullname_no_ext}.a")
     add_custom_command( 
       COMMAND ${CMAKE_GENDEF} ${TFLITE_MICRO_WRAPPER_PATH}
-      COMMAND ${CMAKE_DLLTOOL} -k -d ${CMAKE_CURRENT_BINARY_DIR}/${fullname_no_ext}.def -l ${CMAKE_CURRENT_BINARY_DIR}/${fullname_no_ext}.a
-      OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/${fullname_no_ext}.a
-      COMMENT "Generating ${CMAKE_CURRENT_BINARY_DIR}/${fullname_no_ext}.a"
+      COMMAND ${CMAKE_DLLTOOL} -k -d ${CMAKE_CURRENT_BINARY_DIR}/${fullname_no_ext}.def -l ${tflite_micro_archive_path}
+      OUTPUT ${tflite_micro_archive_path}
+      COMMENT "Generating ${tflite_micro_archive_path}"
     )
     add_custom_target(
       tflite_micro_python_wrapper_shared_generate ALL 
-      DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/${fullname_no_ext}.a
+      DEPENDS ${tflite_micro_archive_path}
     )
     add_library(tflite_micro_python_wrapper_shared STATIC IMPORTED)
     set_target_properties(tflite_micro_python_wrapper_shared
     PROPERTIES 
-      IMPORTED_LOCATION "${CMAKE_CURRENT_BINARY_DIR}/${fullname_no_ext}.a"
+      IMPORTED_LOCATION "${tflite_micro_archive_path}"
     )
     add_dependencies(tflite_micro_python_wrapper_shared tflite_micro_python_wrapper_shared_generate)
     
