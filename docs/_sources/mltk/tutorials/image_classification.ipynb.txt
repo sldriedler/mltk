@@ -14,7 +14,7 @@
 
     "\n",
 
-    "This tutorial describes how to use the MLTK to develop a machine learning model to detect the hand gestures:  \n",
+    "This tutorial describes how to use the MLTK to develop a image classification machine learning model to detect the hand gestures:  \n",
 
     "- __Rock__\n",
 
@@ -40,9 +40,9 @@
 
     "\n",
 
-    "- [GitHub Source](https://github.com/SiliconLabs/mltk/blob/master/mltk/tutorials/image_classification.ipynb) - View this tutorial on Github\n",
+    "- [GitHub Source](https://github.com/sldriedler/mltk/blob/master/mltk/tutorials/image_classification.ipynb) - View this tutorial on Github\n",
 
-    "- [Run on Colab](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/image_classification.ipynb) - Run this tutorial on Google Colab\n",
+    "- [Run on Colab](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/image_classification.ipynb) - Run this tutorial on Google Colab\n",
 
     "- [C++ Example Application](../../docs/cpp_development/examples/image_classifier.md) - View this tutorial's associated C++ example application\n",
 
@@ -192,7 +192,7 @@
 
     "- Refer to the [Notebook Examples Guide](../../docs/guides/notebook_examples_guide.md) for more details\n",
 
-    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/image_classification.ipynb) to run this tutorial interactively in your browser\n",
+    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/image_classification.ipynb) to run this tutorial interactively in your browser\n",
 
     "\n",
 
@@ -210,7 +210,7 @@
 
     "\n",
 
-    "See the [Standard Python Package Installation](https://siliconlabs.github.io/mltk/docs/installation.html#standard-python-package) guide for more details on how to enable the `mltk` command in your local terminal.\n",
+    "See the [Standard Python Package Installation](https://sldriedler.github.io/mltk/docs/installation.html#standard-python-package) guide for more details on how to enable the `mltk` command in your local terminal.\n",
 
     "\n",
 
@@ -236,7 +236,7 @@
 
     "\n",
 
-    "See the [Hardware Setup](https://siliconlabs.github.io/mltk/docs/cpp_development/examples/image_classifier.html#hardware-setup) section of the Image Classification C++ example application for details on how to connect the camera to the development board. \n",
+    "See the [Hardware Setup](https://sldriedler.github.io/mltk/docs/cpp_development/examples/image_classifier.html#hardware-setup) section of the Image Classification C++ example application for details on how to connect the camera to the development board. \n",
 
     "\n",
 
@@ -296,7 +296,7 @@
 
     "Run the command `mltk --help` to ensure it is working.  \n",
 
-    "__NOTE:__ The exclamation point `!` tells the Notebook to run a shell command, it is not required in a [standard terminal](https://siliconlabs.github.io/mltk/docs/installation.html#standard-python-package)"
+    "__NOTE:__ The exclamation point `!` tells the Notebook to run a shell command, it is not required in a [standard terminal](https://sldriedler.github.io/mltk/docs/installation.html#standard-python-package)"
 
    ]
 
@@ -336,53 +336,53 @@
 
       "Options:\n",
 
-      "  --version                       Display the version of this mltk package and\n",
+      "  --version         Display the version of this mltk package and exit\n",
 
-      "                                  exit\n",
+      "  --gpu / --no-gpu  Disable usage of the GPU. \n",
 
-      "  --install-completion [bash|zsh|fish|powershell|pwsh]\n",
+      "                    This does the same as defining the environment variable: CUDA_VISIBLE_DEVICES=-1\n",
 
-      "                                  Install completion for the specified shell.\n",
+      "                    Example:\n",
 
-      "  --show-completion [bash|zsh|fish|powershell|pwsh]\n",
+      "                    mltk --no-gpu train image_example1\n",
 
-      "                                  Show completion for the specified shell, to\n",
-
-      "                                  copy it or customize the installation.\n",
-
-      "  --help                          Show this message and exit.\n",
+      "  --help            Show this message and exit.\n",
 
       "\n",
 
       "Commands:\n",
 
-      "  build           MLTK build commands\n",
+      "  build               MLTK build commands\n",
 
-      "  classify_audio  Classify keywords/events detected in a microphone's...\n",
+      "  classify_audio      Classify keywords/events detected in a microphone's...\n",
 
-      "  classify_image  Classify images detected by a camera connected to an...\n",
+      "  classify_image      Classify images detected by a camera connected to...\n",
 
-      "  commander       Silab's Commander Utility\n",
+      "  commander           Silab's Commander Utility\n",
 
-      "  custom          Custom Model Operations\n",
+      "  compile             Compile a model for the specified accelerator\n",
 
-      "  evaluate        Evaluate a trained ML model\n",
+      "  custom              Custom Model Operations\n",
 
-      "  profile         Profile a model\n",
+      "  evaluate            Evaluate a trained ML model\n",
 
-      "  quantize        Quantize a model into a .tflite file\n",
+      "  fingerprint_reader  View/save fingerprints captured by the fingerprint...\n",
 
-      "  summarize       Generate a summary of a model\n",
+      "  profile             Profile a model\n",
 
-      "  train           Train an ML model\n",
+      "  quantize            Quantize a model into a .tflite file\n",
 
-      "  update_params   Update the parameters of a previously trained model\n",
+      "  summarize           Generate a summary of a model\n",
 
-      "  utest           Run the all unit tests\n",
+      "  train               Train an ML model\n",
 
-      "  view            View an interactive graph of the given model in a...\n",
+      "  update_params       Update the parameters of a previously trained model\n",
 
-      "  view_audio      View the spectrograms generated by the...\n"
+      "  utest               Run the all unit tests\n",
+
+      "  view                View an interactive graph of the given model in a...\n",
+
+      "  view_audio          View the spectrograms generated by the...\n"
 
      ]
 
@@ -526,7 +526,7 @@
 
     "\n",
 
-    "This tutorial uses the [Rock, Paper, Scissors](https://siliconlabs.github.io/mltk/docs/python_api/datasets/index.html#rock-paper-scissors-v2) dataset.\n",
+    "This tutorial uses the [Rock, Paper, Scissors](https://sldriedler.github.io/mltk/docs/python_api/datasets/index.html#rock-paper-scissors-v2) dataset.\n",
 
     "\n",
 
@@ -1240,7 +1240,7 @@
 
     "\n",
 
-    "The completed model specification used for this tutorial may be found on Github: [rock_paper_scissors.py](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/rock_paper_scissors.py).  \n",
+    "The completed model specification used for this tutorial may be found on Github: [rock_paper_scissors.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/rock_paper_scissors.py).  \n",
 
     "\n",
 
@@ -1462,7 +1462,7 @@
 
     "- [TrainMixin](../../docs/python_api/core/mltk_model.md#trainmixin) so that we can train the model\n",
 
-    "- [ImageDatasetMixin](https://siliconlabs.github.io/mltk/docs/python_api/core/mltk_model.html#imagedatasetmixin) so that we can train the model with the [ParallelImageDataGenerator](https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing/image_data_generator.html)\n",
+    "- [ImageDatasetMixin](https://sldriedler.github.io/mltk/docs/python_api/core/mltk_model.html#imagedatasetmixin) so that we can train the model with the [ParallelImageDataGenerator](https://sldriedler.github.io/mltk/docs/python_api/data_preprocessing/image_data_generator.html)\n",
 
     "- [EvaluateClassifierMixin](../../docs/python_api/core/mltk_model.md#evaluateclassifiermixin) so that we can evaluate the trained model\n",
 
@@ -1744,13 +1744,13 @@
 
     "\n",
 
-    "Next, we specify the dataset. In this tutorial we use the [Rock Paper Scissors v2](https://siliconlabs.github.io/mltk/docs/python_api/datasets/index.html#rock-paper-scissors-v2) dataset which comes as an MLTK package.\n",
+    "Next, we specify the dataset. In this tutorial we use the [Rock Paper Scissors v2](https://sldriedler.github.io/mltk/docs/python_api/datasets/index.html#rock-paper-scissors-v2) dataset which comes as an MLTK package.\n",
 
     "\n",
 
     "__NOTE:__ While the MLTK comes with pre-defined datasets, any external dataset may also be specified.  \n",
 
-    "Refer to the [ImageDatasetMixin.dataset](https://siliconlabs.github.io/mltk/docs/python_api/core/mltk_model.html#mltk.core.ImageDatasetMixin) property for more details.\n",
+    "Refer to the [ImageDatasetMixin.dataset](https://sldriedler.github.io/mltk/docs/python_api/core/mltk_model.html#mltk.core.ImageDatasetMixin) property for more details.\n",
 
     "\n",
 
@@ -2552,7 +2552,7 @@
 
     "\n",
 
-    "Alternatively, the `--tflite` flag can be used to view the [TfliteModel](https://siliconlabs.github.io/mltk/docs/python_api/core/tflite_model.html#mltk.core.TfliteModel), the quantized model that is programmed to the embedded device (file extension `.tflite`).\n",
+    "Alternatively, the `--tflite` flag can be used to view the [TfliteModel](https://sldriedler.github.io/mltk/docs/python_api/core/tflite_model.html#mltk.core.TfliteModel), the quantized model that is programmed to the embedded device (file extension `.tflite`).\n",
 
     "\n",
 
@@ -3784,12 +3784,6 @@
 
  "metadata": {
 
-  "interpreter": {
-
-   "hash": "d2cfb25ea30f37ddda2085817c91f6bd2a4a914387b5b179eb21bf4600b69cf8"
-
-  },
-
   "kernelspec": {
 
    "display_name": "Python 3.9.7 ('.venv': venv)",
@@ -3824,7 +3818,17 @@
 
   },
 
-  "orig_nbformat": 4
+  "orig_nbformat": 4,
+
+  "vscode": {
+
+   "interpreter": {
+
+    "hash": "600e22ae316f8c315f552eaf99bb679bc9438a443c93affde9ac001991b79c8f"
+
+   }
+
+  }
 
  },
 

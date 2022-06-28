@@ -38,9 +38,9 @@
 
     "\n",
 
-    "- [GitHub Source](https://github.com/SiliconLabs/mltk/blob/master/mltk/tutorials/keyword_spotting_on_off.ipynb) - View this tutorial on Github\n",
+    "- [GitHub Source](https://github.com/sldriedler/mltk/blob/master/mltk/tutorials/keyword_spotting_on_off.ipynb) - View this tutorial on Github\n",
 
-    "- [Run on Colab](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/keyword_spotting_on_off.ipynb) - Run this tutorial on Google Colab\n",
+    "- [Run on Colab](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/keyword_spotting_on_off.ipynb) - Run this tutorial on Google Colab\n",
 
     "- [C++ Example Application](../../docs/cpp_development/examples/audio_classifier.md) - View this tutorial's associated C++ example application\n",
 
@@ -120,7 +120,7 @@
 
     "- Refer to the [Notebook Examples Guide](../../docs/guides/notebook_examples_guide.md) for more details\n",
 
-    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/keyword_spotting_on_off.ipynb) to run this tutorial interactively in your browser\n",
+    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/keyword_spotting_on_off.ipynb) to run this tutorial interactively in your browser\n",
 
     "\n",
 
@@ -138,7 +138,7 @@
 
     "\n",
 
-    "See the [Standard Python Package Installation](https://siliconlabs.github.io/mltk/docs/installation.html#standard-python-package) guide for more details on how to enable the `mltk` command in your local terminal.\n",
+    "See the [Standard Python Package Installation](https://sldriedler.github.io/mltk/docs/installation.html#standard-python-package) guide for more details on how to enable the `mltk` command in your local terminal.\n",
 
     "\n",
 
@@ -198,7 +198,7 @@
 
     "Run the command `mltk --help` to ensure it is working.  \n",
 
-    "__NOTE:__ The exclamation point `!` tells the Notebook to run a shell command, it is not required in a [standard terminal](https://siliconlabs.github.io/mltk/docs/installation.html#standard-python-package)"
+    "__NOTE:__ The exclamation point `!` tells the Notebook to run a shell command, it is not required in a [standard terminal](https://sldriedler.github.io/mltk/docs/installation.html#standard-python-package)"
 
    ]
 
@@ -472,7 +472,7 @@
 
     "- MLTK [Python API](../../docs/python_api/data_preprocessing/audio_feature_generator.md)\n",
 
-    "- Gecko SDK [firmware component](https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html#gecko-sdk-component)\n",
+    "- Gecko SDK [firmware component](https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html#gecko-sdk-component)\n",
 
     "\n",
 
@@ -550,7 +550,7 @@
 
     "\n",
 
-    "The completed model specification used for this tutorial may be found on Github: [keyword_spotting_on_off.py](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py).  \n",
+    "The completed model specification used for this tutorial may be found on Github: [keyword_spotting_on_off.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off.py).  \n",
 
     "\n",
 
@@ -822,7 +822,7 @@
 
     "- [TrainMixin](../../docs/python_api/core/mltk_model.md#trainmixin) so that we can train the model\n",
 
-    "- [AudioDatasetMixin](https://siliconlabs.github.io/mltk/docs/python_api/core/mltk_model.html#audiodatasetmixin) so that we can train the model with the [ParallelAudioDataGenerator](https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing/audio_data_generator.html)\n",
+    "- [AudioDatasetMixin](https://sldriedler.github.io/mltk/docs/python_api/core/mltk_model.html#audiodatasetmixin) so that we can train the model with the [ParallelAudioDataGenerator](https://sldriedler.github.io/mltk/docs/python_api/data_preprocessing/audio_data_generator.html)\n",
 
     "- [EvaluateClassifierMixin](../../docs/python_api/core/mltk_model.md#evaluateclassifiermixin) so that we can evaluate the trained model\n",
 
@@ -1120,7 +1120,7 @@
 
     "__NOTE:__ While the MLTK comes with pre-defined datasets, any external dataset may also be specified.  \n",
 
-    "Refer to the [AudioDatasetMixin.dataset](https://siliconlabs.github.io/mltk/docs/python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin) property for more details.\n",
+    "Refer to the [AudioDatasetMixin.dataset](https://sldriedler.github.io/mltk/docs/python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin) property for more details.\n",
 
     "\n",
 
@@ -1148,7 +1148,7 @@
 
     "#       or a Python function\n",
 
-    "# See: https://siliconlabs.github.io/mltk/docs/python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin.dataset\n",
+    "# See: https://sldriedler.github.io/mltk/docs/python_api/core/mltk_model.html#mltk.core.AudioDatasetMixin.dataset\n",
 
     "my_model.dataset = speech_commands_v2\n",
 
@@ -1180,7 +1180,7 @@
 
     "For this tutorial, we want to detect `on` and `off`, however,\n",
 
-    "you may modify this to any keyword that is found in the [Google Speech Commands](https://siliconlabs.github.io/mltk/docs/python_api/datasets/index.html#google-speech-commands-v2) dataset:\n",
+    "you may modify this to any keyword that is found in the [Google Speech Commands](https://sldriedler.github.io/mltk/docs/python_api/datasets/index.html#google-speech-commands-v2) dataset:\n",
 
     "\n",
 
@@ -1440,7 +1440,7 @@
 
     "Please note that many times you do not need to define you own model. Instead, you can use a pre-defined model\n",
 
-    "such as [MobileNetV1](https://siliconlabs.github.io/mltk/docs/python_api/models/common_models.html#mobilenet-v1) or [ResNetv1-10](https://siliconlabs.github.io/mltk/docs/python_api/models/common_models.html#resnetv1-10). The MLTK provides some common models as Python packages in the [Shared Models](https://siliconlabs.github.io/mltk/docs/python_api/models/common_models.html) section with example usage such as [image_classification.py](https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/image_classification.py).\n",
+    "such as [MobileNetV1](https://sldriedler.github.io/mltk/docs/python_api/models/common_models.html#mobilenet-v1) or [ResNetv1-10](https://sldriedler.github.io/mltk/docs/python_api/models/common_models.html#resnetv1-10). The MLTK provides some common models as Python packages in the [Shared Models](https://sldriedler.github.io/mltk/docs/python_api/models/common_models.html) section with example usage such as [image_classification.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/tinyml/image_classification.py).\n",
 
     "\n",
 
@@ -1630,7 +1630,7 @@
 
     "Before training the model, it is important that the generated spectrogram has enough detail from which the ML model can learn (i.e. \"feature engineering\"). \n",
 
-    "The [AudioFeatureGenerator](https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing/audio_feature_generator.html) has numerous [settings](https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing/audio_feature_generator.html#audiofeaturegenerator-settings) to control how the spectrogram is generated.\n",
+    "The [AudioFeatureGenerator](https://sldriedler.github.io/mltk/docs/python_api/data_preprocessing/audio_feature_generator.html) has numerous [settings](https://sldriedler.github.io/mltk/docs/python_api/data_preprocessing/audio_feature_generator.html#audiofeaturegenerator-settings) to control how the spectrogram is generated.\n",
 
     "\n",
 
@@ -1728,7 +1728,7 @@
 
     "\n",
 
-    "This is useful for this tutorial as the MLTK will automatically embed all of the [AudioFeatureGeneratorSettings](https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing/audio_feature_generator.html#audiofeaturegenerator-settings) into the generated `.tflite` model file.\n",
+    "This is useful for this tutorial as the MLTK will automatically embed all of the [AudioFeatureGeneratorSettings](https://sldriedler.github.io/mltk/docs/python_api/data_preprocessing/audio_feature_generator.html#audiofeaturegenerator-settings) into the generated `.tflite` model file.\n",
 
     "Later, the Gecko SDK will read the settings from the `.tflite` model file when generating the project. \n",
 
@@ -2214,7 +2214,7 @@
 
     "\n",
 
-    "Alternatively, the `--tflite` flag can be used to view the [TfliteModel](https://siliconlabs.github.io/mltk/docs/python_api/core/tflite_model.html#mltk.core.TfliteModel), the quantized model that is programmed to the embedded device (file extension `.tflite`).\n",
+    "Alternatively, the `--tflite` flag can be used to view the [TfliteModel](https://sldriedler.github.io/mltk/docs/python_api/core/tflite_model.html#mltk.core.TfliteModel), the quantized model that is programmed to the embedded device (file extension `.tflite`).\n",
 
     "\n",
 

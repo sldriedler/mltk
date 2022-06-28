@@ -39,7 +39,7 @@ If necessary, install Git:
 ### 5) Clone the MLTK repository
 
 ```shell
-git clone https://github.com/siliconlabs/mltk.git
+git clone https://github.com/sldriedler/mltk.git
 ```
 
 

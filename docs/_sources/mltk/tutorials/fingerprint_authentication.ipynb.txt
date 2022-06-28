@@ -32,9 +32,9 @@
 
     "\n",
 
-    "- [GitHub Source](https://github.com/SiliconLabs/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb) - View this tutorial on Github\n",
+    "- [GitHub Source](https://github.com/sldriedler/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb) - View this tutorial on Github\n",
 
-    "- [Run on Colab](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb) - Run this tutorial on Google Colab\n",
+    "- [Run on Colab](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb) - Run this tutorial on Google Colab\n",
 
     "- [C++ Example Application](../../docs/cpp_development/examples/fingerprint_authenticator.md) - View this tutorial's associated C++ example application\n",
 
@@ -172,7 +172,7 @@
 
     "- Refer to the [Notebook Examples Guide](../../docs/guides/notebook_examples_guide.md) for more details\n",
 
-    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb) to run this tutorial interactively in your browser\n",
+    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb) to run this tutorial interactively in your browser\n",
 
     "\n",
 
@@ -192,7 +192,7 @@
 
     "\n",
 
-    "See the [Standard Python Package Installation](https://siliconlabs.github.io/mltk/docs/installation.html#standard-python-package) guide for more details on how to enable the `mltk` command in your local terminal.\n",
+    "See the [Standard Python Package Installation](https://sldriedler.github.io/mltk/docs/installation.html#standard-python-package) guide for more details on how to enable the `mltk` command in your local terminal.\n",
 
     "\n",
 
@@ -218,7 +218,7 @@
 
     "\n",
 
-    "See the [Hardware Setup](https://siliconlabs.github.io/mltk/docs/cpp_development/examples/fingerprint_authenticator.html#hardware-setup) section of the Fingerprint Authenticator C++ application for details on how to connect the fingerprint module to the development board. \n",
+    "See the [Hardware Setup](https://sldriedler.github.io/mltk/docs/cpp_development/examples/fingerprint_authenticator.html#hardware-setup) section of the Fingerprint Authenticator C++ application for details on how to connect the fingerprint module to the development board. \n",
 
     "\n",
 
@@ -278,7 +278,7 @@
 
     "Run the command `mltk --help` to ensure it is working.  \n",
 
-    "__NOTE:__ The exclamation point `!` tells the Notebook to run a shell command, it is not required in a [standard terminal](https://siliconlabs.github.io/mltk/docs/installation.html#standard-python-package)"
+    "__NOTE:__ The exclamation point `!` tells the Notebook to run a shell command, it is not required in a [standard terminal](https://sldriedler.github.io/mltk/docs/installation.html#standard-python-package)"
 
    ]
 
@@ -560,7 +560,7 @@
 
     "__NOTE:__ To use this command, you must have a locally connected development board with the R503 fingerprint module connected.   \n",
 
-    "Refer to [Hardware Setup](https://siliconlabs.github.io/mltk/docs/cpp_development/examples/fingerprint_authenticator.html#hardware-setup) for more details.\n",
+    "Refer to [Hardware Setup](https://sldriedler.github.io/mltk/docs/cpp_development/examples/fingerprint_authenticator.html#hardware-setup) for more details.\n",
 
     "\n",
 
@@ -612,7 +612,7 @@
 
     "\n",
 
-    "The preprocessing algorithm source may be found in [fingerprint_signature_generator_dataset.py](https://github.com/SiliconLabs/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator_dataset.py)\n",
+    "The preprocessing algorithm source may be found in [fingerprint_signature_generator_dataset.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator_dataset.py)\n",
 
     "\n",
 
@@ -626,7 +626,7 @@
 
     "\n",
 
-    "__NOTE:__ These algorithms are used to preprocess the training dataset _and_ on the embedded device at runtime (see [data_preprocessor.cc](https://github.com/SiliconLabs/mltk/blob/master/cpp/shared/apps/fingerprint_authenticator/data_preprocessor.cc))"
+    "__NOTE:__ These algorithms are used to preprocess the training dataset _and_ on the embedded device at runtime (see [data_preprocessor.cc](https://github.com/sldriedler/mltk/blob/master/cpp/shared/apps/fingerprint_authenticator/data_preprocessor.cc))"
 
    ]
 
@@ -656,7 +656,7 @@
 
     "\n",
 
-    "The [fingerprint_signature_generator_dataset.py](https://github.com/SiliconLabs/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator_dataset.py) script is used to generate the image pairs from the fingerprint dataset. "
+    "The [fingerprint_signature_generator_dataset.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator_dataset.py) script is used to generate the image pairs from the fingerprint dataset. "
 
    ]
 
@@ -674,7 +674,7 @@
 
     "\n",
 
-    "The [model specification](../../docs/guides/model_specification.md) used by this tutorial may be found on Github: [fingerprint_signature_generator.py](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator.py)."
+    "The [model specification](../../docs/guides/model_specification.md) used by this tutorial may be found on Github: [fingerprint_signature_generator.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator.py)."
 
    ]
 
@@ -738,7 +738,7 @@
 
     "\n",
 
-    "The source code for the custom loss function may be found on Github: [mltk/core/keras/losses.py](https://github.com/siliconlabs/mltk/blob/master/mltk/core/keras/losses.py)\n",
+    "The source code for the custom loss function may be found on Github: [mltk/core/keras/losses.py](https://github.com/sldriedler/mltk/blob/master/mltk/core/keras/losses.py)\n",
 
     "\n",
 
@@ -828,7 +828,7 @@
 
     "\n",
 
-    "And then read by the firmware application at runtime: [data_preprocessor.cc](https://github.com/SiliconLabs/mltk/blob/master/cpp/shared/apps/fingerprint_authenticator/data_preprocessor.cc)\n",
+    "And then read by the firmware application at runtime: [data_preprocessor.cc](https://github.com/sldriedler/mltk/blob/master/cpp/shared/apps/fingerprint_authenticator/data_preprocessor.cc)\n",
 
     "\n"
 
@@ -1474,7 +1474,7 @@
 
     "\n",
 
-    "__NOTE:__ Additional hardware is required to run this command, see [Hardware Setup](https://siliconlabs.github.io/mltk/docs/cpp_development/examples/fingerprint_authenticator.html#hardware-setup)\n",
+    "__NOTE:__ Additional hardware is required to run this command, see [Hardware Setup](https://sldriedler.github.io/mltk/docs/cpp_development/examples/fingerprint_authenticator.html#hardware-setup)\n",
 
     "\n",
 

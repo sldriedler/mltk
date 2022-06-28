@@ -11,7 +11,7 @@ The following model operation APIs are available:
 - [summarize_model()](mltk.core.summarize_model) - Generate text summary of a model 
 
 
-The source code for these APIs may be found on Github at [https://github.com/siliconlabs/mltk/tree/master/mltk/core](https://github.com/siliconlabs/mltk/tree/master/mltk/core).
+The source code for these APIs may be found on Github at [https://github.com/sldriedler/mltk/tree/master/mltk/core](https://github.com/sldriedler/mltk/tree/master/mltk/core).
 
 
 ## profile_model

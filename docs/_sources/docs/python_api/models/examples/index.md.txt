@@ -2,7 +2,7 @@
 
 The following models demonstrate the basic functionality of the MLTK's model APIs.
 
-The source code for these models may be found on Github: [https://github.com/siliconlabs/mltk/tree/master/mltk/models/examples](https://github.com/siliconlabs/mltk/tree/master/mltk/models/examples).
+The source code for these models may be found on Github: [https://github.com/sldriedler/mltk/tree/master/mltk/models/examples](https://github.com/sldriedler/mltk/tree/master/mltk/models/examples).
 
 
 ```{toctree}

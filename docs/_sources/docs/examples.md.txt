@@ -10,13 +10,13 @@ Also, refer to the documentation at the top of each example for specific details
 
 | Name                                                                                           | Description                                           |
 | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| [Profile Model](https://siliconlabs.github.io/mltk/mltk/examples/profile_model.html)           | Examples of using the `profile_model()` API           |
-| [Train Model](https://siliconlabs.github.io/mltk/mltk/examples/train_model.html)               | Examples of using the `train_model()` API             |
-| [Evaluate Model](https://siliconlabs.github.io/mltk/mltk/examples/evaluate_model.html)         | Examples of using the `evaluate_model()` API          |
-| [Summarize Model](https://siliconlabs.github.io/mltk/mltk/examples/summarize_model.html)       | Examples of using the `summarize_model()` API         |
-| [View Model](https://siliconlabs.github.io/mltk/mltk/examples/view_model.html)                 | Examples of using the `view_model()` API              |
-| [Update Model Parameters](https://siliconlabs.github.io/mltk/mltk/examples/update_params.html) | Examples of using the `update_model_parameters()` API |
-| [Quantize Model](https://siliconlabs.github.io/mltk/mltk/examples/quantize_model.html)         | Examples of using the `quantize_model()` API          |
+| [Profile Model](https://sldriedler.github.io/mltk/mltk/examples/profile_model.html)           | Examples of using the `profile_model()` API           |
+| [Train Model](https://sldriedler.github.io/mltk/mltk/examples/train_model.html)               | Examples of using the `train_model()` API             |
+| [Evaluate Model](https://sldriedler.github.io/mltk/mltk/examples/evaluate_model.html)         | Examples of using the `evaluate_model()` API          |
+| [Summarize Model](https://sldriedler.github.io/mltk/mltk/examples/summarize_model.html)       | Examples of using the `summarize_model()` API         |
+| [View Model](https://sldriedler.github.io/mltk/mltk/examples/view_model.html)                 | Examples of using the `view_model()` API              |
+| [Update Model Parameters](https://sldriedler.github.io/mltk/mltk/examples/update_params.html) | Examples of using the `update_model_parameters()` API |
+| [Quantize Model](https://sldriedler.github.io/mltk/mltk/examples/quantize_model.html)         | Examples of using the `quantize_model()` API          |
 
 
 ```{eval-rst}

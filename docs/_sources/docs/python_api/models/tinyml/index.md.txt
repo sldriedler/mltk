@@ -2,7 +2,7 @@
 
 The following models are used by the [TinyML](https://github.com/mlcommons/tiny) benchmark.
 
-The source code for these models may be found on Github: [https://github.com/siliconlabs/mltk/tree/master/mltk/models/tinyml](https://github.com/siliconlabs/mltk/tree/master/mltk/models/tinyml).
+The source code for these models may be found on Github: [https://github.com/sldriedler/mltk/tree/master/mltk/models/tinyml](https://github.com/sldriedler/mltk/tree/master/mltk/models/tinyml).
 
 
 ```{toctree}

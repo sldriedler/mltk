@@ -32,9 +32,9 @@
 
     "\n",
 
-    "- [GitHub Source](https://github.com/SiliconLabs/mltk/blob/master/mltk/tutorials/onnx_to_tflite.ipynb) - View this tutorial on Github\n",
+    "- [GitHub Source](https://github.com/sldriedler/mltk/blob/master/mltk/tutorials/onnx_to_tflite.ipynb) - View this tutorial on Github\n",
 
-    "- [Run on Colab](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/onnx_to_tflite.ipynb) - Run this tutorial on Google Colab"
+    "- [Run on Colab](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/onnx_to_tflite.ipynb) - Run this tutorial on Google Colab"
 
    ]
 
@@ -254,7 +254,7 @@
 
     "- Refer to the [Notebook Examples Guide](../../docs/guides/notebook_examples_guide.md) for more details\n",
 
-    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/onnx_to_tflite.ipynb) to run this tutorial interactively in your browser"
+    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/onnx_to_tflite.ipynb) to run this tutorial interactively in your browser"
 
    ]
 
