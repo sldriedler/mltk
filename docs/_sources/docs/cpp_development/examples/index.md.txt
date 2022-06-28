@@ -1,17 +1,17 @@
 # C++ Examples
 
 The MLTK supports [C++ development](../index.md) and comes with several example C++ applications and demos.  
-The source code for the examples may be found on Github at [__mltk__/cpp/shared/apps](https://github.com/sldriedler/mltk/tree/master/cpp//shared/apps)
+The source code for the examples may be found on Github at [__mltk__/cpp/shared/apps](https://github.com/siliconlabs/mltk/tree/master/cpp//shared/apps)
 
 The following examples are available:  
 
 | Name                                                                                                                         | Description                                                                  |
 | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| [Hello World](https://sldriedler.github.io/mltk/docs/cpp_development/examples/hello_world.html)                             | Print "Hello world" to console                                               |
-| [Model Profiler](https://sldriedler.github.io/mltk/docs/cpp_development/examples/model_profiler.html)                       | Profile a `.tflite` model's execution performance                            |
-| [Audio Classifier](https://sldriedler.github.io/mltk/docs/cpp_development/examples/audio_classifier.html)                   | Classify real-time microphone audio                                          |
-| [Image Classifier](https://sldriedler.github.io/mltk/docs/cpp_development/examples/image_classifier.html)                   | Classify images captured from an RGB camera                                  |
-| [Fingerprint Authenticator](https://sldriedler.github.io/mltk/docs/cpp_development/examples/fingerprint_authenticator.html) | Generate unique signatures from images of fingerprints to authenticate users |
+| [Hello World](https://siliconlabs.github.io/mltk/docs/cpp_development/examples/hello_world.html)                             | Print "Hello world" to console                                               |
+| [Model Profiler](https://siliconlabs.github.io/mltk/docs/cpp_development/examples/model_profiler.html)                       | Profile a `.tflite` model's execution performance                            |
+| [Audio Classifier](https://siliconlabs.github.io/mltk/docs/cpp_development/examples/audio_classifier.html)                   | Classify real-time microphone audio                                          |
+| [Image Classifier](https://siliconlabs.github.io/mltk/docs/cpp_development/examples/image_classifier.html)                   | Classify images captured from an RGB camera                                  |
+| [Fingerprint Authenticator](https://siliconlabs.github.io/mltk/docs/cpp_development/examples/fingerprint_authenticator.html) | Generate unique signatures from images of fingerprints to authenticate users |
  
 
 

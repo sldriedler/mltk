@@ -13,6 +13,12 @@ from typing import Callable, List, Union, Iterator, Tuple
 from .system import get_username
 
 
+# This is the base directory used for temporary files
+# It includes the the current user's name in the path
+# to separate temp files for different user's that use the same tempdir
+TEMP_BASE_DIR = f'{tempfile.gettempdir()}/{get_username()}/mltk'
+
+
 def fullpath(path : str) -> str:
     """Return the full, normalized path of the given path"""
     path = os.path.expandvars(path)
@@ -84,7 +90,7 @@ def create_dir(path:str):
 def create_tempdir(subdir='') -> str:
     """Create a temporary directory as <temp dir>/<username>/mltk"""
     user_name = get_username()
-    d = f'{tempfile.gettempdir()}/{user_name}/mltk'
+    d = TEMP_BASE_DIR
     if subdir:
         subdir = subdir.replace('\\', '/')
         if not subdir.startswith('/'):
