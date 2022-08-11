@@ -4,7 +4,7 @@ This describes how to development C++ applications in the MLTK using Silicon Lab
 Using this guide, you can build C++ applications for Silicon Lab's embedded platforms.
 
 __NOTES:__  
-- All of the MLTK C++ source code may be found at: [__mltk repo__/cpp](https://github.com/sldriedler/mltk/tree/master/cpp/)  
+- All of the MLTK C++ source code may be found at: [__mltk repo__/cpp](https://github.com/siliconlabs/mltk/tree/master/cpp/)  
 - Refer to the [example applications](./examples/index.md) documentation for more details about what comes with the MLTK
 - Alternatively, applications may be built for Windows/Linux and embedded targets using [Visual Studio Code](./vscode.md)
 
@@ -62,7 +62,7 @@ Next, we need to install the MLTK:
 
 ```shell
 # Clone the MLTK GIT repository
-git clone https://github.com/sldriedler/mltk.git
+git clone https://github.com/siliconlabs/mltk.git
 ```
 
 Then navigate to the MLTK repository directory
@@ -118,7 +118,7 @@ mltk --help
 ## Install the MLTK into the Gecko SDK
 
 The [Gecko SDK](https://github.com/siliconlabs/gecko_sdk) is the main software stack used by Silicon Lab's embedded targets.
-The MLTK clones a local copy of the [Gecko SDK](https://github.com/siliconlabs/gecko_sdk) to [__mltk__/cpp/shared/gecko_sdk](https://github.com/sldriedler/mltk/tree/master/cpp//shared/gecko_sdk).
+The MLTK clones a local copy of the [Gecko SDK](https://github.com/siliconlabs/gecko_sdk) to [__mltk__/cpp/shared/gecko_sdk](https://github.com/siliconlabs/mltk/tree/master/cpp//shared/gecko_sdk).
 We need to install the MLTK as an "extension" to the locally cloned Gecko SDK so that the MLTK applications are accessible in Simplicity Studio.
 
 To do this, issue the following command:
@@ -129,7 +129,7 @@ mltk build gsdk_mltk_extension
 
 ## Add the MLTK Gecko SDK to Simplicity Studio
 
-After building the GSDK MLTK extension, add the locally cloned Gecko SDK at [__mltk__/cpp/shared/gecko_sdk](https://github.com/sldriedler/mltk/tree/master/cpp//shared/gecko_sdk) to Simplicity Studio.
+After building the GSDK MLTK extension, add the locally cloned Gecko SDK at [__mltk__/cpp/shared/gecko_sdk](https://github.com/siliconlabs/mltk/tree/master/cpp//shared/gecko_sdk) to Simplicity Studio.
 
 From Simplicity Studio,  
 1. On top toolbar, click: __Window__

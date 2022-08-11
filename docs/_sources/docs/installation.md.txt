@@ -53,7 +53,7 @@ This step is __highly recommended__ as the MLTK installs other dependencies like
 2 ) Install the MLTK Python package via [pip](https://pip.pypa.io/):  
 
   This installs the pre-built Python package. This is the easiest and fastest approach to installing the MLTK.  
-  However, the package may not be up-to-date with the [Github repository](https://github.com/sldriedler/mltk).
+  However, the package may not be up-to-date with the [Github repository](https://github.com/siliconlabs/mltk).
 
   ```{eval-rst}
   .. tabbed:: Windows
@@ -71,7 +71,7 @@ This step is __highly recommended__ as the MLTK installs other dependencies like
 
   __OR__
 
-  This builds and installs the Python package from the [Github repository](https://github.com/sldriedler/mltk). This may take longer
+  This builds and installs the Python package from the [Github repository](https://github.com/siliconlabs/mltk). This may take longer
   to install but will use the most up-to-date source code.
 
   ```{eval-rst}
@@ -79,13 +79,13 @@ This step is __highly recommended__ as the MLTK installs other dependencies like
 
     .. code-block:: shell
 
-       pip  install git+https://github.com/sldriedler/mltk.git
+       pip  install git+https://github.com/siliconlabs/mltk.git
 
   .. tabbed:: Linux
 
     .. code-block:: shell
     
-       pip3 install git+https://github.com/sldriedler/mltk.git
+       pip3 install git+https://github.com/siliconlabs/mltk.git
   ```
 
   After the command completes, the MLTK should be available to the current Python environment.  
@@ -181,7 +181,7 @@ Before installing, you must have [Python3.7, 3.8, or 3.9](https://www.python.org
 1 ) Clone the MLTK GIT repository
 
 ```shell
-git clone https://github.com/sldriedler/mltk
+git clone https://github.com/siliconlabs/mltk
 ```
 
 2 ) Run the install script at the root of the repository
