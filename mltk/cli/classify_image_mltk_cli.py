@@ -168,7 +168,7 @@ In this case, ONLY the .tflite will be programmed and the existing image_classif
         tflite_model = load_tflite_model(
             model, 
             model_type='tflite',
-            print_not_found_err=True
+            print_not_found_err=True,
             logger=logger
         )
     except Exception as e:

@@ -58,7 +58,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>Tensorflow-Lite Micro Python Wrapper &#8212; MLTK 0.8.0 documentation</title>
+    <title>Tensorflow-Lite Micro Python Wrapper &#8212; MLTK 0.9.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -107,11 +107,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../../index.html" title="MLTK 0.8.0 documentation"
+        <a href="../../../index.html" title="MLTK 0.9.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../../_static/logo.png"
-                   alt="MLTK 0.8.0 documentation logo">
+                   alt="MLTK 0.9.0 documentation logo">
           
         </a>
       </div>
@@ -156,7 +156,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -203,16 +203,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../../index.html" title="MLTK 0.8.0 documentation" class="md-nav__button md-logo">
+    <a href="../../../index.html" title="MLTK 0.9.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="MLTK 0.8.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.9.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -499,10 +499,10 @@ This Python API loads the C++ Python wrapper shared library into the Python runt
 <section id="source-code">
 <h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp//tflite_micro_wrapper">Python wrapper</a> - This makes the Tensorflow-Lite Micro C++ library accessible to Python</p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp//shared/tflite_micro">Tensorflow-Lite Micro</a> - This is the Tensorflow-Lite Micro C++ library plus some additional helpers to aid development (<strong>NOTE:</strong> The actual TFLM <a class="reference external" href="https://github.com/tensorflow/tflite-micro">library</a> is downloaded by the build scripts)</p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp//shared/tflite_micro_model">TfliteMicroModel</a> - This is a helper C++ library to make interfacing to the TFLM library easier for applications</p></li>
-<li><p><a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/mltk/core//tflite_micro">Python API</a> - Python package that loads this C++ wrapper</p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//tflite_micro_wrapper">Python wrapper</a> - This makes the Tensorflow-Lite Micro C++ library accessible to Python</p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//shared/tflite_micro">Tensorflow-Lite Micro</a> - This is the Tensorflow-Lite Micro C++ library plus some additional helpers to aid development (<strong>NOTE:</strong> The actual TFLM <a class="reference external" href="https://github.com/tensorflow/tflite-micro">library</a> is downloaded by the build scripts)</p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//shared/tflite_micro_model">TfliteMicroModel</a> - This is a helper C++ library to make interfacing to the TFLM library easier for applications</p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/mltk/core//tflite_micro">Python API</a> - Python package that loads this C++ wrapper</p></li>
 </ul>
 </section>
 <section id="additional-links">
@@ -524,7 +524,7 @@ This Python API loads the C++ Python wrapper shared library into the Python runt
 <section id="automatic-build">
 <h3 id="automatic-build">Automatic Build<a class="headerlink" href="#automatic-build" title="Permalink to this headline">¶</a></h3>
 <p>This wrapper is automatically built when installing from source, e.g.:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/siliconlabs/mltk.git
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/sldriedler/mltk.git
 <span class="nb">cd</span> mltk
 pip install -e .
 </pre></div>
@@ -601,7 +601,7 @@ pip install -e .
               
           </div>
             Last updated on
-              Jun 28, 2022.
+              Aug 11, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
