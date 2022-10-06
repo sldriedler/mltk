@@ -32,7 +32,7 @@ When set, the MLTK will only write to the OS's temporary directory.
 
 ## MLTK_SETUP_PY_DEPS
 
-This is used by [setup.py](https://github.com/SiliconLabs/mltk/blob/master/setup.py), the script used to install the MLTK Python package.
+This is used by [setup.py](https://github.com/sldriedler/mltk/blob/master/setup.py), the script used to install the MLTK Python package.
 This may be used to override the MLTK Python package dependencies.
 
 This should contain a list of [install requirements](https://packaging.python.org/en/latest/discussions/install-requires-vs-requirements/) delimited by a pipe `|`, e.g.:

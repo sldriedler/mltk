@@ -57,7 +57,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>mltk.core.model.mixins.ssh_mixin &#8212; MLTK 0.10.0 documentation</title>
+    <title>mltk.core.model.mixins.ssh_mixin &#8212; MLTK 0.12.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../_static/mystnb.css" />
@@ -78,6 +78,7 @@
     <script src="../../../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../../../_static/js/custom.js"></script>
+    <script src="../../../../../_static/js/apitoc.js"></script>
     <link rel="shortcut icon" href="../../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../search.html" />
@@ -104,11 +105,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../../../../index.html" title="MLTK 0.10.0 documentation"
+        <a href="../../../../../index.html" title="MLTK 0.12.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../../../../_static/logo.png"
-                   alt="MLTK 0.10.0 documentation logo">
+                   alt="MLTK 0.12.0 documentation logo">
           
         </a>
       </div>
@@ -153,7 +154,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -199,16 +200,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../../../../index.html" title="MLTK 0.10.0 documentation" class="md-nav__button md-logo">
+    <a href="../../../../../index.html" title="MLTK 0.12.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../../../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../../../index.html"
-       title="MLTK 0.10.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.12.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -405,11 +406,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-  <ul class="md-nav__list" data-md-scrollfix="">
-    
-
-<li id="searchbox" class="md-nav__item"></li>
-
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
   </ul>
 </nav>
               </div>
@@ -423,7 +420,9 @@
             <ul class="breadcrumb">
               <li></li>
               <li><a href="../../../../../index.html"><i class="md-icon">home</i></a></li>
-                <li class="active"><a href="../../../../index.html" accesskey="U">Module code</a></li>
+                <li><a href="../../../../index.html" accesskey="U">Module code</a></li>
+
+              <li class="activate"><a>mltk.core.model.mixins.ssh_mixin</a></li>
             </ul>
           </div>
           
@@ -439,13 +438,13 @@
 
 
 
-<div class="viewcode-block" id="SshMixin"><a class="viewcode-back" href="../../../../../docs/python_api/core/mltk_model.html#mltk.core.model.mixins.ssh_mixin.SshMixin">[docs]</a><span class="nd">@MltkModelAttributesDecorator</span><span class="p">()</span>
+<div class="viewcode-block" id="SshMixin"><a class="viewcode-back" href="../../../../../docs/python_api/mltk_model/ssh_mixin.html#mltk.core.SshMixin">[docs]</a><span class="nd">@MltkModelAttributesDecorator</span><span class="p">()</span>
 <span class="k">class</span> <span class="nc">SshMixin</span><span class="p">(</span><span class="n">BaseMixin</span><span class="p">):</span>
     <span class="sd">"""Provides various properties to the base :py:class:`~MltkModel` used by the ``ssh`` MLTK command.</span>
 
 <span class="sd">    .. seealso::</span>
-<span class="sd">       - `Model Training via SSH &lt;https://siliconlabs.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
-<span class="sd">       - `Cloud Training with vast.ai &lt;https://siliconlabs.github.io/mltk/mltk/tutorials/cloud_training_with_vast_ai.html&gt;`_</span>
+<span class="sd">       - `Model Training via SSH &lt;https://sldriedler.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
+<span class="sd">       - `Cloud Training with vast.ai &lt;https://sldriedler.github.io/mltk/mltk/tutorials/cloud_training_with_vast_ai.html&gt;`_</span>
 <span class="sd">    </span>
 <span class="sd">    """</span>
 
@@ -454,7 +453,7 @@
     <span class="k">def</span> <span class="nf">ssh_remote_dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
         <span class="sd">"""Directory path to remote machine's workspace. This overrides any settings in ~/.mltk/user_settings.yaml</span>
 <span class="sd">        </span>
-<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://siliconlabs.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
+<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://sldriedler.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s1">'ssh.remote_dir'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="nd">@ssh_remote_dir</span><span class="o">.</span><span class="n">setter</span>
@@ -466,7 +465,7 @@
     <span class="k">def</span> <span class="nf">ssh_startup_cmds</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
         <span class="sd">"""List of shell commands to execute before invoking MLTK command. This overrides any settings in ~/.mltk/user_settings.yaml</span>
 <span class="sd">        </span>
-<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://siliconlabs.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
+<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://sldriedler.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s1">'ssh.startup_cmds'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="nd">@ssh_startup_cmds</span><span class="o">.</span><span class="n">setter</span>
@@ -478,7 +477,7 @@
     <span class="k">def</span> <span class="nf">ssh_shutdown_cmds</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
         <span class="sd">"""List of shell commands to execute after invoking MLTK command. This overrides any settings in ~/.mltk/user_settings.yaml</span>
 <span class="sd">        </span>
-<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://siliconlabs.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
+<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://sldriedler.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s1">'ssh.shutdown_cmds'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="nd">@ssh_shutdown_cmds</span><span class="o">.</span><span class="n">setter</span>
@@ -491,7 +490,7 @@
         <span class="sd">"""List of local files to upload before invoking MLTK command. All paths must be relative to the model specification script.</span>
 <span class="sd">        This overrides any settings in ~/.mltk/user_settings.yaml</span>
 <span class="sd">        </span>
-<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://siliconlabs.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
+<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://sldriedler.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s1">'ssh.upload_files'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="nd">@ssh_upload_files</span><span class="o">.</span><span class="n">setter</span>
@@ -504,7 +503,7 @@
         <span class="sd">"""List of remote files to download after invoking MLTK command. All paths must be relative to the model specification script.</span>
 <span class="sd">        This overrides any settings in ~/.mltk/user_settings.yaml</span>
 <span class="sd">        </span>
-<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://siliconlabs.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
+<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://sldriedler.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s1">'ssh.download_files'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="nd">@ssh_download_files</span><span class="o">.</span><span class="n">setter</span>
@@ -517,7 +516,7 @@
         <span class="sd">"""List of environment variables to export in the remote machine's shell session before invoking MLTK command.</span>
 <span class="sd">        This overrides any settings in ~/.mltk/user_settings.yaml</span>
 <span class="sd">        </span>
-<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://siliconlabs.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
+<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://sldriedler.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s1">'ssh.environment'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="nd">@ssh_environment</span><span class="o">.</span><span class="n">setter</span>
@@ -529,7 +528,7 @@
     <span class="k">def</span> <span class="nf">ssh_create_venv</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
         <span class="sd">"""If true then create the MLTK python virtual environment in the specified remote_directory. This overrides the setting in ~/.mltk/user_settings.yaml</span>
 <span class="sd">        </span>
-<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://siliconlabs.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
+<span class="sd">        .. seealso:: `Model Training via SSH &lt;https://sldriedler.github.io/mltk/docs/guides/model_training_via_ssh.html&gt;`_</span>
 <span class="sd">        """</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attributes</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s1">'ssh.create_venv'</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="nd">@ssh_create_venv</span><span class="o">.</span><span class="n">setter</span>
@@ -551,6 +550,7 @@
           </article>
         </div>
       </div>
+      <a href="#" class="go-top"><i class="md-icon">arrow_upward</i>Back to Top</a>
     </main>
   </div>
   <footer class="md-footer">
@@ -570,7 +570,7 @@
               
           </div>
             Last updated on
-              Aug 22, 2022.
+              Oct 06, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

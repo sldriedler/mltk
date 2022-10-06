@@ -58,7 +58,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>Simplicity Studio Development &#8212; MLTK 0.10.0 documentation</title>
+    <title>Simplicity Studio Development &#8212; MLTK 0.12.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -79,6 +79,7 @@
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/js/custom.js"></script>
+    <script src="../../_static/js/apitoc.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -107,11 +108,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="MLTK 0.10.0 documentation"
+        <a href="../../index.html" title="MLTK 0.12.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../_static/logo.png"
-                   alt="MLTK 0.10.0 documentation logo">
+                   alt="MLTK 0.12.0 documentation logo">
           
         </a>
       </div>
@@ -156,7 +157,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -202,16 +203,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="MLTK 0.10.0 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="MLTK 0.12.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="MLTK 0.10.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.12.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -437,7 +438,7 @@
                 
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#docs-cpp-development-simplicity-studio--page-root" class="md-nav__link">Simplicity Studio Development</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#install-tools" class="md-nav__link">Install Tools</a><nav class="md-nav">
@@ -472,11 +473,7 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../_sources/docs/cpp_development/simplicity_studio.md.txt">Show Source</a> </li>
-
-<li id="searchbox" class="md-nav__item"></li>
-
+      <script type="text/javascript" src=../../_static/js/apitoc.js></script>
   </ul>
 </nav>
               </div>
@@ -490,7 +487,9 @@
             <ul class="breadcrumb">
               <li></li>
               <li><a href="../../index.html"><i class="md-icon">home</i></a></li>
-                <li class="active"><a href="index.html" accesskey="U">C++ Development</a></li>
+                <li><a href="index.html" accesskey="U">C++ Development</a></li>
+
+              <li class="activate"><a>Simplicity Studio Development</a></li>
             </ul>
           </div>
           
@@ -503,7 +502,7 @@
 Using this guide, you can build C++ applications for Silicon Lab’s embedded platforms.</p>
 <p><strong>NOTES:</strong></p>
 <ul class="simple">
-<li><p>All of the MLTK C++ source code may be found at: <a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp/"><strong>mltk repo</strong>/cpp</a></p></li>
+<li><p>All of the MLTK C++ source code may be found at: <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp/"><strong>mltk repo</strong>/cpp</a></p></li>
 <li><p>Refer to the <a class="reference internal" href="examples/index.html"><span class="doc std std-doc">example applications</span></a> documentation for more details about what comes with the MLTK</p></li>
 <li><p>Alternatively, applications may be built for Windows/Linux and embedded targets using <a class="reference internal" href="vscode.html"><span class="doc std std-doc">Visual Studio Code</span></a></p></li>
 </ul>
@@ -552,7 +551,7 @@ More details here: <a class="reference external" href="https://www.python.org/do
 <section id="clone-the-mltk-repository">
 <h3 id="clone-the-mltk-repository">1) Clone the MLTK repository<a class="headerlink" href="#clone-the-mltk-repository" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clone the MLTK GIT repository</span>
-git clone https://github.com/siliconlabs/mltk.git
+git clone https://github.com/sldriedler/mltk.git
 </pre></div>
 </div>
 <p>Then navigate to the MLTK repository directory</p>
@@ -563,15 +562,15 @@ git clone https://github.com/siliconlabs/mltk.git
 <section id="run-the-install-script">
 <h3 id="run-the-install-script">2) Run the install script<a class="headerlink" href="#run-the-install-script" title="Permalink to this headline">¶</a></h3>
 <div class="tabbed-set docutils">
-<input checked="checked" id="b3944ecb-2b6c-4bb9-bc20-94f13d193308" name="6c444735-4bd8-4ef9-a434-679d0025ad28" type="radio"/>
-<label class="tabbed-label" for="b3944ecb-2b6c-4bb9-bc20-94f13d193308">
+<input checked="checked" id="f5e20727-c692-4ff8-b497-3da34df9ba4e" name="5d6d8e4d-d315-4083-b464-0da69bafe54b" type="radio"/>
+<label class="tabbed-label" for="f5e20727-c692-4ff8-b497-3da34df9ba4e">
 Windows</label><div class="tabbed-content docutils">
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python .<span class="se">\i</span>nstall_mltk.py
 </pre></div>
 </div>
 </div>
-<input id="d06c65ea-8a50-47ed-99dc-d186089e1040" name="6c444735-4bd8-4ef9-a434-679d0025ad28" type="radio"/>
-<label class="tabbed-label" for="d06c65ea-8a50-47ed-99dc-d186089e1040">
+<input id="c0d14cc4-1082-435e-b700-9820474e30af" name="5d6d8e4d-d315-4083-b464-0da69bafe54b" type="radio"/>
+<label class="tabbed-label" for="c0d14cc4-1082-435e-b700-9820474e30af">
 Linux</label><div class="tabbed-content docutils">
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3 ./install_mltk.py
 </pre></div>
@@ -583,15 +582,15 @@ Linux</label><div class="tabbed-content docutils">
 <h3 id="activate-the-mltk-python-virtual-environment">3) Activate the MLTK Python virtual environment<a class="headerlink" href="#activate-the-mltk-python-virtual-environment" title="Permalink to this headline">¶</a></h3>
 <p>Activate the MLTK’s Python virtual environment:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="54b28f3d-29bc-4b37-8162-d5783ca4c698" name="36696f4b-9bd0-40b8-b280-8a549cf8eef2" type="radio"/>
-<label class="tabbed-label" for="54b28f3d-29bc-4b37-8162-d5783ca4c698">
+<input checked="checked" id="bce43c85-d8dd-489f-b124-dd262d478821" name="2dfc2699-d061-46de-903a-22f3c064b3ca" type="radio"/>
+<label class="tabbed-label" for="bce43c85-d8dd-489f-b124-dd262d478821">
 Windows</label><div class="tabbed-content docutils">
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>.<span class="se">\.</span>venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate.bat
 </pre></div>
 </div>
 </div>
-<input id="51e8ad21-075b-4c21-a51e-af6764d7f6d9" name="36696f4b-9bd0-40b8-b280-8a549cf8eef2" type="radio"/>
-<label class="tabbed-label" for="51e8ad21-075b-4c21-a51e-af6764d7f6d9">
+<input id="4e347284-1c08-4efe-8482-70608f9c7336" name="2dfc2699-d061-46de-903a-22f3c064b3ca" type="radio"/>
+<label class="tabbed-label" for="4e347284-1c08-4efe-8482-70608f9c7336">
 Linux</label><div class="tabbed-content docutils">
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ./.venv/bin/activate
 </pre></div>
@@ -607,7 +606,7 @@ Linux</label><div class="tabbed-content docutils">
 <section id="install-the-mltk-into-the-gecko-sdk">
 <h2 id="install-the-mltk-into-the-gecko-sdk">Install the MLTK into the Gecko SDK<a class="headerlink" href="#install-the-mltk-into-the-gecko-sdk" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference external" href="https://github.com/siliconlabs/gecko_sdk">Gecko SDK</a> is the main software stack used by Silicon Lab’s embedded targets.
-The MLTK clones a local copy of the <a class="reference external" href="https://github.com/siliconlabs/gecko_sdk">Gecko SDK</a> to <a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp//shared/gecko_sdk"><strong>mltk</strong>/cpp/shared/gecko_sdk</a>.
+The MLTK clones a local copy of the <a class="reference external" href="https://github.com/siliconlabs/gecko_sdk">Gecko SDK</a> to <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//shared/gecko_sdk"><strong>mltk</strong>/cpp/shared/gecko_sdk</a>.
 We need to install the MLTK as an “extension” to the locally cloned Gecko SDK so that the MLTK applications are accessible in Simplicity Studio.</p>
 <p>To do this, issue the following command:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk build gsdk_mltk_extension
@@ -616,7 +615,7 @@ We need to install the MLTK as an “extension” to the locally cloned Gecko SD
 </section>
 <section id="add-the-mltk-gecko-sdk-to-simplicity-studio">
 <h2 id="add-the-mltk-gecko-sdk-to-simplicity-studio">Add the MLTK Gecko SDK to Simplicity Studio<a class="headerlink" href="#add-the-mltk-gecko-sdk-to-simplicity-studio" title="Permalink to this headline">¶</a></h2>
-<p>After building the GSDK MLTK extension, add the locally cloned Gecko SDK at <a class="reference external" href="https://github.com/siliconlabs/mltk/tree/master/cpp//shared/gecko_sdk"><strong>mltk</strong>/cpp/shared/gecko_sdk</a> to Simplicity Studio.</p>
+<p>After building the GSDK MLTK extension, add the locally cloned Gecko SDK at <a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp//shared/gecko_sdk"><strong>mltk</strong>/cpp/shared/gecko_sdk</a> to Simplicity Studio.</p>
 <p>From Simplicity Studio,</p>
 <ol class="arabic simple">
 <li><p>On top toolbar, click: <strong>Window</strong></p></li>
@@ -652,6 +651,7 @@ C++ sources will be copied to your Simplicity Studio project directory.</p>
           </article>
         </div>
       </div>
+      <a href="#" class="go-top"><i class="md-icon">arrow_upward</i>Back to Top</a>
     </main>
   </div>
   <footer class="md-footer">
@@ -695,7 +695,7 @@ C++ sources will be copied to your Simplicity Studio project directory.</p>
               
           </div>
             Last updated on
-              Aug 22, 2022.
+              Oct 06, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
