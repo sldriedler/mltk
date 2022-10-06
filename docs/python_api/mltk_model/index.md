@@ -115,6 +115,13 @@ The following [MltkModel](mltk.core.MltkModel) mixins are available:
 
    mltk.core.SshMixin
 
+.. autosummary::
+   :nosignatures:
+   :toctree: mltk_dataset
+   :template: custom-class-template.rst
+
+   mltk.core.MltkDataset
+
 ```
 
 
@@ -132,4 +139,5 @@ The following [MltkModel](mltk.core.MltkModel) mixins are available:
 ./evaluate_autoencoder_mixin
 ./ssh_mixin
 ./utilities
+./mltk_dataset
 ```
