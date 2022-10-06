@@ -521,6 +521,12 @@ class TfliteModel:
             #       quantization is done automatically inside the model
             x = self.quantize_to_input_dtype(x)
 
+            # If the last dimension of the model's input shape is 1,
+            # and the input data is missing this dimension
+            # then automatically expand the dimension
+            if len(self._input0.shape) != len(x.shape) and self._input0.shape[-1] == 1:
+                x = np.expand_dims(x, axis=-1)
+
             # Then set model input tensor
             self._interpreter.set_tensor(self._input0.index, x)
             # Execute the model
@@ -555,6 +561,12 @@ class TfliteModel:
                 # then we need to manually convert it first 
                 batch_x = self.quantize_to_input_dtype(batch_x)
 
+                # If the last dimension of the model's input shape is 1,
+                # and the batch data is missing this dimension
+                # then automatically expand the dimension
+                if len(self._input0.shape) != len(batch_x.shape) and self._input0.shape[-1] == 1:
+                    batch_x = np.expand_dims(batch_x, axis=-1)
+
                 # The set model input tensor
                 self._interpreter.set_tensor(self._input0.index, batch_x)
                 # Execute the model
@@ -573,7 +585,7 @@ class TfliteModel:
                 # If the generator specifies a "max_samples" property
                 # then break out of the loop once the specified number of samples have been processed
                 try:
-                    if hasattr(x, 'max_samples'):
+                    if hasattr(x, 'max_samples') and x.max_samples > 0:
                         if n_samples >= x.max_samples:
                             break
                 except:
@@ -585,7 +597,7 @@ class TfliteModel:
             batch_size = batch_results[0].shape[0]
             output_shape = batch_results[0].shape[1:]
 
-            if hasattr(x, 'max_samples'):
+            if hasattr(x, 'max_samples') and x.max_samples > 0:
                 n_samples = x.max_samples
 
             y = np.zeros((n_samples, *output_shape), dtype=batch_y.dtype)

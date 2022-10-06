@@ -10,7 +10,7 @@ The following provides a generated API reference for the MLTK Python package:
 - [Reference Datasets](./datasets/index.md) - Datasets used by reference models
 
 
-The source code for these APIs may be found on Github at [https://github.com/sldriedler/mltk/tree/master/mltk](https://github.com/sldriedler/mltk/tree/master/mltk).
+The source code for these APIs may be found on Github at [https://github.com/siliconlabs/mltk/tree/master/mltk](https://github.com/siliconlabs/mltk/tree/master/mltk).
 
 
 

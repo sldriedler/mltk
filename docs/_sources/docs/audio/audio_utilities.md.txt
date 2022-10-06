@@ -43,7 +43,7 @@ The following are examples of using the `classify_audio` command:
 
 ### Classify using PC Microphone
 
-- Use the pre-trained ML model [keyword_spotting_on_off.py](https://github.com/sldriedler/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_on_off.py)
+- Use the pre-trained ML model [keyword_spotting_on_off.py](https://github.com/siliconlabs/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_on_off.py)
 - Use your local PC's microphone 
 - Verbosely print the ML model's classification results to the terminal
 - Set the detection threshold to 150 or 255 (a lower threshold means easier keyword detections with higher false-positives)
@@ -61,7 +61,7 @@ Processing should occur much faster on a PC compared to an embedded device.
 We can add an artificial delay to simulate the delay that would occur on an embedded device.  
 Refer to the [Keyword Spotting Overview](./keyword_spotting_overview.md) for why this matters.
 
-- Use the pre-trained ML model [keyword_spotting_mobilenetv2.py](https://github.com/sldriedler/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py)
+- Use the pre-trained ML model [keyword_spotting_mobilenetv2.py](https://github.com/siliconlabs/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_mobilenetv2.py)
 - Use your local PC's microphone 
 - Verbosely print the ML model's classification results to the terminal
 - Simulate the audio loop latency of 200ms
@@ -110,7 +110,7 @@ microphone to classify audio __on__ the development board. i.e. The entire
 audio classification (Audio processing + ML) runs on the embedded device.
 
 
-- Use the pre-trained ML model [keyword_spotting_on_off.py](https://github.com/sldriedler/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_on_off.py)
+- Use the pre-trained ML model [keyword_spotting_on_off.py](https://github.com/siliconlabs/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_on_off.py)
 - Use the connected development board
 - Verbosely print the ML model's classification results to the terminal
 - Set the detection threshold to 150 or 255 (a lower threshold means easier keyword detections with higher false-positives)

@@ -16,6 +16,10 @@ if current_process().name != 'MainProcess':
 else:
     os.environ['TF_CPP_MIN_LOG_LEVEL'] = '0' # Otherwise set the log level to debug (we use redirect_stream() to redirect the log to the cli logger)
 
+# If it's not already specified, then  GPU uses threads dedicated to this device
+# More details here:
+# https://github.com/NVIDIA/DeepLearningExamples/issues/57
+os.environ['TF_GPU_THREAD_MODE'] = os.environ.get('TF_GPU_THREAD_MODE', 'gpu_private') 
 
 
 def main():
@@ -135,6 +139,7 @@ def discover_and_import_commands(root_cli):
     cpp_cli_path = f'{MLTK_ROOT_DIR}/cpp/tools/utils'
     if os.path.exists(cpp_cli_path):
         search_paths.append(cpp_cli_path)
+
 
     # Also all any apps directories that define an mltk_cli.py script
     cpp_apps_path = f'{MLTK_ROOT_DIR}/cpp/shared/apps'

@@ -40,9 +40,9 @@
 
     "\n",
 
-    "- [GitHub Source](https://github.com/sldriedler/mltk/blob/master/mltk/tutorials/image_classification.ipynb) - View this tutorial on Github\n",
+    "- [GitHub Source](https://github.com/SiliconLabs/mltk/blob/master/mltk/tutorials/image_classification.ipynb) - View this tutorial on Github\n",
 
-    "- [Run on Colab](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/image_classification.ipynb) - Run this tutorial on Google Colab\n",
+    "- [Run on Colab](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/image_classification.ipynb) - Run this tutorial on Google Colab\n",
 
     "- [Train in the \"Cloud\"](../../mltk/tutorials/cloud_training_with_vast_ai.md) - _Vastly_ improve training times by training this model in the \"cloud\"\n",
 
@@ -194,7 +194,7 @@
 
     "- Refer to the [Notebook Examples Guide](../../docs/guides/notebook_examples_guide.md) for more details\n",
 
-    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/image_classification.ipynb) to run this tutorial interactively in your browser\n",
+    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/image_classification.ipynb) to run this tutorial interactively in your browser\n",
 
     "\n",
 
@@ -212,7 +212,7 @@
 
     "\n",
 
-    "See the [Standard Python Package Installation](https://sldriedler.github.io/mltk/docs/installation.html#standard-python-package) guide for more details on how to enable the `mltk` command in your local terminal.\n",
+    "See the [Standard Python Package Installation](https://siliconlabs.github.io/mltk/docs/installation.html#standard-python-package) guide for more details on how to enable the `mltk` command in your local terminal.\n",
 
     "\n",
 
@@ -238,7 +238,7 @@
 
     "\n",
 
-    "See the [Hardware Setup](https://sldriedler.github.io/mltk/docs/cpp_development/examples/image_classifier.html#hardware-setup) section of the Image Classification C++ example application for details on how to connect the camera to the development board. \n",
+    "See the [Hardware Setup](https://siliconlabs.github.io/mltk/docs/cpp_development/examples/image_classifier.html#hardware-setup) section of the Image Classification C++ example application for details on how to connect the camera to the development board. \n",
 
     "\n",
 
@@ -298,7 +298,7 @@
 
     "Run the command `mltk --help` to ensure it is working.  \n",
 
-    "__NOTE:__ The exclamation point `!` tells the Notebook to run a shell command, it is not required in a [standard terminal](https://sldriedler.github.io/mltk/docs/installation.html#standard-python-package)"
+    "__NOTE:__ The exclamation point `!` tells the Notebook to run a shell command, it is not required in a [standard terminal](https://siliconlabs.github.io/mltk/docs/installation.html#standard-python-package)"
 
    ]
 
@@ -528,7 +528,7 @@
 
     "\n",
 
-    "This tutorial uses the [Rock, Paper, Scissors](https://sldriedler.github.io/mltk/docs/python_api/datasets/index.html#rock-paper-scissors-v2) dataset.\n",
+    "This tutorial uses the [Rock, Paper, Scissors](https://siliconlabs.github.io/mltk/docs/python_api/datasets/index.html#rock-paper-scissors-v2) dataset.\n",
 
     "\n",
 
@@ -1242,7 +1242,7 @@
 
     "\n",
 
-    "The completed model specification used for this tutorial may be found on Github: [rock_paper_scissors.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/rock_paper_scissors.py).  \n",
+    "The completed model specification used for this tutorial may be found on Github: [rock_paper_scissors.py](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/rock_paper_scissors.py).  \n",
 
     "\n",
 
@@ -1464,7 +1464,7 @@
 
     "- [TrainMixin](../../docs/python_api/core/mltk_model.md#trainmixin) so that we can train the model\n",
 
-    "- [ImageDatasetMixin](https://sldriedler.github.io/mltk/docs/python_api/core/mltk_model.html#imagedatasetmixin) so that we can train the model with the [ParallelImageDataGenerator](https://sldriedler.github.io/mltk/docs/python_api/data_preprocessing/image_data_generator.html)\n",
+    "- [ImageDatasetMixin](https://siliconlabs.github.io/mltk/docs/python_api/core/mltk_model.html#imagedatasetmixin) so that we can train the model with the [ParallelImageDataGenerator](https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing/image_data_generator.html)\n",
 
     "- [EvaluateClassifierMixin](../../docs/python_api/core/mltk_model.md#evaluateclassifiermixin) so that we can evaluate the trained model\n",
 
@@ -1746,13 +1746,13 @@
 
     "\n",
 
-    "Next, we specify the dataset. In this tutorial we use the [Rock Paper Scissors v2](https://sldriedler.github.io/mltk/docs/python_api/datasets/index.html#rock-paper-scissors-v2) dataset which comes as an MLTK package.\n",
+    "Next, we specify the dataset. In this tutorial we use the [Rock Paper Scissors v2](https://siliconlabs.github.io/mltk/docs/python_api/datasets/index.html#rock-paper-scissors-v2) dataset which comes as an MLTK package.\n",
 
     "\n",
 
     "__NOTE:__ While the MLTK comes with pre-defined datasets, any external dataset may also be specified.  \n",
 
-    "Refer to the [ImageDatasetMixin.dataset](https://sldriedler.github.io/mltk/docs/python_api/core/mltk_model.html#mltk.core.ImageDatasetMixin) property for more details.\n",
+    "Refer to the [ImageDatasetMixin.dataset](https://siliconlabs.github.io/mltk/docs/python_api/core/mltk_model.html#mltk.core.ImageDatasetMixin) property for more details.\n",
 
     "\n",
 
@@ -2554,7 +2554,7 @@
 
     "\n",
 
-    "Alternatively, the `--tflite` flag can be used to view the [TfliteModel](https://sldriedler.github.io/mltk/docs/python_api/core/tflite_model.html#mltk.core.TfliteModel), the quantized model that is programmed to the embedded device (file extension `.tflite`).\n",
+    "Alternatively, the `--tflite` flag can be used to view the [TfliteModel](https://siliconlabs.github.io/mltk/docs/python_api/core/tflite_model.html#mltk.core.TfliteModel), the quantized model that is programmed to the embedded device (file extension `.tflite`).\n",
 
     "\n",
 

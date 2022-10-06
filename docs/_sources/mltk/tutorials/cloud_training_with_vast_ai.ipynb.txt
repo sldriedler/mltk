@@ -52,7 +52,7 @@
 
     "\n",
 
-    "__CAUTION:__ [vast.ai](https://vast.ai) is not free! A credit card is required. [vast.ai](https://vast.ai/) is a paid, third-party service that is not affiliated with Silicon Labs. Silicon Labs is not responsible for any losses incurred while using this software. Refer to the MLTK [License](https://github.com/sldriedler/mltk/blob/master/LICENSE.md) for the terms of use of this software.\n",
+    "__CAUTION:__ [vast.ai](https://vast.ai) is not free! A credit card is required. [vast.ai](https://vast.ai/) is a paid, third-party service that is not affiliated with Silicon Labs. Silicon Labs is not responsible for any losses incurred while using this software. Refer to the MLTK [License](https://github.com/SiliconLabs/mltk/blob/master/LICENSE.md) for the terms of use of this software.\n",
 
     "\n",
 
@@ -90,7 +90,7 @@
 
     "- [vast.ai FAQ](https://vast.ai/faq/) - vast.ai frequently asked questions\n",
 
-    "- [MLTK Installation](https://sldriedler.github.io/mltk/docs/installation.html#standard-python-package) - Install the MLTK"
+    "- [MLTK Installation](https://siliconlabs.github.io/mltk/docs/installation.html#standard-python-package) - Install the MLTK"
 
    ]
 
@@ -280,7 +280,7 @@
 
     "\n",
 
-    "Refer to the \"Standard Python Package\" [Installation Guide](https://sldriedler.github.io/mltk/docs/installation.html#standard-python-package) for more details.\n",
+    "Refer to the \"Standard Python Package\" [Installation Guide](https://siliconlabs.github.io/mltk/docs/installation.html#standard-python-package) for more details.\n",
 
     "\n",
 
@@ -856,7 +856,7 @@
 
     "\n",
 
-    "1. Download the model specification file (i.e. python script): [keyword_spotting_on_off_v2.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off_v2.py) to your local machine\n",
+    "1. Download the model specification file (i.e. python script): [keyword_spotting_on_off_v2.py](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off_v2.py) to your local machine\n",
 
     "2. Open `keyword_spotting_on_off_v2.py` on your local machine in a text editor\n",
 
@@ -892,7 +892,7 @@
 
     "The model is trained on a remote machine. This means the dataset needs to be downloaded to the remote machine before training starts.\n",
 
-    "The [keyword_spotting_on_off_v2](https://sldriedler.github.io/mltk/docs/python_api/models/siliconlabs/keyword_spotting_on_off_v2.html) model uses the [Google Speech Commands v2](https://sldriedler.github.io/mltk/docs/python_api/datasets/index.html#module-mltk.datasets.audio.speech_commands.speech_commands_v2) dataset which manages downloading the dataset.\n",
+    "The [keyword_spotting_on_off_v2](https://siliconlabs.github.io/mltk/docs/python_api/models/siliconlabs/keyword_spotting_on_off_v2.html) model uses the [Google Speech Commands v2](https://siliconlabs.github.io/mltk/docs/python_api/datasets/index.html#module-mltk.datasets.audio.speech_commands.speech_commands_v2) dataset which manages downloading the dataset.\n",
 
     "\n",
 
@@ -940,9 +940,9 @@
 
     "\n",
 
-    "- See [visual_wake_words.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/tinyml/visual_wake_words.py) for a working example.\n",
+    "- See [visual_wake_words.py](https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/visual_wake_words.py) for a working example.\n",
 
-    "- See [fingerprint_signature_generator.py](https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator.py) for a more complex example using a custom dataset class."
+    "- See [fingerprint_signature_generator.py](https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator.py) for a more complex example using a custom dataset class."
 
    ]
 

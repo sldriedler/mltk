@@ -58,7 +58,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>Cloud Training with vast.ai &#8212; MLTK 0.9.0 documentation</title>
+    <title>Cloud Training with vast.ai &#8212; MLTK 0.10.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -107,11 +107,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="MLTK 0.9.0 documentation"
+        <a href="../../index.html" title="MLTK 0.10.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../_static/logo.png"
-                   alt="MLTK 0.9.0 documentation logo">
+                   alt="MLTK 0.10.0 documentation logo">
           
         </a>
       </div>
@@ -156,7 +156,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -202,16 +202,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="MLTK 0.9.0 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="MLTK 0.10.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="MLTK 0.9.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.10.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -721,7 +721,7 @@ With this, you can develop your model locally then quickly and seamlessly train 
 <p><strong>NOTE:</strong> While this tutorial shows how to train a model using <a class="reference external" href="https://vast.ai/">vast.ai</a>, the <a class="reference internal" href="../../docs/guides/model_training_via_ssh.html"><span class="doc std std-doc">mltk ssh train</span></a> command with work with <em>any</em> Linux-based SSH server.</p>
 <section id="disclaimer">
 <h2 id="disclaimer">Disclaimer<a class="headerlink" href="#disclaimer" title="Permalink to this headline">¶</a></h2>
-<p><strong>CAUTION:</strong> <a class="reference external" href="https://vast.ai">vast.ai</a> is not free! A credit card is required. <a class="reference external" href="https://vast.ai/">vast.ai</a> is a paid, third-party service that is not affiliated with Silicon Labs. Silicon Labs is not responsible for any losses incurred while using this software. Refer to the MLTK <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/LICENSE.md">License</a> for the terms of use of this software.</p>
+<p><strong>CAUTION:</strong> <a class="reference external" href="https://vast.ai">vast.ai</a> is not free! A credit card is required. <a class="reference external" href="https://vast.ai/">vast.ai</a> is a paid, third-party service that is not affiliated with Silicon Labs. Silicon Labs is not responsible for any losses incurred while using this software. Refer to the MLTK <a class="reference external" href="https://github.com/SiliconLabs/mltk/blob/master/LICENSE.md">License</a> for the terms of use of this software.</p>
 <p>The cost of training a model is dependent on:</p>
 <ul class="simple">
 <li><p>The chosen cloud machine. Some machines can cost $0.20/hr while others may cost $9.00/hr</p></li>
@@ -1044,7 +1044,7 @@ To speed up the model training, we’ll spread the augmentations across 250 core
 <section id="modify-the-model-specification">
 <h4 id="modify-the-model-specification">Modify the model specification<a class="headerlink" href="#modify-the-model-specification" title="Permalink to this headline">¶</a></h4>
 <ol class="arabic simple">
-<li><p>Download the model specification file (i.e. python script): <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off_v2.py">keyword_spotting_on_off_v2.py</a> to your local machine</p></li>
+<li><p>Download the model specification file (i.e. python script): <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/keyword_spotting_on_off_v2.py">keyword_spotting_on_off_v2.py</a> to your local machine</p></li>
 <li><p>Open <code class="docutils literal notranslate"><span class="pre">keyword_spotting_on_off_v2.py</span></code> on your local machine in a text editor</p></li>
 <li><p>Locate the line <code class="docutils literal notranslate"><span class="pre">my_model.datagen</span> <span class="pre">=</span> <span class="pre">ParallelAudioDataGenerator(</span></code><br/>
 We need to adjust two settings to take advantage of the large cloud machine:</p></li>
@@ -1080,8 +1080,8 @@ The <a class="reference external" href="../../docs/python_api/models/siliconlabs
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>See <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/tinyml/visual_wake_words.py">visual_wake_words.py</a> for a working example.</p></li>
-<li><p>See <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator.py">fingerprint_signature_generator.py</a> for a more complex example using a custom dataset class.</p></li>
+<li><p>See <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/visual_wake_words.py">visual_wake_words.py</a> for a working example.</p></li>
+<li><p>See <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator.py">fingerprint_signature_generator.py</a> for a more complex example using a custom dataset class.</p></li>
 </ul>
 </section>
 <section id="test-everything-works-locally">
@@ -1244,7 +1244,7 @@ So be sure you’ve downloaded all output files (like the trained <a class="refe
               
           </div>
             Last updated on
-              Aug 11, 2022.
+              Aug 22, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.

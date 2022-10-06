@@ -94,8 +94,12 @@ May be one of the following:
     from mltk.core import  (
         train_model, 
         evaluate_model,
-        load_mltk_model
+        load_mltk_model,
+        EvaluateMixin,
+        EvaluateClassifierMixin,
+        EvaluateAutoEncoderMixin
     )
+
     from mltk.core.model.mixins.archive_mixin import ARCHIVE_EXTENSION
     from mltk.utils.logger import ConsoleLoggerLevelContext
 
@@ -120,6 +124,9 @@ May be one of the following:
     except Exception as e:
         cli.handle_exception('Failed to load model', e)
 
+
+    logger.info(f'HINT: View more training logs by running the command: mltk tensorboard {model}')
+
     # Train the model
     try:
         train_model(
@@ -132,7 +139,7 @@ May be one of the following:
             show=show,
         )
 
-        if evaluate:
+        if evaluate and isinstance(mltk_model, EvaluateMixin):
             try:
                 logger.info('\n\n' + '-' * 80)
                 logger.info('Evaluating the .h5 model ...')
@@ -140,15 +147,20 @@ May be one of the following:
                     h5_eval_results = evaluate_model( 
                         mltk_model,
                         tflite=False,
+                        verbose=True
                     )
                 logger.info(f'{h5_eval_results}')
                 
-                if mltk_model.tflite_converter:
+                if mltk_model.tflite_converter and \
+                   (mltk_model.eval_custom_function is not None or \
+                    isinstance(mltk_model, (EvaluateClassifierMixin, EvaluateAutoEncoderMixin))):
+
                     logger.info('Evaluating the .tflite model ...')
                     with ConsoleLoggerLevelContext(logger, 'ERROR'):
                         tflite_eval_results = evaluate_model( 
                             mltk_model,
                             tflite=True,
+                            verbose=True
                         )
                     logger.info(f'{tflite_eval_results}')
 

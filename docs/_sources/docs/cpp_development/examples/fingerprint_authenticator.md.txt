@@ -8,10 +8,10 @@ __NOTE:__ This application _only_ supports running on supported embedded targets
 
 ## Quick Links
 
-- [GitHub Source](https://github.com/sldriedler/mltk/tree/master/cpp/shared/apps/fingerprint_authenticator) - View this example's source code on Github
+- [GitHub Source](https://github.com/SiliconLabs/mltk/tree/master/cpp/shared/apps/fingerprint_authenticator) - View this example's source code on Github
 - [Hardware Setup](#hardware-setup) - View the required hardware setup for this example
-- [Online documentation](https://sldriedler.github.io/mltk/docs/cpp_development/examples/fingerprint_authenticator.html) - View this example's online documentation
-- [Fingerprint Authentication Tutorial](https://sldriedler.github.io/mltk/mltk/tutorials/fingerprint_authentication.html) - View this example's associated tutorial
+- [Online documentation](https://siliconlabs.github.io/mltk/docs/cpp_development/examples/fingerprint_authenticator.html) - View this example's online documentation
+- [Fingerprint Authentication Tutorial](https://siliconlabs.github.io/mltk/mltk/tutorials/fingerprint_authentication.html) - View this example's associated tutorial
 - [R503 Fingerprint Module](https://www.adafruit.com/product/4651) - View the fingerprint reader's product page
 
 
@@ -63,17 +63,17 @@ mltk fingerprint_reader
 
 A state diagram of this application is as follows:
 
-![](https://sldriedler.github.io/mltk/img/fingerprint_authenticator_state_diagram.png)
+![](https://siliconlabs.github.io/mltk/img/fingerprint_authenticator_state_diagram.png)
 
 
 ## Signature Generation Model
 
-The application is designed to run with a model similar to [fingerprint_signature_generator](https://sldriedler.github.io/mltk/docs/python_api/models/siliconlabs/fingerprint_signature_generator.html)
+The application is designed to run with a model similar to [fingerprint_signature_generator](https://siliconlabs.github.io/mltk/docs/python_api/models/siliconlabs/fingerprint_signature_generator.html)
 
 This model receives a pre-processed grayscale image of the fingerprint and generates its
 corresponding unique signature.
 
-Refer to [Fingerprint Authentication Tutorial](https://sldriedler.github.io/mltk/mltk/tutorials/fingerprint_authentication.html) for more details on how to create this model.
+Refer to [Fingerprint Authentication Tutorial](https://siliconlabs.github.io/mltk/mltk/tutorials/fingerprint_authentication.html) for more details on how to create this model.
 
 
 
@@ -114,8 +114,8 @@ __NOTE:__ The `--app none` option tells the command to _not_ update the fingepri
 
 ### via CMake
 
-The model can also be updated when building this application from [Visual Studio Code](https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html)
-or the CMake [Command Line](https://sldriedler.github.io/mltk/docs/command_line.html).
+The model can also be updated when building this application from [Visual Studio Code](https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html)
+or the CMake [Command Line](https://siliconlabs.github.io/mltk/docs/command_line.html).
 
 To update the model, create/modify the file: `<mltk repo root>/user_options.cmake`
 and add:
@@ -153,19 +153,19 @@ The following default pin mappings are used by:
 
 ## Build, Run, Debug
 
-See the [online documentation](https://sldriedler.github.io/mltk/docs/cpp_development/index.html) for how to build and run this application:
+See the [online documentation](https://siliconlabs.github.io/mltk/docs/cpp_development/index.html) for how to build and run this application:
 
 
 ### Simplicity Studio
 
-If using [Simplicity Studio](https://sldriedler.github.io/mltk/docs/cpp_development/simplicity_studio.html) select the `MLTK - Fingerprint Authenticator` Project.
+If using [Simplicity Studio](https://siliconlabs.github.io/mltk/docs/cpp_development/simplicity_studio.html) select the `MLTK - Fingerprint Authenticator` Project.
 
 ### Visual Studio Code
-If using [Visual Studio Code](https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html) select the `mltk_fingerprint_authenticator` CMake target.
+If using [Visual Studio Code](https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html) select the `mltk_fingerprint_authenticator` CMake target.
 
 ### Command-line
 
-If using the [Command Line](https://sldriedler.github.io/mltk/docs/cpp_development/command_line.html) select the `mltk_fingerprint_authenticator` CMake target.  
+If using the [Command Line](https://siliconlabs.github.io/mltk/docs/cpp_development/command_line.html) select the `mltk_fingerprint_authenticator` CMake target.  
 
 
 
@@ -191,8 +191,8 @@ which will display the images from the fingerprint reader and save them to the l
 
 ## Build Settings
 
-When building this application using [Visual Studio Code](https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html) 
-or the [Command Line](https://sldriedler.github.io/mltk/docs/cpp_development/command_line.html) several options may be configured 
+When building this application using [Visual Studio Code](https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html) 
+or the [Command Line](https://siliconlabs.github.io/mltk/docs/cpp_development/command_line.html) several options may be configured 
 to control how the app is built.
 
 To specify the settings, create/modify the file:  
@@ -222,7 +222,7 @@ mltk_set(FINGERPRINT_AUTHENTICATOR_MODEL ~/my_models/my_model.mltk.zip)
 
 # Specify the MLTK model name
 # NOTE: The model specification must be on the model search path, see:
-#       https://sldriedler.github.io/mltk/docs/guides/model_search_path.html
+#       https://siliconlabs.github.io/mltk/docs/guides/model_search_path.html
 mltk_set(FINGERPRINT_AUTHENTICATOR_MODEL fingerprint_signature_generator)
 ```
 

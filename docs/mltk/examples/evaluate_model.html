@@ -58,7 +58,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>Model Evaluation API Examples &#8212; MLTK 0.9.0 documentation</title>
+    <title>Model Evaluation API Examples &#8212; MLTK 0.10.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -107,11 +107,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="MLTK 0.9.0 documentation"
+        <a href="../../index.html" title="MLTK 0.10.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../_static/logo.png"
-                   alt="MLTK 0.9.0 documentation logo">
+                   alt="MLTK 0.10.0 documentation logo">
           
         </a>
       </div>
@@ -156,7 +156,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -202,16 +202,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="MLTK 0.9.0 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="MLTK 0.10.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="MLTK 0.9.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.10.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -531,7 +531,7 @@
 <p>Refer to the <a class="reference internal" href="../../docs/guides/model_evaluation.html"><span class="doc std std-doc">Model Evaluation</span></a> guide for more details.</p>
 <p><strong>NOTES:</strong></p>
 <ul class="simple">
-<li><p>Click here: <a class="reference external" href="https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/examples/evaluate_model.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> to run this example interactively in your browser</p></li>
+<li><p>Click here: <a class="reference external" href="https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/examples/evaluate_model.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> to run this example interactively in your browser</p></li>
 <li><p>Refer to the <a class="reference internal" href="../../docs/guides/notebook_examples_guide.html"><span class="doc std std-doc">Notebook Examples Guide</span></a> for how to run this example locally in VSCode</p></li>
 </ul>
 <section id="install-mltk-python-package">
@@ -558,7 +558,7 @@
 </section>
 <section id="example-1-evaluate-classification-h5-model">
 <h2 id="example-1-evaluate-classification-h5-model">Example 1: Evaluate Classification .h5 Model<a class="headerlink" href="#example-1-evaluate-classification-h5-model" title="Permalink to this headline">¶</a></h2>
-<p>The following example evaluates the <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/examples/image_example1.py">image_example1</a> model
+<p>The following example evaluates the <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/image_example1.py">image_example1</a> model
 using the <code class="docutils literal notranslate"><span class="pre">.h5</span></code> (i.e. non-quantized, float32 weights) model file.<br/>
 This is a “classification” model, i.e. given an input, the model predicts to which
 “class” the input belongs.</p>
@@ -598,7 +598,7 @@ Class ROC AUC:
 </section>
 <section id="example-2-evaluate-classification-tflite-model">
 <h2 id="example-2-evaluate-classification-tflite-model">Example 2: Evaluate Classification .tflite Model<a class="headerlink" href="#example-2-evaluate-classification-tflite-model" title="Permalink to this headline">¶</a></h2>
-<p>The following example evaluates the <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/examples/image_example1.py">image_example1</a> model
+<p>The following example evaluates the <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/image_example1.py">image_example1</a> model
 using the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> (i.e. quantized, int8 weights) model file.<br/>
 This is a “classification” model, i.e. given an input, the model predicts to which
 “class” the input belongs.</p>
@@ -638,7 +638,7 @@ Class ROC AUC:
 </section>
 <section id="example-3-evaluate-auto-encoder-h5-model">
 <h2 id="example-3-evaluate-auto-encoder-h5-model">Example 3: Evaluate Auto-Encoder .h5 Model<a class="headerlink" href="#example-3-evaluate-auto-encoder-h5-model" title="Permalink to this headline">¶</a></h2>
-<p>The following example evaluates the <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/tinyml/anomaly_detection.py">anomaly_detection</a> model
+<p>The following example evaluates the <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/tinyml/anomaly_detection.py">anomaly_detection</a> model
 using the <code class="docutils literal notranslate"><span class="pre">.h5</span></code> (i.e. non-quantized, float32 weights) model file.<br/>
 This is an “auto-encoder” model, i.e. given an input, the model attempts to reconstruct
 the same input. The worse the reconstruction, the further the input is from what the
@@ -719,7 +719,7 @@ Overall ROC AUC: 72.089%
               
           </div>
             Last updated on
-              Aug 11, 2022.
+              Aug 22, 2022.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
