@@ -1,14 +1,16 @@
+__NOTE:__ Refer to the [online documentation](https://siliconlabs.github.io/mltk) to properly view this file
+
 Installation
 =================
 
 The MLTK supports three modes of installation:  
 - [Standard Python Package](#standard-python-package) - Use the MLTK like any other package in your local Python3 environment
-- [Google Colab](#google-colab) - Run the MLTK in the [Google Colab](https://colab.research.google.com/notebooks/welcome.ipynb) cloud servers. This is useful for training models.
-- [Local Development](#local-development) - Locally build the MLTK Python C++ wrappers from source
+- [Google Colab](#google-colab) - Run the MLTK in the [Google Colab](https://colab.research.google.com/notebooks/welcome.ipynb) cloud servers. This allows for running the MLTK _without_ installing it locally
+- [Local Development](#local-development) - Locally build the MLTK C++ [Python wrappers](https://siliconlabs.github.io/mltk/docs/cpp_development/wrappers/index.html) and [examples](https://siliconlabs.github.io/mltk/docs/cpp_development/examples/index.html) from source
 
 
 ```{note} 
-[Python3.7, Python3.8, or Python3.9](https://www.python.org/downloads/) is required
+[Python3.7, Python3.8, Python3.9, Python3.10](https://www.python.org/downloads/) is required
 ```
 
 
@@ -18,7 +20,7 @@ The MLTK supports three modes of installation:
 This describes how to install the MLTK Python package into your Python3 environment.  
 
 ```{note} 
-- Before installing, you must have [Python3.7, 3.8, or 3.9](https://www.python.org/downloads/) installed on your computer
+- Before installing, you must have [Python3.7, 3.8, 3.9, 3.10](https://www.python.org/downloads/) installed on your computer
 - Installing the MLTK will also install Google [Tensorflow](https://www.tensorflow.org/install) into your Python environment,
   if your computer has an NVidia GPU, then ensure the proper drivers are [installed](https://www.tensorflow.org/install/gpu)
 - If you're using Windows, be sure to install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) which is required by [Tensorflow](https://www.tensorflow.org/install/pip)
@@ -60,13 +62,13 @@ This step is __highly recommended__ as the MLTK installs other dependencies like
 
     .. code-block:: shell
 
-        pip  install silabs-mltk --upgrade
+        pip  install silabs-mltk[full] --upgrade
 
   .. tabbed:: Linux
 
     .. code-block:: shell
     
-        pip3 install silabs-mltk --upgrade
+        pip3 install silabs-mltk[full] --upgrade
   ```
 
   __OR__
@@ -79,14 +81,19 @@ This step is __highly recommended__ as the MLTK installs other dependencies like
 
     .. code-block:: shell
 
-       pip  install git+https://github.com/siliconlabs/mltk.git
+       pip  install git+https://github.com/siliconlabs/mltk.git[full]
 
   .. tabbed:: Linux
 
     .. code-block:: shell
     
-       pip3 install git+https://github.com/siliconlabs/mltk.git
+       pip3 install git+https://github.com/siliconlabs/mltk.git[full]
   ```
+
+  __NOTE:__ The `[full]` part of the command is _optional_. This will install additional dependencies used by some the the MLTK commands.
+  Omitting this from the command will speedup installation but may cause some of the commands like `classify_audio`, `view`, `tensorboard` 
+  to require additional install step.
+
 
   After the command completes, the MLTK should be available to the current Python environment.  
   You can verify by issuing the command:  
@@ -94,6 +101,7 @@ This step is __highly recommended__ as the MLTK installs other dependencies like
   ```shell
   mltk --help
   ```
+
 
 See the [Command-Line Guide](./command_line.md) for more details on how to use the command-line. 
 
@@ -117,13 +125,13 @@ If the MLTK Python package has already been installed, you may update to the lat
 
    .. code-block:: shell
 
-      pip  install silabs-mltk --upgrade
+      pip  install silabs-mltk[full] --upgrade
 
 .. tabbed:: Linux
 
    .. code-block:: shell
 
-      pip3 install silabs-mltk --upgrade
+      pip3 install silabs-mltk[full] --upgrade
 ```
 
 Alternatively, you can update to a specific version with:
@@ -133,16 +141,16 @@ Alternatively, you can update to a specific version with:
 
    .. code-block:: shell
 
-      pip  install silabs-mltk==0.6.0
+      pip  install silabs-mltk[full]==0.14.0
 
 .. tabbed:: Linux
 
    .. code-block:: shell
 
-      pip3 install silabs-mltk==0.6.0
+      pip3 install silabs-mltk[full]==0.14.0
 ```
 
-and replace `0.6.0` with the desired version.
+and replace `0.14.0` with the desired version.
 
 
 
@@ -175,7 +183,7 @@ The MLTK can also be installed for local development. In this mode, the Python C
 Additionally, a new Python virtual environment is created specifically for the MLTK.
 
 ```{note}
-Before installing, you must have [Python3.7, 3.8, or 3.9](https://www.python.org/downloads/) installed on your computer
+Before installing, you must have [Python3.7, 3.8, 3.9, 3.10](https://www.python.org/downloads/) installed on your computer
 ```
 
 1 ) Clone the MLTK GIT repository

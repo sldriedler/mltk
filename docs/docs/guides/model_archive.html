@@ -58,7 +58,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>Model Archive File &#8212; MLTK 0.10.0 documentation</title>
+    <title>Model Archive File &#8212; MLTK 0.14.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -79,6 +79,7 @@
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/js/custom.js"></script>
+    <script src="../../_static/js/apitoc.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -107,11 +108,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="MLTK 0.10.0 documentation"
+        <a href="../../index.html" title="MLTK 0.14.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../_static/logo.png"
-                   alt="MLTK 0.10.0 documentation logo">
+                   alt="MLTK 0.14.0 documentation logo">
           
         </a>
       </div>
@@ -156,7 +157,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -209,16 +210,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="MLTK 0.10.0 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="MLTK 0.14.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="MLTK 0.10.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.14.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -319,6 +320,13 @@
     <li class="md-nav__item">
     
     
+      <a href="model_training_monitor.html" class="md-nav__link">Model Training Monitor</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="model_evaluation.html" class="md-nav__link">Model Evaluation</a>
       
     
@@ -355,7 +363,7 @@
         
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#docs-guides-model-archive--page-root" class="md-nav__link">Model Archive File</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#overview" class="md-nav__link">Overview</a>
@@ -366,9 +374,7 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../_sources/docs/guides/model_archive.md.txt">Show Source</a> </li>
-
+      <script type="text/javascript" src=../../_static/js/apitoc.js></script>
   </ul>
 </nav>
       
@@ -523,7 +529,7 @@
                 
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#docs-guides-model-archive--page-root" class="md-nav__link">Model Archive File</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#overview" class="md-nav__link">Overview</a>
@@ -534,11 +540,7 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../_sources/docs/guides/model_archive.md.txt">Show Source</a> </li>
-
-<li id="searchbox" class="md-nav__item"></li>
-
+      <script type="text/javascript" src=../../_static/js/apitoc.js></script>
   </ul>
 </nav>
               </div>
@@ -552,7 +554,9 @@
             <ul class="breadcrumb">
               <li></li>
               <li><a href="../../index.html"><i class="md-icon">home</i></a></li>
-                <li class="active"><a href="index.html" accesskey="U">Modeling Guides</a></li>
+                <li><a href="index.html" accesskey="U">Modeling Guides</a></li>
+
+              <li class="activate"><a>Model Archive File</a></li>
             </ul>
           </div>
           
@@ -570,7 +574,7 @@ and is updated after running the <a class="reference internal" href="model_evalu
 and its name has the format: <code class="docutils literal notranslate"><span class="pre">&lt;model</span> <span class="pre">name&gt;.mltk.zip</span></code> where <code class="docutils literal notranslate"><span class="pre">&lt;model</span> <span class="pre">name&gt;</span></code> is the name of the MLTK model.</p>
 <p>The model archive file is useful as it allows for grouping the various training and evaluation files into a single, distributable file.<br/>
 This file can also be directly loaded by many MLTK commands and Python APIs, e.g.:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk profile ~/my_model.mltk.zip
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk<span class="w"> </span>profile<span class="w"> </span>~/my_model.mltk.zip
 </pre></div>
 </div>
 </section>
@@ -588,16 +592,16 @@ This file can also be directly loaded by many MLTK commands and Python APIs, e.g
 <h2 id="directory-structure">Directory Structure<a class="headerlink" href="#directory-structure" title="Permalink to this headline">¶</a></h2>
 <p>Assume we have the following model archive file <code class="docutils literal notranslate"><span class="pre">~/workspace/my_model.mltk.zip</span></code>.
 The contents of this archive would have the following contents:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/my_model.py                   - The model specification script
-/my_model.tflite               - The quantized model which can programmed onto an embedded device
-/my_model.h5                   - The trained, non-quantized, Keras model
-/my_model.h5.summary.txt       - A text summary of the .h5 model
-/my_model.tflite.summary.txt   - A text summary of the .tflite model
-/train/log.txt                 - Log file generated during training
-/train/training-history.png    - Training <span class="nb">history</span> diagram
-/train/training-history.json   - Training <span class="nb">history</span> <span class="k">in</span> JSON format
-/eval/h5/                      - Evaluation results from the .h5 <span class="o">(</span>i.e. non-quantized<span class="o">)</span> model
-/eval/tflite/                  - Evaluation results from the .tflite <span class="o">(</span>i.e. quantized<span class="o">)</span> model
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/my_model.py<span class="w">                   </span>-<span class="w"> </span>The<span class="w"> </span>model<span class="w"> </span>specification<span class="w"> </span>script
+/my_model.tflite<span class="w">               </span>-<span class="w"> </span>The<span class="w"> </span>quantized<span class="w"> </span>model<span class="w"> </span>which<span class="w"> </span>can<span class="w"> </span>programmed<span class="w"> </span>onto<span class="w"> </span>an<span class="w"> </span>embedded<span class="w"> </span>device
+/my_model.h5<span class="w">                   </span>-<span class="w"> </span>The<span class="w"> </span>trained,<span class="w"> </span>non-quantized,<span class="w"> </span>Keras<span class="w"> </span>model
+/my_model.h5.summary.txt<span class="w">       </span>-<span class="w"> </span>A<span class="w"> </span>text<span class="w"> </span>summary<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>.h5<span class="w"> </span>model
+/my_model.tflite.summary.txt<span class="w">   </span>-<span class="w"> </span>A<span class="w"> </span>text<span class="w"> </span>summary<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>.tflite<span class="w"> </span>model
+/train/log.txt<span class="w">                 </span>-<span class="w"> </span>Log<span class="w"> </span>file<span class="w"> </span>generated<span class="w"> </span>during<span class="w"> </span>training
+/train/training-history.png<span class="w">    </span>-<span class="w"> </span>Training<span class="w"> </span><span class="nb">history</span><span class="w"> </span>diagram
+/train/training-history.json<span class="w">   </span>-<span class="w"> </span>Training<span class="w"> </span><span class="nb">history</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>JSON<span class="w"> </span>format
+/eval/h5/<span class="w">                      </span>-<span class="w"> </span>Evaluation<span class="w"> </span>results<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>.h5<span class="w"> </span><span class="o">(</span>i.e.<span class="w"> </span>non-quantized<span class="o">)</span><span class="w"> </span>model
+/eval/tflite/<span class="w">                  </span>-<span class="w"> </span>Evaluation<span class="w"> </span>results<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>.tflite<span class="w"> </span><span class="o">(</span>i.e.<span class="w"> </span>quantized<span class="o">)</span><span class="w"> </span>model
 </pre></div>
 </div>
 </section>
@@ -607,6 +611,7 @@ The contents of this archive would have the following contents:</p>
           </article>
         </div>
       </div>
+      <a href="#" class="go-top"><i class="md-icon">arrow_upward</i>Back to Top</a>
     </main>
   </div>
   <footer class="md-footer">
@@ -650,7 +655,7 @@ The contents of this archive would have the following contents:</p>
               
           </div>
             Last updated on
-              Aug 22, 2022.
+              Jan 06, 2023.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -670,16 +675,16 @@ The contents of this archive would have the following contents:</p>
   <div class="privacy-banner">
     <div class="privacy-banner-wrapper">
       <p>
-        <b>Important:</b> This site uses cookies to improve user experience and stores information on your computer. 
-        By continuing to use our site, you consent to our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>. 
-        If you do not want to enable cookies, review our policy and learn how they can be disabled. Note that disabling cookies will disable some features of the site.
+        <b>Important:</b> We use cookies only for functional and traffic analytics. <br />
+        We DO NOT use cookies for any marketing purposes. By using our site you acknowledge you have read and understood our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>.
       </p>
-      <a class="privacy-banner-accept" href="#">Accept</a>
+      <a class="privacy-banner-accept" href="#">Got it</a>
     </div>
 </div>
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
+    <div class="msg">Please click the <b>submit</b> button at the end even if you do not answer all of the questions</div>
     <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   

@@ -1,5 +1,5 @@
 import os
-import sys 
+import sys
 import webbrowser
 import re
 import shutil
@@ -12,8 +12,12 @@ from mltk import cli
 
 from mltk import MLTK_ROOT_DIR
 from mltk.utils.shell_cmd import run_shell_cmd
-from mltk.utils.python import install_pip_package
-from mltk.utils.path import (fullpath, clean_directory, remove_directory, get_user_setting)
+from mltk.utils.path import (
+    fullpath,
+    clean_directory,
+    remove_directory,
+    get_user_setting
+)
 
 
 
@@ -36,7 +40,7 @@ def build_docs_command(
     ),
 ):
     """Build the MLTK online documentation
-    
+
     This uses the sphinx docs build system to convert the
     markdown files in <mltk repo>/docs into a website
     """
@@ -46,23 +50,14 @@ def build_docs_command(
         _revert_docs_dir(logger)
         return
 
-
-
-    install_pip_package('sphinx==4.5.0', logger=logger)
-    install_pip_package('myst-parser==0.17.2', 'myst_parser', logger=logger)
-    install_pip_package('myst-nb==0.15.0', 'myst_nb', logger=logger)
-    install_pip_package('numpydoc==1.3.1', logger=logger)
-    install_pip_package('sphinx_autodoc_typehints==1.18.2', logger=logger)
-    install_pip_package('sphinx-markdown-tables==0.0.17', 'sphinx_markdown_tables', logger=logger)
-    install_pip_package('sphinx-copybutton==0.5.0', 'sphinx_copybutton', logger=logger)
-    install_pip_package('sphinx-panels==0.6.0', 'sphinx_panels', logger=logger)
-    install_pip_package('nbclient==0.5.13', 'nbclient', logger=logger)
-    
-    install_pip_package('git+https://github.com/linkchecker/linkchecker.git', 'linkcheck', logger=logger)
-    install_pip_package('git+https://github.com/bashtage/sphinx-material.git', 'sphinx_material', logger=logger)
+    try:
+        import sphinx
+    except:
+        curdir = fullpath(os.path.dirname(os.path.abspath(__file__)))
+        raise RuntimeError(f'Failed to import python package: sphinx,\n\ntry running:\npip install -r {curdir}/dev_requirements.txt\n\n')
 
     _patch_sphinx_autosummary_generate_py()
-    
+
     repo_project_name = get_user_setting('repo_project_name', 'siliconlabs')
 
     env = os.environ.copy()
@@ -74,14 +69,14 @@ def build_docs_command(
     source_dir = f'{docs_dir}/source'
     build_dir = f'{docs_dir}/build'
 
-    built_files = [ 
+    built_files = [
         'genindex.html',
         'index.html',
         'py-modindex.html',
         'search.html',
         'searchindex.js'
     ]
-    built_dirs = [ 
+    built_dirs = [
         '_images',
         '_modules',
         '_sources',
@@ -89,12 +84,14 @@ def build_docs_command(
         '_downloads',
         'docs',
         'mltk',
+        'cpp'
     ]
-    website_builder_build_dirs = [ 
+    website_builder_build_dirs = [
         'jupyter_execute',
         'build',
         'source/docs',
         'source/mltk',
+        'source/cpp'
     ]
 
 
@@ -111,7 +108,7 @@ def build_docs_command(
             remove_directory(f'{MLTK_ROOT_DIR}/docs/website_builder/{dn}')
 
     cmd = [
-        sphinx_exe, 
+        sphinx_exe,
     ]
     if verbose:
         cmd.append('-v')
@@ -141,14 +138,14 @@ def build_docs_command(
             linkchecker_exe += '.exe'
         index_path = os.path.abspath(fullpath(f'{MLTK_ROOT_DIR}/docs/index.html'))
         retcode, _ = run_shell_cmd([
-            sys.executable, linkchecker_exe, 
-            '--check-extern', 
-            '--ignore-url', r'.*assets\.slid\.es.*', 
-            '--ignore-url', r'.*assets-v2\.slid\.es.*', 
-            '--ignore-url', r'.*linuxize\.com.*', 
-            '--ignore-url', r'.*timeseriesclassification\.com.*', 
+            sys.executable, linkchecker_exe,
+            '--check-extern',
+            '--ignore-url', r'.*assets\.slid\.es.*',
+            '--ignore-url', r'.*assets-v2\.slid\.es.*',
+            '--ignore-url', r'.*linuxize\.com.*',
+            '--ignore-url', r'.*timeseriesclassification\.com.*',
             '--ignore-url', r'http\:\/\/localhost.*',
-            index_path], 
+            index_path],
             outfile=logger,
             logger=logger
         )
@@ -161,7 +158,7 @@ def _copy_file(src, dst, repo_name=None):
 
     if not src.endswith(('.html', '.txt')):
         shutil.copy(src, dst)
-        return 
+        return
 
     # Ensure all absolute docs URLs are relative
     is_html = src.endswith('.html')
@@ -175,7 +172,7 @@ def _copy_file(src, dst, repo_name=None):
                 if match:
                     relpath = os.path.relpath(docs_base_dir, dst_dir).replace('\\', '/')
                     line = line.replace(match.group(1), relpath + '/')
-            data += line 
+            data += line
 
     # If a testing repo name was given
     # then update any URLs found in the html docs files
@@ -186,6 +183,8 @@ def _copy_file(src, dst, repo_name=None):
         data = data.replace('github/SiliconLabs/mltk', f'github/{repo_name}/mltk')
         data = data.replace('github.com/siliconlabs/mltk', f'github.com/{repo_name}/mltk')
         data = data.replace('github.com/SiliconLabs/mltk', f'github.com/{repo_name}/mltk')
+        data = data.replace('raw.githubusercontent.com/siliconlabs/mltk', f'raw.githubusercontent.com/{repo_name}/mltk')
+        data = data.replace('raw.githubusercontent.com/SiliconLabs/mltk', f'raw.githubusercontent.com/{repo_name}/mltk')
 
     with open(dst, 'w', encoding='utf-8') as f:
         f.write(data)
@@ -216,6 +215,7 @@ def _revert_docs_dir(logger:logging.Logger):
 
     _clean_dir('docs')
     _clean_dir('mltk')
+    _clean_dir('cpp')
     _clean_dir('_images')
     _clean_dir('_modules')
     _clean_dir('_sources')
@@ -243,7 +243,7 @@ def _patch_sphinx_autosummary_generate_py():
     It makes it so the generated auto summary file is generated in given table-of-contents file.
 
     e.g.:
-    
+
     .. autosummary::
        :toctree: audio_data_generator_params
        :template: custom-class-template.rst
@@ -261,7 +261,7 @@ def _patch_sphinx_autosummary_generate_py():
                 line = line.replace('filename = os.path.join(path, filename_map.get(name, name) + suffix)', 'filename = path + suffix # Patched by the MLTK # os.path.join(path, filename_map.get(name, name) + suffix)')
                 updated = True
             data += line
-    
+
     if updated:
         with open(generate.__file__, 'w') as f:
             print(f'Patched {generate.__file__}')

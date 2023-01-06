@@ -1,4 +1,4 @@
-from tensorflow_lite_support.metadata.schema_py_generated import BuiltinOperator
+from mltk.core.tflite_model.tflite_schema import BuiltinOperator
 from .layer import Layer
 
 

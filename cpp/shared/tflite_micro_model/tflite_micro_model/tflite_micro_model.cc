@@ -19,7 +19,7 @@ namespace mltk
 {
 
 int adjust_required_tensor_arena_bytes_from_64bit_to_32bit(
-    const void* flatbuffer, 
+    const void* flatbuffer,
     tflite::MicroInterpreter* interpreter,
     int tensor_arena_size
 );
@@ -34,10 +34,10 @@ TfliteMicroModel::~TfliteMicroModel()
 
 /*************************************************************************************************/
 bool TfliteMicroModel::load(
-    const void* flatbuffer, 
+    const void* flatbuffer,
     tflite::MicroOpResolver& op_resolver,
     uint8_t *runtime_buffer,
-    unsigned runtime_buffer_size 
+    unsigned runtime_buffer_size
 )
 {
     uint32_t allocated_buffer_size = 0;
@@ -65,7 +65,7 @@ bool TfliteMicroModel::load(
         int model_runtime_size = 0;
         if(runtime_buffer_size >= 0)
         {
-            // If the runtime_buffer_size == 0, 
+            // If the runtime_buffer_size == 0,
             // then attempt to retrieve the size from the .tflite model parameters
             if(runtime_buffer_size == 0)
             {
@@ -77,12 +77,12 @@ bool TfliteMicroModel::load(
                 {
                     model_runtime_size = 0;
                 }
-                else 
+                else
                 {
                     MLTK_INFO("Runtime memory size from .tflite model: %d", model_runtime_size);
                 }
             }
-            else 
+            else
             {
                 // Otherwise, allocate the size given as an argument to this API
                 model_runtime_size = runtime_buffer_size;
@@ -94,7 +94,7 @@ bool TfliteMicroModel::load(
             {
                 allocated_buffer_size = model_runtime_size;
 
-            
+
     #if INTPTR_MAX == INT64_MAX
                 // The buffer size embedded into the .tflite is meant for a 32-bit ARM MCU
                 // If we're running on a 64-bit system then add 1MB of additional memory
@@ -117,7 +117,7 @@ bool TfliteMicroModel::load(
                     // then we're done
                     runtime_buffer_size = model_runtime_size;
                 }
-                else 
+                else
                 {
                     // Otherwise, if the specified buffer size was too small
                     // Then fallback to the buffer size optimization algorithm
@@ -157,7 +157,7 @@ bool TfliteMicroModel::load(
 #if INTPTR_MAX == INT64_MAX
             // If we're running on a 64-bit system then add 1MB of additional memory
             // to account for 64-bit pointer overhead.
-            // This is only used when allocating temporary tenesors (e.g. context.GetTensor()) 
+            // This is only used when allocating temporary tenesors (e.g. context.GetTensor())
             allocated_buffer_size += 1024*1024;
 #endif
 
@@ -165,7 +165,7 @@ bool TfliteMicroModel::load(
             runtime_buffer = static_cast<uint8_t*>(malloc(allocated_buffer_size));
             if(runtime_buffer == nullptr)
             {
-                // If this fails, something is wrong with find_optimal_buffer_size() 
+                // If this fails, something is wrong with find_optimal_buffer_size()
                 MLTK_WARN("Failed to allocate buffer with size: %d", allocated_buffer_size);
                 unload();
                 return false;
@@ -173,7 +173,7 @@ bool TfliteMicroModel::load(
             // Load the model with the buffer
             else if(!load_interpreter(flatbuffer, op_resolver, runtime_buffer, allocated_buffer_size))
             {
-                // If this fails, something is wrong with find_optimal_buffer_size() 
+                // If this fails, something is wrong with find_optimal_buffer_size()
                 MLTK_WARN("Failed to allocate buffer with size: %d", allocated_buffer_size);
                 unload();
                 return false;
@@ -186,7 +186,7 @@ bool TfliteMicroModel::load(
         _runtime_buffer = runtime_buffer;
     }
     // Else if a pre-allocated buffer was given to this API
-    else 
+    else
     {
         allocated_buffer_size = runtime_buffer_size;
 
@@ -242,7 +242,7 @@ void TfliteMicroModel::unload()
     _ops_resolver = nullptr;
     parameters.unload();
     _model_details.unload();
-    TFLITE_MICRO_RECORDER_CLEAR();
+    TFLITE_MICRO_RESET_RECORDER();
     if(_interpreter != nullptr)
     {
         _interpreter->~MicroInterpreter();
@@ -274,10 +274,8 @@ bool TfliteMicroModel::invoke() const
         return false;
     }
 
-    if(recording_is_enabled())
-    {
-        TFLITE_MICRO_RECORDER_CLEAR();
-    }
+    TFLITE_MICRO_RESET_RECORDER();
+
     if(profiler_is_enabled())
     {
         profiling::reset(this->profiler());
@@ -298,7 +296,7 @@ bool TfliteMicroModel::invoke() const
     {
         retval = (_interpreter->Invoke() == kTfLiteOk);
     }
-#else 
+#else
     retval = (_interpreter->Invoke() == kTfLiteOk);
 #endif
 
@@ -338,7 +336,7 @@ void TfliteMicroModel::print_summary(logging::Logger *logger) const
     l.info("Date: %s", _model_details.date());
     l.info("Hash: %s", _model_details.hash());
     l.info("Accelerator: %s", _model_details.accelerator());
-    
+
     l.info("Tensor runtime memory: %s", cpputils::format_units(_model_details.runtime_memory_size(), 3, fmt_buffer));;
     l.info("Input: %s", input.to_str());
     l.info("Output: %s", output.to_str());
@@ -355,12 +353,12 @@ void TfliteMicroModel::print_summary(logging::Logger *logger) const
         }
         l.flags().set(logging::Newline);
     }
-    
+
     if(*_model_details.description() != 0)
     {
         l.info("Description: %s", _model_details.description());
     }
-    
+
     l.flags(orig_flags);
 }
 
@@ -442,7 +440,7 @@ profiling::Profiler* TfliteMicroModel::profiler() const
 }
 
 /*************************************************************************************************/
-bool TfliteMicroModel::enable_recorder()
+bool TfliteMicroModel::enable_tensor_recorder()
 {
 #if TFLITE_MICRO_RECORDER_ENABLED
     if(is_loaded())
@@ -450,7 +448,7 @@ bool TfliteMicroModel::enable_recorder()
         MLTK_ERROR("Model already loaded");
         return false;
     }
-    model_recorder_enabled = true;
+    model_tensor_recorder_enabled = true;
     return true;
 #else
     MLTK_ERROR("C++ library not build with recording support");
@@ -459,16 +457,16 @@ bool TfliteMicroModel::enable_recorder()
 }
 
 /*************************************************************************************************/
-bool TfliteMicroModel::recording_is_enabled() const
+bool TfliteMicroModel::is_tensor_recorder_enabled() const
 {
-    return model_recorder_enabled;
+    return model_tensor_recorder_enabled;
 }
 
 /*************************************************************************************************/
 #ifdef TFLITE_MICRO_RECORDER_ENABLED
-TfliteMicroRecordedData& TfliteMicroModel::recorded_data()
+bool TfliteMicroModel::recorded_data(const uint8_t** buffer_ptr, uint32_t* length_ptr) const
 {
-    return TfliteMicroRecordedData::instance();
+    return get_recorded_data(buffer_ptr, length_ptr);
 }
 #endif
 
@@ -495,7 +493,7 @@ bool TfliteMicroModel::load_model_parameters(const void* flatbuffer)
         _model_details.load_parameters(&this->parameters);
         return true;
     }
-    else 
+    else
     {
         return false;
     }
@@ -503,44 +501,57 @@ bool TfliteMicroModel::load_model_parameters(const void* flatbuffer)
 
 /*************************************************************************************************/
 bool TfliteMicroModel::load_interpreter(
-    const void* flatbuffer, 
+    const void* flatbuffer,
     tflite::MicroOpResolver& op_resolver,
     uint8_t* runtime_buffer,
-    unsigned runtime_buffer_size 
+    unsigned runtime_buffer_size,
+    bool disable_logs
 )
 {
     auto tflite_model = tflite::GetModel(flatbuffer);
     _interpreter = new(_interpreter_buffer)tflite::MicroInterpreter(
         tflite_model,
         op_resolver,
-        runtime_buffer, runtime_buffer_size,
-        &_error_reporter
+        runtime_buffer, runtime_buffer_size
     );
 
+    const auto saved_log_level = get_logger().level();
+
+    if(disable_logs)
+    {
+        get_logger().level(logging::Disabled);
+    }
+
+    bool retval = true;
     if(_interpreter->AllocateTensors() != kTfLiteOk)
     {
         _interpreter->~MicroInterpreter();
         _interpreter = nullptr;
-        return false;
+        retval = false;
     }
 
-    return true;
+    if(disable_logs)
+    {
+        get_logger().level(saved_log_level);
+    }
+
+    return retval;
 }
 
 
 /*************************************************************************************************/
 bool TfliteMicroModel::find_optimal_buffer_size(
-    const void* flatbuffer, 
+    const void* flatbuffer,
     tflite::MicroOpResolver& op_resolver,
-    unsigned &runtime_buffer_size 
+    unsigned &runtime_buffer_size
 )
 {
 #ifdef __arm__
     int upper_limit = (uint32_t)&__heap_size - 8*1024;
-#else 
+#else
     int upper_limit = SRAM_SIZE;
 #endif
-    int lower_limit = 1024;
+    int lower_limit = 2048;
     int last_working_buffer_size = -1;
 
     MLTK_INFO("Searching for optimal runtime memory size ...");
@@ -567,7 +578,7 @@ bool TfliteMicroModel::find_optimal_buffer_size(
         }
 
         // Try to load the model with the new buffer
-        if(load_interpreter(flatbuffer, op_resolver, buffer, buffer_size))
+        if(load_interpreter(flatbuffer, op_resolver, buffer, buffer_size, true))
         {
             // The model was successfully loaded
             // Save the buffer size
@@ -581,7 +592,7 @@ bool TfliteMicroModel::find_optimal_buffer_size(
             _interpreter->~MicroInterpreter();
             _interpreter = nullptr;
         }
-        else 
+        else
         {
             // Otherwise, the buffer size is too small,
             // So the new lower limit is the buffer size+1
@@ -621,7 +632,7 @@ bool TfliteMicroModel::find_optimal_buffer_size(
  * The values below were experimentally found
  */
 int adjust_required_tensor_arena_bytes_from_64bit_to_32bit(
-    const void* flatbuffer, 
+    const void* flatbuffer,
     tflite::MicroInterpreter* interpreter,
     int tensor_arena_size
 )
@@ -693,7 +704,7 @@ int adjust_required_tensor_arena_bytes_from_64bit_to_32bit(
             {
                 additional_pointer_count += 8;
             }
-        }   
+        }
     }
 
     const uint32_t overhead_64bit = \

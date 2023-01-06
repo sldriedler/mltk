@@ -1,6 +1,10 @@
+__NOTE:__ Refer to the [online documentation](https://siliconlabs.github.io/mltk) to properly view this file
 # Tensorflow-Lite Micro Model
 
 This package allows for executing a quantized `.tflite` model file in the [Tensorflow-Lite Micro](https://github.com/tensorflow/tflite-micro) interpreter.
+
+
+## Example Usage
 
 Example usage of this package is as follows:
 
@@ -16,6 +20,7 @@ print(profiling_results)
 See the [TfliteMicroModel API examples](https://siliconlabs.github.io/mltk/mltk/examples/tflite_micro_model.html) for more examples.
 
 
+## API Reference
 
 
 ```{eval-rst}
@@ -43,11 +48,6 @@ See the [TfliteMicroModel API examples](https://siliconlabs.github.io/mltk/mltk/
 
    mltk.core.tflite_micro.TfliteMicroProfiledLayerResult
 
-.. autosummary::
-   :toctree: recorded_layer_result
-   :template: custom-class-template.rst
-
-   mltk.core.tflite_micro.TfliteMicroRecordedLayerResult
 
 .. autosummary::
    :toctree: layer_error
@@ -73,6 +73,5 @@ See the [TfliteMicroModel API examples](https://siliconlabs.github.io/mltk/mltk/
 ./wrapper
 ./accelerator
 ./layer_error
-./recorded_layer_result
 ./profiled_layer_result
 ```

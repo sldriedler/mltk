@@ -167,7 +167,7 @@ import numpy as np
 import typer
 
 import matplotlib.pyplot as plt
-from keras_preprocessing.image.utils import (img_to_array, load_img)
+from mltk.core.keras import (img_to_array, load_img)
 from mltk.core.model import (
     MltkModel,
     TrainMixin,
@@ -477,10 +477,6 @@ def my_keras_model_saver(
             break
     if embedding_network is None:
         raise RuntimeError('Failed to find embedding model in siamese network model, does the embedding model have the name "model" ?')
-
-    # Save the tower as the .h5 model file for this model
-    logger.debug(f'Saving {h5_path}')
-    embedding_network.save(h5_path, save_format='tf')
 
     # Return the keras model
     return embedding_network

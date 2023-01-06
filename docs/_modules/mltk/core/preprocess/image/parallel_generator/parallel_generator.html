@@ -57,7 +57,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>mltk.core.preprocess.image.parallel_generator.parallel_generator &#8212; MLTK 0.10.0 documentation</title>
+    <title>mltk.core.preprocess.image.parallel_generator.parallel_generator &#8212; MLTK 0.14.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
@@ -78,6 +78,7 @@
     <script src="../../../../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../../../../_static/js/custom.js"></script>
+    <script src="../../../../../../_static/js/apitoc.js"></script>
     <link rel="shortcut icon" href="../../../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../../../search.html" />
@@ -104,11 +105,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../../../../../index.html" title="MLTK 0.10.0 documentation"
+        <a href="../../../../../../index.html" title="MLTK 0.14.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../../../../../_static/logo.png"
-                   alt="MLTK 0.10.0 documentation logo">
+                   alt="MLTK 0.14.0 documentation logo">
           
         </a>
       </div>
@@ -153,7 +154,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -199,16 +200,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../../../../../index.html" title="MLTK 0.10.0 documentation" class="md-nav__button md-logo">
+    <a href="../../../../../../index.html" title="MLTK 0.14.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../../../../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../../../../index.html"
-       title="MLTK 0.10.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.14.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -405,11 +406,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-  <ul class="md-nav__list" data-md-scrollfix="">
-    
-
-<li id="searchbox" class="md-nav__item"></li>
-
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
   </ul>
 </nav>
               </div>
@@ -423,7 +420,9 @@
             <ul class="breadcrumb">
               <li></li>
               <li><a href="../../../../../../index.html"><i class="md-icon">home</i></a></li>
-                <li class="active"><a href="../../../../../index.html" accesskey="U">Module code</a></li>
+                <li><a href="../../../../../index.html" accesskey="U">Module code</a></li>
+
+              <li class="activate"><a>mltk.core.preprocess.image.parallel_generator.parallel_generator</a></li>
             </ul>
           </div>
           
@@ -433,21 +432,18 @@
   <h1 id="modules-mltk-core-preprocess-image-parallel-generator-parallel-generator--page-root">Source code for mltk.core.preprocess.image.parallel_generator.parallel_generator</h1><div class="highlight"><pre>
 <span></span>
 <span class="kn">import</span> <span class="nn">random</span>
-<span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="k">try</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">keras_preprocessing.image</span> <span class="kn">import</span> <span class="n">ImageDataGenerator</span>
-<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
-    <span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing.image</span> <span class="kn">import</span> <span class="n">ImageDataGenerator</span>
-<span class="kn">from</span> <span class="nn">keras_preprocessing.image.utils</span> <span class="kn">import</span> <span class="p">(</span><span class="n">array_to_img</span><span class="p">,</span> <span class="n">img_to_array</span><span class="p">)</span>
-
-
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">ImageEnhance</span>
 
+<span class="kn">from</span> <span class="nn">mltk.core.keras</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ImageDataGenerator</span><span class="p">,</span>
+    <span class="n">array_to_img</span><span class="p">,</span> 
+    <span class="n">img_to_array</span>
+<span class="p">)</span>
 
 
 <span class="kn">from</span> <span class="nn">.directory_iterator</span> <span class="kn">import</span> <span class="n">ParallelDirectoryIterator</span> 
@@ -455,7 +451,7 @@
 
 
 <div class="viewcode-block" id="ParallelImageDataGenerator"><a class="viewcode-back" href="../../../../../../docs/python_api/data_preprocessing/image_data_generator.html#mltk.core.preprocess.image.parallel_generator.ParallelImageDataGenerator">[docs]</a><span class="k">class</span> <span class="nc">ParallelImageDataGenerator</span><span class="p">(</span><span class="n">ImageDataGenerator</span><span class="p">):</span>
-    <span class="sd">'''Generate batches of tensor image data with real-time data augmentation.</span>
+<span class="w">    </span><span class="sd">'''Generate batches of tensor image data with real-time data augmentation.</span>
 
 <span class="sd">    The data will be looped over (in batches).</span>
 
@@ -468,30 +464,6 @@
 <span class="sd">    (The standard Keras ImageDataGenerator module processes batch images then trains serially)</span>
 <span class="sd">    </span>
 <span class="sd">    From the outside, this module works the exact same as `Keras ImageDataGenerator &lt;https://keras.io/preprocessing/image&gt;`_.</span>
-<span class="sd">    </span>
-<span class="sd">    .. note::</span>
-<span class="sd">       Since this uses the standard Python `multiprocessing &lt;https://docs.python.org/3.7/library/multiprocessing.html&gt;`_ module,</span>
-<span class="sd">       the 'main' part of your Python script needs a:</span>
-<span class="sd">    </span>
-<span class="sd">    .. highlight:: python</span>
-<span class="sd">    .. code-block:: python</span>
-
-<span class="sd">       if __name__ == '__main__':</span>
-<span class="sd">          ...</span>
-
-<span class="sd">    to function correctly.</span>
-
-<span class="sd">    It is also recommended to add something like:</span>
-<span class="sd">    </span>
-<span class="sd">    .. highlight:: python</span>
-<span class="sd">    .. code-block:: python</span>
-<span class="sd">       </span>
-<span class="sd">       if current_process().name != 'MainProcess':</span>
-<span class="sd">           # Disable the GPU and logging if this is a subprocess</span>
-<span class="sd">           os.environ['CUDA_VISIBLE_DEVICES'] = '-1'</span>
-<span class="sd">           os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'</span>
-
-<span class="sd">    to the top of the script to ensure that the GPU is not used in any subprocesses.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        cores: The number of CPU cores to use for spawned image batch processes.</span>
@@ -674,7 +646,7 @@
 <span class="sd">        </span>
 
 <span class="sd">    '''</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<div class="viewcode-block" id="ParallelImageDataGenerator.__init__"><a class="viewcode-back" href="../../../../../../docs/python_api/data_preprocessing/image_data_generator.html#mltk.core.preprocess.image.parallel_generator.ParallelImageDataGenerator.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
         <span class="n">cores</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
         <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -711,7 +683,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">save_to_dir</span> <span class="o">=</span> <span class="n">save_to_dir</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">save_prefix</span> <span class="o">=</span> <span class="n">save_prefix</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">save_format</span> <span class="o">=</span> <span class="n">save_format</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span></div>
 
 
 <div class="viewcode-block" id="ParallelImageDataGenerator.flow_from_directory"><a class="viewcode-back" href="../../../../../../docs/python_api/data_preprocessing/image_data_generator.html#mltk.core.preprocess.image.parallel_generator.ParallelImageDataGenerator.flow_from_directory">[docs]</a>    <span class="k">def</span> <span class="nf">flow_from_directory</span><span class="p">(</span>
@@ -733,8 +705,9 @@
         <span class="n">subset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">interpolation</span><span class="o">=</span><span class="s1">'bilinear'</span><span class="p">,</span>
         <span class="n">list_valid_filenames_in_directory_function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">class_counts</span><span class="p">:</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span><span class="nb">int</span><span class="p">]</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
-        <span class="sd">"""Create the ParallelImageDataGenerator with the given dataset directory</span>
+<span class="w">        </span><span class="sd">"""Create the ParallelImageDataGenerator with the given dataset directory</span>
 <span class="sd">        </span>
 <span class="sd">        Takes the path to a directory &amp; generates batches of augmented data.</span>
 
@@ -805,7 +778,7 @@
 <span class="sd">                </span>
 <span class="sd">            Returns:</span>
 <span class="sd">                A DirectoryIterator yielding tuples of (x, y) where x is a numpy array containing a batch of images with</span>
-<span class="sd">                shape (batch_size, *target_size, channels) and y is a numpy array of corresponding labels.</span>
+<span class="sd">                shape (batch_size, target_size, channels) and y is a numpy array of corresponding labels.</span>
 
 <span class="sd">        """</span>
 
@@ -860,7 +833,8 @@
             <span class="n">noaug_preprocessing_function</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parallel_noaug_preprocessing_function</span><span class="p">,</span>
             <span class="n">list_valid_filenames_in_directory_function</span><span class="o">=</span><span class="n">list_valid_filenames_in_directory_function</span><span class="p">,</span>
             <span class="n">max_samples_per_class</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_samples_per_class</span><span class="p">,</span>
-            <span class="n">disable_gpu_in_subprocesses</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">disable_gpu_in_subprocesses</span>
+            <span class="n">disable_gpu_in_subprocesses</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">disable_gpu_in_subprocesses</span><span class="p">,</span>
+            <span class="n">class_counts</span><span class="o">=</span><span class="n">class_counts</span>
         <span class="p">)</span></div>
         
 <div class="viewcode-block" id="ParallelImageDataGenerator.flow"><a class="viewcode-back" href="../../../../../../docs/python_api/data_preprocessing/image_data_generator.html#mltk.core.preprocess.image.parallel_generator.ParallelImageDataGenerator.flow">[docs]</a>    <span class="k">def</span> <span class="nf">flow</span><span class="p">(</span>
@@ -876,7 +850,7 @@
         <span class="n">save_format</span><span class="o">=</span><span class="s1">'png'</span><span class="p">,</span>
         <span class="n">subset</span><span class="o">=</span><span class="kc">None</span>
     <span class="p">):</span>
-        <span class="sd">"""Takes data &amp; label arrays, generates batches of augmented data.</span>
+<span class="w">        </span><span class="sd">"""Takes data &amp; label arrays, generates batches of augmented data.</span>
 
 <span class="sd">            Args:</span>
 <span class="sd">                x: Input data. Numpy array of rank 4 or a tuple. If tuple, the first</span>
@@ -942,7 +916,7 @@
     
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">default_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-        <span class="sd">"""Return default transformation parameters"""</span>
+<span class="w">        </span><span class="sd">"""Return default transformation parameters"""</span>
         <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">({</span>
             <span class="s1">'theta'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
             <span class="s1">'tx'</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -959,7 +933,7 @@
         <span class="p">})</span>
         
 <div class="viewcode-block" id="ParallelImageDataGenerator.get_random_transform"><a class="viewcode-back" href="../../../../../../docs/python_api/data_preprocessing/image_data_generator.html#mltk.core.preprocess.image.parallel_generator.ParallelImageDataGenerator.get_random_transform">[docs]</a>    <span class="k">def</span> <span class="nf">get_random_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_shape</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-        <span class="sd">"""Generate a random transformation"""</span>
+<span class="w">        </span><span class="sd">"""Generate a random transformation"""</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">random_transforms_enabled</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_transform</span>
         
@@ -981,7 +955,7 @@
 
 
 <div class="viewcode-block" id="ParallelImageDataGenerator.apply_transform"><a class="viewcode-back" href="../../../../../../docs/python_api/data_preprocessing/image_data_generator.html#mltk.core.preprocess.image.parallel_generator.ParallelImageDataGenerator.apply_transform">[docs]</a>    <span class="k">def</span> <span class="nf">apply_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">transform_parameters</span><span class="p">):</span>
-        <span class="sd">"""Apply the given transformation to the given image"""</span>
+<span class="w">        </span><span class="sd">"""Apply the given transformation to the given image"""</span>
         <span class="n">x</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">apply_transform</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">transform_parameters</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">transform_parameters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'contrast'</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">contrast</span> <span class="o">=</span> <span class="n">transform_parameters</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'contrast'</span><span class="p">)</span>
@@ -1054,6 +1028,7 @@
           </article>
         </div>
       </div>
+      <a href="#" class="go-top"><i class="md-icon">arrow_upward</i>Back to Top</a>
     </main>
   </div>
   <footer class="md-footer">
@@ -1073,7 +1048,7 @@
               
           </div>
             Last updated on
-              Aug 22, 2022.
+              Jan 06, 2023.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -1093,16 +1068,16 @@
   <div class="privacy-banner">
     <div class="privacy-banner-wrapper">
       <p>
-        <b>Important:</b> This site uses cookies to improve user experience and stores information on your computer. 
-        By continuing to use our site, you consent to our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>. 
-        If you do not want to enable cookies, review our policy and learn how they can be disabled. Note that disabling cookies will disable some features of the site.
+        <b>Important:</b> We use cookies only for functional and traffic analytics. <br />
+        We DO NOT use cookies for any marketing purposes. By using our site you acknowledge you have read and understood our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>.
       </p>
-      <a class="privacy-banner-accept" href="#">Accept</a>
+      <a class="privacy-banner-accept" href="#">Got it</a>
     </div>
 </div>
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
+    <div class="msg">Please click the <b>submit</b> button at the end even if you do not answer all of the questions</div>
     <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   

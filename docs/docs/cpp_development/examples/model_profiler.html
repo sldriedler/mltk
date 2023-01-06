@@ -58,7 +58,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>Model Profiler &#8212; MLTK 0.10.0 documentation</title>
+    <title>Model Profiler &#8212; MLTK 0.14.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -79,6 +79,7 @@
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/js/custom.js"></script>
+    <script src="../../../_static/js/apitoc.js"></script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -107,11 +108,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../../index.html" title="MLTK 0.10.0 documentation"
+        <a href="../../../index.html" title="MLTK 0.14.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../../_static/logo.png"
-                   alt="MLTK 0.10.0 documentation logo">
+                   alt="MLTK 0.14.0 documentation logo">
           
         </a>
       </div>
@@ -156,7 +157,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -203,16 +204,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../../index.html" title="MLTK 0.10.0 documentation" class="md-nav__button md-logo">
+    <a href="../../../index.html" title="MLTK 0.14.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="MLTK 0.10.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.14.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -340,7 +341,7 @@
         
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#docs-cpp-development-examples-model-profiler--page-root" class="md-nav__link">Model Profiler</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#quick-links" class="md-nav__link">Quick Links</a>
@@ -383,9 +384,7 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../../_sources/docs/cpp_development/examples/model_profiler.md.txt">Show Source</a> </li>
-
+      <script type="text/javascript" src=../../../_static/js/apitoc.js></script>
   </ul>
 </nav>
       
@@ -507,7 +506,7 @@
                 
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#docs-cpp-development-examples-model-profiler--page-root" class="md-nav__link">Model Profiler</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#quick-links" class="md-nav__link">Quick Links</a>
@@ -550,11 +549,7 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../../_sources/docs/cpp_development/examples/model_profiler.md.txt">Show Source</a> </li>
-
-<li id="searchbox" class="md-nav__item"></li>
-
+      <script type="text/javascript" src=../../../_static/js/apitoc.js></script>
   </ul>
 </nav>
               </div>
@@ -568,8 +563,10 @@
             <ul class="breadcrumb">
               <li></li>
               <li><a href="../../../index.html"><i class="md-icon">home</i></a></li>
-                <li class="active"><a href="../index.html" >C++ Development</a></li>
-                <li class="active"><a href="index.html" accesskey="U">C++ Examples</a></li>
+                <li><a href="../index.html" >C++ Development</a></li>
+                <li><a href="index.html" accesskey="U">C++ Examples</a></li>
+
+              <li class="activate"><a>Model Profiler</a></li>
             </ul>
           </div>
           
@@ -595,7 +592,7 @@ If an embedded platform is used, then accelerator cycles and CPU cycles are prof
 <section id="quick-links">
 <h2 id="quick-links">Quick Links<a class="headerlink" href="#quick-links" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/SiliconLabs/mltk/tree/master/cpp/shared/apps/model_profiler">GitHub Source</a> - View this example’s source code on Github</p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp/shared/apps/model_profiler">GitHub Source</a> - View this example’s source code on Github</p></li>
 <li><p><a class="reference external" href="../../../docs/cpp_development/examples/model_profiler.html">Online documentation</a> - View this example’s online documentation</p></li>
 <li><p><a class="reference external" href="../../../docs/guides/model_profiler.html">Model Profiler Command Line</a> - View the MLTK’s model profiler documentation</p></li>
 <li><p><a class="reference external" href="../../../docs/guides/model_profiler_utility.html">Model Profiler Utility</a> - View the MTLK’s model profiler stand-alone utility’s documentation</p></li>
@@ -653,11 +650,11 @@ specified model will be built into the application.</p>
 When the application starts, it checks the end of flash memory for a <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model file. If found, the model
 at the end of flash is used instead of the default model.</p>
 <p>To write the model to flash, use the command:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk update_params &lt;model name&gt; --device
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk<span class="w"> </span>update_params<span class="w"> </span>&lt;model<span class="w"> </span>name&gt;<span class="w"> </span>--device
 </pre></div>
 </div>
 <p>Refer to the command’s help for more details:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk update_params --help
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk<span class="w"> </span>update_params<span class="w"> </span>--help
 </pre></div>
 </div>
 </section>
@@ -675,18 +672,18 @@ to control how the app is built.</p>
 <p>Optionally, configure the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model to profile:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the path to the .tflite model file to profile</span>
 <span class="c1"># in the mltk_model_profiler application</span>
-mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL ~/my_models/my_model.tflite<span class="o">)</span>
+mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL<span class="w"> </span>~/my_models/my_model.tflite<span class="o">)</span>
 </pre></div>
 </div>
 <p><strong>HINT:</strong><br/>
 You can also specify the path to the <code class="docutils literal notranslate"><span class="pre">.mltk.zip</span></code> model archive or just specify the MLTK model name, e.g.:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the path to the model archive</span>
-mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL ~/my_models/my_model.mltk.zip<span class="o">)</span>
+mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL<span class="w"> </span>~/my_models/my_model.mltk.zip<span class="o">)</span>
 
 <span class="c1"># Specify the MLTK model name</span>
 <span class="c1"># NOTE: The model specification must be on the model search path, see:</span>
-<span class="c1">#       https://siliconlabs.github.io/mltk/docs/guides/model_search_path.html</span>
-mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL image_example1<span class="o">)</span>
+<span class="c1">#       https://sldriedler.github.io/mltk/docs/guides/model_search_path.html</span>
+mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL<span class="w"> </span>image_example1<span class="o">)</span>
 </pre></div>
 </div>
 </section>
@@ -694,14 +691,14 @@ mltk_set<span class="o">(</span>MODEL_PROFILER_MODEL image_example1<span class="
 <h3 id="tflite-micro-accelerator">TFLITE_MICRO_ACCELERATOR<a class="headerlink" href="#tflite-micro-accelerator" title="Permalink to this headline">¶</a></h3>
 <p>Optionally, configure the target hardware accelerator:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the Gecko SDK MVP TFLM kernels</span>
-mltk_set<span class="o">(</span>TFLITE_MICRO_ACCELERATOR mvp<span class="o">)</span>
+mltk_set<span class="o">(</span>TFLITE_MICRO_ACCELERATOR<span class="w"> </span>mvp<span class="o">)</span>
 </pre></div>
 </div>
 </section>
 <section id="tflite-micro-accelerator-profiler-enabled">
 <h3 id="tflite-micro-accelerator-profiler-enabled">TFLITE_MICRO_ACCELERATOR_PROFILER_ENABLED<a class="headerlink" href="#tflite-micro-accelerator-profiler-enabled" title="Permalink to this headline">¶</a></h3>
 <p>Enable/disable profiling MVP performance counters</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk_set<span class="o">(</span>TFLITE_MICRO_ACCELERATOR_PROFILER_ENABLED ON<span class="o">)</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk_set<span class="o">(</span>TFLITE_MICRO_ACCELERATOR_PROFILER_ENABLED<span class="w"> </span>ON<span class="o">)</span>
 </pre></div>
 </div>
 </section>
@@ -709,7 +706,7 @@ mltk_set<span class="o">(</span>TFLITE_MICRO_ACCELERATOR mvp<span class="o">)</s
 <h3 id="mltk-run-model-from-ram">MLTK_RUN_MODEL_FROM_RAM<a class="headerlink" href="#mltk-run-model-from-ram" title="Permalink to this headline">¶</a></h3>
 <p>If enabled, the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model file is copied from flash to RAM
 and the model executes entirely from RAM.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk_set<span class="o">(</span>MLTK_RUN_MODEL_FROM_RAM ON<span class="o">)</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk_set<span class="o">(</span>MLTK_RUN_MODEL_FROM_RAM<span class="w"> </span>ON<span class="o">)</span>
 </pre></div>
 </div>
 <p><strong>NOTE:</strong> To use this, the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> <em>must</em> fit into RAM along with the normal runtime working memory.</p>
@@ -718,14 +715,14 @@ and the model executes entirely from RAM.</p>
 <h3 id="mltk-runtime-memory-size">MLTK_RUNTIME_MEMORY_SIZE<a class="headerlink" href="#mltk-runtime-memory-size" title="Permalink to this headline">¶</a></h3>
 <p>If specified, then hardcode the tensor arena size to the given value.
 If omitted, then automatically find the optimal tensor arena size.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk_set<span class="o">(</span>MLTK_RUNTIME_MEMORY_SIZE <span class="m">100000</span><span class="o">)</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk_set<span class="o">(</span>MLTK_RUNTIME_MEMORY_SIZE<span class="w"> </span><span class="m">100000</span><span class="o">)</span>
 </pre></div>
 </div>
 </section>
 <section id="tflite-micro-recorder-enabled">
 <h3 id="tflite-micro-recorder-enabled">TFLITE_MICRO_RECORDER_ENABLED<a class="headerlink" href="#tflite-micro-recorder-enabled" title="Permalink to this headline">¶</a></h3>
 <p>If enabled, then record each layer’s input/output tensor data.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk_set<span class="o">(</span>TFLITE_MICRO_RECORDER_ENABLED ON<span class="o">)</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk_set<span class="o">(</span>TFLITE_MICRO_RECORDER_ENABLED<span class="w"> </span>ON<span class="o">)</span>
 </pre></div>
 </div>
 </section>
@@ -736,6 +733,7 @@ If omitted, then automatically find the optimal tensor arena size.</p>
           </article>
         </div>
       </div>
+      <a href="#" class="go-top"><i class="md-icon">arrow_upward</i>Back to Top</a>
     </main>
   </div>
   <footer class="md-footer">
@@ -779,7 +777,7 @@ If omitted, then automatically find the optimal tensor arena size.</p>
               
           </div>
             Last updated on
-              Aug 22, 2022.
+              Jan 06, 2023.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -799,16 +797,16 @@ If omitted, then automatically find the optimal tensor arena size.</p>
   <div class="privacy-banner">
     <div class="privacy-banner-wrapper">
       <p>
-        <b>Important:</b> This site uses cookies to improve user experience and stores information on your computer. 
-        By continuing to use our site, you consent to our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>. 
-        If you do not want to enable cookies, review our policy and learn how they can be disabled. Note that disabling cookies will disable some features of the site.
+        <b>Important:</b> We use cookies only for functional and traffic analytics. <br />
+        We DO NOT use cookies for any marketing purposes. By using our site you acknowledge you have read and understood our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>.
       </p>
-      <a class="privacy-banner-accept" href="#">Accept</a>
+      <a class="privacy-banner-accept" href="#">Got it</a>
     </div>
 </div>
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
+    <div class="msg">Please click the <b>submit</b> button at the end even if you do not answer all of the questions</div>
     <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   

@@ -144,14 +144,15 @@ def program_image_with_model(
             logger.info('Not programming firmware image to device')
     
 
-    program_model(
-        tflite_model=tflite_model,
-        logger=logger,
-        platform=platform,
-        halt=halt,
-        firmwage_image_length=firmwage_image_length,
-        offset=model_offset
-    )
+    if tflite_model is not None:
+        program_model(
+            tflite_model=tflite_model,
+            logger=logger,
+            platform=platform,
+            halt=halt,
+            firmwage_image_length=firmwage_image_length,
+            offset=model_offset
+        )
 
 
 def program_model(

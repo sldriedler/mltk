@@ -1,17 +1,50 @@
+from __future__ import annotations
 from typing import Tuple
-
+import copy
 
 
 
 class AudioFeatureGeneratorSettings(dict):
-    """AudioFeatureGenerator Settings
+    """Settings for the `AudioFeatureGenerator <https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing/audio_feature_generator.html>`_
+
+
+    **Example Usage**
+
+    .. highlight:: python
+    .. code-block:: python
+
+        from mltk.core.preprocess.audio.audio_feature_generator import AudioFeatureGeneratorSettings
+
+        # Define the settings used to convert the audio into a spectrogram
+        frontend_settings = AudioFeatureGeneratorSettings()
+
+        frontend_settings.sample_rate_hz = 16000
+        frontend_settings.sample_length_ms = 1200
+        frontend_settings.window_size_ms = 30
+        frontend_settings.window_step_ms = 10
+        frontend_settings.filterbank_n_channels = 108
+        frontend_settings.filterbank_upper_band_limit = 7500.0
+        frontend_settings.filterbank_lower_band_limit = 125.0
+        frontend_settings.noise_reduction_enable = True
+        frontend_settings.noise_reduction_smoothing_bits = 10
+        frontend_settings.noise_reduction_even_smoothing =  0.025
+        frontend_settings.noise_reduction_odd_smoothing = 0.06
+        frontend_settings.noise_reduction_min_signal_remaining = 0.40
+        frontend_settings.quantize_dynamic_scale_enable = True # Enable dynamic quantization
+        frontend_settings.quantize_dynamic_scale_range_db = 40.0
+
+        # If this is used in a model specification file,
+        # be sure to add the Audio Feature generator settings to the model parameters.
+        # This way, they are included in the generated .tflite model file
+        # See https://siliconlabs.github.io/mltk/docs/guides/model_parameters.html
+        my_model.model_parameters.update(frontend_settings)
+
 
     See the `Audio Feature Generator <https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html>`_ guide for more details.
     """
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        
+    def __init__(self, **kwargs):
+        super().__init__()
         self.sample_rate_hz = 16000
         self.sample_length_ms = 1000
         self.window_size_ms = 25
@@ -41,6 +74,10 @@ class AudioFeatureGeneratorSettings(dict):
         self.quantize_dynamic_scale_enable = False
         self.quantize_dynamic_scale_range_db = 40.0
 
+        # Update the dict with the given values
+        # AFTER setting the defaults
+        super().update(kwargs)
+
 
 
     @property
@@ -48,8 +85,7 @@ class AudioFeatureGeneratorSettings(dict):
         """Return the generated spectrogram shape as (height, width) i.e. (n_features, filterbank_n_channels)"""
         window_size_length = int((self.window_size_ms * self.sample_rate_hz) / 1000)
         window_step_length = int((self.window_step_ms * self.sample_rate_hz) / 1000)
-        sample_length      = int((self.sample_length_ms * self.sample_rate_hz) / 1000)
-        height = (sample_length - window_size_length) // window_step_length + 1
+        height = (self.sample_length - window_size_length) // window_step_length + 1
         width = self.filterbank_n_channels
         return (height, width)
 
@@ -59,7 +95,10 @@ class AudioFeatureGeneratorSettings(dict):
         return self.get('fe.sample_rate_hz', 0)
     @sample_rate_hz.setter
     def sample_rate_hz(self, v: int):
-        self['fe.sample_rate_hz'] = int(v)
+        s = int(v)
+        if s <= 0 or s > 10e6:
+            raise ValueError(f'Invalid sample_rate_hz, {v}')
+        self['fe.sample_rate_hz'] = s
         self._update_fft_length()
 
     @property
@@ -68,7 +107,21 @@ class AudioFeatureGeneratorSettings(dict):
         return self['fe.sample_length_ms']
     @sample_length_ms.setter
     def sample_length_ms(self, v: int):
-        self['fe.sample_length_ms'] = int(v)
+        s = int(v)
+        if s <= 0 or s > 10e6:
+            msg = ''
+            if isinstance(v, float) and v < 1:
+                msg = '. You may need to multiply this value by 1000'
+            raise ValueError(f'Invalid sample_length_ms, {v}{msg}')
+        self['fe.sample_length_ms'] = s
+
+    @property
+    def sample_length(self) -> int:
+        """Calculated length of an audio sample in frames
+        sample_length = (self.sample_length_ms * self.sample_rate_hz) // 1000
+        """
+        sample_length      = int((self.sample_length_ms * self.sample_rate_hz) / 1000)
+        return sample_length
 
     @property
     def window_size_ms(self) -> int:
@@ -76,7 +129,13 @@ class AudioFeatureGeneratorSettings(dict):
         return self.get('fe.window_size_ms', 0)
     @window_size_ms.setter
     def window_size_ms(self, v: int):
-        self['fe.window_size_ms'] = int(v)
+        s = int(v)
+        if s <= 0 or s > 10e6:
+            msg = ''
+            if isinstance(v, float) and v < 1:
+                msg = '. You may need to multiply this value by 1000'
+            raise ValueError(f'Invalid window_size_ms, {v}{msg}')
+        self['fe.window_size_ms'] = s
         self._update_fft_length()
 
     @property
@@ -85,7 +144,13 @@ class AudioFeatureGeneratorSettings(dict):
         return self['fe.window_step_ms']
     @window_step_ms.setter
     def window_step_ms(self, v: int):
-        self['fe.window_step_ms'] = int(v)
+        s = int(v)
+        if s <= 0 or s > 10e6:
+            msg = ''
+            if isinstance(v, float) and v < 1:
+                msg = '. You may need to multiply this value by 1000'
+            raise ValueError(f'Invalid window_step_ms, {v}{msg}')
+        self['fe.window_step_ms'] = s
 
     @property
     def filterbank_n_channels(self) -> int:
@@ -93,7 +158,10 @@ class AudioFeatureGeneratorSettings(dict):
         return self['fe.filterbank_n_channels']
     @filterbank_n_channels.setter
     def filterbank_n_channels(self, v: int):
-        self['fe.filterbank_n_channels'] = int(v)
+        s = int(v)
+        if s <= 0 or s > 10e6:
+            raise ValueError(f'Invalid filterbank_n_channels, {v}')
+        self['fe.filterbank_n_channels'] = s
 
     @property
     def filterbank_upper_band_limit(self) -> float:
@@ -136,7 +204,7 @@ class AudioFeatureGeneratorSettings(dict):
     @noise_reduction_even_smoothing.setter
     def noise_reduction_even_smoothing(self, v: float):
         self['fe.noise_reduction_even_smoothing'] = float(v)
-    
+
     @property
     def noise_reduction_odd_smoothing(self) -> float:
         """smoothing coefficient for odd-numbered channels, default 0.06"""
@@ -204,7 +272,7 @@ class AudioFeatureGeneratorSettings(dict):
     @property
     def activity_detection_enable(self) -> bool:
         """Enable the activity detection block.
-        This indicates when activity, such as a speech command, is detected in the audio stream, 
+        This indicates when activity, such as a speech command, is detected in the audio stream,
         default False"""
         return self['fe.activity_detection_enable']
     @activity_detection_enable.setter
@@ -214,7 +282,7 @@ class AudioFeatureGeneratorSettings(dict):
     @property
     def activity_detection_alpha_a(self) -> float:
         """Activity detection filter A coefficient
-        The activity detection "fast filter" coefficient. 
+        The activity detection "fast filter" coefficient.
         The filter is a 1-real pole IIR filter: ``computes out = (1-k)*in + k*out``
         Default 0.5"""
         return self['fe.activity_detection_alpha_a']
@@ -225,7 +293,7 @@ class AudioFeatureGeneratorSettings(dict):
     @property
     def activity_detection_alpha_b(self) -> float:
         """Activity detection filter B coefficient
-        The activity detection "slow filter" coefficient. 
+        The activity detection "slow filter" coefficient.
         The filter is a 1-real pole IIR filter: ``computes out = (1-k)*in + k*out``
         Default 0.8"""
         return self['fe.activity_detection_alpha_b']
@@ -251,7 +319,7 @@ class AudioFeatureGeneratorSettings(dict):
         return self['fe.activity_detection_trip_threshold']
     @activity_detection_trip_threshold.setter
     def activity_detection_trip_threshold(self, v: float):
-        self['fe.activity_detection_trip_threshold'] = float(v)        
+        self['fe.activity_detection_trip_threshold'] = float(v)
 
     @property
     def dc_notch_filter_enable(self) -> bool:
@@ -261,32 +329,32 @@ class AudioFeatureGeneratorSettings(dict):
         return self['fe.dc_notch_filter_enable']
     @dc_notch_filter_enable.setter
     def dc_notch_filter_enable(self, v: bool):
-        self['fe.dc_notch_filter_enable'] = bool(v)    
+        self['fe.dc_notch_filter_enable'] = bool(v)
 
     @property
     def dc_notch_filter_coefficient(self) -> float:
         """Coefficient used by DC notch filter
-        
+
         The DC notch filter coefficient k in Q(16,15) format, ``H(z) = (1 - z^-1)/(1 - k*z^-1)``
         Default 0.95"""
         return self['fe.dc_notch_filter_coefficient']
     @dc_notch_filter_coefficient.setter
     def dc_notch_filter_coefficient(self, v: float):
-        self['fe.dc_notch_filter_coefficient'] = float(v)   
+        self['fe.dc_notch_filter_coefficient'] = float(v)
 
     @property
     def quantize_dynamic_scale_enable(self) -> bool:
         """Enable dynamic quantization
-        
-        Enable dynamic quantization of the generated audio spectrogram. 
-        With this, the max spectrogram value is mapped to +127, 
-        and the max spectrogram minus :py:class:`~quantize_dynamic_scale_range_db` is mapped to -128. 
+
+        Enable dynamic quantization of the generated audio spectrogram.
+        With this, the max spectrogram value is mapped to +127,
+        and the max spectrogram minus :py:class:`~quantize_dynamic_scale_range_db` is mapped to -128.
         Anything below max spectrogram minus :py:class:`~quantize_dynamic_scale_range_db` is mapped to -128.
         Default False"""
         return self['fe.quantize_dynamic_scale_enable']
     @quantize_dynamic_scale_enable.setter
     def quantize_dynamic_scale_enable(self, v: bool):
-        self['fe.quantize_dynamic_scale_enable'] = bool(v)    
+        self['fe.quantize_dynamic_scale_enable'] = bool(v)
 
     @property
     def quantize_dynamic_scale_range_db(self) -> float:
@@ -294,20 +362,25 @@ class AudioFeatureGeneratorSettings(dict):
         return self['fe.quantize_dynamic_scale_range_db']
     @quantize_dynamic_scale_range_db.setter
     def quantize_dynamic_scale_range_db(self, v: float):
-        self['fe.quantize_dynamic_scale_range_db'] = float(v)  
+        self['fe.quantize_dynamic_scale_range_db'] = float(v)
 
 
     @property
     def fft_length(self) -> int:
-        """The calculated size required to do an FFT. 
+        """The calculated size required to do an FFT.
         This is dependent on the window_size_ms and sample_rate_hz values"""
         return self['fe.fft_length']
+
+
+    def copy(self) -> AudioFeatureGeneratorSettings:
+        """Return a deep copy of the current settings"""
+        return copy.deepcopy(self)
 
     def _update_fft_length(self):
         windows_size = int((self.window_size_ms * self.sample_rate_hz) / 1000)
         # The FFT length is the smallest power of 2 that
         # is larger than the window size
-        fft_length = 1 
+        fft_length = 1
         while fft_length < windows_size:
             fft_length <<= 1
         self['fe.fft_length'] = fft_length

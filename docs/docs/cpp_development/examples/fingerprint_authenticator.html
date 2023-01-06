@@ -58,7 +58,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>Fingerprint Authenticator &#8212; MLTK 0.10.0 documentation</title>
+    <title>Fingerprint Authenticator &#8212; MLTK 0.14.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -79,6 +79,7 @@
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/js/custom.js"></script>
+    <script src="../../../_static/js/apitoc.js"></script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -107,11 +108,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../../index.html" title="MLTK 0.10.0 documentation"
+        <a href="../../../index.html" title="MLTK 0.14.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../../_static/logo.png"
-                   alt="MLTK 0.10.0 documentation logo">
+                   alt="MLTK 0.14.0 documentation logo">
           
         </a>
       </div>
@@ -156,7 +157,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -203,16 +204,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../../index.html" title="MLTK 0.10.0 documentation" class="md-nav__button md-logo">
+    <a href="../../../index.html" title="MLTK 0.14.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="MLTK 0.10.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.14.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -368,7 +369,7 @@
         
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#docs-cpp-development-examples-fingerprint-authenticator--page-root" class="md-nav__link">Fingerprint Authenticator</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#quick-links" class="md-nav__link">Quick Links</a>
@@ -419,9 +420,7 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../../_sources/docs/cpp_development/examples/fingerprint_authenticator.md.txt">Show Source</a> </li>
-
+      <script type="text/javascript" src=../../../_static/js/apitoc.js></script>
   </ul>
 </nav>
       
@@ -515,7 +514,7 @@
                 
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#docs-cpp-development-examples-fingerprint-authenticator--page-root" class="md-nav__link">Fingerprint Authenticator</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#quick-links" class="md-nav__link">Quick Links</a>
@@ -566,11 +565,7 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../../_sources/docs/cpp_development/examples/fingerprint_authenticator.md.txt">Show Source</a> </li>
-
-<li id="searchbox" class="md-nav__item"></li>
-
+      <script type="text/javascript" src=../../../_static/js/apitoc.js></script>
   </ul>
 </nav>
               </div>
@@ -584,8 +579,10 @@
             <ul class="breadcrumb">
               <li></li>
               <li><a href="../../../index.html"><i class="md-icon">home</i></a></li>
-                <li class="active"><a href="../index.html" >C++ Development</a></li>
-                <li class="active"><a href="index.html" accesskey="U">C++ Examples</a></li>
+                <li><a href="../index.html" >C++ Development</a></li>
+                <li><a href="index.html" accesskey="U">C++ Examples</a></li>
+
+              <li class="activate"><a>Fingerprint Authenticator</a></li>
             </ul>
           </div>
           
@@ -599,7 +596,7 @@
 <section id="quick-links">
 <h2 id="quick-links">Quick Links<a class="headerlink" href="#quick-links" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/SiliconLabs/mltk/tree/master/cpp/shared/apps/fingerprint_authenticator">GitHub Source</a> - View this example’s source code on Github</p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/tree/master/cpp/shared/apps/fingerprint_authenticator">GitHub Source</a> - View this example’s source code on Github</p></li>
 <li><p><a class="reference internal" href="#hardware-setup"><span class="std std-doc">Hardware Setup</span></a> - View the required hardware setup for this example</p></li>
 <li><p><a class="reference external" href="../../../docs/cpp_development/examples/fingerprint_authenticator.html">Online documentation</a> - View this example’s online documentation</p></li>
 <li><p><a class="reference external" href="../../../mltk/tutorials/fingerprint_authentication.html">Fingerprint Authentication Tutorial</a> - View this example’s associated tutorial</p></li>
@@ -642,7 +639,7 @@ The LED will be solid red, blue, or purple for the authenticated user.<br/>
 The LED will flash purple for an unknown fingerprint</p></li>
 </ul>
 <p><strong>HINT:</strong> Run the following command to view the captured fingerprints:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk fingerprint_reader
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk<span class="w"> </span>fingerprint_reader
 </pre></div>
 </div>
 <section id="state-diagram">
@@ -676,7 +673,7 @@ to convert a .tflite file into a c file which is added to the project.</p>
 <section id="via-fingeprint-reader-command">
 <h4 id="via-fingeprint-reader-command">via fingeprint_reader Command<a class="headerlink" href="#via-fingeprint-reader-command" title="Permalink to this headline">¶</a></h4>
 <p>Alternatively, using the command:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk fingeprint_reader &lt;model path&gt; --app none
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk<span class="w"> </span>fingeprint_reader<span class="w"> </span>&lt;model<span class="w"> </span>path&gt;<span class="w"> </span>--app<span class="w"> </span>none
 </pre></div>
 </div>
 <p>will program the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model to the end of the device’s flash.
@@ -691,7 +688,7 @@ of the model built into the firmware.</p>
 or the CMake <a class="reference external" href="../../../docs/command_line.html">Command Line</a>.</p>
 <p>To update the model, create/modify the file: <code class="docutils literal notranslate"><span class="pre">&lt;mltk</span> <span class="pre">repo</span> <span class="pre">root&gt;/user_options.cmake</span></code>
 and add:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk_set<span class="o">(</span>FINGERPRINT_AUTHENTICATOR_MODEL &lt;model name or path&gt;<span class="o">)</span>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk_set<span class="o">(</span>FINGERPRINT_AUTHENTICATOR_MODEL<span class="w"> </span>&lt;model<span class="w"> </span>name<span class="w"> </span>or<span class="w"> </span>path&gt;<span class="o">)</span>
 </pre></div>
 </div>
 <p>where <code class="docutils literal notranslate"><span class="pre">&lt;model</span> <span class="pre">name</span> <span class="pre">or</span> <span class="pre">path&gt;</span></code> is the file path to your model’s <code class="docutils literal notranslate"><span class="pre">.tflite</span></code>
@@ -762,12 +759,12 @@ This module must be connected to the USART peripheral of the embedded target.</p
 <section id="dumping-images-to-pc">
 <h2 id="dumping-images-to-pc">Dumping images to PC<a class="headerlink" href="#dumping-images-to-pc" title="Permalink to this headline">¶</a></h2>
 <p>This application works with the MLTK command:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk fingerprint_reader --help
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk<span class="w"> </span>fingerprint_reader<span class="w"> </span>--help
 </pre></div>
 </div>
 <p>Using this command, you can dump images to the local PC.</p>
 <p>For example:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk classify_image fingerprint_reader --dump-images
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk<span class="w"> </span>classify_image<span class="w"> </span>fingerprint_reader<span class="w"> </span>--dump-images
 </pre></div>
 </div>
 <p>which will display the images from the fingerprint reader and save them to the local PC</p>
@@ -785,18 +782,18 @@ to control how the app is built.</p>
 <p>Optionally, configure the <code class="docutils literal notranslate"><span class="pre">.tflite</span></code> model to profile:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the path to the .tflite model file to use</span>
 <span class="c1"># by the mltk_fingerprint_authenticator application</span>
-mltk_set<span class="o">(</span>FINGERPRINT_AUTHENTICATOR_MODEL ~/my_models/my_model.tflite<span class="o">)</span>
+mltk_set<span class="o">(</span>FINGERPRINT_AUTHENTICATOR_MODEL<span class="w"> </span>~/my_models/my_model.tflite<span class="o">)</span>
 </pre></div>
 </div>
 <p><strong>HINT:</strong><br/>
 You can also specify the path to the <code class="docutils literal notranslate"><span class="pre">.mltk.zip</span></code> model archive or just specify the MLTK model name, e.g.:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify the path to the model archive</span>
-mltk_set<span class="o">(</span>FINGERPRINT_AUTHENTICATOR_MODEL ~/my_models/my_model.mltk.zip<span class="o">)</span>
+mltk_set<span class="o">(</span>FINGERPRINT_AUTHENTICATOR_MODEL<span class="w"> </span>~/my_models/my_model.mltk.zip<span class="o">)</span>
 
 <span class="c1"># Specify the MLTK model name</span>
 <span class="c1"># NOTE: The model specification must be on the model search path, see:</span>
-<span class="c1">#       https://siliconlabs.github.io/mltk/docs/guides/model_search_path.html</span>
-mltk_set<span class="o">(</span>FINGERPRINT_AUTHENTICATOR_MODEL fingerprint_signature_generator<span class="o">)</span>
+<span class="c1">#       https://sldriedler.github.io/mltk/docs/guides/model_search_path.html</span>
+mltk_set<span class="o">(</span>FINGERPRINT_AUTHENTICATOR_MODEL<span class="w"> </span>fingerprint_signature_generator<span class="o">)</span>
 </pre></div>
 </div>
 </section>
@@ -804,7 +801,7 @@ mltk_set<span class="o">(</span>FINGERPRINT_AUTHENTICATOR_MODEL fingerprint_sign
 <h3 id="tflite-micro-accelerator">TFLITE_MICRO_ACCELERATOR<a class="headerlink" href="#tflite-micro-accelerator" title="Permalink to this headline">¶</a></h3>
 <p>Optionally, configure the target hardware accelerator:</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the Gecko SDK MVP TFLM kernels</span>
-mltk_set<span class="o">(</span>TFLITE_MICRO_ACCELERATOR mvp<span class="o">)</span>
+mltk_set<span class="o">(</span>TFLITE_MICRO_ACCELERATOR<span class="w"> </span>mvp<span class="o">)</span>
 </pre></div>
 </div>
 </section>
@@ -815,6 +812,7 @@ mltk_set<span class="o">(</span>TFLITE_MICRO_ACCELERATOR mvp<span class="o">)</s
           </article>
         </div>
       </div>
+      <a href="#" class="go-top"><i class="md-icon">arrow_upward</i>Back to Top</a>
     </main>
   </div>
   <footer class="md-footer">
@@ -858,7 +856,7 @@ mltk_set<span class="o">(</span>TFLITE_MICRO_ACCELERATOR mvp<span class="o">)</s
               
           </div>
             Last updated on
-              Aug 22, 2022.
+              Jan 06, 2023.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -878,16 +876,16 @@ mltk_set<span class="o">(</span>TFLITE_MICRO_ACCELERATOR mvp<span class="o">)</s
   <div class="privacy-banner">
     <div class="privacy-banner-wrapper">
       <p>
-        <b>Important:</b> This site uses cookies to improve user experience and stores information on your computer. 
-        By continuing to use our site, you consent to our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>. 
-        If you do not want to enable cookies, review our policy and learn how they can be disabled. Note that disabling cookies will disable some features of the site.
+        <b>Important:</b> We use cookies only for functional and traffic analytics. <br />
+        We DO NOT use cookies for any marketing purposes. By using our site you acknowledge you have read and understood our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>.
       </p>
-      <a class="privacy-banner-accept" href="#">Accept</a>
+      <a class="privacy-banner-accept" href="#">Got it</a>
     </div>
 </div>
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
+    <div class="msg">Please click the <b>submit</b> button at the end even if you do not answer all of the questions</div>
     <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   

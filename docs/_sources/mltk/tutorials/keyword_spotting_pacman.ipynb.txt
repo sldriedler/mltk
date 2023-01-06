@@ -84,19 +84,23 @@
 
     "\n",
 
-    "- [GitHub Source](https://github.com/SiliconLabs/mltk/blob/master/mltk/tutorials/keyword_spotting_pacman.ipynb) - View this tutorial on Github\n",
+    "- [GitHub Source](https://github.com/sldriedler/mltk/blob/master/mltk/tutorials/keyword_spotting_pacman.ipynb) - View this tutorial on Github\n",
 
-    "- [Run on Colab](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/keyword_spotting_pacman.ipynb) - Run this tutorial on Google Colab\n",
+    "- [Run on Colab](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/keyword_spotting_pacman.ipynb) - Run this tutorial on Google Colab\n",
 
     "- [Train in the \"Cloud\"](../../mltk/tutorials/cloud_training_with_vast_ai.md) - _Vastly_ improve training times by training this model in the \"cloud\"\n",
 
     "- [C++ Example Application](../../docs/cpp_development/examples/ble_audio_classifier.md) - View this tutorial's associated C++ example application\n",
 
-    "- [Pac-Man Webpage Source](https://github.com/SiliconLabs/mltk/blob/master/cpp/shared/apps/ble_audio_classifier/web/pacman) - View the Pac-Man webpage's source code on Github\n",
+    "- [Pac-Man Webpage Source](https://github.com/sldriedler/mltk/blob/master/cpp/shared/apps/ble_audio_classifier/web/pacman) - View the Pac-Man webpage's source code on Github\n",
 
     "- [Machine Learning Model](../../docs/python_api/models/siliconlabs/keyword_spotting_pacman.md) - View this tutorial's associated machine learning model\n",
 
-    "- [Live Demo](https://mltk-pacman.web.app) - Play Pac-Man using the keywords: Left, Right, Up, Down "
+    "- [Live Demo](https://mltk-pacman.web.app) - Play Pac-Man using the keywords: Left, Right, Up, Down \n",
+
+    "- [Presentation PDF](https://cms.tinyml.org/wp-content/uploads/talks2022/tinyML_Talks_Dan_Riedler_221025.pdf) - Presentation describing how this demo was created\n",
+
+    "- [Presentation Video](https://www.youtube.com/watch?v=xhiFMDOyA0g) - YouTube video of the presentation given to TinyML.org for this tutorial"
 
    ]
 
@@ -160,7 +164,7 @@
 
     "- Refer to the [Notebook Examples Guide](../../docs/guides/notebook_examples_guide.md) for more details\n",
 
-    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/keyword_spotting_pacman.ipynb) to run this tutorial interactively in your browser\n",
+    "- Click here: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/keyword_spotting_pacman.ipynb) to run this tutorial interactively in your browser\n",
 
     "\n",
 
@@ -178,7 +182,7 @@
 
     "\n",
 
-    "See the [Standard Python Package Installation](https://siliconlabs.github.io/mltk/docs/installation.html#standard-python-package) guide for more details on how to enable the `mltk` command in your local terminal.\n",
+    "See the [Standard Python Package Installation](https://sldriedler.github.io/mltk/docs/installation.html#standard-python-package) guide for more details on how to enable the `mltk` command in your local terminal.\n",
 
     "\n",
 
@@ -256,7 +260,7 @@
 
     "Run the command `mltk --help` to ensure it is working.  \n",
 
-    "__NOTE:__ The exclamation point `!` tells the Notebook to run a shell command, it is not required in a [standard terminal](https://siliconlabs.github.io/mltk/docs/installation.html#standard-python-package)"
+    "__NOTE:__ The exclamation point `!` tells the Notebook to run a shell command, it is not required in a [standard terminal](https://sldriedler.github.io/mltk/docs/installation.html#standard-python-package)"
 
    ]
 
@@ -392,7 +396,7 @@
 
     "\n",
 
-    "The pre-defined [Model Specification](../../docs/guides/model_specification.md) used by the tutorial may be found on [Github](https://github.com/SiliconLabs/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_pacman.py).\n",
+    "The pre-defined [Model Specification](../../docs/guides/model_specification.md) used by the tutorial may be found on [Github](https://github.com/sldriedler/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_pacman.py).\n",
 
     "\n",
 
@@ -418,7 +422,11 @@
 
     "\n",
 
-    "Refer to the comments in the [keyword_spotting_pacman.py](https://github.com/SiliconLabs/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_pacman.py) for more details."
+    "Refer to the comments in the [keyword_spotting_pacman.py](https://github.com/sldriedler/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_pacman.py) for more details.\n",
+
+    "\n",
+
+    "__NOTE:__ A new, more robust model is available: [keyword_spotting_pacman_v2](../../docs/python_api/models/siliconlabs/keyword_spotting_pacman_v2.md)"
 
    ]
 
@@ -452,7 +460,7 @@
 
     "- [Model Profiler](../../docs/guides/model_profiler.md) - This allows for profiling the model on the embedded device and determining the inference latency __before__ fully training the model\n",
 
-    "- [Audio Visualizer Utility](https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html#audio-visualizer-utility) - This allows for visualizing the generated spectrograms in real-time"
+    "- [Audio Visualizer Utility](https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html#audio-visualizer-utility) - This allows for visualizing the generated spectrograms in real-time"
 
    ]
 
@@ -588,7 +596,7 @@
 
     "\n",
 
-    "These values were found experimentally using the [Audio Visualizer Utility](https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html#audio-visualizer-utility).\n",
+    "These values were found experimentally using the [Audio Visualizer Utility](https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html#audio-visualizer-utility).\n",
 
     "\n",
 
@@ -836,7 +844,7 @@
 
     "\n",
 
-    "After recording, a custom callback was added to the [model specification](https://github.com/SiliconLabs/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_pacman.py) file:"
+    "After recording, a custom callback was added to the [model specification](https://github.com/sldriedler/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_pacman.py) file:"
 
    ]
 
@@ -868,7 +876,7 @@
 
     "    \"\"\"This slightly modified from the standard function that comes with the MLTK:\n",
 
-    "    https://github.com/siliconlabs/mltk/blob/master/mltk/core/preprocess/audio/parallel_generator/iterator.py#L241\n",
+    "    https://github.com/sldriedler/mltk/blob/master/mltk/core/preprocess/audio/parallel_generator/iterator.py#L241\n",
 
     "    \n",
 
@@ -1162,7 +1170,7 @@
 
     "\n",
 
-    "Once the [model specification](https://github.com/SiliconLabs/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_pacman.py) is ready, it can be [trained](../../docs/guides/model_training.md) with the command:"
+    "Once the [model specification](https://github.com/sldriedler/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_pacman.py) is ready, it can be [trained](../../docs/guides/model_training.md) with the command:"
 
    ]
 
@@ -1214,7 +1222,7 @@
 
    "source": [
 
-    "After training completes, a [model archive](https://github.com/SiliconLabs/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_pacman.mltk.zip) file is generated containing the quantized `.tflite` model file. This is the file that is built into the firmware application."
+    "After training completes, a [model archive](https://github.com/sldriedler/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_pacman.mltk.zip) file is generated containing the quantized `.tflite` model file. This is the file that is built into the firmware application."
 
    ]
 
@@ -1236,7 +1244,7 @@
 
     "\n",
 
-    "The application uses the [Audio Feature Generator](https://siliconlabs.github.io/mltk/docs/audio/audio_feature_generator.html#gecko-sdk-component) library to generate spectrograms from the streaming microphone audio.\n",
+    "The application uses the [Audio Feature Generator](https://sldriedler.github.io/mltk/docs/audio/audio_feature_generator.html#gecko-sdk-component) library to generate spectrograms from the streaming microphone audio.\n",
 
     "The spectrograms are then passed to the [Tensorflow-Lite Micro](https://github.com/tensorflow/tflite-micro) inference engine which uses the trained model from above to make predictions on if a keyword is found in the spectrogram.\n",
 
@@ -1258,7 +1266,7 @@
 
     "\n",
 
-    "A [Pac-Man Webpage](https://github.com/SiliconLabs/mltk/blob/master/cpp/shared/apps/ble_audio_classifier/web/pacman) is available that allows for playing the game \"Pac-Man\" using\n",
+    "A [Pac-Man Webpage](https://github.com/sldriedler/mltk/blob/master/cpp/shared/apps/ble_audio_classifier/web/pacman) is available that allows for playing the game \"Pac-Man\" using\n",
 
     "the keywords detected by the firmware application described above.\n",
 
@@ -1362,7 +1370,7 @@
 
     "\n",
 
-    "To run the webpage locally, simply open [index.html](https://github.com/SiliconLabs/mltk/blob/master/cpp/shared/apps/ble_audio_classifier/web/pacman/index.html) in your web browser (NOTE: double-click the __locally cloned__ `index.html` on your PC, not the one on Github).\n",
+    "To run the webpage locally, simply open [index.html](https://github.com/sldriedler/mltk/blob/master/cpp/shared/apps/ble_audio_classifier/web/pacman/index.html) in your web browser (NOTE: double-click the __locally cloned__ `index.html` on your PC, not the one on Github).\n",
 
     "\n",
 

@@ -58,7 +58,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>binary_classification &#8212; MLTK 0.10.0 documentation</title>
+    <title>binary_classification &#8212; MLTK 0.14.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/mystnb.css" />
@@ -79,6 +79,7 @@
     <script src="../../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../../_static/js/custom.js"></script>
+    <script src="../../../../_static/js/apitoc.js"></script>
     <link rel="shortcut icon" href="../../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
@@ -107,11 +108,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../../../index.html" title="MLTK 0.10.0 documentation"
+        <a href="../../../../index.html" title="MLTK 0.14.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../../../_static/logo.png"
-                   alt="MLTK 0.10.0 documentation logo">
+                   alt="MLTK 0.14.0 documentation logo">
           
         </a>
       </div>
@@ -156,7 +157,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -203,16 +204,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../../../index.html" title="MLTK 0.10.0 documentation" class="md-nav__button md-logo">
+    <a href="../../../../index.html" title="MLTK 0.14.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../../index.html"
-       title="MLTK 0.10.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.14.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -445,7 +446,7 @@
                 
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#docs-python-api-models-examples-binary-classification--page-root" class="md-nav__link">binary_classification</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#commands" class="md-nav__link">Commands</a>
@@ -456,11 +457,7 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../../../_sources/docs/python_api/models/examples/binary_classification.md.txt">Show Source</a> </li>
-
-<li id="searchbox" class="md-nav__item"></li>
-
+      <script type="text/javascript" src=../../../../_static/js/apitoc.js></script>
   </ul>
 </nav>
               </div>
@@ -474,8 +471,10 @@
             <ul class="breadcrumb">
               <li></li>
               <li><a href="../../../../index.html"><i class="md-icon">home</i></a></li>
-                <li class="active"><a href="../index.html" >Reference Models</a></li>
-                <li class="active"><a href="index.html" accesskey="U">Example Models</a></li>
+                <li><a href="../index.html" >Reference Models</a></li>
+                <li><a href="index.html" accesskey="U">Example Models</a></li>
+
+              <li class="activate"><a>binary_classification</a></li>
             </ul>
           </div>
           
@@ -485,7 +484,7 @@
   <span class="target" id="module-mltk.models.examples.binary_classification"></span><section id="binary-classification">
 <h1 id="docs-python-api-models-examples-binary-classification--page-root">binary_classification<a class="headerlink" href="#docs-python-api-models-examples-binary-classification--page-root" title="Permalink to this headline">¶</a></h1>
 <p>Binary classification (ResNetv1-10 with CIFAR10)</p>
-<p>Source code: <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/examples/binary_classification.py">binary_classification.py</a></p>
+<p>Source code: <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/examples/binary_classification.py">binary_classification.py</a></p>
 <p>This demonstrates how to classify two images:</p>
 <ul class="simple">
 <li><p>Cat</p></li>
@@ -504,72 +503,75 @@
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dump some of samples generated by this model</span>
 <span class="c1"># using a custom command defined at this bottom</span>
 <span class="c1"># of this model specification file</span>
-mltk custom binary_classification datagen_dump
+mltk<span class="w"> </span>custom<span class="w"> </span>binary_classification<span class="w"> </span>datagen_dump
 
 <span class="c1"># Do a "dry run" test training of the model</span>
-mltk train binary_classification-test
+mltk<span class="w"> </span>train<span class="w"> </span>binary_classification-test
 
 <span class="c1"># Train the model</span>
-mltk train binary_classification
+mltk<span class="w"> </span>train<span class="w"> </span>binary_classification
 
 <span class="c1"># Evaluate the trained model .tflite model</span>
-mltk evaluate binary_classification --tflite
+mltk<span class="w"> </span>evaluate<span class="w"> </span>binary_classification<span class="w"> </span>--tflite
 
 <span class="c1"># Profile the model in the MVP hardware accelerator simulator</span>
-mltk profile binary_classification --accelerator MVP
+mltk<span class="w"> </span>profile<span class="w"> </span>binary_classification<span class="w"> </span>--accelerator<span class="w"> </span>MVP
 
 <span class="c1"># Profile the model on a physical development board</span>
-mltk profile binary_classification --accelerator MVP --device
+mltk<span class="w"> </span>profile<span class="w"> </span>binary_classification<span class="w"> </span>--accelerator<span class="w"> </span>MVP<span class="w"> </span>--device
+
+<span class="c1"># Directly invoke the model script</span>
+python<span class="w"> </span>binary_classification.py
 </pre></div>
 </div>
 </section>
 <section id="model-summary">
 <h2 id="model-summary">Model Summary<a class="headerlink" href="#model-summary" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk summarize binary_classification --tflite
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk<span class="w"> </span>summarize<span class="w"> </span>binary_classification<span class="w"> </span>--tflite
 
 +-------+-----------------+-----------------+-----------------+-----------------------------------------------------+
-<span class="p">|</span> Index <span class="p">|</span> OpCode          <span class="p">|</span> Input<span class="o">(</span>s<span class="o">)</span>        <span class="p">|</span> Output<span class="o">(</span>s<span class="o">)</span>       <span class="p">|</span> Config                                              <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span>Index<span class="w"> </span><span class="p">|</span><span class="w"> </span>OpCode<span class="w">          </span><span class="p">|</span><span class="w"> </span>Input<span class="o">(</span>s<span class="o">)</span><span class="w">        </span><span class="p">|</span><span class="w"> </span>Output<span class="o">(</span>s<span class="o">)</span><span class="w">       </span><span class="p">|</span><span class="w"> </span>Config<span class="w">                                              </span><span class="p">|</span>
 +-------+-----------------+-----------------+-----------------+-----------------------------------------------------+
-<span class="p">|</span> <span class="m">0</span>     <span class="p">|</span> conv_2d         <span class="p">|</span> 32x32x3 <span class="o">(</span>int8<span class="o">)</span>  <span class="p">|</span> 30x30x32 <span class="o">(</span>int8<span class="o">)</span> <span class="p">|</span> Padding:valid stride:1x1 activation:relu            <span class="p">|</span>
-<span class="p">|</span>       <span class="p">|</span>                 <span class="p">|</span> 3x3x3 <span class="o">(</span>int8<span class="o">)</span>    <span class="p">|</span>                 <span class="p">|</span>                                                     <span class="p">|</span>
-<span class="p">|</span>       <span class="p">|</span>                 <span class="p">|</span> <span class="m">32</span> <span class="o">(</span>int32<span class="o">)</span>      <span class="p">|</span>                 <span class="p">|</span>                                                     <span class="p">|</span>
-<span class="p">|</span> <span class="m">1</span>     <span class="p">|</span> max_pool_2d     <span class="p">|</span> 30x30x32 <span class="o">(</span>int8<span class="o">)</span> <span class="p">|</span> 15x15x32 <span class="o">(</span>int8<span class="o">)</span> <span class="p">|</span> Padding:valid stride:2x2 filter:2x2 activation:none <span class="p">|</span>
-<span class="p">|</span> <span class="m">2</span>     <span class="p">|</span> conv_2d         <span class="p">|</span> 15x15x32 <span class="o">(</span>int8<span class="o">)</span> <span class="p">|</span> 13x13x32 <span class="o">(</span>int8<span class="o">)</span> <span class="p">|</span> Padding:valid stride:1x1 activation:relu            <span class="p">|</span>
-<span class="p">|</span>       <span class="p">|</span>                 <span class="p">|</span> 3x3x32 <span class="o">(</span>int8<span class="o">)</span>   <span class="p">|</span>                 <span class="p">|</span>                                                     <span class="p">|</span>
-<span class="p">|</span>       <span class="p">|</span>                 <span class="p">|</span> <span class="m">32</span> <span class="o">(</span>int32<span class="o">)</span>      <span class="p">|</span>                 <span class="p">|</span>                                                     <span class="p">|</span>
-<span class="p">|</span> <span class="m">3</span>     <span class="p">|</span> max_pool_2d     <span class="p">|</span> 13x13x32 <span class="o">(</span>int8<span class="o">)</span> <span class="p">|</span> 6x6x32 <span class="o">(</span>int8<span class="o">)</span>   <span class="p">|</span> Padding:valid stride:2x2 filter:2x2 activation:none <span class="p">|</span>
-<span class="p">|</span> <span class="m">4</span>     <span class="p">|</span> conv_2d         <span class="p">|</span> 6x6x32 <span class="o">(</span>int8<span class="o">)</span>   <span class="p">|</span> 4x4x64 <span class="o">(</span>int8<span class="o">)</span>   <span class="p">|</span> Padding:valid stride:1x1 activation:relu            <span class="p">|</span>
-<span class="p">|</span>       <span class="p">|</span>                 <span class="p">|</span> 3x3x32 <span class="o">(</span>int8<span class="o">)</span>   <span class="p">|</span>                 <span class="p">|</span>                                                     <span class="p">|</span>
-<span class="p">|</span>       <span class="p">|</span>                 <span class="p">|</span> <span class="m">64</span> <span class="o">(</span>int32<span class="o">)</span>      <span class="p">|</span>                 <span class="p">|</span>                                                     <span class="p">|</span>
-<span class="p">|</span> <span class="m">5</span>     <span class="p">|</span> max_pool_2d     <span class="p">|</span> 4x4x64 <span class="o">(</span>int8<span class="o">)</span>   <span class="p">|</span> 2x2x64 <span class="o">(</span>int8<span class="o">)</span>   <span class="p">|</span> Padding:valid stride:2x2 filter:2x2 activation:none <span class="p">|</span>
-<span class="p">|</span> <span class="m">6</span>     <span class="p">|</span> reshape         <span class="p">|</span> 2x2x64 <span class="o">(</span>int8<span class="o">)</span>   <span class="p">|</span> <span class="m">256</span> <span class="o">(</span>int8<span class="o">)</span>      <span class="p">|</span> <span class="nv">BuiltinOptionsType</span><span class="o">=</span><span class="m">0</span>                                <span class="p">|</span>
-<span class="p">|</span>       <span class="p">|</span>                 <span class="p">|</span> <span class="m">2</span> <span class="o">(</span>int32<span class="o">)</span>       <span class="p">|</span>                 <span class="p">|</span>                                                     <span class="p">|</span>
-<span class="p">|</span> <span class="m">7</span>     <span class="p">|</span> fully_connected <span class="p">|</span> <span class="m">256</span> <span class="o">(</span>int8<span class="o">)</span>      <span class="p">|</span> <span class="m">64</span> <span class="o">(</span>int8<span class="o">)</span>       <span class="p">|</span> Activation:relu                                     <span class="p">|</span>
-<span class="p">|</span>       <span class="p">|</span>                 <span class="p">|</span> <span class="m">256</span> <span class="o">(</span>int8<span class="o">)</span>      <span class="p">|</span>                 <span class="p">|</span>                                                     <span class="p">|</span>
-<span class="p">|</span>       <span class="p">|</span>                 <span class="p">|</span> <span class="m">64</span> <span class="o">(</span>int32<span class="o">)</span>      <span class="p">|</span>                 <span class="p">|</span>                                                     <span class="p">|</span>
-<span class="p">|</span> <span class="m">8</span>     <span class="p">|</span> fully_connected <span class="p">|</span> <span class="m">64</span> <span class="o">(</span>int8<span class="o">)</span>       <span class="p">|</span> <span class="m">1</span> <span class="o">(</span>int8<span class="o">)</span>        <span class="p">|</span> Activation:none                                     <span class="p">|</span>
-<span class="p">|</span>       <span class="p">|</span>                 <span class="p">|</span> <span class="m">64</span> <span class="o">(</span>int8<span class="o">)</span>       <span class="p">|</span>                 <span class="p">|</span>                                                     <span class="p">|</span>
-<span class="p">|</span>       <span class="p">|</span>                 <span class="p">|</span> <span class="m">1</span> <span class="o">(</span>int32<span class="o">)</span>       <span class="p">|</span>                 <span class="p">|</span>                                                     <span class="p">|</span>
-<span class="p">|</span> <span class="m">9</span>     <span class="p">|</span> logistic        <span class="p">|</span> <span class="m">1</span> <span class="o">(</span>int8<span class="o">)</span>        <span class="p">|</span> <span class="m">1</span> <span class="o">(</span>int8<span class="o">)</span>        <span class="p">|</span> <span class="nv">BuiltinOptionsType</span><span class="o">=</span><span class="m">0</span>                                <span class="p">|</span>
+<span class="p">|</span><span class="w"> </span><span class="m">0</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>conv_2d<span class="w">         </span><span class="p">|</span><span class="w"> </span>32x32x3<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">  </span><span class="p">|</span><span class="w"> </span>30x30x32<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>Padding:valid<span class="w"> </span>stride:1x1<span class="w"> </span>activation:relu<span class="w">            </span><span class="p">|</span>
+<span class="p">|</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w"> </span>3x3x3<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">    </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w">                                                     </span><span class="p">|</span>
+<span class="p">|</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w"> </span><span class="m">32</span><span class="w"> </span><span class="o">(</span>int32<span class="o">)</span><span class="w">      </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w">                                                     </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span><span class="m">1</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>max_pool_2d<span class="w">     </span><span class="p">|</span><span class="w"> </span>30x30x32<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>15x15x32<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>Padding:valid<span class="w"> </span>stride:2x2<span class="w"> </span>filter:2x2<span class="w"> </span>activation:none<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span><span class="m">2</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>conv_2d<span class="w">         </span><span class="p">|</span><span class="w"> </span>15x15x32<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>13x13x32<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>Padding:valid<span class="w"> </span>stride:1x1<span class="w"> </span>activation:relu<span class="w">            </span><span class="p">|</span>
+<span class="p">|</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w"> </span>3x3x32<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">   </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w">                                                     </span><span class="p">|</span>
+<span class="p">|</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w"> </span><span class="m">32</span><span class="w"> </span><span class="o">(</span>int32<span class="o">)</span><span class="w">      </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w">                                                     </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span><span class="m">3</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>max_pool_2d<span class="w">     </span><span class="p">|</span><span class="w"> </span>13x13x32<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>6x6x32<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">   </span><span class="p">|</span><span class="w"> </span>Padding:valid<span class="w"> </span>stride:2x2<span class="w"> </span>filter:2x2<span class="w"> </span>activation:none<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span><span class="m">4</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>conv_2d<span class="w">         </span><span class="p">|</span><span class="w"> </span>6x6x32<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">   </span><span class="p">|</span><span class="w"> </span>4x4x64<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">   </span><span class="p">|</span><span class="w"> </span>Padding:valid<span class="w"> </span>stride:1x1<span class="w"> </span>activation:relu<span class="w">            </span><span class="p">|</span>
+<span class="p">|</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w"> </span>3x3x32<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">   </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w">                                                     </span><span class="p">|</span>
+<span class="p">|</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w"> </span><span class="m">64</span><span class="w"> </span><span class="o">(</span>int32<span class="o">)</span><span class="w">      </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w">                                                     </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span><span class="m">5</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>max_pool_2d<span class="w">     </span><span class="p">|</span><span class="w"> </span>4x4x64<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">   </span><span class="p">|</span><span class="w"> </span>2x2x64<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">   </span><span class="p">|</span><span class="w"> </span>Padding:valid<span class="w"> </span>stride:2x2<span class="w"> </span>filter:2x2<span class="w"> </span>activation:none<span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span><span class="m">6</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>reshape<span class="w">         </span><span class="p">|</span><span class="w"> </span>2x2x64<span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="m">256</span><span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">      </span><span class="p">|</span><span class="w"> </span><span class="nv">BuiltinOptionsType</span><span class="o">=</span><span class="m">0</span><span class="w">                                </span><span class="p">|</span>
+<span class="p">|</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">(</span>int32<span class="o">)</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w">                                                     </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span><span class="m">7</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>fully_connected<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">256</span><span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">      </span><span class="p">|</span><span class="w"> </span><span class="m">64</span><span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">       </span><span class="p">|</span><span class="w"> </span>Activation:relu<span class="w">                                     </span><span class="p">|</span>
+<span class="p">|</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w"> </span><span class="m">256</span><span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">      </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w">                                                     </span><span class="p">|</span>
+<span class="p">|</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w"> </span><span class="m">64</span><span class="w"> </span><span class="o">(</span>int32<span class="o">)</span><span class="w">      </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w">                                                     </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span><span class="m">8</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>fully_connected<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">64</span><span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">       </span><span class="p">|</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">        </span><span class="p">|</span><span class="w"> </span>Activation:none<span class="w">                                     </span><span class="p">|</span>
+<span class="p">|</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w"> </span><span class="m">64</span><span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w">                                                     </span><span class="p">|</span>
+<span class="p">|</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>int32<span class="o">)</span><span class="w">       </span><span class="p">|</span><span class="w">                 </span><span class="p">|</span><span class="w">                                                     </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span><span class="m">9</span><span class="w">     </span><span class="p">|</span><span class="w"> </span>logistic<span class="w">        </span><span class="p">|</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">        </span><span class="p">|</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>int8<span class="o">)</span><span class="w">        </span><span class="p">|</span><span class="w"> </span><span class="nv">BuiltinOptionsType</span><span class="o">=</span><span class="m">0</span><span class="w">                                </span><span class="p">|</span>
 +-------+-----------------+-----------------+-----------------+-----------------------------------------------------+
-Total MACs: <span class="m">2</span>.646 M
-Total OPs: <span class="m">5</span>.363 M
-Name: binary_classification
-Version: <span class="m">1</span>
-Description: Example: Binary classification - ResNetv1-10 with CIFAR10
-Classes: cat, dog
-hash: de33dd53e0afb91a365fd2fff0e4c461
-date: <span class="m">2022</span>-02-11T17:32:37.986Z
-runtime_memory_size: <span class="m">38740</span>
-samplewise_norm.rescale: <span class="m">0</span>.0
-samplewise_norm.mean_and_std: False
-.tflite file size: <span class="m">53</span>.8kB
+Total<span class="w"> </span>MACs:<span class="w"> </span><span class="m">2</span>.646<span class="w"> </span>M
+Total<span class="w"> </span>OPs:<span class="w"> </span><span class="m">5</span>.363<span class="w"> </span>M
+Name:<span class="w"> </span>binary_classification
+Version:<span class="w"> </span><span class="m">1</span>
+Description:<span class="w"> </span>Example:<span class="w"> </span>Binary<span class="w"> </span>classification<span class="w"> </span>-<span class="w"> </span>ResNetv1-10<span class="w"> </span>with<span class="w"> </span>CIFAR10
+Classes:<span class="w"> </span>cat,<span class="w"> </span>dog
+hash:<span class="w"> </span>de33dd53e0afb91a365fd2fff0e4c461
+date:<span class="w"> </span><span class="m">2022</span>-02-11T17:32:37.986Z
+runtime_memory_size:<span class="w"> </span><span class="m">38740</span>
+samplewise_norm.rescale:<span class="w"> </span><span class="m">0</span>.0
+samplewise_norm.mean_and_std:<span class="w"> </span>False
+.tflite<span class="w"> </span>file<span class="w"> </span>size:<span class="w"> </span><span class="m">53</span>.8kB
 </pre></div>
 </div>
 </section>
 <section id="model-diagram">
 <h2 id="model-diagram">Model Diagram<a class="headerlink" href="#model-diagram" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk view binary_classification --tflite
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk<span class="w"> </span>view<span class="w"> </span>binary_classification<span class="w"> </span>--tflite
 </pre></div>
 </div>
 <div class="model-diagram">
@@ -584,6 +586,7 @@ samplewise_norm.mean_and_std: False
           </article>
         </div>
       </div>
+      <a href="#" class="go-top"><i class="md-icon">arrow_upward</i>Back to Top</a>
     </main>
   </div>
   <footer class="md-footer">
@@ -627,7 +630,7 @@ samplewise_norm.mean_and_std: False
               
           </div>
             Last updated on
-              Aug 22, 2022.
+              Jan 06, 2023.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -647,16 +650,16 @@ samplewise_norm.mean_and_std: False
   <div class="privacy-banner">
     <div class="privacy-banner-wrapper">
       <p>
-        <b>Important:</b> This site uses cookies to improve user experience and stores information on your computer. 
-        By continuing to use our site, you consent to our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>. 
-        If you do not want to enable cookies, review our policy and learn how they can be disabled. Note that disabling cookies will disable some features of the site.
+        <b>Important:</b> We use cookies only for functional and traffic analytics. <br />
+        We DO NOT use cookies for any marketing purposes. By using our site you acknowledge you have read and understood our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>.
       </p>
-      <a class="privacy-banner-accept" href="#">Accept</a>
+      <a class="privacy-banner-accept" href="#">Got it</a>
     </div>
 </div>
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
+    <div class="msg">Please click the <b>submit</b> button at the end even if you do not answer all of the questions</div>
     <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   

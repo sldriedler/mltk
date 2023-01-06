@@ -58,7 +58,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>Common Model Architectures &#8212; MLTK 0.10.0 documentation</title>
+    <title>Common Model Architectures &#8212; MLTK 0.14.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -79,6 +79,7 @@
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/js/custom.js"></script>
+    <script src="../../../_static/js/apitoc.js"></script>
     <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -107,11 +108,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../../index.html" title="MLTK 0.10.0 documentation"
+        <a href="../../../index.html" title="MLTK 0.14.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../../_static/logo.png"
-                   alt="MLTK 0.10.0 documentation logo">
+                   alt="MLTK 0.14.0 documentation logo">
           
         </a>
       </div>
@@ -156,7 +157,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -202,16 +203,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../../index.html" title="MLTK 0.10.0 documentation" class="md-nav__button md-logo">
+    <a href="../../../index.html" title="MLTK 0.14.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../../index.html"
-       title="MLTK 0.10.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.14.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -339,7 +340,7 @@
         
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#docs-python-api-models-common-models--page-root" class="md-nav__link">Common Model Architectures</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#arm-depthwiseconv2d" class="md-nav__link">ARM DepthwiseConv2D</a>
@@ -351,12 +352,12 @@
         <li class="md-nav__item"><a href="#mobilenet-v2" class="md-nav__link">MobileNet v2</a>
         </li>
         <li class="md-nav__item"><a href="#resnetv1-10" class="md-nav__link">ResNetv1-10</a>
+        </li>
+        <li class="md-nav__item"><a href="#tenet" class="md-nav__link">TENet</a>
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../../_sources/docs/python_api/models/common_models.md.txt">Show Source</a> </li>
-
+      <script type="text/javascript" src=../../../_static/js/apitoc.js></script>
   </ul>
 </nav>
       
@@ -471,7 +472,7 @@
                 
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#docs-python-api-models-common-models--page-root" class="md-nav__link">Common Model Architectures</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#arm-depthwiseconv2d" class="md-nav__link">ARM DepthwiseConv2D</a>
@@ -483,14 +484,12 @@
         <li class="md-nav__item"><a href="#mobilenet-v2" class="md-nav__link">MobileNet v2</a>
         </li>
         <li class="md-nav__item"><a href="#resnetv1-10" class="md-nav__link">ResNetv1-10</a>
+        </li>
+        <li class="md-nav__item"><a href="#tenet" class="md-nav__link">TENet</a>
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../../_sources/docs/python_api/models/common_models.md.txt">Show Source</a> </li>
-
-<li id="searchbox" class="md-nav__item"></li>
-
+      <script type="text/javascript" src=../../../_static/js/apitoc.js></script>
   </ul>
 </nav>
               </div>
@@ -504,7 +503,9 @@
             <ul class="breadcrumb">
               <li></li>
               <li><a href="../../../index.html"><i class="md-icon">home</i></a></li>
-                <li class="active"><a href="index.html" accesskey="U">Reference Models</a></li>
+                <li><a href="index.html" accesskey="U">Reference Models</a></li>
+
+              <li class="activate"><a>Common Model Architectures</a></li>
             </ul>
           </div>
           
@@ -515,6 +516,7 @@
 <h1 id="docs-python-api-models-common-models--page-root">Common Model Architectures<a class="headerlink" href="#docs-python-api-models-common-models--page-root" title="Permalink to this headline">¶</a></h1>
 <p>The follow are common model “architectures”. i.e. They are generic, non-application-specific
 models that may be applied to a variety of ML problems.</p>
+<p><strong>NOTE:</strong> You may find additional model architectures at <a class="reference external" href="https://www.tensorflow.org/api_docs/python/tf/keras/applications">tf.keras.applications</a></p>
 <section id="arm-depthwiseconv2d">
 <h2 id="arm-depthwiseconv2d">ARM DepthwiseConv2D<a class="headerlink" href="#arm-depthwiseconv2d" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
@@ -696,12 +698,52 @@ this value must be decreased  (&lt; 1024) to be fully optimized by the MVP harda
 </dl>
 </dd></dl>
 </section>
+<section id="tenet">
+<h2 id="tenet">TENet<a class="headerlink" href="#tenet" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="mltk.models.shared.tenet.TENet">
+<span class="sig-prename descclassname"><span class="pre">mltk.models.shared.tenet.</span></span><span class="sig-name descname"><span class="pre">TENet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">input_shape</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blocks</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[9]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_increase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/mltk/models/shared/tenet.html#TENet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#mltk.models.shared.tenet.TENet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Temporal efficient neural network (TENet)</p>
+<p>A network for processing spectrogram data using temporal and depthwise convolutions.
+The network treats the [T, F] spectrogram as a timeseries shaped [T, 1, F].</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When building the model, make sure that the input shape is concrete,
+i.e. explicitly reshape the samples to [T, 1, F] in the preprocessing pipeline.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://arxiv.org/pdf/2010.09960.pdf">https://arxiv.org/pdf/2010.09960.pdf</a></p></li>
+</ul>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>classes</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of classes the network is built to categorize</p></li>
+<li><p><strong>channels</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Base number of channels in the network</p></li>
+<li><p><strong>blocks</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of (StridedIBB -&gt; IBB -&gt; …) blocks in the networks</p></li>
+<li><p><strong>block_depth</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Number of IBBs inside each (StridedIBB -&gt; IBB -&gt; …) block, including the strided IBB</p></li>
+<li><p><strong>scales</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – The multitemporal convolution filter widths. Should be odd numbers &gt;= 3.</p></li>
+<li><p><strong>channel_increase</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – If nonzero, the network increases the channel size each time there is a strided IBB block.
+The increase (each time) is given by <cite>channels * channel_increase</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+</dd>
+</dl>
+</dd></dl>
+</section>
 </section>
 
 
           </article>
         </div>
       </div>
+      <a href="#" class="go-top"><i class="md-icon">arrow_upward</i>Back to Top</a>
     </main>
   </div>
   <footer class="md-footer">
@@ -745,7 +787,7 @@ this value must be decreased  (&lt; 1024) to be fully optimized by the MVP harda
               
           </div>
             Last updated on
-              Aug 22, 2022.
+              Jan 06, 2023.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -765,16 +807,16 @@ this value must be decreased  (&lt; 1024) to be fully optimized by the MVP harda
   <div class="privacy-banner">
     <div class="privacy-banner-wrapper">
       <p>
-        <b>Important:</b> This site uses cookies to improve user experience and stores information on your computer. 
-        By continuing to use our site, you consent to our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>. 
-        If you do not want to enable cookies, review our policy and learn how they can be disabled. Note that disabling cookies will disable some features of the site.
+        <b>Important:</b> We use cookies only for functional and traffic analytics. <br />
+        We DO NOT use cookies for any marketing purposes. By using our site you acknowledge you have read and understood our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>.
       </p>
-      <a class="privacy-banner-accept" href="#">Accept</a>
+      <a class="privacy-banner-accept" href="#">Got it</a>
     </div>
 </div>
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
+    <div class="msg">Please click the <b>submit</b> button at the end even if you do not answer all of the questions</div>
     <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   

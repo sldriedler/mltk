@@ -1,5 +1,8 @@
+"""Utilities for extracting archives
 
-import os 
+See the source code on Github: `mltk/utils/archive.py <https://github.com/siliconlabs/mltk/blob/master/mltk/utils/archive.py>`_
+"""
+import os
 import re
 import tarfile
 import gzip
@@ -18,14 +21,14 @@ from . import path
 
 
 def extract_archive(
-    archive_path:str, 
-    dest_dir:str, 
-    extract_nested:bool=False, 
+    archive_path:str,
+    dest_dir:str,
+    extract_nested:bool=False,
     remove_root_dir:bool=False,
     clean_dest_dir:Union[bool,Callable]=True
 ):
     """Extract the given archive file to the specified directory
-    
+
     Args:
         archive_path: Path to archive file
         dest_dir: Path to directory where archive will be extracted
@@ -42,21 +45,21 @@ def extract_archive(
     try:
         if extract_nested or remove_root_dir:
             _extractnested_archive(
-                archive_path, 
-                dest_dir, 
+                archive_path,
+                dest_dir,
                 extract_nested=extract_nested,
                 remove_root_dir=remove_root_dir
             )
-        
+
         elif archive_path.endswith('.zip'):
             _extractall_zipfile(archive_path, dest_dir)
-        
+
         elif archive_path.endswith('.tar.gz'):
             _extractall_tarfile(archive_path, dest_dir)
 
         elif archive_path.endswith('.gz'):
             _extractall_gzfile(archive_path, dest_dir)
-        
+
         else:
             _extractall_patool(archive_path, dest_dir)
     except Exception as e:
@@ -67,7 +70,7 @@ def extract_archive(
 
 def gzip_file(src_path : str, dst_path: str=None) -> str:
     """GZip file and return path to gzip archive
-    
+
     Args:
         src_path: Path to local file to gzip
         dst_path: Optional path to destination gzip file. If omitted then use src_path + .gz
@@ -77,7 +80,7 @@ def gzip_file(src_path : str, dst_path: str=None) -> str:
     """
     if not dst_path:
         dst_path = src_path + '.gz'
-    
+
     with open(src_path, 'rb') as src:
         with gzip.open(dst_path, 'wb') as dst:
             shutil.copyfileobj(src, dst)
@@ -88,10 +91,10 @@ def gzip_file(src_path : str, dst_path: str=None) -> str:
 
 def gzip_directory_files(
     src_dir:str,
-    dst_archive:str = None, 
+    dst_archive:str = None,
     regex:Union[str,re.Pattern,Callable[[str],bool]]=None,
 ) -> str:
-    """Recursively gzip all files in given directory. 
+    """Recursively gzip all files in given directory.
     The generated .tar.gz contains the same directory structure as the src_dir.
 
     Args:
@@ -116,7 +119,7 @@ def gzip_directory_files(
         else:
             regex_func = regex
     else:
-        regex_func = lambda p: True 
+        regex_func = lambda p: True
 
     with tarfile.open(dst_archive, 'w:gz') as dst:
         for root, _, files in os.walk(src_dir):
@@ -139,7 +142,7 @@ def _extractall_patool(archive_path, output_dir, patool_path=None):
 
     os.makedirs(output_dir, exist_ok=True)
 
-    # Override the default tar command 
+    # Override the default tar command
     # so we can add the option: --force-local
     # This allows for running on Windows
     patoolib.programs.tar.extract_tar = _extract_tar
@@ -149,8 +152,8 @@ def _extractall_patool(archive_path, output_dir, patool_path=None):
     except patoolib.util.PatoolError as e:
         prepend_exception_msg(e, f'Failed to extract archive: {archive_path} to {output_dir}')
         if archive_path.endswith('.gz'):
-            raise 
-        
+            raise
+
         # This is extremely hacky but works sometimes...
         # If extraction failed, try changing the extension gz and run again
         old = archive_path
@@ -205,7 +208,7 @@ def _extractall_tarfile(archive_path, output_dir):
 
 
 def _extractnested_archive(
-    archive_path:str, 
+    archive_path:str,
     output_dir:str,
     extract_nested:bool,
     remove_root_dir:bool
@@ -221,7 +224,7 @@ def _extractnested_archive(
     if extract_nested:
         nested_archive_path = None
         for root, _, files in os.walk(tmp_dir):
-            if nested_archive_path is not None: 
+            if nested_archive_path is not None:
                 break
             for fn in files:
                 if fn.endswith(patoolib.ArchiveFormats + ('gz', 'bz', 'bz2')):
@@ -235,12 +238,12 @@ def _extractnested_archive(
         ext = path.extension(archive_path)
         nested_tmp_dir = tmp_dir + '/' + os.path.basename(nested_archive_path).replace(ext, '')
         extract_archive(nested_archive_path, nested_tmp_dir, clean_dest_dir=False)
-    
+
         nested_src_dir = None
         for root, _, files in os.walk(nested_tmp_dir):
             if len(files) > 0:
-                nested_src_dir = root 
-                break 
+                nested_src_dir = root
+                break
     else:
         nested_src_dir = None
         for fn in os.listdir(tmp_dir):

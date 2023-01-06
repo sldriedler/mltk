@@ -58,7 +58,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>Image Classification - Rock, Paper, Scissors &#8212; MLTK 0.10.0 documentation</title>
+    <title>Image Classification - Rock, Paper, Scissors &#8212; MLTK 0.14.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -79,11 +79,12 @@
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/js/custom.js"></script>
+    <script src="../../_static/js/apitoc.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Cloud Training with vast.ai" href="cloud_training_with_vast_ai.html" />
-    <link rel="prev" title="Keyword Spotting - Pac-Man" href="keyword_spotting_pacman.html" />
+    <link rel="prev" title="Keyword Spotting - Alexa" href="keyword_spotting_alexa.html" />
   
    
 
@@ -107,11 +108,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="MLTK 0.10.0 documentation"
+        <a href="../../index.html" title="MLTK 0.14.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../_static/logo.png"
-                   alt="MLTK 0.10.0 documentation logo">
+                   alt="MLTK 0.14.0 documentation logo">
           
         </a>
       </div>
@@ -156,7 +157,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -202,16 +203,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="MLTK 0.10.0 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="MLTK 0.14.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="MLTK 0.10.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.14.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -296,6 +297,13 @@
     <li class="md-nav__item">
     
     
+      <a href="keyword_spotting_alexa.html" class="md-nav__link">Keyword Spotting - Alexa</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     <label class="md-nav__link md-nav__link--active" for="__toc"> Image Classification - Rock, Paper, Scissors </label>
     
@@ -304,9 +312,11 @@
         
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#mltk-tutorials-image-classification--page-root" class="md-nav__link">Image Classification - Rock, Paper, Scissors</a><nav class="md-nav">
               <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#demo-video" class="md-nav__link">Demo Video</a>
+        </li>
         <li class="md-nav__item"><a href="#quick-links" class="md-nav__link">Quick Links</a>
         </li>
         <li class="md-nav__item"><a href="#overview" class="md-nav__link">Overview</a><nav class="md-nav">
@@ -421,9 +431,7 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../_sources/mltk/tutorials/image_classification.ipynb.txt">Show Source</a> </li>
-
+      <script type="text/javascript" src=../../_static/js/apitoc.js></script>
   </ul>
 </nav>
       
@@ -461,6 +469,27 @@
     
     
       <a href="onnx_to_tflite.html" class="md-nav__link">ONNX to TF-Lite Model Conversion</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="model_debugging.html" class="md-nav__link">Model Debugging</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="add_existing_script_to_mltk.html" class="md-nav__link">Add an Existing Script to the MLTK</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="synthetic_audio_dataset_generation.html" class="md-nav__link">Synthetic Audio Dataset Generation</a>
       
     
     </li></ul>
@@ -594,9 +623,11 @@
                 
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#mltk-tutorials-image-classification--page-root" class="md-nav__link">Image Classification - Rock, Paper, Scissors</a><nav class="md-nav">
               <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#demo-video" class="md-nav__link">Demo Video</a>
+        </li>
         <li class="md-nav__item"><a href="#quick-links" class="md-nav__link">Quick Links</a>
         </li>
         <li class="md-nav__item"><a href="#overview" class="md-nav__link">Overview</a><nav class="md-nav">
@@ -711,11 +742,7 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../_sources/mltk/tutorials/image_classification.ipynb.txt">Show Source</a> </li>
-
-<li id="searchbox" class="md-nav__item"></li>
-
+      <script type="text/javascript" src=../../_static/js/apitoc.js></script>
   </ul>
 </nav>
               </div>
@@ -729,7 +756,9 @@
             <ul class="breadcrumb">
               <li></li>
               <li><a href="../../index.html"><i class="md-icon">home</i></a></li>
-                <li class="active"><a href="../../docs/tutorials.html" accesskey="U">Tutorials</a></li>
+                <li><a href="../../docs/tutorials.html" accesskey="U">Tutorials</a></li>
+
+              <li class="activate"><a>Image Classification - Rock, Paper, Scissors</a></li>
             </ul>
           </div>
           
@@ -745,28 +774,19 @@
 <li><p><strong>Scissors</strong></p></li>
 <li><p><strong>Unknown</strong></p></li>
 </ul>
+<section id="demo-video">
+<h2 id="demo-video">Demo Video<a class="headerlink" href="#demo-video" title="Permalink to this headline">¶</a></h2>
+<p>The following is a video of the demo described in this tutorial:</p>
+<iframe allow="autoplay; encrypted-media;" allowfullscreen="" frameborder="0" height="500" src="https://www.youtube.com/embed/hIfGOc9ST50" width="800"></iframe></section>
 <section id="quick-links">
 <h2 id="quick-links">Quick Links<a class="headerlink" href="#quick-links" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/SiliconLabs/mltk/blob/master/mltk/tutorials/image_classification.ipynb">GitHub Source</a> - View this tutorial on Github</p></li>
-<li><p><a class="reference external" href="https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/image_classification.ipynb">Run on Colab</a> - Run this tutorial on Google Colab</p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/tutorials/image_classification.ipynb">GitHub Source</a> - View this tutorial on Github</p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/image_classification.ipynb">Run on Colab</a> - Run this tutorial on Google Colab</p></li>
 <li><p><a class="reference internal" href="cloud_training_with_vast_ai.html"><span class="doc std std-doc">Train in the “Cloud”</span></a> - <em>Vastly</em> improve training times by training this model in the “cloud”</p></li>
 <li><p><a class="reference internal" href="../../docs/cpp_development/examples/image_classifier.html"><span class="doc std std-doc">C++ Example Application</span></a> - View this tutorial’s associated C++ example application</p></li>
 <li><p><a class="reference internal" href="../../docs/python_api/models/siliconlabs/rock_paper_scissors.html"><span class="doc std std-doc">Machine Learning Model</span></a> - View this tutorial’s associated machine learning model</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.lib.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
-
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">'hIfGOc9ST50'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">'800'</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">'500'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe allowfullscreen="" frameborder="0" height="500" src="https://www.youtube.com/embed/hIfGOc9ST50" width="800"></iframe>
-</div></div>
-</div>
 </section>
 <section id="overview">
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
@@ -803,7 +823,7 @@
 The notebook can either run locally on your PC <em>or</em> on a remote server like <a class="reference external" href="https://colab.research.google.com/notebooks/welcome.ipynb">Google Colab</a>.</p>
 <ul class="simple">
 <li><p>Refer to the <a class="reference internal" href="../../docs/guides/notebook_examples_guide.html"><span class="doc std std-doc">Notebook Examples Guide</span></a> for more details</p></li>
-<li><p>Click here: <a class="reference external" href="https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/image_classification.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> to run this tutorial interactively in your browser</p></li>
+<li><p>Click here: <a class="reference external" href="https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/image_classification.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> to run this tutorial interactively in your browser</p></li>
 </ul>
 <p><strong>NOTE:</strong> Some of the following sections require this tutorial to be running locally with a supported embedded platform connected.</p>
 </section>
@@ -827,7 +847,7 @@ the recommended approach is to use your favorite text editor and standard comman
 See the <a class="reference internal" href="../../docs/installation.html"><span class="doc std std-doc">Installation Guide</span></a> for more details.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install --upgrade silabs-mltk
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>silabs-mltk
 </pre></div>
 </div>
 </div>
@@ -837,7 +857,7 @@ Run the command <code class="docutils literal notranslate"><span class="pre">mlt
 <strong>NOTE:</strong> The exclamation point <code class="docutils literal notranslate"><span class="pre">!</span></code> tells the Notebook to run a shell command, it is not required in a <a class="reference external" href="../../docs/installation.html#standard-python-package">standard terminal</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mltk --help
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mltk<span class="w"> </span>--help
 </pre></div>
 </div>
 </div>
@@ -1057,7 +1077,7 @@ The more images we add, the more “representative” the dataset becomes, which
 <p>Fortunately, the MLTK features a command that allows for recording images from the embedded device.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mltk classify_image --help
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mltk<span class="w"> </span>classify_image<span class="w"> </span>--help
 </pre></div>
 </div>
 </div>
@@ -1164,14 +1184,14 @@ Delete all images that do not clearly show your hand making the “rock” gestu
 <h2 id="creating-the-model-specification">Creating the Model Specification<a class="headerlink" href="#creating-the-model-specification" title="Permalink to this headline">¶</a></h2>
 <p>The model specification is a standard Python script containing everything needed to build, train, and evaluate a machine learning model in the MLTK.</p>
 <p>Refer to the <a class="reference internal" href="../../docs/guides/model_specification.html"><span class="doc std std-doc">Model Specification Guide</span></a> for more details about this file.</p>
-<p>The completed model specification used for this tutorial may be found on Github: <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/rock_paper_scissors.py">rock_paper_scissors.py</a>.</p>
+<p>The completed model specification used for this tutorial may be found on Github: <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/rock_paper_scissors.py">rock_paper_scissors.py</a>.</p>
 <p>The following sub-sections describe how to create this model specification from scratch.</p>
 <section id="create-the-specification-script">
 <h3 id="create-the-specification-script">Create the specification script<a class="headerlink" href="#create-the-specification-script" title="Permalink to this headline">¶</a></h3>
 <p>From your favorite text editor, create a model specification Python script file, e.g:
 <code class="docutils literal notranslate"><span class="pre">my_rock_paper_scissors.py</span></code></p>
 <p>The name of this file is the name given to the model. So all subsequent <code class="docutils literal notranslate"><span class="pre">mltk</span></code> commands will use the model name <code class="docutils literal notranslate"><span class="pre">my_rock_paper_scissors</span></code>, e.g:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk train my_rock_paper_scissors
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk<span class="w"> </span>train<span class="w"> </span>my_rock_paper_scissors
 </pre></div>
 </div>
 <p>You may use any name as long as it contains alphanumeric or underscore characters.</p>
@@ -1234,12 +1254,12 @@ Refer to the comments above each import for more details.</p>
 </div>
 </div>
 <p>This defines and instantiates a custom MltkModel object with several model “mixins”.</p>
-<p>The custom model object must inherit the <a class="reference internal" href="../../docs/python_api/core/mltk_model.html"><span class="doc std std-doc">MltkModel</span></a> object.<br/>
+<p>The custom model object must inherit the <a class="reference internal" href="../../docs/python_api/mltk_model/index.html"><span class="doc std std-doc">MltkModel</span></a> object.<br/>
 Additionally, it inherits:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../../docs/python_api/core/mltk_model.html#trainmixin"><span class="std std-doc">TrainMixin</span></a> so that we can train the model</p></li>
-<li><p><a class="reference external" href="../../docs/python_api/core/mltk_model.html#imagedatasetmixin">ImageDatasetMixin</a> so that we can train the model with the <a class="reference external" href="../../docs/python_api/data_preprocessing/image_data_generator.html">ParallelImageDataGenerator</a></p></li>
-<li><p><a class="reference internal" href="../../docs/python_api/core/mltk_model.html#evaluateclassifiermixin"><span class="std std-doc">EvaluateClassifierMixin</span></a> so that we can evaluate the trained model</p></li>
+<li><p><a class="reference internal" href="../../docs/python_api/mltk_model/train_mixin.html"><span class="doc std std-doc">TrainMixin</span></a> so that we can train the model</p></li>
+<li><p><a class="reference internal" href="../../docs/python_api/mltk_model/image_dataset_mixin.html"><span class="doc std std-doc">ImageDatasetMixin</span></a> so that we can train the model with the <a class="reference internal" href="../../docs/python_api/data_preprocessing/image_data_generator.html"><span class="doc std std-doc">ParallelImageDataGenerator</span></a></p></li>
+<li><p><a class="reference internal" href="../../docs/python_api/mltk_model/evaluate_classifier_mixin.html"><span class="doc std std-doc">EvaluateClassifierMixin</span></a> so that we can evaluate the trained model</p></li>
 </ul>
 <p>The rest of the model specification script configures the various properties of our custom model object.</p>
 </section>
@@ -1260,7 +1280,7 @@ Additionally, it inherits:</p>
 </section>
 <section id="configure-the-basic-training-settings">
 <h3 id="configure-the-basic-training-settings">Configure the basic training settings<a class="headerlink" href="#configure-the-basic-training-settings" title="Permalink to this headline">¶</a></h3>
-<p>Refer to the <a class="reference internal" href="../../docs/python_api/core/mltk_model.html#trainmixin"><span class="std std-doc">TrainMixin</span></a> for more details about each property.</p>
+<p>Refer to the <a class="reference internal" href="../../docs/python_api/mltk_model/train_mixin.html"><span class="doc std std-doc">TrainMixin</span></a> for more details about each property.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This specifies the number of times we run the training</span>
@@ -1292,7 +1312,7 @@ Additionally, it inherits:</p>
 </section>
 <section id="configure-the-training-callbacks">
 <h3 id="configure-the-training-callbacks">Configure the training callbacks<a class="headerlink" href="#configure-the-training-callbacks" title="Permalink to this headline">¶</a></h3>
-<p>Refer to the <a class="reference internal" href="../../docs/python_api/core/mltk_model.html#trainmixin"><span class="std std-doc">TrainMixin</span></a> for more details about each property.</p>
+<p>Refer to the <a class="reference internal" href="../../docs/python_api/mltk_model/train_mixin.html"><span class="doc std std-doc">TrainMixin</span></a> for more details about each property.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate checkpoints every time the validation accuracy improves</span>
@@ -1348,7 +1368,7 @@ The quantized model is what is eventually programmed to the embedded device.</p>
 <h3 id="configure-the-dataset-settings">Configure the dataset settings<a class="headerlink" href="#configure-the-dataset-settings" title="Permalink to this headline">¶</a></h3>
 <p>Next, we specify the dataset. In this tutorial we use the <a class="reference external" href="../../docs/python_api/datasets/index.html#rock-paper-scissors-v2">Rock Paper Scissors v2</a> dataset which comes as an MLTK package.</p>
 <p><strong>NOTE:</strong> While the MLTK comes with pre-defined datasets, any external dataset may also be specified.<br/>
-Refer to the <a class="reference external" href="../../docs/python_api/core/mltk_model.html#mltk.core.ImageDatasetMixin">ImageDatasetMixin.dataset</a> property for more details.</p>
+Refer to the <a class="reference internal" href="../../docs/python_api/mltk_model/image_dataset_mixin.html"><span class="doc std std-doc">ImageDatasetMixin.dataset</span></a> property for more details.</p>
 <p><strong>NOTE:</strong> While a dataset path can be hard coded, it is <em>strongly</em> recommended that the script dynamically downloads the dataset from the internet. This allows for the model training and evaluating to be reproducible. It also enables remote training on cloud services like <a class="reference external" href="https://colab.research.google.com/notebooks/welcome.ipynb">Google Colab</a> which need to download the dataset any time a virtual instance is created.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1510,7 +1530,7 @@ Once the model is trained, this option is not required.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Summarize the Keras Model</span>
 <span class="c1"># This is the non-quantized model used for training</span>
 <span class="c1"># NOTE: Running this the first time may take awhile since the dataset needs to be downloaded</span>
-<span class="o">!</span>mltk summarize rock_paper_scissors --build 
+<span class="o">!</span>mltk<span class="w"> </span>summarize<span class="w"> </span>rock_paper_scissors<span class="w"> </span>--build<span class="w"> </span>
 </pre></div>
 </div>
 </div>
@@ -1581,7 +1601,7 @@ suppression_count: 1
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Summarize the TF-Lite Model</span>
 <span class="c1"># This is the quantized model that eventually goes on the embedded device</span>
-<span class="o">!</span>mltk summarize rock_paper_scissors --tflite --build
+<span class="o">!</span>mltk<span class="w"> </span>summarize<span class="w"> </span>rock_paper_scissors<span class="w"> </span>--tflite<span class="w"> </span>--build
 </pre></div>
 </div>
 </div>
@@ -1654,13 +1674,13 @@ Refer to the <a class="reference internal" href="../../docs/guides/model_visuali
 </ul>
 <section id="visualize-keras-model">
 <h3 id="visualize-keras-model">Visualize Keras model<a class="headerlink" href="#visualize-keras-model" title="Permalink to this headline">¶</a></h3>
-<p>By default, the <code class="docutils literal notranslate"><span class="pre">view</span></code> command will visualize the <a class="reference internal" href="../../docs/python_api/core/keras_model.html"><span class="doc std std-doc">KerasModel</span></a>, the model used for training (file extension <code class="docutils literal notranslate"><span class="pre">.h5</span></code>).</p>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">view</span></code> command will visualize the <a class="reference internal" href="../../docs/python_api/keras_model.html"><span class="doc std std-doc">KerasModel</span></a>, the model used for training (file extension <code class="docutils literal notranslate"><span class="pre">.h5</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will open a new tab in your web browser</span>
 <span class="c1"># Be sure the click the 'Accept' button in the opened webpage</span>
 <span class="c1"># (you may need to re-run this command after doing so)</span>
-<span class="o">!</span>mltk view rock_paper_scissors --build
+<span class="o">!</span>mltk<span class="w"> </span>view<span class="w"> </span>rock_paper_scissors<span class="w"> </span>--build
 </pre></div>
 </div>
 </div>
@@ -1668,14 +1688,14 @@ Refer to the <a class="reference internal" href="../../docs/guides/model_visuali
 </section>
 <section id="visualize-tf-lite-model">
 <h3 id="visualize-tf-lite-model">Visualize TF-Lite model<a class="headerlink" href="#visualize-tf-lite-model" title="Permalink to this headline">¶</a></h3>
-<p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">--tflite</span></code> flag can be used to view the <a class="reference external" href="../../docs/python_api/core/tflite_model.html#mltk.core.TfliteModel">TfliteModel</a>, the quantized model that is programmed to the embedded device (file extension <code class="docutils literal notranslate"><span class="pre">.tflite</span></code>).</p>
+<p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">--tflite</span></code> flag can be used to view the <a class="reference internal" href="../../docs/python_api/tflite_model/index.html"><span class="doc std std-doc">TfliteModel</span></a>, the quantized model that is programmed to the embedded device (file extension <code class="docutils literal notranslate"><span class="pre">.tflite</span></code>).</p>
 <p>Note that the structure of the Keras and TfLite models are similar, but the TfLite model is a bit more simple. This is because the <a class="reference external" href="https://www.tensorflow.org/lite/convert">TF-Lite Converter</a> optimized the model by merging/fusing as many layers as possible.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This will open a new tab in your web browser</span>
 <span class="c1"># Be sure the click the 'Accept' button in the opened webpage</span>
 <span class="c1"># (you may need to re-run this command after doing so)</span>
-<span class="o">!</span>mltk view rock_paper_scissors --tflite --build
+<span class="o">!</span>mltk<span class="w"> </span>view<span class="w"> </span>rock_paper_scissors<span class="w"> </span>--tflite<span class="w"> </span>--build
 </pre></div>
 </div>
 </div>
@@ -1698,7 +1718,7 @@ If it’s determined that the model does not fit within the time or memory const
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mltk profile rock_paper_scissors --build --accelerator MVP
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mltk<span class="w"> </span>profile<span class="w"> </span>rock_paper_scissors<span class="w"> </span>--build<span class="w"> </span>--accelerator<span class="w"> </span>MVP
 </pre></div>
 </div>
 </div>
@@ -1770,7 +1790,7 @@ Profiling time: 16.559938 seconds
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mltk profile rock_paper_scissors --build --device --accelerator MVP
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mltk<span class="w"> </span>profile<span class="w"> </span>rock_paper_scissors<span class="w"> </span>--build<span class="w"> </span>--device<span class="w"> </span>--accelerator<span class="w"> </span>MVP
 </pre></div>
 </div>
 </div>
@@ -1890,7 +1910,7 @@ At the end of training, a <a class="reference internal" href="../../docs/guides/
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train as a dry run by appending "-test" to the model name</span>
-<span class="o">!</span>mltk train rock_paper_scissors-test
+<span class="o">!</span>mltk<span class="w"> </span>train<span class="w"> </span>rock_paper_scissors-test
 </pre></div>
 </div>
 </div>
@@ -1906,7 +1926,7 @@ Never the less, this is a very CPU intensive operation. Many times it’s best t
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Be sure to replace "rock_paper_scissors"</span>
 <span class="c1"># with the name of your model</span>
 <span class="c1"># WARNING: This command may take several hours</span>
-<span class="o">!</span>mltk train rock_paper_scissors
+<span class="o">!</span>mltk<span class="w"> </span>train<span class="w"> </span>rock_paper_scissors
 </pre></div>
 </div>
 </div>
@@ -1933,7 +1953,7 @@ Refer to the <a class="reference internal" href="../../docs/guides/model_evaluat
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run the model evaluation command</span>
-<span class="o">!</span>mltk evaluate rock_paper_scissors --tflite --show
+<span class="o">!</span>mltk<span class="w"> </span>evaluate<span class="w"> </span>rock_paper_scissors<span class="w"> </span>--tflite<span class="w"> </span>--show
 </pre></div>
 </div>
 </div>
@@ -2001,7 +2021,7 @@ You may safely skip to the next section.</p>
 <p>See the output of the command help for more details:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mltk classify_image --help
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mltk<span class="w"> </span>classify_image<span class="w"> </span>--help
 </pre></div>
 </div>
 </div>
@@ -2080,7 +2100,7 @@ Options:
 <span class="c1"># Verbosely print the inference results</span>
 <span class="c1"># Dump images to the local PC</span>
 <span class="c1"># NOTE: This command must run from a local terminal</span>
-mltk classify_image rock_paper_scissors --accelerator MVP --verbose --dump-images
+mltk<span class="w"> </span>classify_image<span class="w"> </span>rock_paper_scissors<span class="w"> </span>--accelerator<span class="w"> </span>MVP<span class="w"> </span>--verbose<span class="w"> </span>--dump-images
 </pre></div>
 </div>
 </section>
@@ -2108,13 +2128,14 @@ for how include your model into the built application.</p>
           </article>
         </div>
       </div>
+      <a href="#" class="go-top"><i class="md-icon">arrow_upward</i>Back to Top</a>
     </main>
   </div>
   <footer class="md-footer">
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="keyword_spotting_pacman.html" title="Keyword Spotting - Pac-Man"
+            <a href="keyword_spotting_alexa.html" title="Keyword Spotting - Alexa"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -2123,7 +2144,7 @@ for how include your model into the built application.</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Keyword Spotting - Pac-Man </span>
+                      class="md-footer-nav__direction"> Previous </span> Keyword Spotting - Alexa </span>
               </div>
             </a>
           
@@ -2151,7 +2172,7 @@ for how include your model into the built application.</p>
               
           </div>
             Last updated on
-              Aug 22, 2022.
+              Jan 06, 2023.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -2171,16 +2192,16 @@ for how include your model into the built application.</p>
   <div class="privacy-banner">
     <div class="privacy-banner-wrapper">
       <p>
-        <b>Important:</b> This site uses cookies to improve user experience and stores information on your computer. 
-        By continuing to use our site, you consent to our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>. 
-        If you do not want to enable cookies, review our policy and learn how they can be disabled. Note that disabling cookies will disable some features of the site.
+        <b>Important:</b> We use cookies only for functional and traffic analytics. <br />
+        We DO NOT use cookies for any marketing purposes. By using our site you acknowledge you have read and understood our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>.
       </p>
-      <a class="privacy-banner-accept" href="#">Accept</a>
+      <a class="privacy-banner-accept" href="#">Got it</a>
     </div>
 </div>
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
+    <div class="msg">Please click the <b>submit</b> button at the end even if you do not answer all of the questions</div>
     <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   

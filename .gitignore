@@ -13,10 +13,15 @@ __pycache__
 *.so
 *.a
 *.tflite
+*.h5
+*.hdf5
 *.json
 *.csv
 *.zip
 *.log
+*.wav
+*.mp3
+*.opus
 /user_options.cmake
 *.egg-info
 /.eggs

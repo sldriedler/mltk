@@ -58,7 +58,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>ONNX to TF-Lite Model Conversion &#8212; MLTK 0.10.0 documentation</title>
+    <title>ONNX to TF-Lite Model Conversion &#8212; MLTK 0.14.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -79,10 +79,11 @@
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/js/custom.js"></script>
+    <script src="../../_static/js/apitoc.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="API Examples" href="../../docs/examples.html" />
+    <link rel="next" title="Model Debugging" href="model_debugging.html" />
     <link rel="prev" title="Fingerprint Authentication" href="fingerprint_authentication.html" />
   
    
@@ -107,11 +108,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="MLTK 0.10.0 documentation"
+        <a href="../../index.html" title="MLTK 0.14.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../_static/logo.png"
-                   alt="MLTK 0.10.0 documentation logo">
+                   alt="MLTK 0.14.0 documentation logo">
           
         </a>
       </div>
@@ -156,7 +157,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -202,16 +203,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="MLTK 0.10.0 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="MLTK 0.14.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="MLTK 0.10.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.14.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -296,6 +297,13 @@
     <li class="md-nav__item">
     
     
+      <a href="keyword_spotting_alexa.html" class="md-nav__link">Keyword Spotting - Alexa</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="image_classification.html" class="md-nav__link">Image Classification - Rock, Paper, Scissors</a>
       
     
@@ -339,7 +347,7 @@
         
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#mltk-tutorials-onnx-to-tflite--page-root" class="md-nav__link">ONNX to TF-Lite Model Conversion</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#quick-links" class="md-nav__link">Quick Links</a>
@@ -400,11 +408,30 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../_sources/mltk/tutorials/onnx_to_tflite.ipynb.txt">Show Source</a> </li>
-
+      <script type="text/javascript" src=../../_static/js/apitoc.js></script>
   </ul>
 </nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="model_debugging.html" class="md-nav__link">Model Debugging</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="add_existing_script_to_mltk.html" class="md-nav__link">Add an Existing Script to the MLTK</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="synthetic_audio_dataset_generation.html" class="md-nav__link">Synthetic Audio Dataset Generation</a>
       
     
     </li></ul>
@@ -538,7 +565,7 @@
                 
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#mltk-tutorials-onnx-to-tflite--page-root" class="md-nav__link">ONNX to TF-Lite Model Conversion</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#quick-links" class="md-nav__link">Quick Links</a>
@@ -599,11 +626,7 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../_sources/mltk/tutorials/onnx_to_tflite.ipynb.txt">Show Source</a> </li>
-
-<li id="searchbox" class="md-nav__item"></li>
-
+      <script type="text/javascript" src=../../_static/js/apitoc.js></script>
   </ul>
 </nav>
               </div>
@@ -617,7 +640,9 @@
             <ul class="breadcrumb">
               <li></li>
               <li><a href="../../index.html"><i class="md-icon">home</i></a></li>
-                <li class="active"><a href="../../docs/tutorials.html" accesskey="U">Tutorials</a></li>
+                <li><a href="../../docs/tutorials.html" accesskey="U">Tutorials</a></li>
+
+              <li class="activate"><a>ONNX to TF-Lite Model Conversion</a></li>
             </ul>
           </div>
           
@@ -630,8 +655,8 @@
 <section id="quick-links">
 <h2 id="quick-links">Quick Links<a class="headerlink" href="#quick-links" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/SiliconLabs/mltk/blob/master/mltk/tutorials/onnx_to_tflite.ipynb">GitHub Source</a> - View this tutorial on Github</p></li>
-<li><p><a class="reference external" href="https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/onnx_to_tflite.ipynb">Run on Colab</a> - Run this tutorial on Google Colab</p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/tutorials/onnx_to_tflite.ipynb">GitHub Source</a> - View this tutorial on Github</p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/onnx_to_tflite.ipynb">Run on Colab</a> - Run this tutorial on Google Colab</p></li>
 </ul>
 </section>
 <section id="overview">
@@ -727,7 +752,7 @@ Recall that the quantized model is what is loaded onto the embedded device.</p>
 The notebook can either run locally on your PC <em>or</em> on a remote server like <a class="reference external" href="https://colab.research.google.com/notebooks/welcome.ipynb">Google Colab</a>.</p>
 <ul class="simple">
 <li><p>Refer to the <a class="reference internal" href="../../docs/guides/notebook_examples_guide.html"><span class="doc std std-doc">Notebook Examples Guide</span></a> for more details</p></li>
-<li><p>Click here: <a class="reference external" href="https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/onnx_to_tflite.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> to run this tutorial interactively in your browser</p></li>
+<li><p>Click here: <a class="reference external" href="https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/onnx_to_tflite.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> to run this tutorial interactively in your browser</p></li>
 </ul>
 </section>
 <section id="environment-setup">
@@ -739,7 +764,7 @@ The notebook can either run locally on your PC <em>or</em> on a remote server li
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the MLTK (if necessary)</span>
-<span class="o">!</span>pip install --upgrade silabs-mltk
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>silabs-mltk
 </pre></div>
 </div>
 </div>
@@ -748,7 +773,7 @@ The notebook can either run locally on your PC <em>or</em> on a remote server li
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the standard ONNX Python package</span>
 <span class="c1"># so that we can read the .onnx formatted model file</span>
-<span class="o">!</span>pip install onnx onnx_tf
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>onnx<span class="w"> </span>onnx_tf
 </pre></div>
 </div>
 </div>
@@ -758,7 +783,7 @@ The notebook can either run locally on your PC <em>or</em> on a remote server li
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the onnsim Python package</span>
 <span class="c1"># This can help reduce the complexity of the generated ONNX model file</span>
 <span class="c1"># https://github.com/daquexian/onnx-simplifier</span>
-<span class="o">!</span>pip install onnx-simplifier onnxruntime
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>onnx-simplifier<span class="w"> </span>onnxruntime
 </pre></div>
 </div>
 </div>
@@ -769,7 +794,7 @@ The notebook can either run locally on your PC <em>or</em> on a remote server li
 <span class="c1"># This allows for converting the ONNX model to an intermediate </span>
 <span class="c1"># format so we can then convert it to a TF-Lite model format</span>
 <span class="c1"># https://docs.openvino.ai/</span>
-<span class="o">!</span>pip install openvino_dev
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openvino_dev
 </pre></div>
 </div>
 </div>
@@ -781,7 +806,7 @@ The notebook can either run locally on your PC <em>or</em> on a remote server li
 <span class="c1"># We primarily need this so we can convert from the NCHW used by .onnx </span>
 <span class="c1"># to the NHWC used by .tflite</span>
 <span class="c1"># https://github.com/PINTO0309/openvino2tensorflow</span>
-<span class="o">!</span>pip install openvino2tensorflow  tensorflow_datasets
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>openvino2tensorflow<span class="w">  </span>tensorflow_datasets
 </pre></div>
 </div>
 </div>
@@ -1505,6 +1530,7 @@ Class ROC AUC:
           </article>
         </div>
       </div>
+      <a href="#" class="go-top"><i class="md-icon">arrow_upward</i>Back to Top</a>
     </main>
   </div>
   <footer class="md-footer">
@@ -1525,12 +1551,12 @@ Class ROC AUC:
             </a>
           
           
-            <a href="../../docs/examples.html" title="API Examples"
+            <a href="model_debugging.html" title="Model Debugging"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> API Examples </span>
+                class="md-footer-nav__direction"> Next </span> Model Debugging </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -1548,7 +1574,7 @@ Class ROC AUC:
               
           </div>
             Last updated on
-              Aug 22, 2022.
+              Jan 06, 2023.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -1568,16 +1594,16 @@ Class ROC AUC:
   <div class="privacy-banner">
     <div class="privacy-banner-wrapper">
       <p>
-        <b>Important:</b> This site uses cookies to improve user experience and stores information on your computer. 
-        By continuing to use our site, you consent to our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>. 
-        If you do not want to enable cookies, review our policy and learn how they can be disabled. Note that disabling cookies will disable some features of the site.
+        <b>Important:</b> We use cookies only for functional and traffic analytics. <br />
+        We DO NOT use cookies for any marketing purposes. By using our site you acknowledge you have read and understood our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>.
       </p>
-      <a class="privacy-banner-accept" href="#">Accept</a>
+      <a class="privacy-banner-accept" href="#">Got it</a>
     </div>
 </div>
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
+    <div class="msg">Please click the <b>submit</b> button at the end even if you do not answer all of the questions</div>
     <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   

@@ -58,7 +58,7 @@
 <meta name="google-site-verification" content="dsSsmnE2twOnfSAQk5zBBTrjMArsTJj809Bp-8mVlIw" />
   
   
-    <title>Fingerprint Authentication &#8212; MLTK 0.10.0 documentation</title>
+    <title>Fingerprint Authentication &#8212; MLTK 0.14.0 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -79,6 +79,7 @@
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/js/custom.js"></script>
+    <script src="../../_static/js/apitoc.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -107,11 +108,11 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="MLTK 0.10.0 documentation"
+        <a href="../../index.html" title="MLTK 0.14.0 documentation"
            class="md-header-nav__button md-logo">
           
               <img src="../../_static/logo.png"
-                   alt="MLTK 0.10.0 documentation logo">
+                   alt="MLTK 0.14.0 documentation logo">
           
         </a>
       </div>
@@ -156,7 +157,7 @@
       
         <div class="md-flex__cell md-flex__cell--shrink">
           <div class="md-header-nav__source">
-            <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+            <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -202,16 +203,16 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="MLTK 0.10.0 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="MLTK 0.14.0 documentation" class="md-nav__button md-logo">
       
         <img src="../../_static/logo.png" alt=" logo" width="48" height="48">
       
     </a>
     <a href="../../index.html"
-       title="MLTK 0.10.0 documentation">Machine Learning Toolkit</a>
+       title="MLTK 0.14.0 documentation">Machine Learning Toolkit</a>
   </label>
     <div class="md-nav__source">
-      <a href="https://github.com/siliconlabs/mltk" title="Go to repository" class="md-source" data-md-source="github">
+      <a href="https://github.com/sldriedler/mltk" title="Go to repository" class="md-source" data-md-source="github">
 
     <div class="md-source__icon">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24" width="28" height="28">
@@ -296,6 +297,13 @@
     <li class="md-nav__item">
     
     
+      <a href="keyword_spotting_alexa.html" class="md-nav__link">Keyword Spotting - Alexa</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
       <a href="image_classification.html" class="md-nav__link">Image Classification - Rock, Paper, Scissors</a>
       
     
@@ -332,9 +340,11 @@
         
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#mltk-tutorials-fingerprint-authentication--page-root" class="md-nav__link">Fingerprint Authentication</a><nav class="md-nav">
               <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#demo-video" class="md-nav__link">Demo Video</a>
+        </li>
         <li class="md-nav__item"><a href="#quick-links" class="md-nav__link">Quick Links</a>
         </li>
         <li class="md-nav__item"><a href="#overview" class="md-nav__link">Overview</a><nav class="md-nav">
@@ -399,9 +409,7 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../_sources/mltk/tutorials/fingerprint_authentication.ipynb.txt">Show Source</a> </li>
-
+      <script type="text/javascript" src=../../_static/js/apitoc.js></script>
   </ul>
 </nav>
       
@@ -411,6 +419,27 @@
     
     
       <a href="onnx_to_tflite.html" class="md-nav__link">ONNX to TF-Lite Model Conversion</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="model_debugging.html" class="md-nav__link">Model Debugging</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="add_existing_script_to_mltk.html" class="md-nav__link">Add an Existing Script to the MLTK</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="synthetic_audio_dataset_generation.html" class="md-nav__link">Synthetic Audio Dataset Generation</a>
       
     
     </li></ul>
@@ -544,9 +573,11 @@
                 
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
+  <ul class="md-nav__list" data-md-scrollfix="" id="localtoc">
         <li class="md-nav__item"><a href="#mltk-tutorials-fingerprint-authentication--page-root" class="md-nav__link">Fingerprint Authentication</a><nav class="md-nav">
               <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#demo-video" class="md-nav__link">Demo Video</a>
+        </li>
         <li class="md-nav__item"><a href="#quick-links" class="md-nav__link">Quick Links</a>
         </li>
         <li class="md-nav__item"><a href="#overview" class="md-nav__link">Overview</a><nav class="md-nav">
@@ -611,11 +642,7 @@
         </li></ul>
             </nav>
         </li>
-    
-<li class="md-nav__item"><a class="md-nav__extra_link" href="../../_sources/mltk/tutorials/fingerprint_authentication.ipynb.txt">Show Source</a> </li>
-
-<li id="searchbox" class="md-nav__item"></li>
-
+      <script type="text/javascript" src=../../_static/js/apitoc.js></script>
   </ul>
 </nav>
               </div>
@@ -629,7 +656,9 @@
             <ul class="breadcrumb">
               <li></li>
               <li><a href="../../index.html"><i class="md-icon">home</i></a></li>
-                <li class="active"><a href="../../docs/tutorials.html" accesskey="U">Tutorials</a></li>
+                <li><a href="../../docs/tutorials.html" accesskey="U">Tutorials</a></li>
+
+              <li class="activate"><a>Fingerprint Authentication</a></li>
             </ul>
           </div>
           
@@ -639,27 +668,18 @@
   <section id="fingerprint-authentication">
 <h1 id="mltk-tutorials-fingerprint-authentication--page-root">Fingerprint Authentication<a class="headerlink" href="#mltk-tutorials-fingerprint-authentication--page-root" title="Permalink to this headline">¶</a></h1>
 <p>This tutorial demonstrates how to use a machine learning model to generate a unique signature from a grayscale image of a fingerprint. The generated signature can then be compared against previously generated signatures stored in flash memory to authenticate users.</p>
+<section id="demo-video">
+<h2 id="demo-video">Demo Video<a class="headerlink" href="#demo-video" title="Permalink to this headline">¶</a></h2>
+<p>The following is a video of the demo described in this tutorial:</p>
+<iframe allow="autoplay; encrypted-media;" allowfullscreen="" frameborder="0" height="500" src="https://www.youtube.com/embed/RD_K1UA_Sp8" width="800"></iframe></section>
 <section id="quick-links">
 <h2 id="quick-links">Quick Links<a class="headerlink" href="#quick-links" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/SiliconLabs/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb">GitHub Source</a> - View this tutorial on Github</p></li>
-<li><p><a class="reference external" href="https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb">Run on Colab</a> - Run this tutorial on Google Colab</p></li>
+<li><p><a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb">GitHub Source</a> - View this tutorial on Github</p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb">Run on Colab</a> - Run this tutorial on Google Colab</p></li>
 <li><p><a class="reference internal" href="../../docs/cpp_development/examples/fingerprint_authenticator.html"><span class="doc std std-doc">C++ Example Application</span></a> - View this tutorial’s associated C++ example application</p></li>
 <li><p><a class="reference internal" href="../../docs/python_api/models/siliconlabs/fingerprint_signature_generator.html"><span class="doc std std-doc">Machine Learning Model</span></a> - View this tutorial’s associated machine learning model</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.lib.display</span> <span class="kn">import</span> <span class="n">YouTubeVideo</span>
-
-<span class="n">YouTubeVideo</span><span class="p">(</span><span class="s1">'RD_K1UA_Sp8'</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="s1">'800'</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="s1">'500'</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-<iframe allowfullscreen="" frameborder="0" height="500" src="https://www.youtube.com/embed/RD_K1UA_Sp8" width="800"></iframe>
-</div></div>
-</div>
 </section>
 <section id="overview">
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
@@ -690,7 +710,7 @@
 The notebook can either run locally on your PC <em>or</em> on a remote server like <a class="reference external" href="https://colab.research.google.com/notebooks/welcome.ipynb">Google Colab</a>.</p>
 <ul class="simple">
 <li><p>Refer to the <a class="reference internal" href="../../docs/guides/notebook_examples_guide.html"><span class="doc std std-doc">Notebook Examples Guide</span></a> for more details</p></li>
-<li><p>Click here: <a class="reference external" href="https://colab.research.google.com/github/siliconlabs/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> to run this tutorial interactively in your browser</p></li>
+<li><p>Click here: <a class="reference external" href="https://colab.research.google.com/github/sldriedler/mltk/blob/master/mltk/tutorials/fingerprint_authentication.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> to run this tutorial interactively in your browser</p></li>
 </ul>
 <p><strong>NOTE:</strong> Some of the following sections require this tutorial to be running locally with a supported embedded platform connected.</p>
 </section>
@@ -714,7 +734,7 @@ the recommended approach is to use your favorite text editor and standard comman
 See the <a class="reference internal" href="../../docs/installation.html"><span class="doc std std-doc">Installation Guide</span></a> for more details.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install --upgrade silabs-mltk
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>silabs-mltk
 </pre></div>
 </div>
 </div>
@@ -724,7 +744,7 @@ Run the command <code class="docutils literal notranslate"><span class="pre">mlt
 <strong>NOTE:</strong> The exclamation point <code class="docutils literal notranslate"><span class="pre">!</span></code> tells the Notebook to run a shell command, it is not required in a <a class="reference external" href="../../docs/installation.html#standard-python-package">standard terminal</a></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mltk --help
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>mltk<span class="w"> </span>--help
 </pre></div>
 </div>
 </div>
@@ -826,13 +846,13 @@ Thus, the dataset should have many images of the <strong>same</strong> fingerpri
 <section id="generating-the-dataset">
 <h3 id="generating-the-dataset">Generating the dataset<a class="headerlink" href="#generating-the-dataset" title="Permalink to this headline">¶</a></h3>
 <p>To aid the generation of the dataset, the MLTK provides the command:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk fingerprint_reader &lt;model&gt; --generate-dataset
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk<span class="w"> </span>fingerprint_reader<span class="w"> </span>&lt;model&gt;<span class="w"> </span>--generate-dataset
 </pre></div>
 </div>
 <p><strong>NOTE:</strong> To use this command, you must have a locally connected development board with the R503 fingerprint module connected.<br/>
 Refer to <a class="reference external" href="../../docs/cpp_development/examples/fingerprint_authenticator.html#hardware-setup">Hardware Setup</a> for more details.</p>
 <p>With the hardware setup, issue the command:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk fingerprint_reader fingerprint_signature_generator --generate-dataset
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>mltk<span class="w"> </span>fingerprint_reader<span class="w"> </span>fingerprint_signature_generator<span class="w"> </span>--generate-dataset
 </pre></div>
 </div>
 <p>This will guide you through the process of capturing your fingerprints and saving them to your local PC.
@@ -844,14 +864,14 @@ After the command completes, repeat the command with as many other peoples’ fi
 <h3 id="data-preprocessing">Data preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://www.adafruit.com/product/4651">R503 Fingerprint Module</a> generates 192x192 grayscale images.<br/>
 Additional preprocessing is applied to the raw images to help the ML model learn the important features of the images.</p>
-<p>The preprocessing algorithm source may be found in <a class="reference external" href="https://github.com/SiliconLabs/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator_dataset.py">fingerprint_signature_generator_dataset.py</a></p>
+<p>The preprocessing algorithm source may be found in <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator_dataset.py">fingerprint_signature_generator_dataset.py</a></p>
 <p>The following algorithms are used:</p>
 <ul class="simple">
 <li><p><strong>Color space balancing</strong> - This uses simple statistical centering and removes outliers</p></li>
 <li><p><strong>Sharpening</strong> - This applies 2D convolution using a harpening filter: <code class="docutils literal notranslate"><span class="pre">original</span> <span class="pre">+</span> <span class="pre">(original</span> <span class="pre">?</span> <span class="pre">blurred)</span> <span class="pre">×</span> <span class="pre">amount</span></code></p></li>
 <li><p><strong>Quality rejection</strong> - Using simple heuristics, if the image is found to be too blurry it is dropped</p></li>
 </ul>
-<p><strong>NOTE:</strong> These algorithms are used to preprocess the training dataset <em>and</em> on the embedded device at runtime (see <a class="reference external" href="https://github.com/SiliconLabs/mltk/blob/master/cpp/shared/apps/fingerprint_authenticator/data_preprocessor.cc">data_preprocessor.cc</a>)</p>
+<p><strong>NOTE:</strong> These algorithms are used to preprocess the training dataset <em>and</em> on the embedded device at runtime (see <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/cpp/shared/apps/fingerprint_authenticator/data_preprocessor.cc">data_preprocessor.cc</a>)</p>
 </section>
 <section id="generating-fingerprint-pairs">
 <h3 id="generating-fingerprint-pairs">Generating fingerprint pairs<a class="headerlink" href="#generating-fingerprint-pairs" title="Permalink to this headline">¶</a></h3>
@@ -861,12 +881,12 @@ Additional preprocessing is applied to the raw images to help the ML model learn
 <li><p><strong>match</strong> - Images are of the <em>same</em> fingerprint</p></li>
 <li><p><strong>no-match</strong> - Images are of <em>different</em> fingerprints</p></li>
 </ul>
-<p>The <a class="reference external" href="https://github.com/SiliconLabs/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator_dataset.py">fingerprint_signature_generator_dataset.py</a> script is used to generate the image pairs from the fingerprint dataset.</p>
+<p>The <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator_dataset.py">fingerprint_signature_generator_dataset.py</a> script is used to generate the image pairs from the fingerprint dataset.</p>
 </section>
 </section>
 <section id="creating-the-model">
 <h2 id="creating-the-model">Creating the Model<a class="headerlink" href="#creating-the-model" title="Permalink to this headline">¶</a></h2>
-<p>The <a class="reference internal" href="../../docs/guides/model_specification.html"><span class="doc std std-doc">model specification</span></a> used by this tutorial may be found on Github: <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator.py">fingerprint_signature_generator.py</a>.</p>
+<p>The <a class="reference internal" href="../../docs/guides/model_specification.html"><span class="doc std std-doc">model specification</span></a> used by this tutorial may be found on Github: <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/models/siliconlabs/fingerprint_signature_generator.py">fingerprint_signature_generator.py</a>.</p>
 <section id="dataset">
 <h3 id="dataset">Dataset<a class="headerlink" href="#dataset" title="Permalink to this headline">¶</a></h3>
 <p>Due to privacy concerns, no dataset is provided by this tutorial. You must generate your own dataset using the instructions in this tutorial.</p>
@@ -883,7 +903,7 @@ Additional preprocessing is applied to the raw images to help the ML model learn
 <section id="loss-function">
 <h3 id="loss-function">Loss Function<a class="headerlink" href="#loss-function" title="Permalink to this headline">¶</a></h3>
 <p>As per the Keras tutorial: <a class="reference external" href="https://keras.io/examples/vision/siamese_contrastive/">Image similarity estimation using a Siamese Network with a contrastive loss</a>, a <strong>contrastive loss</strong> function is used for model training.</p>
-<p>The source code for the custom loss function may be found on Github: <a class="reference external" href="https://github.com/siliconlabs/mltk/blob/master/mltk/core/keras/losses.py">mltk/core/keras/losses.py</a></p>
+<p>The source code for the custom loss function may be found on Github: <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/mltk/core/keras/losses.py">mltk/core/keras/losses.py</a></p>
 <p>The basic formula for contrastive loss is:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Contrastive</span> <span class="n">loss</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">true_value</span><span class="p">)</span> <span class="o">*</span> <span class="n">square</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span> <span class="o">+</span> <span class="n">true_value</span> <span class="o">*</span> <span class="n">square</span><span class="p">(</span> <span class="nb">max</span><span class="p">(</span><span class="n">margin</span><span class="o">-</span><span class="n">prediction</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="p">))</span>
 </pre></div>
@@ -917,19 +937,19 @@ So, the <strong>exact</strong> parameters and algorithms used for color balancin
 <span class="n">my_model</span><span class="o">.</span><span class="n">model_parameters</span><span class="p">[</span><span class="s1">'verify_center_threshold'</span><span class="p">]</span> <span class="o">=</span> <span class="n">preprocess_params</span><span class="p">[</span><span class="s1">'verify_center_threshold'</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>And then read by the firmware application at runtime: <a class="reference external" href="https://github.com/SiliconLabs/mltk/blob/master/cpp/shared/apps/fingerprint_authenticator/data_preprocessor.cc">data_preprocessor.cc</a></p>
+<p>And then read by the firmware application at runtime: <a class="reference external" href="https://github.com/sldriedler/mltk/blob/master/cpp/shared/apps/fingerprint_authenticator/data_preprocessor.cc">data_preprocessor.cc</a></p>
 </section>
 <section id="saving-the-model">
 <h3 id="saving-the-model">Saving the model<a class="headerlink" href="#saving-the-model" title="Permalink to this headline">¶</a></h3>
 <p>The trained Siamese network contains two “towers”, however, only one of the towers is required to generate the signature.</p>
 <p>Thus, after model training, but before the model is saved, the model is modified so that only one of the towers is saved.
-This is done using the <code class="docutils literal notranslate"><span class="pre">on_save_keras_model</span></code> <a class="reference internal" href="../../docs/python_api/core/mltk_model.html#trainmixin"><span class="std std-doc">TrainMixin</span></a> property.</p>
+This is done using the <code class="docutils literal notranslate"><span class="pre">on_save_keras_model</span></code> <a class="reference internal" href="../../docs/python_api/mltk_model/train_mixin.html"><span class="doc std std-doc">TrainMixin</span></a> property.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_keras_model_saver</span><span class="p">(</span>
     <span class="n">mltk_model</span><span class="p">:</span><span class="n">MyModel</span><span class="p">,</span>
     <span class="n">keras_model</span><span class="p">:</span><span class="n">KerasModel</span><span class="p">,</span>
     <span class="n">logger</span><span class="p">:</span><span class="n">logging</span><span class="o">.</span><span class="n">Logger</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">KerasModel</span><span class="p">:</span>
-    <span class="sd">"""This is invoked after training successfully completes</span>
+<span class="w">    </span><span class="sd">"""This is invoked after training successfully completes</span>
 <span class="sd">    </span>
 <span class="sd">    Here want to just save one of the "towers"</span>
 <span class="sd">    as that is what is used to generate the fingerprint signature</span>
@@ -982,7 +1002,7 @@ This is done using the <code class="docutils literal notranslate"><span class="p
     <span class="n">logger</span><span class="p">:</span><span class="n">logging</span><span class="o">.</span><span class="n">Logger</span><span class="p">,</span>
     <span class="n">show</span><span class="p">:</span><span class="nb">bool</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EvaluationResults</span><span class="p">:</span>
-    <span class="sd">"""Custom callback to evaluate the trained model</span>
+<span class="w">    </span><span class="sd">"""Custom callback to evaluate the trained model</span>
 <span class="sd">    </span>
 <span class="sd">    The model is effectively a classifier, but we need to do</span>
 <span class="sd">    a special step to compare the signatures in the dataset.</span>
@@ -1202,6 +1222,7 @@ for how include your model into the built application.</p>
           </article>
         </div>
       </div>
+      <a href="#" class="go-top"><i class="md-icon">arrow_upward</i>Back to Top</a>
     </main>
   </div>
   <footer class="md-footer">
@@ -1245,7 +1266,7 @@ for how include your model into the built application.</p>
               
           </div>
             Last updated on
-              Aug 22, 2022.
+              Jan 06, 2023.
             <br/>
             Created using
             <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
@@ -1265,16 +1286,16 @@ for how include your model into the built application.</p>
   <div class="privacy-banner">
     <div class="privacy-banner-wrapper">
       <p>
-        <b>Important:</b> This site uses cookies to improve user experience and stores information on your computer. 
-        By continuing to use our site, you consent to our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>. 
-        If you do not want to enable cookies, review our policy and learn how they can be disabled. Note that disabling cookies will disable some features of the site.
+        <b>Important:</b> We use cookies only for functional and traffic analytics. <br />
+        We DO NOT use cookies for any marketing purposes. By using our site you acknowledge you have read and understood our <a class="privacy-policy" href="https://www.silabs.com/about-us/legal/cookie-policy" target="_blank">Cookie Policy</a>.
       </p>
-      <a class="privacy-banner-accept" href="#">Accept</a>
+      <a class="privacy-banner-accept" href="#">Got it</a>
     </div>
 </div>
   
 <div class="survey-container" id="dlg-survey"> 
     <div class="close" id="dlg-survey-close"><i class="md-icon">close</i></div>
+    <div class="msg">Please click the <b>submit</b> button at the end even if you do not answer all of the questions</div>
     <iframe id="iframe-survey" style="width: 100%; height: 100%;"></iframe>
 </div>
   

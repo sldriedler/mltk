@@ -4,7 +4,7 @@ This describes how to development C++ applications in the MLTK using Silicon Lab
 Using this guide, you can build C++ applications for Silicon Lab's embedded platforms.
 
 __NOTES:__  
-- All of the MLTK C++ source code may be found at: [__mltk repo__/cpp](https://github.com/siliconlabs/mltk/tree/master/cpp/)  
+- All of the MLTK C++ source code may be found at: [__mltk repo__/cpp](https://github.com/sldriedler/mltk/tree/master/cpp/)  
 - Refer to the [example applications](./examples/index.md) documentation for more details about what comes with the MLTK
 - Alternatively, applications may be built for Windows/Linux and embedded targets using [Visual Studio Code](./vscode.md)
 
@@ -18,6 +18,31 @@ Simplicity Studio __5__ is required to run the MLTK
 
 First, we need to install a few tools:
 
+### 0) Setup OS
+
+```{eval-rst}
+.. tabbed:: Windows
+
+   If you're on Windows, enable `long file paths`:
+   https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry
+
+   Also install the Visual Studio C++ compiler (this is needed to build some of the 3rd party Python packages for Python 3.10):
+   https://visualstudio.microsoft.com/visual-cpp-build-tools/
+
+   Be sure to check the __Desktop Development with C++__ workload in the installer GUI.
+
+.. tabbed:: Linux
+
+   If you're on Linux, run the following command to install the necessary packages: 
+
+   .. code-block:: shell
+
+      sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+      sudo add-apt-repository -y ppa:deadsnakes/ppa
+      sudo apt update
+      sudo apt-get -y install build-essential g++-9 cmake ninja-build gdb p7zip-full git-lfs python3-dev python3-venv libusb-1.0-0 libgl1
+
+```
 
 ### 1) Install CMake
 
@@ -33,7 +58,7 @@ More details here: [https://www.7-zip.org/download.html](https://www.7-zip.org/d
 
 ### 3) Install Python
 
-Install Python 3.7, 3.8, _or_ 3.9 64-bit and ensure it is available on the command `PATH`  
+Install Python 3.7, 3.8, 3.9 _or_ 3.10 64-bit and ensure it is available on the command `PATH`  
 More details here: [https://www.python.org/downloads](https://www.python.org/downloads)
 
 ### 4) Install GIT
@@ -62,7 +87,7 @@ Next, we need to install the MLTK:
 
 ```shell
 # Clone the MLTK GIT repository
-git clone https://github.com/siliconlabs/mltk.git
+git clone https://github.com/sldriedler/mltk.git
 ```
 
 Then navigate to the MLTK repository directory
@@ -118,7 +143,7 @@ mltk --help
 ## Install the MLTK into the Gecko SDK
 
 The [Gecko SDK](https://github.com/siliconlabs/gecko_sdk) is the main software stack used by Silicon Lab's embedded targets.
-The MLTK clones a local copy of the [Gecko SDK](https://github.com/siliconlabs/gecko_sdk) to [__mltk__/cpp/shared/gecko_sdk](https://github.com/siliconlabs/mltk/tree/master/cpp//shared/gecko_sdk).
+The MLTK clones a local copy of the [Gecko SDK](https://github.com/siliconlabs/gecko_sdk) to [__mltk__/cpp/shared/gecko_sdk](https://github.com/sldriedler/mltk/tree/master/cpp//shared/gecko_sdk).
 We need to install the MLTK as an "extension" to the locally cloned Gecko SDK so that the MLTK applications are accessible in Simplicity Studio.
 
 To do this, issue the following command:
@@ -129,7 +154,7 @@ mltk build gsdk_mltk_extension
 
 ## Add the MLTK Gecko SDK to Simplicity Studio
 
-After building the GSDK MLTK extension, add the locally cloned Gecko SDK at [__mltk__/cpp/shared/gecko_sdk](https://github.com/siliconlabs/mltk/tree/master/cpp//shared/gecko_sdk) to Simplicity Studio.
+After building the GSDK MLTK extension, add the locally cloned Gecko SDK at [__mltk__/cpp/shared/gecko_sdk](https://github.com/sldriedler/mltk/tree/master/cpp//shared/gecko_sdk) to Simplicity Studio.
 
 From Simplicity Studio,  
 1. On top toolbar, click: __Window__
