@@ -4,7 +4,7 @@ from mltk.utils.test_helper import run_model_operation, generate_run_model_param
 
 @pytest.mark.parametrize(*generate_run_model_params())
 def test_keyword_spotting_on_off(op, tflite, build):
-    run_model_operation('keyword_spotting_on_off', op, tflite, build)
+    run_model_operation('keyword_spotting_on_off_v2', op, tflite, build)
 
 @pytest.mark.parametrize(*generate_run_model_params())
 def test_keyword_spotting_mobilenetv2(op, tflite, build):
