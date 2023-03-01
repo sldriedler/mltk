@@ -138,11 +138,18 @@ additional_install_dependencies = []
 if python_version == '37':
     print('Adding pickle5 to install dependencies')
     additional_install_dependencies.append('pickle5')
+    additional_install_dependencies.append('gast<=0.4.0')  # The MLTK does NOT have a dependency on this, but tensorflow does
 # Other ensure pickle5 is NOT installed as that will break other dependencies
 else:
     print('Uninstalling pickle5 (if necessary)')
     subprocess.run([sys.executable, '-m', 'pip', 'uninstall', 'pickle5'])
 
+
+# The MLTK does NOT have a dependency on ONNX, but tflite-support and tensorflow depend on protobuf and this does as well,
+if pyhton_minor_version < 10:
+    onnx_version = '<1.11' # >= 1.11 loads the estimator models *very* slowly on linux
+else:
+    onnx_version = '<1.13'
 
 install_dependencies = [
     'typer<1.0',
@@ -157,8 +164,8 @@ install_dependencies = [
     'tensorflow_probability>=0.12.2',
     'tflite-support',
     'protobuf>=3.18,<3.20', # The MLTK does NOT have a dependency on this, but tflite-support and tensorflow do
-    'onnx',
-    'onnxruntime<1.13',
+    f'onnx{onnx_version}',
+    f'onnxruntime{onnx_version}',
     #'flatbuffers<2.0', # This is required by TF
     'numpy<1.23', # Numba, which is installed by TF, has a requirement of < 1.23
     'scipy<2.0',
@@ -241,12 +248,10 @@ setup(
         ],
         'mltk.models.siliconlabs': [
             'fingerprint_signature_generator.mltk.zip',
-            'keyword_spotting_on_off.mltk.zip',
             'keyword_spotting_on_off_v2.mltk.zip',
             'keyword_spotting_mobilenetv2.mltk.zip',
             'keyword_spotting_with_transfer_learning.mltk.zip',
-            'keyword_spotting_pacman.mltk.zip',
-            'keyword_spotting_pacman_v2.mltk.zip',
+            'keyword_spotting_pacman_v3.mltk.zip',
             'rock_paper_scissors.mltk.zip',
             'keyword_spotting_alexa.mltk.zip'
         ],

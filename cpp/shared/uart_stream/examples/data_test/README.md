@@ -13,6 +13,8 @@ See the source code for this example on Github: [cpp/shared/uart_stream/examples
 
 0 ) See the [MLTK C++ Development Docs](https://siliconlabs.github.io/mltk/docs/cpp_development/index.html) for setting up your environment
 
+__NOTE:__ The application needs to be built for [embedded](https://siliconlabs.github.io/mltk/docs/cpp_development/vscode.html#build-for-embedded)
+
 1 ) Connect a supported development board (e.g. BRD2601B) to your PC
 
 2 ) Create or modify the file:
@@ -25,6 +27,7 @@ and add the following:
 
 ```
 mltk_set(MLTK_TARGET mltk_uart_stream_data_test)
+mltk_set(MLTK_PLATFORM_NAME brd2601) # Change this to your platform's name as necessary
 ```
 
 3 ) Invoke the CMake target: `mltk_uart_stream_data_test_download`
@@ -35,7 +38,7 @@ which will build the firmware application and program it to the development boar
 4 ) Run the Python script (from the MLTK Python virtual environment):
 
 ```
-python data_example.py
+python data_test.py
 ```
 
 This will stream and verify data transferred between the dev board and Python script

@@ -119,7 +119,7 @@ def gzip_directory_files(
         else:
             regex_func = regex
     else:
-        regex_func = lambda p: True
+        regex_func = lambda _: True # pylint: disable-unnecessary-lambda-assignment
 
     with tarfile.open(dst_archive, 'w:gz') as dst:
         for root, _, files in os.walk(src_dir):
@@ -202,8 +202,32 @@ def _extractall_gzfile(archive_path, output_dir):
 
 
 def _extractall_tarfile(archive_path, output_dir):
-    with tarfile.open(archive_path) as f:
-        f.extractall(path=output_dir)
+    with tarfile.open(archive_path) as tar_file:
+        def _is_within_directory(directory:str, target:str):
+            abs_directory = os.path.abspath(directory)
+            abs_target = os.path.abspath(target)
+
+            prefix = os.path.commonprefix([abs_directory, abs_target])
+
+            return prefix == abs_directory
+
+        def _safe_extract():
+            # This fixes CVE-2007-4559: https://github.com/advisories/GHSA-gw9q-c7gh-j9vm,
+            # which is a 15 year old bug in the Python tarfile package. By using extract() or extractall()
+            # on a tarfile object without sanitizing input, a maliciously crafted .tar file could perform a directory path traversal attack.
+            # We (Advanced Research Center at Trellix: https://www.trellix.com/) found at least one unsantized extractall() in your codebase and are providing a patch for you via pull request.
+            # The patch essentially checks to see if all tarfile members will be extracted safely and throws an exception otherwise.
+            # We encourage you to use this patch or your own solution to secure against CVE-2007-4559.
+            # Further technical information about the vulnerability can be found in this blog:
+            # https://www.trellix.com/en-us/about/newsroom/stories/research/tarfile-exploiting-the-world.html.
+            for member in tar_file.getmembers():
+                member_path = os.path.join(output_dir, member.name)
+                if not _is_within_directory(output_dir, member_path):
+                    raise RuntimeWarning(f"Attempted path traversal in TAR file: {archive_path}, archive path {member_path} not within {output_dir}")
+
+            tar_file.extractall(output_dir)
+
+        _safe_extract()
 
 
 

@@ -73,10 +73,10 @@ def application_loop(
         dialog_request_id = None
 
         while True:
-            logger.info('Waiting for command')
+            logger.info('Waiting for an "Alexa" command. (speak into the dev board microphone)')
             alexa_command = board.wait_for_command()
 
-            logger.info('Sending command to AVS cloud')
+            logger.info('Sending "Alexa" command to AVS cloud')
             directives = alexa_client.send_audio_file(
                 alexa_command,
                 dialog_request_id=dialog_request_id,
@@ -174,7 +174,7 @@ class DevBoard:
 
 
 
-def generate_credentials():
+def generate_credentials(credentials_path:str):
     """This is a helper function to generate the avs_credentials.yaml file"""
 
     import re
@@ -188,7 +188,7 @@ def generate_credentials():
     }
 
     print('Before running this demo, we need to create the file:')
-    print()
+    print(credentials_path)
     print('which contains your Alexa Voice credentials.\n')
 
     print('\n1) Go to:\n\nhttps://developer.amazon.com/settings/console/registration\n')
@@ -209,10 +209,10 @@ def generate_credentials():
         break
     credentials['device-id'] = device_id
 
-    print('\n3) After clicking the "Next" button on the webpage of the previous step,')
+    print('\n3) After clicking the "Next" (or "Update") button on the webpage of the previous step,')
     print('you\'ll be instructed to select an existing or create a new "Security Profile",')
-    print("Follow the webpage's instructions.")
-    input('\nPress ENTER to continue')
+    print("Follow the webpage's instructions. (if you\'re not prompted, then go to the \"Security Profile\" tab on the left sidebar)")
+    input('\nthen, press ENTER to continue')
 
     print('\n4) After the "Security Profile" is selected, copy the "Client ID"')
     print('and paste it into the following prompt:\n')
@@ -238,19 +238,19 @@ def generate_credentials():
     credentials['client-secret'] = client_secret
 
 
-    print('\n6) At the bottom of the webpage, where it says "Allowed origins", add the entry:')
+    print('\n6) At the bottom of the webpage, where it says "Allowed origins", add the entry (if necessary):')
     print('\nhttp://localhost:9000')
     input('\nPress ENTER to continue')
 
 
-    print('\n7) At the bottom of the webpage, where it says "Allowed return URLs", add the entry:')
+    print('\n7) At the bottom of the webpage, where it says "Allowed return URLs", add the entry (if necessary):')
     print('\nhttp://localhost:9000/callback/')
     input('\nPress ENTER to continue')
 
-    print('\n8) Click the button "Update Web Settings"')
+    print('\n8) Click the button "Update Web Settings" (if necessary)')
     input('\nPress ENTER to continue')
 
-    print('\n9) At the bottom of the webpage, click the "I agree ..." checkbox then click the "Finish" button.')
+    print('\n9) At the bottom of the webpage, click the "I agree ..." checkbox then click the "Finish" button. (if necessary)')
     input('\nPress ENTER to continue')
 
     print('\n10) Next, go to:\n\nhttp://localhost:9000\n\nand follow the instructions provided by the webpage')
@@ -280,19 +280,18 @@ def generate_credentials():
     while True:
         refresh_token = input('\nEnter the "refresh_token" then press ENTER: ').strip()
         if refresh_token.startswith('refresh_token: '):
-            refresh_token = refresh_token.replace('refresh_token:').strip()
+            refresh_token = refresh_token.replace('refresh_token:', '').strip()
         if not re.match(r'^[a-zA-Z\d_\|\-]+$', refresh_token):
             print('  Invalid refresh-token\n')
             continue
         break
     credentials['refresh-token'] = refresh_token
 
-    curdir = os.path.dirname(os.path.abspath(__file__)).replace('\\', '/')
-    config_path = f'{curdir}/avs_credentials.yaml'
-    print(f'Generating {config_path}')
-    with open(config_path, 'w') as config_file:
+    print(f'Generating {credentials_path}')
+    with open(credentials_path, 'w') as config_file:
         yaml.dump(credentials, config_file, Dumper=yaml.SafeDumper)
 
+    print('Shutting down local server ...')
     server.shutdown()
 
 
@@ -303,11 +302,11 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     curdir = os.path.dirname(os.path.abspath(__file__)).replace('\\', '/')
-    config_path = f'{curdir}/avs_credentials.yaml'
-    if not os.path.exists(config_path) or args.setup:
-        generate_credentials()
+    credentials_path = f'{curdir}/avs_credentials.yaml'
+    if not os.path.exists(credentials_path) or args.setup:
+        generate_credentials(credentials_path)
 
-    with open(config_path, 'r') as f:
+    with open(credentials_path, 'r') as f:
         config = yaml.load(f, yaml.SafeLoader)
 
     main(

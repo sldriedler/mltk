@@ -3,7 +3,7 @@ __NOTE:__ Refer to the [online documentation](https://siliconlabs.github.io/mltk
 
 This allows for generating a synthetic keyword audio datasets using:
 - [Google Cloud Platform (GCP)](https://cloud.google.com/text-to-speech)
-- [Microsoft Azure (Azure)](https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech)
+- [Microsoft (Azure)](https://learn.microsoft.com/en-us/azure/cognitive-services/speech-service/text-to-speech)
 - [Amazon Web Services (AWS)](https://aws.amazon.com/polly)
 
 See the [Synthetic Audio Dataset Generation](https://siliconlabs.github.io/mltk/mltk/tutorials/synthetic_audio_dataset_generation.html) tutorial for more details.

@@ -28,6 +28,10 @@ See the source code for this example on Github: [cpp/shared/uart_stream/examples
 
 
 
+__NOTE:__ The application needs to be built for [embedded](https://sldriedler.github.io/mltk/docs/cpp_development/vscode.html#build-for-embedded)
+
+
+
 1 ) Connect a supported development board (e.g. BRD2601B) to your PC
 
 
@@ -52,6 +56,8 @@ and add the following:
 
 mltk_set(MLTK_TARGET mltk_uart_stream_data_test)
 
+mltk_set(MLTK_PLATFORM_NAME brd2601) # Change this to your platform's name as necessary
+
 ```
 
 
@@ -72,7 +78,7 @@ which will build the firmware application and program it to the development boar
 
 ```
 
-python data_example.py
+python data_test.py
 
 ```
 
