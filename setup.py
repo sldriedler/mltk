@@ -15,7 +15,7 @@ See the [MLTK Overview](https://siliconlabs.github.io/mltk/docs/overview.html) f
 create machine learning models for embedded devices.
 
 The features of this Python package include:
-- [Command-line](https://siliconlabs.github.io/mltk/docs/command_line.html) - Execute all ML operations from simple command-line interface
+- [Command-line](https://siliconlabs.github.io/mltk/docs/command_line/index.html) - Execute all ML operations from simple command-line interface
 - [Python API](https://siliconlabs.github.io/mltk/docs/python_api/python_api.html) - Execute all ML operations from a Python script
 - [Model Profiler](https://siliconlabs.github.io/mltk/docs/guides/model_profiler.html) - Determine how efficiently an ML model will execute on an embedded platform
 - [Model Training](https://siliconlabs.github.io/mltk/docs/guides/model_training.html) - Train an ML model using [Google Tensorflow](https://www.tensorflow.org/)

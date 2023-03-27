@@ -4,7 +4,7 @@ View fingerprint images from a fingerprint module connected to a development boa
 
 ## Additional Documentation
 
-- [Fingerprint Authentication Tutorial](https://siliconlabs.github.io/mltk/mltk/tutorials/fingerprint_authentication.htm)
+- [Fingerprint Authentication Tutorial](https://siliconlabs.github.io/mltk/mltk/tutorials/fingerprint_authentication.html)
 
 
 ## Usage

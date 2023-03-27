@@ -1,3 +1,0 @@
-```{eval-rst}
-.. automodule:: mltk.models.siliconlabs.keyword_spotting_mobilenetv2
-```
