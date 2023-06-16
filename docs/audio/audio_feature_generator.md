@@ -105,10 +105,9 @@ When the [AudioFeatureGenerator](mltk.core.preprocess.audio.audio_feature_genera
 ### Usage
 
 The recommended way of using the AudioFeatureGenerator [C++ wrapper](../cpp_development/wrappers/audio_feature_generator_wrapper.md)
-is via the [ParallelAudioDataGenerator](mltk.core.preprocess.audio.parallel_generator.ParallelAudioDataGenerator) which is required by the
-[AudioDatasetMixin](mltk.core.AudioDatasetMixin).
+is by calling the [mltk.core.preprocess.utils.audio.apply_frontend()](https://siliconlabs.github.io/mltk/docs/python_api/data_preprocessing/audio.html#mltk.core.preprocess.utils.audio.apply_frontend) API.
 
-Refer to the [keyword_spotting_on_off.py](https://github.com/siliconlabs/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_on_off.py) [model specification](../guides/model_specification.md) for an example of how this is used.
+Refer to the [keyword_spotting_on_off_v3.py](https://github.com/siliconlabs/mltk/tree/master/mltk/models/siliconlabs/keyword_spotting_on_off_v3.py) [model specification](../guides/model_specification.md) for an example of how this is used.
 
 Basically, 
 

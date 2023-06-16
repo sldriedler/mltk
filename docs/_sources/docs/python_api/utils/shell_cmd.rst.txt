@@ -1,0 +1,22 @@
+﻿mltk.utils.shell\_cmd
+=====================
+
+
+.. automodule:: mltk.utils.shell_cmd
+   :members:
+   :undoc-members:
+   :special-members:
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      run_shell_cmd
+   
+   
