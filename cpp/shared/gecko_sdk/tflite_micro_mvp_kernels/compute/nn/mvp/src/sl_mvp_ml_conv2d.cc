@@ -163,7 +163,7 @@ static sl_status_t conv1d(const sli_mvp_ml_conv2d_s8_params_t *params, bool exec
     column          = 0;
     while ((pad_left > 0) && (status == SL_STATUS_OK)) {
       // Calculate one output column. Compute with host CPU.
-      status      = conv1d_one_column(params, column);
+      status      = execute ? conv1d_one_column(params, column) : SL_STATUS_OK;
       column     += 1;
       pad_left   -= stride_width;
       par.output += out_channels;
@@ -174,7 +174,7 @@ static sl_status_t conv1d(const sli_mvp_ml_conv2d_s8_params_t *params, bool exec
     column = out_width - 1;
     while ((pad_right > 0) && (status == SL_STATUS_OK)) {
       // Calculate one output column. Compute with host CPU.
-      status     = conv1d_one_column(params, column);
+      status      = execute ? conv1d_one_column(params, column) : SL_STATUS_OK;
       column    -= 1;
       pad_right -= stride_width;
     }
