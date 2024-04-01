@@ -51,8 +51,9 @@ else:
 build_params = []
 
 ALL_BOARDS = [
-    'brd2601b',
     'brd2204a',
+    'brd2601b',
+    'brd2705a',
     'brd4166a',
     'brd4001a,brd4186c',
     'brd4001a,brd4401c'
